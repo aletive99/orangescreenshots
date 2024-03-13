@@ -2,25 +2,34 @@ import numpy as np
 import cv2 as cv
 import os
 import git
+import requests
 
 
-def git_clone(url, destination_dir):
-    repo_url = "https://github.com/aletive99/widget_images.git"
-    local_dir = "/path/to/local/directory"  # specify the directory where you want to clone the repository
-    git.Repo.clone_from(repo_url, local_dir)
+def get_widgets():
+    wd = os.getcwd()
+    destination_dir = wd + '/Widgets'
+    if os.path.exists(destination_dir):
+        print('the widgets were already downloaded')
+    else:
+        git.Repo.clone_from("https://github.com/aletive99/widget_images.git", destination_dir)
+
 
 def size_identification(img_names_to_check):
     image = cv.imread(img_names_to_check, cv.IMREAD_GRAYSCALE)
     blurred = cv.GaussianBlur(image, (5, 5), 0)
     circles = cv.HoughCircles(blurred, cv.HOUGH_GRADIENT, dp=1, minDist=20,
-                              param1=95, param2=63, minRadius=10, maxRadius=50)
-    size_widget = np.round(np.mean(circles[0, :, 2])*2)+1
+                              param1=90, param2=62.5, minRadius=17, maxRadius=60)
+    if circles is None:
+        return None
+    size_widget = np.round(np.median(circles[0, :, 2])*2)+1
     return size_widget
 
 
 def get_sizes(img_names_to_check):
     widget_size = 100
     target_size = size_identification(img_names_to_check)
+    if target_size is None:
+        return None, None
     pixels_to_keep = 70
     ratio = target_size/widget_size
     final_size = np.floor(ratio*pixels_to_keep).astype(dtype='int64')
@@ -41,6 +50,8 @@ def get_filenames(direct):
 
 def widget_loading(img_names_tgt, img_names_to_check):
     final_size, pixels_to_keep = get_sizes(img_names_to_check)
+    if final_size is None:
+        return None
     image_size = len(cv.imread(img_names_tgt[0]))
     check_img = np.zeros((len(img_names_tgt), final_size, final_size), dtype='uint8')
     for i in range(0, len(img_names_tgt)):
@@ -51,9 +62,11 @@ def widget_loading(img_names_tgt, img_names_to_check):
     return check_img
 
 
-def widgets_from_image(img_names_to_check, value_thresh=0.765):
+def is_there_widget_creation(img_names_to_check, value_thresh=0.81):
     widget_size = size_identification(img_names_to_check)
-    img_names_tgt = get_filenames('Widget images/')
+    if widget_size is None:
+        return None, None
+    img_names_tgt = get_filenames('Widgets')
     check_img = widget_loading(img_names_tgt, img_names_to_check)
     is_there_widget = np.zeros((len(check_img), 5), dtype='int64')
     image_to_check = cv.imread(img_names_to_check, cv.IMREAD_GRAYSCALE)
@@ -84,6 +97,18 @@ def widgets_from_image(img_names_to_check, value_thresh=0.765):
                             is_there_widget[j - is_far, 2] = np.array(form)[0, None]
                             is_there_widget[j - is_far, 3] = np.array(form)[1, None]
                             is_there_widget[j - is_far, 4] = np.round(res[loc_x, loc_y]*1000)
+                        else:
+                            found = 0
+                            while found == 0:
+                                if is_there_widget[j - is_far, 0] == 0:
+                                    is_there_widget[j - is_far, 0] = -1 * is_far
+                                    is_there_widget[j - is_far, 1] = np.array(raveled_loc)
+                                    is_there_widget[j - is_far, 2] = np.array(form)[0, None]
+                                    is_there_widget[j - is_far, 3] = np.array(form)[1, None]
+                                    is_there_widget[j - is_far, 4] = np.round(res[loc_x, loc_y]*1000)
+                                    found = 1
+                                else:
+                                    is_far = is_far + 1
     j = 0
     ind_to_check = np.where(is_there_widget[:, 0] != 0)[0]
     while len(ind_to_check) != 0:
@@ -107,18 +132,27 @@ def widgets_from_image(img_names_to_check, value_thresh=0.765):
             j = j+1
         if j >= len(ind_to_check):
             break
-    widget_list = list(img_names_tgt[ind_to_check])
-    if np.sum(is_there_widget[:, 0]):
-        return widget_list, is_there_widget[:, 0:4]
-    else:
-        return None, None
+        return is_there_widget
+
+
+def widgets_from_image(img_names_to_check):
+    is_there_widget = is_there_widget_creation(img_names_to_check)
+    if is_there_widget is None:
+        return None
+    img_names_tgt = get_filenames('Widgets/')
+    ind_present = np.where(is_there_widget[:, 0] != 0)[0].astype(dtype='int64')
+    adjusted_element_index = np.zeros_like(ind_present)
+    for j in range(len(ind_present)):
+        adjusted_element_index[j] = ind_present[j] - min(is_there_widget[ind_present[j], 0], 0)
+    widget_list = list(img_names_tgt[adjusted_element_index])
+    return widget_list
 
 
 def widget_pairs_from_image(img_names_to_check):
-    _, is_there_widget = widgets_from_image(img_names_to_check)
+    is_there_widget = is_there_widget_creation(img_names_to_check)
     if is_there_widget is None:
         return None
-    img_names_tgt = get_filenames('Widget images/')
+    img_names_tgt = get_filenames('Widgets/')
     final_size, _ = get_sizes(img_names_to_check)
     x_tol = 18
     y_tol = 25
