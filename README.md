@@ -10,10 +10,9 @@ This library, given an input image to check, aims at identifying and locating bo
 ## Usage
 
 To use this project, you need to do the following:
-1. Import all the functions contained in the library 'orangescreenshots.py'.
-2. Call the function 'get_widgets()' in order to download the widget icons from the website 'https://orangedatamining.com/widget-catalog/'. This function will create a subfolder in the current directory containing all the widget image files. Once it is called, if the working directory stays the same it will not be needed to call this function again.
-3. Call the function 'widgets_from_image('img_name.png')'. The output will be a list of the widgets present in the image 'img_name.png'
-4. Call the function 'widget_pairs_from_image('img_name.png')'. The output will be a list of tuples containing the widget pairs, with the first element in each tuple being the link origin and the second one being the link destination.
+1. Import all the functions contained in the library 'orangescreenshots.py'. Importing the library will create a subdirectory inside the working directory called 'widgets', containing the widget images which are downloaded from the website 'https://orangedatamining.com/widget-catalog/'. If the subdirectory already exists it is checked and if it is not updated, the new widgets' icons will be downloaded.
+2. Call the function 'widgets_from_image('img_name.png')'. The output will be a list of the widgets present in the image 'img_name.png'
+3. Call the function 'widget_pairs_from_image('img_name.png')'. The output will be a list of tuples containing the widget pairs, with the first element in each tuple being the link origin and the second one being the link destination.
 
 ## Contributing
 
