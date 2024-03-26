@@ -388,10 +388,10 @@ def widget_pairs_from_image(img_names_to_check):
                         else:
                             center = tuple(found_points[best_fit_index, :])
                             prev_direction = found_direction[best_fit_index]
-                    """image_to_show = cv.cvtColor(tmp_img, cv.COLOR_GRAY2BGR)
-                    cv.drawMarker(image_to_show, center, (0, 0, 255), cv.MARKER_CROSS, 10, 1)
-                    cv.imshow('image', image_to_show)
-                    cv.waitKey(200)"""
+                        """image_to_show = cv.cvtColor(tmp_img, cv.COLOR_GRAY2BGR)
+                        cv.drawMarker(image_to_show, center, (0, 0, 255), cv.MARKER_CROSS, 10, 1)
+                        cv.imshow('image', image_to_show)
+                        cv.waitKey(200)"""
                         if np.any(np.logical_and(abs(center[0] - coord_x) < tol * 1.5, abs(center[1] - coord_y) < tol)):
                             while True:
                                 circle_image = np.zeros_like(circle_image)
