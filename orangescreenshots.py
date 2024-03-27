@@ -68,6 +68,8 @@ def size_identification(img_names_to_check):
     :return: size_widget: int
     """
     image_to_check = screenshot_loading(img_names_to_check)
+    if image_to_check is None:
+        return None
     blurred = cv.GaussianBlur(image_to_check, (5, 5), 0)
     circles = cv.HoughCircles(blurred, cv.HOUGH_GRADIENT, dp=1, minDist=20,
                               param1=90, param2=62.5, minRadius=15, maxRadius=60)
@@ -144,11 +146,12 @@ def screenshot_loading(img_names_to_check):
     :return: image_to_check: np.array
     """
     reader = imageio.get_reader(img_names_to_check)
-    last_frame = None
-    for frame in reader:
-        last_frame = frame
-    last_frame = cv.cvtColor(last_frame, cv.COLOR_RGB2BGR)
-    image_to_check = cv.cvtColor(last_frame, cv.COLOR_BGR2GRAY)
+    if len(reader) > 1:
+        print('The image has more than one frame and it will not be considered')
+        return None
+    for pict in reader:
+        frame = cv.cvtColor(pict, cv.COLOR_RGB2BGR)
+        image_to_check = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
     return image_to_check
 
 
@@ -179,40 +182,34 @@ def is_there_widget_creation(img_names_to_check, value_thresh=0.78):
             tmp = np.sum(res > value_thresh)
         form = res.shape
         if tmp:
-            tmp2 = np.argmax(res)
-            loc_y_to_check, loc_x_to_check = np.unravel_index(tmp2, form)
-            is_there_widget[j, 0] = 1
-            is_there_widget[j, 1] = np.array(tmp2)
-            is_there_widget[j, 2] = np.array(form)[0, None]
-            is_there_widget[j, 3] = np.array(form)[1, None]
-            is_there_widget[j, 4] = np.round(np.max(res)*1000)
-            if tmp > 1:
-                is_far = 0
-                for k in range(1, tmp):
-                    raveled_loc = res.argsort(axis=None)[-(k+1), None]
-                    loc_y, loc_x = np.unravel_index(raveled_loc, form)
-                    if all(np.abs(loc_x - loc_x_to_check) > widget_size) or all(np.abs(loc_y - loc_y_to_check) > widget_size):
-                        is_far = is_far + 1
-                        loc_x_to_check = np.append(loc_x_to_check, loc_x)
-                        loc_y_to_check = np.append(loc_y_to_check, loc_y)
-                        if is_there_widget[j - is_far, 0] == 0:
-                            is_there_widget[j - is_far, 0] = -1 * is_far
-                            is_there_widget[j - is_far, 1] = np.array(raveled_loc)
-                            is_there_widget[j - is_far, 2] = np.array(form)[0, None]
-                            is_there_widget[j - is_far, 3] = np.array(form)[1, None]
-                            is_there_widget[j - is_far, 4] = np.round(res[loc_y, loc_x]*1000)
-                        else:
-                            found = 0
-                            while found == 0:
-                                if is_there_widget[j - is_far, 0] == 0:
-                                    is_there_widget[j - is_far, 0] = -1 * is_far
-                                    is_there_widget[j - is_far, 1] = np.array(raveled_loc)
-                                    is_there_widget[j - is_far, 2] = np.array(form)[0, None]
-                                    is_there_widget[j - is_far, 3] = np.array(form)[1, None]
-                                    is_there_widget[j - is_far, 4] = np.round(res[loc_y, loc_x]*1000)
-                                    found = 1
-                                else:
-                                    is_far = is_far + 1
+            loc_y_to_check, loc_x_to_check = (-widget_size, -widget_size)
+            is_far = 0
+            ordered_res = res.argsort(axis=None)
+            for k in range(tmp):
+                raveled_loc = ordered_res[-(k+1), None]
+                loc_y, loc_x = np.unravel_index(raveled_loc, form)
+                if all(np.abs(loc_x - loc_x_to_check) > widget_size) or all(np.abs(loc_y - loc_y_to_check) > widget_size):
+                    is_far = is_far + 1
+                    loc_x_to_check = np.append(loc_x_to_check, loc_x)
+                    loc_y_to_check = np.append(loc_y_to_check, loc_y)
+                    if is_there_widget[j - is_far, 0] == 0:
+                        is_there_widget[j - is_far, 0] = -1 * is_far
+                        is_there_widget[j - is_far, 1] = np.array(raveled_loc)
+                        is_there_widget[j - is_far, 2] = np.array(form)[0, None]
+                        is_there_widget[j - is_far, 3] = np.array(form)[1, None]
+                        is_there_widget[j - is_far, 4] = np.round(res[loc_y, loc_x]*1000)
+                    else:
+                        found = 0
+                        while found == 0:
+                            if is_there_widget[j - is_far, 0] == 0:
+                                is_there_widget[j - is_far, 0] = -1 * is_far
+                                is_there_widget[j - is_far, 1] = np.array(raveled_loc)
+                                is_there_widget[j - is_far, 2] = np.array(form)[0, None]
+                                is_there_widget[j - is_far, 3] = np.array(form)[1, None]
+                                is_there_widget[j - is_far, 4] = np.round(res[loc_y, loc_x]*1000)
+                                found = 1
+                            else:
+                                is_far = is_far + 1
     j = 0
     ind_to_check = np.where(is_there_widget[:, 0] != 0)[0]
     while len(ind_to_check) != 0:
