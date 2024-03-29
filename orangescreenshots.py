@@ -212,7 +212,7 @@ def is_there_widget_creation(img_names_to_check, value_thresh=0.78):
                                 is_far = is_far + 1
     j = 0
     ind_to_check = np.where(is_there_widget[:, 0] != 0)[0]
-    while len(ind_to_check) != 0:
+    while j < len(ind_to_check):
         form = tuple([is_there_widget[ind_to_check[j], 2], is_there_widget[ind_to_check[j], 3]])
         before = 0
         loc_y, loc_x = np.unravel_index(is_there_widget[ind_to_check[j], 1].astype('int64'),
@@ -222,18 +222,14 @@ def is_there_widget_creation(img_names_to_check, value_thresh=0.78):
         if np.any(np.logical_and(np.abs(loc_x - loc_x_to_check[np.arange(len(ind_to_check)) != j]) < widget_size,
                                  np.abs(loc_y - loc_y_to_check[np.arange(len(ind_to_check)) != j]) < widget_size)):
             which = np.array(np.where(np.logical_and(np.abs(loc_x - loc_x_to_check) < widget_size,
-                                                     np.abs(loc_y - loc_y_to_check) < widget_size) == 1)[0][:, None])
-            which_greatest = np.argmax(is_there_widget[ind_to_check[[which]], 4])
+                                                     np.abs(loc_y - loc_y_to_check) < widget_size) == 1)[0])
+            which_greatest = np.argmax(is_there_widget[ind_to_check[which], 4])
             is_there_widget[ind_to_check[which[np.arange(len(which)) != which_greatest]], :] = 0
             ind_to_check = np.where(is_there_widget[:, 0])[0]
-            if len(which) > 1:
-                j = max(j - len(which), 0)
-            elif which_greatest != 0:
+            if which_greatest != 0:
                 before = 1
         if before == 0:
             j = j+1
-        if j >= len(ind_to_check):
-            break
     return is_there_widget
 
 
@@ -300,20 +296,32 @@ def widgets_from_image(img_names_to_check):
     return widget_list
 
 
-def find_where_nonzero_cluster(array):
+def find_circle_intersection(label_binary_image, center, radius_size, prev_direction):
     """
-    This function finds the clusters of non-zero elements in an array
-    :param array: np.array of uint8
-    :return: clusters: np.array
+    This function finds the intersection of a hand build circle with the white pixels of the binary image. The function
+    returns the points of intersection, the direction of the points relative to the center, and the index of the point
+    that best fits the previous direction
+    :param label_binary_image: np.array
+    :param center: tuple
+    :param radius_size: int
+    :param prev_direction: float
+    :return: found_points: np.array, found_direction: np.array, best_fit_index: int
     """
-    num_links, labeled_link_image = cv.connectedComponents(array)
-    clusters = np.zeros((num_links - 1, 2)).astype(dtype='int64')
+    circle_image = np.zeros_like(label_binary_image)
+    cv.circle(circle_image, center, radius_size, 255, 1)
+    output = cv.bitwise_and(label_binary_image, circle_image)
+    num_links, labeled_link_image = cv.connectedComponents(output)
+    found_points = np.zeros((num_links - 1, 2)).astype(dtype='int64')
     for i in range(1, num_links):
         loc_y, loc_x = np.where(labeled_link_image == i)
         loc_x = np.mean(loc_x).astype(dtype='int64')
         loc_y = np.mean(loc_y).astype(dtype='int64')
-        clusters[i-1, :] = [loc_x, loc_y]
-    return clusters
+        found_points[i-1, :] = [loc_x, loc_y]
+    found_direction = np.arctan2(found_points[:, 1] - center[1], found_points[:, 0] -
+                                 center[0]) * 180/np.pi
+    found_direction = np.where(found_direction >= 0, found_direction, 360 + found_direction)
+    best_fit_index = np.argmin(np.abs(found_direction - prev_direction))
+    return found_points, found_direction, best_fit_index
 
 
 def widget_pairs_from_image(img_names_to_check):
@@ -333,7 +341,7 @@ def widget_pairs_from_image(img_names_to_check):
     # from which the link is coming
     links = np.zeros(([len(img_names_tgt), len(img_names_tgt)]), dtype='int64')
     # image processing to extract connected components
-    tmp_img = cv.imread(img_names_to_check, cv.IMREAD_GRAYSCALE)
+    tmp_img = screenshot_loading(img_names_to_check)
     indexes = np.where(is_there_widget[:, 0] != 0)[0]
     form = (is_there_widget[indexes[0], 2], is_there_widget[indexes[0], 3])
     coord_y, coord_x = np.unravel_index(is_there_widget[indexes, 1], form) + np.floor(final_size/2).astype(dtype='int64')
@@ -362,24 +370,16 @@ def widget_pairs_from_image(img_names_to_check):
                                                                    np.sum(check_presence, axis=1)[which_present])
             elif np.sum(which_present) > 1:
                 label_binary_image = np.where(labels_im == in_to_check[k], 255, 0).astype(dtype='uint8')
-                circle_image = np.zeros_like(label_binary_image)
-                cv.circle(circle_image, (coord_x[j]-round(widget_size/3.8), coord_y[j]), round(widget_size/2), 255)
-                output = cv.bitwise_and(label_binary_image, circle_image)
-                start_points = find_where_nonzero_cluster(output)
+                start_points, _, _ = find_circle_intersection(label_binary_image, (coord_x[j]-round(widget_size/3.8),
+                                                                                        coord_y[j]), round(widget_size/2), 0)
                 actual_start = start_points[start_points[:, 0] < coord_x[j]-tol, :]
                 in_element_index = indexes[j] - min(is_there_widget[indexes[j], 0], 0)
                 for i in range(len(actual_start)):
                     prev_direction = 180
                     center = tuple(actual_start[i])
                     while True:
-                        circle_image = np.zeros_like(circle_image)
-                        cv.circle(circle_image, center, round(widget_size/7), 255, 1)
-                        output = cv.bitwise_and(label_binary_image, circle_image)
-                        found_points = find_where_nonzero_cluster(output)
-                        found_direction = np.arctan2(found_points[:, 1] - center[1], found_points[:, 0] -
-                                                     center[0]) * 180/np.pi
-                        found_direction = np.where(found_direction >= 0, found_direction, 360 + found_direction)
-                        best_fit_index = np.argmin(np.abs(found_direction - prev_direction))
+                        found_points, found_direction, best_fit_index = find_circle_intersection(label_binary_image, center,
+                                                                                         round(widget_size/7), prev_direction)
                         if abs(abs(found_direction[best_fit_index] - prev_direction) - 180) < 20:
                             center = (center[0]+1, center[1])
                         else:
@@ -389,34 +389,14 @@ def widget_pairs_from_image(img_names_to_check):
                         cv.drawMarker(image_to_show, center, (0, 0, 255), cv.MARKER_CROSS, 10, 1)
                         cv.imshow('image', image_to_show)
                         cv.waitKey(200)"""
-                        if np.any(np.logical_and(abs(center[0] - coord_x) < tol * 1.5, abs(center[1] - coord_y) < tol)):
-                            while True:
-                                circle_image = np.zeros_like(circle_image)
-                                cv.circle(circle_image, center, round(widget_size/7), 255, 1)
-                                output = cv.bitwise_and(label_binary_image, circle_image)
-                                found_points = find_where_nonzero_cluster(output)
-                                found_direction = np.arctan2(found_points[:, 1] - center[1], found_points[:, 0] -
-                                                             center[0]) * 180/np.pi
-                                found_direction = np.where(found_direction >= 0, found_direction, 360 + found_direction)
-                                best_fit_index = np.argmin(np.abs(found_direction - prev_direction))
-                                """image_to_show = cv.cvtColor(tmp_img, cv.COLOR_GRAY2BGR)
-                                cv.drawMarker(image_to_show, center, (0, 0, 255), cv.MARKER_CROSS, 10, 1)
-                                cv.imshow('image', image_to_show)
-                                cv.waitKey(200)"""
-                                if abs(abs(found_direction[best_fit_index] - prev_direction) - 180) < 10:
-                                    center = (center[0]+1, center[1])
-                                else:
-                                    center = tuple(found_points[best_fit_index, :])
-                                    prev_direction = found_direction[best_fit_index]
-                                if np.any(np.logical_and(abs(center[0] - coord_x[except_element]) - tol*1.5 < 0,
-                                                         abs(center[1] - coord_y[except_element]) - tol*0.30 < 0)):
-                                    which_present = np.logical_and(abs(center[0] - coord_x[except_element]) - tol*1.5 < 0,
-                                                                   abs(center[1] - coord_y[except_element]) - tol*0.30 < 0)
-                                    out_element_index = indexes[except_element][which_present] - np.where(is_there_widget[
-                                        indexes[except_element][which_present], 0] > 0, 0, is_there_widget[
-                                        indexes[except_element][which_present], 0])
-                                    links[in_element_index, out_element_index] = (links[in_element_index, out_element_index] + 1)
-                                    break
+                        if np.any(np.logical_and(abs(center[0] - coord_x[except_element]) - tol*1.5 < 0,
+                                                 abs(center[1] - coord_y[except_element]) - tol*0.30 < 0)):
+                            which_present = np.logical_and(abs(center[0] - coord_x[except_element]) - tol*1.5 < 0,
+                                                           abs(center[1] - coord_y[except_element]) - tol*0.30 < 0)
+                            out_element_index = indexes[except_element][which_present] - np.where(is_there_widget[
+                                indexes[except_element][which_present], 0] > 0, 0, is_there_widget[
+                                indexes[except_element][which_present], 0])
+                            links[in_element_index, out_element_index] = (links[in_element_index, out_element_index] + 1)
                             break
 
     """cv.destroyAllWindows()
