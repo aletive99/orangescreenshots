@@ -288,7 +288,7 @@ def draw_locations(img_names_to_check, return_img=False):
 
 def draw_links(img_names_to_check):
     """
-    This function shows the links between the widgets in the image by drawing a line between the widgets. If the antenna
+    This function shows the links between the widgets in the image by drawing a line between the widgets. If the antennas
     are also shown in the image it means that the links are detected only through the connected components of the links,
     otherwise the links are detected through the circle intersection algorithm used on the link direction.
     :param img_names_to_check: str
@@ -308,6 +308,11 @@ def draw_links(img_names_to_check):
 
 
 def draw_links_and_positions(img_names_to_check):
+    """
+    This function shows the widget positions as well as the links between the widgets in the image.
+    :param img_names_to_check:
+    :return:
+    """
     image = draw_locations(img_names_to_check, return_img=True)
     _, link_img = link_detection(img_names_to_check)
     if link_img is not None:
@@ -442,7 +447,7 @@ def link_detection(img_names_to_check):
                         if abs(abs(found_direction[best_fit_index] - prev_direction) - 180) < 20:
                             center = (center[0]+1, center[1])
                         else:
-                            cv.line(link_img, center, tuple(found_points[best_fit_index, :]), 255, 1)
+                            cv.line(link_img, center, tuple(found_points[best_fit_index, :]), 255, 2)
                             center = tuple(found_points[best_fit_index, :])
                             prev_direction = found_direction[best_fit_index]
                         """image_to_show = cv.cvtColor(tmp_img, cv.COLOR_GRAY2BGR)
