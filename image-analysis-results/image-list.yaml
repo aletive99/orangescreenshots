@@ -1,0 +1,1332 @@
+teme-blaz/poenostavitve-dendrogramov:
+  document-title: Poenostavitve dendrogramov
+  date: '2024-04-02'
+  images:
+  - dendrogram.png
+teme-blaz/klepetalniki-in-delotoki:
+  document-title: Klepetalnik za delotoke
+  date: '2024-04-02'
+  images:
+  - delotok.png
+teme-blaz/supervised-pca:
+  document-title: Nadzorovan PCA
+  date: '2024-04-02'
+  images:
+  - freeviz.png
+teme-blaz/zaupanje:
+  document-title: "Pristranost in razlo\u017Eljivost"
+  date: '2024-04-02'
+  images:
+  - primeri-razlag.png
+single-cell-tutorial-notes/sc-notes-01-datasets:
+  document-title: Single Cell Datasets
+  date: '2024-04-02'
+  images:
+  - sc-notes-01-05_80.jpg
+  - Screenshot 2023-08-22 at 15.33.30_80.jpg
+  - Screenshot 2023-08-22 at 15.28.15_80.jpg
+  - Screenshot 2023-08-22 at 15.12.22_80.jpg
+  - Screenshot 2023-08-22 at 15.13.45_80.jpg
+  - Screenshot 2023-08-22 at 15.27.16_80.jpg
+  - Screenshot 2023-08-22 at 15.32.14_80.jpg
+  - Screenshot 2023-08-22 at 15.50.47_80.jpg
+  - sc-notes-01-03_80.jpg
+  - Screenshot 2023-08-22 at 15.34.30_80.jpg
+  - Screenshot 2023-08-17 at 12.01.55_80.jpg
+  - sc-notes-01-01_80.jpg
+  - Screenshot 2023-08-22 at 15.17.07_80.jpg
+  - Screenshot 2023-08-22 at 15.57.48_80.jpg
+  - sc-notes-01-04_80.jpg
+  - Screenshot 2023-08-22 at 15.49.09_80.jpg
+  - Screenshot 2023-08-22 at 15.26.39_80.jpg
+  - sc-notes-01-02_80.jpg
+  - Screenshot 2023-08-22 at 15.58.18_80.jpg
+  - Screenshot 2023-08-22 at 15.15.19_80.jpg
+ds-intro/030-correlations:
+  document-title: Correlations
+  date: '2024-04-02'
+  images:
+  - connection.png
+  - features.png
+  - correlations-scatterplot.png
+  - data-signal.png
+  - correlations.png
+ds-intro/020-saving-your-work:
+  document-title: Saving your Work
+  date: '2024-04-02'
+  images:
+  - remove.png
+  - scatterplot-highlighted.png
+  - slovenia-spain.png
+  - scatter-plot.png
+  - add-datasets-widget.png
+  - save.png
+ds-intro/050-data-construction:
+  document-title: Data Construction
+  date: '2024-04-02'
+  images:
+  - save-data-workflow.png
+  - file.png
+  - select-columns.png
+  - excel.png
+  - excel-no-eyes.png
+ds-intro/010-workflows:
+  document-title: Orange Workflows
+  date: '2024-04-02'
+  images:
+  - data-table-hdi.png
+  - scatterplot-show-subset-wf.png
+  - scatterplot-with-subset.png
+  - datasets-hdi.png
+  - table-to-scatter-link.png
+  - scatterplot-brown.png
+  - scatterplot-hdi.png
+  - widget-dropdown.png
+  - score-plots.png
+  - datasets-table.png
+  - datatable-datatable-workflow.png
+  - explore-scatterplot.png
+  - scatterplot.png
+  - two-data-tables.png
+  - datasets-table-empty.png
+  - scatterplot-selection-workflow.png
+  - scatterplot-add-widget.png
+ds-intro/040-data-distributions:
+  document-title: Distributions
+  date: '2024-04-02'
+  images:
+  - sieve-wf.png
+  - dataset-dist-wf.png
+  - data-table-with-selection.png
+  - distributions-scatter-animated.png
+  - distributions-scatter.png
+  - distributions-hdi.png
+  - rewiring.png
+  - sieve.png
+  - distributions-life-conditioned.png
+  - distributions-life-expect.png
+  - relevance.png
+  - two-distributions.png
+  - box-plot-wf.png
+  - high-hdi-in-scatter.png
+  - box-plot-conditioned.png
+dali4us/1-trees/1-box-plot:
+  document-title: Orange and Widgets
+  date: '2024-04-02'
+  images:
+  - data-table.png
+  - box-plot.png
+  - box-plot-mammals.png
+  - box-plot-table.png
+  - box-plot-insects.png
+  - orange-start.png
+dali4us/1-trees/4-quadrilaterals:
+  document-title: Quadrilaterals
+  date: '2024-04-02'
+  images:
+  - pivot.png
+  - workflow-image-viewer.png
+  - pivot-trapezoid.png
+  - connect-pivot.png
+  - kite.png
+dali4us/1-trees/2-classification-trees-manually:
+  document-title: Splitting hairs and feathers
+  date: '2024-04-02'
+  images:
+  - boxplot-backbone.png
+  - boxplot-airborne.png
+dali4us/1-trees/3-classification-trees:
+  document-title: Classification trees
+  date: '2024-04-02'
+  images:
+  - tree.png
+dali4us/2-logreg/2-bicycle-2d:
+  document-title: Logistic regression
+  date: '2024-04-02'
+  images:
+  - scatterplot-line.png
+  - data-table.png
+  - three-rides-scatter.png
+  - three-predictions-prob.png
+  - predictions-workflow.png
+  - file.png
+  - datasets-table.png
+  - scatterplot-worflow.png
+  - three-predictions.png
+  - three-rides.png
+  - 5-60.png
+  - datasets.png
+  - bikes.png
+dali4us/2-logreg/3-accuracy:
+  document-title: Accuracy
+  date: '2024-04-02'
+  images:
+  - tree-no-prunning-parameters.png
+  - tree-accuracy.png
+  - cv-results.png
+  - confusion-on-train.png
+  - rewire.png
+  - tree-widget.png
+  - test-on-train.png
+  - lr-vs-tree-on-test.png
+  - tree-viewer-workflow.png
+  - data-sampler-workflow.png
+  - tree-vis-default.png
+  - accuracy-sampling.png
+  - predictions-on-train.png
+  - confusion-on-train-workflow.png
+  - tree-accuracy-unprunned.png
+  - tree-vis-unprunned.png
+  - tree-vs-tree.png
+  - data-sampler.png
+  - cv.png
+dali4us/2-logreg/1-dec-boundary:
+  document-title: Decision Boundary
+  date: '2024-04-02'
+  images:
+  - line-2.png
+  - line-1.png
+  - circles-and-crosses-2.png
+  - four-squares.png
+  - square.png
+dali4us/2-logreg/4-multivariate:
+  document-title: Multidimensional Data
+  date: '2024-04-02'
+  images:
+  - nomogram-guess.png
+  - dataset.png
+  - select-columns.png
+  - triplet.png
+  - data.png
+  - nomogram.png
+  - cv-on-lr.png
+dali4us/5-houses:
+  document-title: Image Analytics + Clustering + Classification
+  date: '2024-04-02'
+  images:
+  - confusion-matrix.png
+  - image-divaca.png
+  - dendrogram.png
+  - confusion-viewer.png
+  - divaca.png
+  - geo.png
+  - test-and-score.png
+pumice/priimkoslovje/02-koprcani:
+  document-title: "Komu so podobni Kopr\u010Dani?"
+  date: '2024-04-02'
+  images:
+  - razdalje-razlaga.png
+  - kos-dendrograma.png
+  - razdalje.png
+  - barvni-zemljevid.png
+  - cel-delotok.png
+  - grucenje.png
+  - izbor-v-grucenju.png
+  - matrika-razdalj.png
+  - resitev.png
+  - zbirke-razdalje-matrika.png
+pumice/priimkoslovje/01-zajci-in-medvedi:
+  document-title: "Je v Sloveniji ve\u010D Zajcev ali Medvedov?"
+  date: '2024-04-02'
+  images:
+  - box-box.png
+  - workflow-hozjan.png
+  - tooltip.png
+  - zajci-medvedi.png
+  - box-celje.png
+  - zemljevid-hozjan.png
+  - w-zemljevid.png
+  - tabela.png
+  - w-zbirke-podatkov.png
+  - box-izbor-celja.png
+  - zbirke-podatkov.png
+  - w-tabela.png
+pumice/priimkoslovje/04-najvecji-v-dezeli:
+  document-title: "Kdo najve\u010Dji v de\u017Eeli je tej?"
+  date: '2024-04-02'
+  images:
+  - delotok-resitev.png
+  - tabela.png
+  - gruca.png
+pumice/priimkoslovje/03-prleki-in-prekmurci:
+  document-title: Saj Prleki so Prekmurci, a niso?
+  date: '2024-04-02'
+  images:
+  - delotok-resitev.png
+  - prerezan-dendrogram.png
+  - zemljevid-6.png
+  - zemljevid-4.png
+pumice/ui-za-ucitelje/38-je-to-res-grucenje:
+  document-title: "Je to res gru\u010Denje?!"
+  date: '2024-04-02'
+  images:
+  - dendrogram.png
+  - gruce-na-zemljevidu.png
+  - osem-gruc.png
+  - stevilo-gruc.png
+  - linkage.png
+pumice/ui-za-ucitelje/37-kje-smo-in-zakaj:
+  document-title: Kje smo - in zakaj
+  date: '2024-04-02'
+  images:
+  - porazdelitve.png
+  - afrika-in-razviti.png
+  - dve-gruci.png
+  - izbor-drzav.png
+  - najvecja-razlika.png
+  - afrika-in-razviti-porazdelitev.png
+pumice/ui-za-ucitelje/01-ugrizni-v-pomaranco:
+  document-title: "Ugrizni v pomaran\u010Do"
+  date: '2024-04-02'
+  images:
+  - izhod.png
+  - tabela.png
+  - zacetek.png
+  - datoteka.png
+  - povezava-gradnikov.png
+  - zbirke-podatkov.png
+pumice/ui-za-ucitelje/10-skatle-z-brki:
+  document-title: "\u0160katle z brki, politiki brez"
+  date: '2024-04-02'
+  images:
+  - zenske-afrika.png
+  - razsevni-delez-zensk.png
+  - zenske-celine.png
+  - box1.png
+  - brki-vere.png
+pumice/ui-za-ucitelje/50-zivalsko-drevo:
+  document-title: "\u017Divalsko drevo"
+  date: '2024-04-02'
+  images:
+  - zuzelke-vretencarji.png
+  - drevo.png
+  - tabela.png
+  - ni-hrbtenice.png
+  - delotok.png
+pumice/ui-za-ucitelje/05-bolj-ali-manj-modri:
+  document-title: "Bolj ali manj modre dr\u017Eave"
+  date: '2024-04-02'
+  images:
+  - dva-izhoda.png
+  - velikost-kosev.png
+  - statusna.png
+  - kanali.png
+  - trije-izhodi.png
+  - pet-barv.png
+  - kos.png
+pumice/ui-za-ucitelje/02-igra-tabel:
+  document-title: Igra tabel
+  date: '2024-04-02'
+  images:
+  - dve-tabeli.png
+  - preurejanje.png
+  - najdolgozivejsi.png
+  - po-abecedi.png
+pumice/ui-za-ucitelje/06-pametni-zivijo-dlje:
+  document-title: "Pametni \u017Eivijo dlje"
+  date: '2024-04-02'
+  images:
+  - regresija.png
+  - funkcija.png
+  - razsevni-diagram-prav.png
+  - brisanje.png
+  - razsevni-diagram.png
+  - delotok.png
+pumice/ui-za-ucitelje/13-brkate-skatle-brez-brkov:
+  document-title: "\u0160katle z brki brez brkov"
+  date: '2024-04-02'
+  images:
+  - vecinska-vera-z-brki.png
+  - celine-porazdelitev.png
+  - celine-religije.png
+  - izbiranje-drzav-delezi.png
+  - izbiranje-drzav.png
+  - religije-po-celinah.png
+  - celine.png
+pumice/ui-za-ucitelje/08-vsaka-riba-ni-slanik:
+  document-title: Vsaka riba ni slanik
+  date: '2024-04-02'
+  images:
+  - dodajanje-tabele.png
+  - povecava.png
+  - izbor-evrope.png
+  - kje-je-evropa.png
+  - druga-povezava.png
+  - urejanje-povezav.png
+pumice/ui-za-ucitelje/09-isto-z-manj-slamparije:
+  document-title: "Isto, a z manj \u0161lamparije"
+  date: '2024-04-02'
+  images:
+  - zdruzi-vrstice.png
+  - zdruzi-vrstice-povezovanje.png
+  - zdruzi-zdruzi.png
+  - razsevni-celine.png
+  - datoteka.png
+pumice/ui-za-ucitelje/07-kdo-je-nasrkal:
+  document-title: Kdo je nasrkal?
+  date: '2024-04-02'
+  images:
+  - izbiranje-gledanje.png
+  - zemljevid.png
+  - razsevni-diagram.png
+  - zgoraj-desno.png
+  - delotok.png
+pumice/ui-za-ucitelje/03-nocem-v-solo:
+  document-title: "Mami, jest no\u010Dem v \u0161olo!"
+  date: '2024-04-02'
+  images:
+  - porazdelitve-intervali.png
+  - porazdelitve.png
+  - povezava.png
+  - porazdelitve-tooltip.png
+pumice/ui-za-ucitelje/36-gruce-drzav:
+  document-title: "Gru\u010De dr\u017Eav"
+  date: '2024-04-02'
+  images:
+  - grucenje.png
+  - delotok-grucenje.png
+  - grucenje-slovenija.png
+  - linkage.png
+pumice/ui-za-ucitelje/39-poimenovanje:
+  document-title: Poimenovanje
+  date: '2024-04-02'
+  images:
+  - porazdelitve.png
+  - uredi-domeno.png
+  - gruce.png
+  - delotok.png
+pumice/ui-za-ucitelje/35-kako-dalec-smo-od-kanade:
+  document-title: "Kako dale\u010D smo od Kanade?"
+  date: '2024-04-02'
+  images:
+  - evklid-manhattan.png
+  - matrika-razdalj.png
+pumice/ui-za-ucitelje/51-racunalnik-sestavi-drevo:
+  document-title: "Ra\u010Dunalnik sestavi drevo"
+  date: '2024-04-02'
+  images:
+  - drevo.png
+  - entropija.png
+pumice/ui-za-ucitelje/12-teksaski-ostrostrelec:
+  document-title: "Teksa\u0161ki ostrostrelec"
+  date: '2024-04-02'
+  images:
+  - TexasSharpShooter.png
+pumice/ui-za-ucitelje/40-ce-bi-bil-svet-ploscat:
+  document-title: "\u010Ce bi bil svet plo\u0161\u010Dat"
+  date: '2024-04-02'
+  images:
+  - mds-evropa.png
+  - kuba.png
+  - irska.png
+  - mds-svet.png
+  - matrika-razdalj.png
+  - delotok.png
+pumice/ui-za-ucitelje/04-kje-je-burkina-faso:
+  document-title: Kje na svetu je Burkina Faso?!
+  date: '2024-04-02'
+  images:
+  - choropleth.png
+pumice/ui-za-ucitelje/11-mi-in-oni:
+  document-title: Mi in oni
+  date: '2024-04-02'
+  images:
+  - evropa-stara.png
+  - zivljenje-afrika-evropa.png
+  - rodnost-svet.png
+  - izbiranje-spremenljivk.png
+  - rodnost-evropa.png
+  - rodnost.png
+  - izberi-vrstice.png
+  - starost-in-rodnost.png
+bcm-quiz/01-intro-and-clustering:
+  document-title: Quiz
+  date: '2024-04-02'
+  images:
+  - distributions-gdp.png
+  - scatterplot-age-fertility.png
+  - table-ireland.png
+  - boxplot-3-clusters.png
+  - boxplot-hdi-05.png
+  - rewire-to-boxplot.png
+  - boxplot-gdp.png
+bcm-quiz/03-dim-reduction:
+  document-title: Quiz
+  date: '2024-04-02'
+  images:
+  - sales.png
+  - painted-lin.png
+  - jobrole.png
+  - bigcluster.png
+  - scree-lin.png
+  - attrition-dataset.png
+  - painted-snake.png
+  - attrition-small-cluster.png
+  - painted-cloud.png
+  - sales-executives.png
+bcm-quiz/02-k-means:
+  document-title: Quiz
+  date: '2024-04-02'
+  images:
+  - three-workflows.png
+  - leukemia.png
+  - zoo-box.png
+  - comparison.png
+  - kmeans-silh.png
+  - silhouette-zoo.png
+  - single-linkage.png
+  - amphibians.png
+  - gdsk.png
+  - zoo-categorical.png
+  - smile.png
+bcm-quiz/04-classification:
+  document-title: Quiz
+  date: '2024-04-02'
+  images:
+  - paint1-ca.png
+  - paint1-scatter.png
+  - paint2.png
+  - testscore-pima.png
+  - paint1.png
+  - paint2-ca.png
+  - create-instance.png
+  - create-instance-workflow.png
+bcm-quiz/05-regression:
+  document-title: Quiz
+  date: '2024-04-02'
+  images:
+  - preprocess.png
+  - fss-house.png
+  - poly-workflow.png
+  - lrr2.png
+  - comparison.png
+  - lrpreprocessedr2.png
+  - rf-param.png
+  - tree-r2.png
+  - bodyfatdata.png
+  - poly.png
+  - wrist.png
+  - forest-r2.png
+  - tree-param.png
+  - bodyfatfss.png
+  - housing.png
+  - regtrain.png
+survival-analysis-tutorial/sa-notes-01-the-data-and-survival-curve:
+  document-title: Survival Data and Survival Curve
+  date: '2024-04-02'
+  images:
+  - 02-workflow.png
+  - 01-datatable-excel.png
+  - 01-diagram-2.png
+  - 01-diagram-1.png
+  - 02-KMplot-1.png
+  - 02-km-plot-orange.png
+survival-analysis-tutorial/sa-quiz-01-the-data-and-survival-curve:
+  document-title: Survival Data and Survival Curve
+  date: '2024-04-02'
+  images:
+  - explanation_2.png
+  - explanation_3.png
+  - explanation_1.png
+  - e1-t1-graph.png
+  - explanation_4.png
+  - explanation_1_old.png
+survival-analysis-tutorial/sa-quiz-03-ranking-genes:
+  document-title: Ranking Genes
+  date: '2024-04-02'
+  images:
+  - explanation_2.png
+  - explanation_1.png
+  - datasets-tcga-cesc.png
+  - explanation_3.1.png
+  - explanation_3.2.png
+  - explanation_3.3.png
+  - explanation_1.1.png
+  - uv_geneset.png
+survival-analysis-tutorial/sa-quiz-05-questionnaire:
+  document-title: Post-test Questionnaire
+  date: '2024-04-02'
+  images:
+  - t-shirt.png
+survival-analysis-tutorial/sa-notes-04-ranking-gene-sets:
+  document-title: Ranking gene sets
+  date: '2024-04-02'
+  images:
+  - load-custom-genesets.png
+  - 068-kmhypoxia.png
+  - 067-discretizehypoxia.png
+  - 070-selectcolumns.png
+  - 063-twoinputs.png
+  - 065-scorehypoxia.png
+  - 062-genes.png
+  - 064-genesets.png
+  - 073-kmgenesets.png
+  - 072-discretizegenesets.png
+  - 071-rank.png
+  - 066-selectcolumns.png
+  - 069-scoresall.png
+  - 061-data.png
+survival-analysis-tutorial/sa-quiz-02-exploring-survival-features:
+  document-title: Exploring Survival Features
+  date: '2024-04-02'
+  images:
+  - explanation_4.2.png
+  - explanation_2.png
+  - explanation_4.1.png
+  - explanation_1.png
+  - lung-cancer-data.png
+  - discretize.png
+  - explanation_3.1.png
+  - explanation_3.2.png
+survival-analysis-tutorial/sa-notes-02-exploring-survival-features:
+  document-title: Exploring Survival Features
+  date: '2024-04-02'
+  images:
+  - 04-rewire-connection.png
+  - 03-workflow.png
+  - 04-distributions-kmplot-prog-receptor.png
+  - 03-km-material-type.png
+  - 03-km-brushing-time.png
+  - 03-data.png
+  - 04-km-categorical-variables.png
+  - 04-distributions-kmplot.png
+  - 04-ranking-reduced.png
+  - 04-km-plots.png
+  - 03-km-dog-person.png
+  - 04-load-dataset.png
+  - 04-distributions-table.png
+  - 04-ranking.png
+  - 03-workflow3.png
+  - 03-workflow2.png
+  - 04-distributions-kmplot-over40.png
+  - 04-distributions.png
+survival-analysis-tutorial/sa-notes-03-ranking-genes:
+  document-title: Ranking genes
+  date: '2024-04-02'
+  images:
+  - 057-discretize.png
+  - 055-geneset.png
+  - 054-rewire.png
+  - 056-rank.png
+  - 051-dataset.png
+  - 052-genes.png
+  - 058-kmplot.png
+  - 053-kras.png
+survival-analysis-tutorial/sa-quiz-04-ranking-gene-sets:
+  document-title: Ranking gene sets
+  date: '2024-04-02'
+  images:
+  - load-custom-genesets.png
+  - explanation_2.png
+  - explanation_1.png
+  - tcga-brca.png
+  - explanation_3.1.png
+  - explanation_3.2.png
+mlai/quiz1a:
+  document-title: Quiz 1
+  date: '2024-04-02'
+  images:
+  - boxplot-hdi-05.png
+  - rewire-to-boxplot.png
+mlai/quiz2-lr:
+  document-title: 'Quiz: Linear Regression'
+  date: '2024-04-02'
+  images:
+  - weights-standardized.png
+  - cv-unregularized.png
+  - weights-raw.png
+  - target-variable.png
+  - features-after-l1.png
+  - correlations.png
+  - r2-after-reg.png
+mlai/quiz5:
+  document-title: Quiz
+  date: '2024-04-02'
+  images:
+  - roc.png
+mlai/quiz3:
+  document-title: Quiz
+  date: '2024-04-02'
+  images:
+  - bayes-workflow.png
+  - bayes-nomogram.png
+  - create-instance.png
+  - create-instance-workflow.png
+mlai/quiz4:
+  document-title: 'Quiz: Overfitting'
+  date: '2024-04-02'
+  images:
+  - tree-default-nodes.png
+  - tree-unprunned-ca.png
+  - rf-params.png
+  - tree-small-ca.png
+  - tree-default-ca.png
+  - tree-fully-pruned-nodes.png
+  - pp-ca.png
+  - tree-defaults.png
+  - full-prunned-params.png
+  - breast-cancer-data.png
+  - pp.png
+  - cv-results-tree.png
+  - cv-lr.png
+  - credit.png
+  - breast-cancer-fss-overfit.png
+  - tree-full-params.png
+  - distribution.png
+  - breast-cancer-lr-ca.png
+  - rf-ca.png
+  - tree-fully-pruned-ca.png
+mlai/quiz1b:
+  document-title: Quiz 2
+  date: '2024-04-02'
+  images:
+  - distributions-gdp.png
+  - scatterplot-age-fertility.png
+  - table-ireland.png
+  - boxplot-3-clusters.png
+  - boxplot-gdp.png
+ds-regression/020-regularization:
+  document-title: Regularization
+  date: '2024-04-02'
+  images:
+  - settings.png
+  - workflow-coefficients.png
+  - coefficients.png
+  - workflow-ridge.png
+ds-regression/060-l1-l2:
+  document-title: L1 and L2 Regularization
+  date: '2024-04-02'
+  images:
+  - experiment.png
+  - l1-and-l2.png
+ds-regression/040-live-long:
+  document-title: Live Long
+  date: '2024-04-02'
+  images:
+  - weights.png
+  - feature-constructor.png
+  - preprocess.png
+  - raw-coefficients.png
+  - select-columns.png
+  - data.png
+  - fss.png
+  - test-and-score.png
+  - workflow.png
+ds-regression/010-linear-regression:
+  document-title: Linear Regression
+  date: '2024-04-02'
+  images:
+  - overfitting.png
+  - paint.png
+  - line.png
+ds-regression/050-analysis:
+  document-title: Accuracy Analysis
+  date: '2024-04-02'
+  images:
+  - scatterplot-errors.png
+  - error-workflow.png
+  - scatterplot.png
+  - options.png
+  - workflow.png
+ds-regression/030-reg-and-accuracy:
+  document-title: Accuracy
+  date: '2024-04-02'
+  images:
+  - train-test.png
+  - workflow.png
+biomedvis/fundamentals:
+  document-title: Fundamentals
+  date: '2024-04-02'
+  images:
+  - iphone-barchart-orig.jpg
+  - iphone-barchart.jpg
+  - nightingale-mortality.jpg
+  - crick-watson.jpg
+biomedvis/bio:
+  document-title: Biological Data
+  date: '2024-04-02'
+  images:
+  - pangenome.png
+  - heatmap.png
+embedding-explanations/quiz-1-penguins:
+  document-title: Penguins
+  date: '2024-04-02'
+  images:
+  - penguins.png
+  - penguin-schematic.png
+  - penguins-sm.png
+  - penguins-sm-q1.png
+  - penguins-sm-q2.png
+  - penguins-sm-q3.png
+embedding-explanations/quiz-2-attrition:
+  document-title: Employee Attrition
+  date: '2024-04-02'
+  images:
+  - employee-attrition-sm-q1.png
+  - employee-attrition-sm-q2.png
+  - employee-attrition-sm-q3.png
+  - employee-attrition-sm-q4.png
+  - employee-attrition-sm-q5.png
+  - employee-attrition-sm.png
+  - employee-attrition.png
+embedding-explanations/quiz-3-wine-quality:
+  document-title: Wine Quality
+  date: '2024-04-02'
+  images:
+  - wine-quality-sm-q4.png
+  - wine-quality-sm-q1.png
+  - wine-quality-sm-q2.png
+  - wine-quality-sm-q3.png
+  - wine-quality-sm.png
+  - wine-quality.png
+embedding-explanations/quiz-1-iris:
+  document-title: Iris Flowers
+  date: '2024-04-02'
+  images:
+  - iris.png
+  - iris-sm.png
+  - iris-sm-q1.png
+  - iris-sm-q2.png
+  - flower-schematic.png
+embedding-explanations/quiz-2-titanic:
+  document-title: Titanic
+  date: '2024-04-02'
+  images:
+  - titanic-sm-q4.png
+  - titanic.png
+  - titanic-sm-q2.png
+  - titanic-sm-q3.png
+  - titanic-sm-q1.png
+  - titanic-sm.png
+embedding-explanations/quiz-3-boston-housing:
+  document-title: Boston Housing Prices
+  date: '2024-04-02'
+  images:
+  - housing-prices-sm-q4.png
+  - housing-prices-sm-q1.png
+  - housing-prices-sm-q3.png
+  - housing-prices-sm-q2.png
+  - housing-prices-sm.png
+  - housing-prices.png
+embedding-explanations/quiz-3-raisin:
+  document-title: Raisin
+  date: '2024-04-02'
+  images:
+  - raisin-sm.png
+  - raisin-sm-q1.png
+  - raisin-sm-q3.png
+  - raisin-sm-q2.png
+  - raisin.png
+ds-unsupervised/085-kmeans-zoo:
+  document-title: k-Means on Zoo
+  date: '2024-04-02'
+  images:
+  - animal-types.png
+  - cluster-selection.png
+  - zoo-data.png
+  - select-columns.png
+  - analysis.png
+  - workflow.png
+  - edit-links.png
+ds-unsupervised/030-dendrograms:
+  document-title: Dendrograms
+  date: '2024-04-02'
+  images:
+  - four-clusters.png
+  - scatterplot-dendrogram-by-hand.png
+  - dendrogram.png
+  - dendrogram-scatterplot.png
+ds-unsupervised/050-clustering-geo-maps:
+  document-title: Geo Maps
+  date: '2024-04-02'
+  images:
+  - geocoding.png
+  - four-groups.png
+  - clustering.png
+  - choropleth.png
+  - geo-add-on.png
+  - hdi-data.png
+  - geo-toolbox.png
+  - distances.png
+  - a.png
+ds-unsupervised/080-kmeans:
+  document-title: k-Means
+  date: '2024-04-02'
+  images:
+  - silhouette-scoring.png
+  - interactive-k-means.png
+  - clustering.png
+  - blob.png
+ds-unsupervised/010-euclidean-distances-2d:
+  document-title: Distances in 2D
+  date: '2024-04-02'
+  images:
+  - distance-matrix.png
+  - select-columns.png
+  - scatterplot.png
+  - distances.png
+  - grades-dataset.png
+ds-unsupervised/140-tsne:
+  document-title: t-SNE
+  date: '2024-04-02'
+  images:
+  - smiley.png
+  - tsne-zoo.png
+  - tsne.png
+  - mds.png
+ds-unsupervised/040-clustering-higher-dim:
+  document-title: High Dimensions
+  date: '2024-04-02'
+  images:
+  - clustering.png
+  - scatterplot.png
+ds-unsupervised/150-tsne-mds-pca:
+  document-title: t-SNE vs PCA vs MDS
+  date: '2024-04-02'
+  images:
+  - pca-sc.png
+  - tsne-pca.png
+  - tsne-sc.png
+  - mds-formulation.png
+ds-unsupervised/110-pca-details:
+  document-title: PCA details
+  date: '2024-04-02'
+  images:
+  - side-points.png
+  - side-points-pca.png
+  - mikly-way.jpg
+  - zoo-data.png
+  - night-sky.jpg
+  - scree.png
+  - projection.png
+  - scree-lin.png
+  - scatterplot.png
+  - match.png
+  - explore.png
+ds-unsupervised/060-explaining-clusters:
+  document-title: Explanations
+  date: '2024-04-02'
+  images:
+  - box-plot.png
+  - rewiring.png
+  - selected-data.png
+  - sports.png
+  - algebra-fred.png
+  - grades-clustering.png
+  - english.png
+ds-unsupervised/130-mds:
+  document-title: MDS
+  date: '2024-04-02'
+  images:
+  - website.png
+  - europe.jpg
+  - mds-inverted.png
+  - excel.png
+  - zoo.png
+  - distances.png
+  - mds.png
+ds-unsupervised/120-explaining-pca:
+  document-title: Explaining PCA
+  date: '2024-04-02'
+  images:
+  - weights.png
+  - feature-constructor.png
+  - edit-domain.png
+  - scree.png
+  - continuize.png
+  - horizontal.png
+  - components.png
+  - paint-data.png
+ds-unsupervised/100-pca:
+  document-title: PCA
+  date: '2024-04-02'
+  images:
+  - mikly-way.jpg
+  - zoo-data.png
+  - night-sky.jpg
+  - scree.png
+  - scatterplot.png
+  - explore.png
+ds-unsupervised/020-cluster-distances:
+  document-title: Cluster Distances
+  date: '2024-04-02'
+  images:
+  - scatterplot-circles.png
+  - scatterplot-circles2.png
+  - linkage-complete.png
+  - linkage-single.png
+  - workflow-scatterplot.png
+  - linkage-average.png
+ds-unsupervised/070-silhouette:
+  document-title: Silhouettes
+  date: '2024-04-02'
+  images:
+  - three-outliers.png
+  - silhouette-plot.png
+  - b.png
+  - paint-data.png
+  - a.png
+uozp/01-grucenje-kviz:
+  document-title: "Gru\u010Denje - kviz"
+  date: '2024-04-02'
+  images:
+  - smile.png
+single-cell-tutorial-quiz/sc-03-batch-correction:
+  document-title: Batch effect correction
+  date: '2024-04-02'
+  images:
+  - batch_tile_annot.jpg
+single-cell-tutorial-quiz/sc-04-exploring-clusters:
+  document-title: Exploring clusters
+  date: '2024-04-02'
+  images:
+  - tsne-clusters.png
+single-cell-tutorial-quiz/sc-02-data-and-preprocessing:
+  document-title: Single Cell Data
+  date: '2024-04-02'
+  images:
+  - 2abc_tile_annot.jpg
+  - 3abc_tile_annot.jpg
+  - 1abc_tile_annot.jpg
+single-cell-tutorial-quiz/sc-01-introduction:
+  document-title: Introduction
+  date: '2024-04-02'
+  images:
+  - Screenshot 2023-08-22 at 15.11.50.png
+ds-images/010-embedding:
+  document-title: Image Embedding
+  date: '2024-04-02'
+  images:
+  - clustering.png
+  - workflow-embedding.png
+  - data.png
+  - blog_deeplearning.jpg
+ds-performance/020-thresholds:
+  document-title: Tweaking the Threshold
+  date: '2024-04-02'
+  images:
+  - predictions-above-50.png
+  - distributions.png
+  - threshold-40.png
+  - poor-mens-confusion.png
+ds-performance/060-precision-recall:
+  document-title: Precision and Recall
+  date: '2024-04-02'
+  images:
+  - calibration-plot-pr.png
+  - distribution-fraud.png
+  - cumulative-gains.png
+  - workflow.png
+  - precision-recall.png
+ds-performance/030-operating-conditions:
+  document-title: Operating Conditions
+  date: '2024-04-02'
+  images:
+  - confusion-matrix.png
+  - calibration-sens-spec.png
+  - workflow-2nd-predictions.png
+  - calibrate-thresholds.png
+ds-performance/040-roc:
+  document-title: ROC Curves
+  date: '2024-04-02'
+  images:
+  - confusion-matrix.png
+  - roc.png
+  - roc-4.png
+  - roc-workflow.png
+ds-performance/050-auc:
+  document-title: Area under the Curve
+  date: '2024-04-02'
+  images:
+  - ca-threshold.png
+ds-performance/010-ca:
+  document-title: Why Not Just Use Accuracy?
+  date: '2024-04-02'
+  images:
+  - confusion-matrix.png
+  - workflow.png
+ds-classification/130-knn:
+  document-title: k-NN
+  date: '2024-04-02'
+  images:
+  - knn-orange.png
+  - knn.png
+ds-classification/220-fss-random:
+  document-title: Random Data
+  date: '2024-04-02'
+  images:
+  - randomize.png
+  - cv-on-fss.png
+  - cv-on-randomized.png
+ds-classification/200-fss:
+  document-title: Feature Subset Selection
+  date: '2024-04-02'
+  images:
+  - cv-after-fss.png
+  - rank.png
+ds-classification/110-random-forest:
+  document-title: Random Forest
+  date: '2024-04-02'
+  images:
+  - instability.png
+  - accuracy.png
+  - forest.png
+  - rank.png
+ds-classification/120-svm:
+  document-title: SVM
+  date: '2024-04-02'
+  images:
+  - logistic-regression.png
+  - svm.png
+  - orange-svm.png
+ds-classification/300-scoring:
+  document-title: Classification Model Scoring
+  date: '2024-04-02'
+  images:
+  - cv-with-constant.png
+  - gds4182.png
+  - gds3713.png
+  - confusion.png
+  - test-and-score.png
+  - scatter.png
+  - a.png
+ds-classification/140-naive-bayes:
+  document-title: Naive Bayes
+  date: '2024-04-02'
+  images:
+  - data.png
+  - nomogram.png
+ds-classification/050-cross-validation:
+  document-title: Cross-Validation
+  date: '2024-04-02'
+  images:
+  - cross-validation.png
+  - resample.png
+  - split-workflow.png
+  - test-and-score.png
+ds-classification/030-accuracy:
+  document-title: Accuracy
+  date: '2024-04-02'
+  images:
+  - predictions.png
+  - workflow.png
+ds-classification/100-logreg:
+  document-title: Logistic Regression
+  date: '2024-04-02'
+  images:
+  - logistic-regression.png
+  - nomogram.png
+  - a.png
+  - workflow.png
+ds-classification/020-trees:
+  document-title: Trees
+  date: '2024-04-02'
+  images:
+  - inspection.png
+  - box-plot.png
+  - rank-sailing.png
+  - tree.png
+ds-classification/210-fss-cheating:
+  document-title: Cheating with FSS
+  date: '2024-04-02'
+  images:
+  - preprocess.png
+  - results.png
+  - overfitting-workflow.png
+ds-classification/040-cheating:
+  document-title: How to Cheat
+  date: '2024-04-02'
+  images:
+  - randomize.png
+  - split-distributions.png
+  - overfit.png
+  - early-stopping.png
+  - overfitted-tree.png
+  - split.png
+  - overfit-distributions.png
+ds-classification/010-classification:
+  document-title: Classification
+  date: '2024-04-02'
+  images:
+  - two-scatterplots.png
+  - predictions.png
+  - iris-data-sample.png
+ds-classification/230-fss-evaluation:
+  document-title: Doing it Right
+  date: '2024-04-02'
+  images:
+  - fss-to-learner.png
+  - fss-to-cv.png
+x01-silhouette:
+  document-title: Silhouettes
+  date: '2024-04-02'
+  images:
+  - silhouette-a.png
+  - silhouette-b.png
+  - paint.png
+  - silhouette-workflow.png
+  - paint-and-kmeans.png
+  - silhouette-chest-pain.png
+  - silhouettes-by-clusters.png
+  - scatterplot.png
+  - kmeans-silhouette-scores.png
+xaim-help/xaim-adding-material:
+  document-title: Adding material to courses
+  date: '2024-04-02'
+  images:
+  - Step 1.png
+  - Step 2.png
+  - Step 3.png
+  - activities.png
+xaim-help/xaim-adding-files:
+  document-title: Adding files and images to lectures
+  date: '2024-04-02'
+  images:
+  - Screenshot 2023-01-11 at 10.12.10.png
+  - template-course.png
+  - add-activity-or.jpg
+  - pick-edit.jpg
+  - Overview-arrow.png
+  - test-couse.png
+  - activities.png
+  - pick-file.jpg
+  - image-name.png
+xaim-help/xaim-login-xaim:
+  document-title: 'First Login '
+  date: '2024-04-02'
+  images:
+  - demo-sign-in.png
+  - password-change.png
+  - new-user-account.png
+bcm-homeworks/roc:
+  document-title: Homework 5
+  date: '2024-04-02'
+  images:
+  - roc.png
+arisa/data-exploration/02-distances:
+  document-title: Distances
+  date: '2024-04-02'
+  images:
+  - workflow-nn.png
+arisa/data-exploration/01-data:
+  document-title: Data exploration
+  date: '2024-04-02'
+  images:
+  - workflow-datasets.png
+  - datasets-attrition.png
+  - boxplot.png
+arisa/data-exploration/04-explanation:
+  document-title: Explanations
+  date: '2024-04-02'
+  images:
+  - dendrogram-boxplot.png
+  - explain-workflow.png
+text-mining/070-semantic-analysis:
+  document-title: Semantic Analysis
+  date: '2024-04-02'
+  images:
+  - semantic-analysis-workflow.png
+  - annotated-corpus-map.png
+  - word-cloud-semantic.png
+text-mining/041-word-enrichment:
+  document-title: Word Enrichment
+  date: '2024-04-02'
+  images:
+  - word-enrichment.png
+  - workflow.png
+text-mining/032-model-evaluation:
+  document-title: Model Evaluation
+  date: '2024-04-02'
+  images:
+  - test-and-score.png
+  - workflow.png
+text-mining/071-semantic-search:
+  document-title: Semantic Search
+  date: '2024-04-02'
+  images:
+  - semantic-viewer.png
+  - semantic-search-workflow.png
+  - preprocess-text.png
+  - word-list.png
+text-mining/033-predictions:
+  document-title: Predictions
+  date: '2024-04-02'
+  images:
+  - predictions.png
+  - workflow.png
+text-mining/010-text-preprocessing:
+  document-title: Text Preprocessing
+  date: '2024-04-02'
+  images:
+  - filtering.png
+  - preprocessed-word-cloud.png
+  - editor.png
+  - preprocess-text.png
+  - corpus-viewer.png
+  - workflow.png
+  - word-cloud.png
+text-mining/020-bag-of-words:
+  document-title: Bag of Words
+  date: '2024-04-02'
+  images:
+  - data-table.png
+  - bag-of-words.png
+  - workflow.png
+text-mining/040-document-clustering:
+  document-title: Document Clustering
+  date: '2024-04-02'
+  images:
+  - hier-clust-clusters.png
+  - workflow2.png
+  - cviewer-hierclust.png
+  - cosine-distance-eng.png
+  - workflow.png
+  - mds.png
+text-mining/060-sentiment-analysis:
+  document-title: Sentiment Analysis
+  date: '2024-04-02'
+  images:
+  - sentiment-analysis.png
+  - heat-map.png
+  - select-columns.png
+  - corpus-viewer.png
+  - workflow.png
+text-mining/001-introduction:
+  document-title: Introduction to Text Mining
+  date: '2024-04-02'
+  images:
+  - corpus.png
+  - add-on-installation.png
+  - workflow.png
+text-mining/031-logistic-regression:
+  document-title: Logistic Regression
+  date: '2024-04-02'
+  images:
+  - nomogram.png
+  - workflow.png
+text-mining/011-concordances:
+  document-title: Concordances
+  date: '2024-04-02'
+  images:
+  - concordance.png
+  - workflow.png
+text-mining/030-document-classification:
+  document-title: Document Classification
+  date: '2024-04-02'
+  images:
+  - predictions.png
+  - workflow.png
+text-mining/021-document-embedding:
+  document-title: Document Embedding
+  date: '2024-04-02'
+  images:
+  - word-embeddings.png
+text-mining/050-topic-modeling:
+  document-title: Topic Modeling
+  date: '2024-04-02'
+  images:
+  - LDA.png
+  - schema.png
+  - workflow.png
+  - LDAvis.png
+  - MDS.png
