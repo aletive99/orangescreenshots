@@ -693,6 +693,3 @@ def update_image_links():
     with open(yaml_direct+'/image-links.yaml', 'w') as file:
         yaml.dump(links, file, sort_keys=False)
     progress_bar.close()
-
-
-#%%
