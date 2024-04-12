@@ -9,6 +9,7 @@ from tqdm import tqdm
 import imageio
 from datetime import date, timedelta
 import yaml
+import openpyxl
 
 
 """
@@ -63,10 +64,13 @@ del main, sub, url, wd, destination_dir, headers, response, soup, img_tags, img_
     img_name, req, remember, i, n_iter, progress_bar, outfile, img
 
 
-def size_identification(img_names_to_check):
+def size_identification(img_names_to_check, show_circles=False):
     """
-    This function identifies the size of the widgets in the image
+    This function identifies the size of the widgets in the image. The function returns the size of the widgets in the
+    image. If the show_circles parameter is set to True, the function will show the circles that were detected in the
+    image.
     :param img_names_to_check: str
+    :param show_circles: bool
     :return: size_widget: int
     """
     image_to_check = screenshot_loading(img_names_to_check)
@@ -74,10 +78,19 @@ def size_identification(img_names_to_check):
         return None
     blurred = cv.GaussianBlur(image_to_check, (5, 5), 0)
     circles = cv.HoughCircles(blurred, cv.HOUGH_GRADIENT, dp=1, minDist=20,
-                              param1=90, param2=62.5, minRadius=15, maxRadius=60)
-    if circles is None or len(circles) > 15:
+                              param1=75, param2=55, minRadius=15, maxRadius=60)
+    if circles is None:
         return None
     size_widget = (np.round(np.median(circles[0, :, 2])*2)+1).astype(dtype='int64')
+    if show_circles:
+        image_to_show = cv.cvtColor(image_to_check, cv.COLOR_GRAY2BGR)
+        for circle in circles[0, :]:
+            cv.circle(image_to_show, (np.round(circle[0]).astype(int), np.round(circle[1]).astype(int)),
+                      np.round(circle[2]).astype(int), (0, 0, 255), 2)
+        cv.imshow('circles', image_to_show)
+        cv.waitKey(0)
+        cv.destroyAllWindows()
+        cv.waitKey(1)
     return size_widget
 
 
@@ -112,7 +125,7 @@ def get_filenames(direct, ext='image'):
     for root, dirs, filenames in os.walk(direct):
         for filename in filenames:
             if ext == 'image':
-                if filename.endswith('.png') or filename.endswith('.jpg'):
+                if filename.endswith('.png') or filename.endswith('.jpg') or filename.endswith('.jpeg'):
                     img_names_tgt.append(os.path.join(root, filename))
             elif filename.endswith(ext):
                 img_names_tgt.append(os.path.join(root, filename))
@@ -140,6 +153,38 @@ def widget_loading(img_names_tgt, img_names_to_check):
     return check_img
 
 
+def get_widget_description():
+    """
+    This function gets the description of the widgets from the Orange Data Mining website. The function returns a
+    dictionary with the widget name as the key and the description as the value
+    :return: descriptions: dict
+    """
+    url = 'https://orangedatamining.com/widget-catalog/'
+    reqs = requests.get(url)
+    soup = BeautifulSoup(reqs.text, 'html.parser')
+    urls = []
+    for link in soup.find_all('a'):
+        if 'widget-catalog/' in link.get('href'):
+            urls.append('https://orangedatamining.com' + link.get('href'))
+    descriptions = dict()
+    for url in urls:
+        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36'}
+        if url.split('widget-catalog/')[-1] == '':
+            continue
+        try:
+            req = urllib.request.Request(url, headers=headers)
+            html = urllib.request.urlopen(req).read()
+            soup = BeautifulSoup(html, 'html.parser')
+            for script in soup(['script', 'style']):
+                script.extract()
+            text = soup.get_text()
+            descriptions[urllib.parse.unquote(url.split('/')[-2])] = text.split('Input')[0].split('\n')[-2]
+        except urllib.error.URLError or urllib.error.HTTPError:
+            print('url not found:', url)
+            continue
+    return descriptions
+
+
 def screenshot_loading(img_names_to_check):
     """
     This function loads the screenshot to be used to identify the widgets and their links. It loads a color image and
@@ -148,13 +193,10 @@ def screenshot_loading(img_names_to_check):
     :return: image_to_check: np.array
     """
     reader = imageio.get_reader(img_names_to_check)
-    if len(reader) > 1:
-        print('The image', img_names_to_check, 'has more than one frame and it will not be considered')
-        return None
     for pict in reader:
         frame = cv.cvtColor(pict, cv.COLOR_RGB2BGR)
         image_to_check = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
-    return image_to_check
+        return image_to_check
 
 
 def is_there_widget_creation(img_names_to_check, value_thresh=0.80):
@@ -178,11 +220,12 @@ def is_there_widget_creation(img_names_to_check, value_thresh=0.80):
     image_to_check = screenshot_loading(img_names_to_check)
     for j in range(len(img_names_tgt)):
         res = cv.matchTemplate(image_to_check, check_img[j, :, :], cv.TM_CCOEFF_NORMED)
-        if 'Datasets' in img_names_tgt[j]:
-            tmp = np.sum(res > 0.7)
+        if ('Data-Datasets' in img_names_tgt[j] or 'Data-File' in img_names_tgt[j] or 'Polynomial%20Regression' in
+                img_names_tgt[j]) or 'Distance%20File' in img_names_tgt[j]:
+            tmp = np.sum(res > 0.70)
         elif 'Correlogram' in img_names_tgt[j]:
             tmp = np.sum(res > 0.85)
-        elif 'Periodogram' in img_names_tgt[j]:
+        elif 'Periodogram' in img_names_tgt[j] or 'dictyExpress' in img_names_tgt[j]:
             tmp = np.sum(res > 0.90)
         else:
             tmp = np.sum(res > value_thresh)
@@ -252,13 +295,13 @@ def draw_locations(img_names_to_check, return_img=False):
     widget_size = size_identification(img_names_to_check)
     if widget_size is None:
         print('There is no widget in the image')
-        return
+        return None
     thickness = np.round(widget_size/2).astype(dtype='int64')
     final_size, _ = get_sizes(img_names_to_check)
     is_there_widget = is_there_widget_creation(img_names_to_check)
     if is_there_widget is None:
         print('There is no widget in the image')
-        return
+        return None
     indexes = np.where(is_there_widget[:, 0] != 0)[0]
     form = (is_there_widget[indexes[0], 2], is_there_widget[indexes[0], 3])
     coord_y, coord_x = np.unravel_index(is_there_widget[indexes, 1], form) + np.floor(final_size/2).astype(dtype='int64')
@@ -268,7 +311,7 @@ def draw_locations(img_names_to_check, return_img=False):
     for j in range(len(indexes)):
         cv.rectangle(image, (coord_x[j]-thickness, coord_y[j]-thickness), (coord_x[j]+thickness, coord_y[j]+thickness),
                      (0, 0, 255), 2)
-        adjusted_element_index[j] = indexes[j] - min(is_there_widget[indexes[j], 0], 0)
+        adjusted_element_index[j] = indexes[j] - min(is_there_widget[indexes[j], 0], 0) - len(is_there_widget)
         label = urllib.parse.unquote(get_filenames('widgets/')[adjusted_element_index[j]])
         if len(label.split('-')) == 2:
             label = label.split('-')[1]
@@ -277,6 +320,9 @@ def draw_locations(img_names_to_check, return_img=False):
         label = label.split('.')[0]
         cv.putText(image, label, (coord_x[j]-thickness, coord_y[j]-thickness-10), cv.FONT_HERSHEY_SIMPLEX,
                    0.25, (0, 0, 255), 1)
+    if len(np.unique(adjusted_element_index)) == 1:
+        print('There is no widget in the image')
+        return None
     if not return_img:
         cv.imshow('widget locations highlighted in red', image)
         cv.waitKey(0)
@@ -294,10 +340,10 @@ def draw_links(img_names_to_check):
     :param img_names_to_check: str
     """
     widget_size = size_identification(img_names_to_check)
-    if widget_size is None:
-        print('There is no widget in the image')
-        return
     _, link_img = link_detection(img_names_to_check)
+    if link_img is None or widget_size is None:
+        print('There are no links in the image')
+        return
     image = screenshot_loading(img_names_to_check)
     image = cv.cvtColor(image, cv.COLOR_GRAY2BGR)
     image[link_img == 255] = (0, 0, 255)
@@ -314,6 +360,9 @@ def draw_links_and_positions(img_names_to_check):
     :return:
     """
     image = draw_locations(img_names_to_check, return_img=True)
+    if image is None:
+        print('There is no widget in the image')
+        return
     _, link_img = link_detection(img_names_to_check)
     if link_img is not None:
         image[link_img == 255] = (0, 0, 255)
@@ -323,10 +372,11 @@ def draw_links_and_positions(img_names_to_check):
         cv.waitKey(1)
 
 
-def widgets_from_image(img_names_to_check):
+def widgets_from_image(img_names_to_check, return_list=True):
     """
     This function returns the list of widgets present in the image
     :param img_names_to_check: str
+    :param return_list: bool
     :return: widget_list: list of tuples
     """
     is_there_widget = is_there_widget_creation(img_names_to_check)
@@ -348,10 +398,15 @@ def widgets_from_image(img_names_to_check):
             name = module_name.split('-')[1] + '-' + module_name.split('-')[2]
         name = name.split('.')[0]
         widget_list.append((module, name))
-    return widget_list
+    if len(np.unique(widget_list)) == 2:
+        return None
+    if return_list:
+        return widget_list
+    else:
+        return is_there_widget
 
 
-def find_circle_intersection(label_binary_image, center, radius_size, prev_direction):
+def find_circle_intersection(label_binary_image, center, radius_size, prev_direction, connect_type=8):
     """
     This function finds the intersection of a hand build circle with the white pixels of the binary image. The function
     returns the points of intersection, the direction of the points relative to the center, and the index of the point
@@ -360,12 +415,13 @@ def find_circle_intersection(label_binary_image, center, radius_size, prev_direc
     :param center: tuple
     :param radius_size: int
     :param prev_direction: float
+    :param connect_type: int
     :return: found_points: np.array, found_direction: np.array, best_fit_index: int
     """
     circle_image = np.zeros_like(label_binary_image)
     cv.circle(circle_image, center, radius_size, 255, 1)
     output = cv.bitwise_and(label_binary_image, circle_image)
-    num_links, labeled_link_image = cv.connectedComponents(output)
+    num_links, labeled_link_image = cv.connectedComponents(output, connectivity=connect_type)
     found_points = np.zeros((num_links - 1, 2)).astype(dtype='int64')
     for i in range(1, num_links):
         loc_y, loc_x = np.where(labeled_link_image == i)
@@ -378,8 +434,16 @@ def find_circle_intersection(label_binary_image, center, radius_size, prev_direc
     return found_points, found_direction, best_fit_index
 
 
-def link_detection(img_names_to_check):
-    is_there_widget = is_there_widget_creation(img_names_to_check)
+def link_detection(img_names_to_check, show_process=False):
+    """
+    This function detects the links between the widgets in the image. The function returns a matrix with the number of
+    links between the widgets. The function also returns an image with the links highlighted. If the show_process
+    parameter is set to True, the function will show the process of the link detection.
+    :param img_names_to_check: str
+    :param show_process: bool
+    :return: links: np.array, link_img: np.array
+    """
+    is_there_widget = widgets_from_image(img_names_to_check, False)
     if is_there_widget is None:
         return None, None
     img_names_tgt = get_filenames('widgets/')
@@ -395,6 +459,9 @@ def link_detection(img_names_to_check):
     form = (is_there_widget[indexes[0], 2], is_there_widget[indexes[0], 3])
     coord_y, coord_x = np.unravel_index(is_there_widget[indexes, 1], form) + np.floor(final_size/2).astype(dtype='int64')
     binary_image = np.where(tmp_img > 180, 0, 255).astype(np.uint8)
+    if widget_size < 50:
+        struct_elem = cv.getStructuringElement(cv.MORPH_CROSS, (3, 3))
+        binary_image = cv.dilate(binary_image, struct_elem, iterations=1)
     # identifying connected components location and potential links
     num_lab, labels_im = cv.connectedComponents(binary_image)
     labels_in = np.zeros((len(indexes), num_lab))
@@ -427,10 +494,7 @@ def link_detection(img_names_to_check):
                                                                 np.sum(check_presence, axis=1)[which_present])
             elif np.sum(which_present) > 1:
                 label_binary_image = np.where(labels_im == in_to_check[k], 255, 0).astype(dtype='uint8')
-                if widget_size < 36:
-                    struct_elem = cv.getStructuringElement(cv.MORPH_CROSS, (3, 3))
-                    label_binary_image = cv.dilate(label_binary_image, struct_elem, iterations=1)
-                start_points, _, _ = find_circle_intersection(label_binary_image, (coord_x[j]-round(widget_size/3.8),
+                start_points, _, _ = find_circle_intersection(label_binary_image, (coord_x[j]-round(widget_size/3.5),
                                                                                    coord_y[j]), round(widget_size/2), 0)
                 actual_start = start_points[start_points[:, 0] < coord_x[j]-tol, :]
                 in_element_index = indexes[j] - min(is_there_widget[indexes[j], 0], 0)
@@ -441,26 +505,35 @@ def link_detection(img_names_to_check):
                     prev_direction = 180
                     center = tuple(actual_start[i])
                     n_iter = 0
+                    first_iter = True
+                    tmp_link_img = np.zeros_like(tmp_img)
+                    same_link = 0
                     while True:
                         found_points, found_direction, best_fit_index = find_circle_intersection(label_binary_image, center,
-                                                                                                 round(widget_size/7), prev_direction)
+                                                                                                 round(widget_size/10), prev_direction, 4)
+                        if n_iter > 100 or same_link == 3:
+                            break
+                        if same_link < 3 and link_img[center[1], center[0]] == 255:
+                            same_link += 1
+                        elif same_link > 1:
+                            same_link = 0
                         if abs(abs(found_direction[best_fit_index] - prev_direction) - 180) < 20:
                             center = (center[0]+1, center[1])
+                        elif first_iter and abs(abs(found_direction[best_fit_index] - prev_direction) - 180) < 70:
+                            center = (center[0]-1, center[1])
                         else:
-                            cv.line(link_img, center, tuple(found_points[best_fit_index, :]), 255, 2)
+                            cv.line(tmp_link_img, center, tuple(found_points[best_fit_index, :]), 255, 2)
                             center = tuple(found_points[best_fit_index, :])
                             prev_direction = found_direction[best_fit_index]
-                        """image_to_show = cv.cvtColor(tmp_img, cv.COLOR_GRAY2BGR)
-                        cv.drawMarker(image_to_show, center, (0, 0, 255), cv.MARKER_CROSS, 10, 1)
-                        cv.imshow('image', image_to_show)
-                        cv.waitKey(200)"""
+                        if show_process:
+                            image_to_show = cv.cvtColor(tmp_img, cv.COLOR_GRAY2BGR)
+                            cv.drawMarker(image_to_show, center, (0, 0, 255), cv.MARKER_CROSS, round(widget_size/4), 2)
+                            cv.imshow('image', image_to_show)
+                            cv.waitKey(100)
                         n_iter += 1
-                        if n_iter > 100:
-                            break
-                        if np.any(np.logical_and(abs(center[0] - coord_x[except_element]) - tol*1.5 < 0,
-                                                 abs(center[1] - coord_y[except_element]) - tol*0.30 < 0)):
-                            which_present = np.logical_and(abs(center[0] - coord_x[except_element]) - tol*1.5 < 0,
-                                                           abs(center[1] - coord_y[except_element]) - tol*0.30 < 0)
+                        which_present = np.logical_and(abs(center[0] - coord_x[except_element]) - tol*1.5 < 0,
+                                                       abs(center[1] - coord_y[except_element]) - tol*0.5 < 0)
+                        if np.any(which_present):
                             out_element_index = indexes[except_element][which_present] - np.where(is_there_widget[
                                                                                                       indexes[except_element][which_present], 0] > 0, 0, is_there_widget[
                                                                                                       indexes[except_element][which_present], 0])
@@ -468,20 +541,23 @@ def link_detection(img_names_to_check):
                                                          out_element_index - len(is_there_widget),
                                                          out_element_index)
                             links[in_element_index, out_element_index] = (links[in_element_index, out_element_index] + 1)
+                            link_img[tmp_link_img == 255] = 255
                             break
-
-    """cv.destroyAllWindows()
-    cv.waitKey(1)"""
+                        first_iter = False
+    if show_process:
+        cv.destroyAllWindows()
+        cv.waitKey(1)
     return links, link_img
 
 
-def widget_pairs_from_image(img_names_to_check):
+def widget_pairs_from_image(img_names_to_check, show_process=False):
     """
     This function returns the list of widget pairs present in the image
     :param img_names_to_check: str
+    :param show_process: bool
     :return: link_list: list of tuples of tuples
     """
-    links, _ = link_detection(img_names_to_check)
+    links, _ = link_detection(img_names_to_check, show_process)
     if links is None:
         return None
     img_names_tgt = get_filenames('widgets/')
@@ -509,6 +585,62 @@ def widget_pairs_from_image(img_names_to_check):
         for j in range(links[a[i], b[i]]):
             link_list.append(((module1, name1), (module2, name2)))
     return link_list
+
+
+def extract_workflows(img_names_to_check=None, no_yaml=False):
+    """
+    This function extracts the workflows from the image. Given the information about the position of the widgets
+    contained in the image, the function crops the image to obtain a new image with only the workflow.
+    :param img_names_to_check: str
+    :param no_yaml: bool
+    """
+    if img_names_to_check is None:
+        try:
+            with open('image-analysis-results/image-widgets.yaml', 'r') as file:
+                widgets = yaml.safe_load(file)
+        except FileNotFoundError:
+            print('The image-widgets.yaml file is missing, please run the update_widget_list function first, set the '
+                  'no_yaml parameter to True or specify the specific image name with the img_names_to_check parameter')
+            return
+        list_to_check = list([])
+        for name in widgets:
+            if widgets[name]['widgets'] is not None:
+                list_to_check.append('orange-lecture-notes-web/public/chapters/' + widgets[name]['path'] + '/' + widgets[name]['filename'])
+    elif no_yaml:
+        list_to_check = get_filenames('orange-lecture-notes-web/public/chapters')
+    else:
+        list_to_check = [img_names_to_check]
+    progress_bar = tqdm(total=len(list_to_check), desc="Progress")
+    for i in range(len(list_to_check)):
+        path = 'cropped_workflows/'+list_to_check[i].split('chapters/')[-1]
+        if not os.path.exists(path):
+            is_there_widget = widgets_from_image(list_to_check[i], False)
+            img = cv.imread(list_to_check[i])
+            widget_size = size_identification(list_to_check[i])
+            which_present = np.where(is_there_widget[:, 0] != 0)[0]
+            y_locs, x_locs = np.unravel_index(is_there_widget[which_present, 1], (is_there_widget[which_present[0], 2],
+                                                                                  is_there_widget[which_present[0], 3]))
+            y_min = max(round(np.min(y_locs)-widget_size/4), 0)
+            x_min = max(round(np.min(x_locs)-widget_size/1.6), 0)
+            y_max = min(round(np.max(y_locs) + widget_size/0.6), img.shape[0])
+            x_max = min(round(np.max(x_locs) + widget_size/0.6), img.shape[1])
+            img = img[y_min:y_max, x_min:x_max]
+            os.makedirs(os.path.dirname(path), exist_ok=True)
+            cv.imwrite(path, img)
+        progress_bar.update(1)
+    progress_bar.close()
+
+
+def workflow_to_code(img_names_to_check):
+    is_there_widget = widgets_from_image(img_names_to_check, False)
+    if is_there_widget is None:
+        return None
+    which = np.where(is_there_widget[:, 0] < 0)[0]
+    widget_presence = is_there_widget[:, 0]
+    for i in which:
+        widget_presence[i - is_there_widget[i, 0] - len(is_there_widget)] += 1
+        widget_presence[i] = 0
+    return widget_presence
 
 
 def update_image_list():
@@ -653,7 +785,7 @@ def update_image_links():
         path = img_names_to_check[i].split('/')[3:-1]
         path = '/'.join(path)
         key = path + '---' + img_name
-        if size is not None:
+        if size is not None and len(path) > 0:
             try:
                 prev_date = links[key]['date']
                 prev_date = date.fromisoformat(prev_date)
@@ -678,7 +810,7 @@ def update_image_links():
                                   'filename': img_name,
                                   'date': str(today),
                                   'links': None}
-        else:
+        elif len(path) > 0:
             try:
                 prev_date = links[key]['date']
                 prev_date = date.fromisoformat(prev_date)
@@ -693,3 +825,36 @@ def update_image_links():
     with open(yaml_direct+'/image-links.yaml', 'w') as file:
         yaml.dump(links, file, sort_keys=False)
     progress_bar.close()
+
+
+def create_dataset():
+    """
+    This function creates an excel file with the information about the widgets present in the images. The excel file
+    contains the name of the workflow, the path of the image, and the widgets present in the image
+    :return:
+    """
+    workbook = openpyxl.Workbook()
+    sheet = workbook.active
+    try:
+        img_names_to_check = get_filenames('cropped_workflows/')
+    except FileNotFoundError:
+        print('There are no cropped workflows, run the function extract_workflows() first')
+        exit(0)
+    widget_names = get_filenames('widgets/')
+    progress_bar = tqdm(total=len(img_names_to_check), desc='Progress')
+    sheet['A1'] = 'Workflow name'
+    sheet['B1'] = 'Path'
+    for j in range(len(widget_names)):
+        sheet.cell(row=1, column=j+3, value=urllib.parse.unquote(widget_names[j].split('-')[1]).replace('.png', ''))
+    for i in range(len(img_names_to_check)):
+        sheet['A'+str(i+2)] = 'Workflow ' + str(i+1)
+        sheet['B'+str(i+2)] = os.getcwd() + '/' + img_names_to_check[i]
+        code = workflow_to_code(img_names_to_check[i])
+        for j in range(len(code)):
+            sheet.cell(row=i+2, column=j+3, value=code[j])
+        progress_bar.update(1)
+    progress_bar.close()
+    workbook.save('image-analysis-results/workflows-dataset.xlsx')
+
+
+#%%

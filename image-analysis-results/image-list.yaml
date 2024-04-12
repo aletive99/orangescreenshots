@@ -1,26 +1,26 @@
 teme-blaz/poenostavitve-dendrogramov:
   document-title: Poenostavitve dendrogramov
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - dendrogram.png
 teme-blaz/klepetalniki-in-delotoki:
   document-title: Klepetalnik za delotoke
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - delotok.png
 teme-blaz/supervised-pca:
   document-title: Nadzorovan PCA
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - freeviz.png
 teme-blaz/zaupanje:
   document-title: "Pristranost in razlo\u017Eljivost"
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - primeri-razlag.png
 single-cell-tutorial-notes/sc-notes-01-datasets:
   document-title: Single Cell Datasets
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - sc-notes-01-05_80.jpg
   - Screenshot 2023-08-22 at 15.33.30_80.jpg
@@ -44,7 +44,7 @@ single-cell-tutorial-notes/sc-notes-01-datasets:
   - Screenshot 2023-08-22 at 15.15.19_80.jpg
 ds-intro/030-correlations:
   document-title: Correlations
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - connection.png
   - features.png
@@ -53,7 +53,7 @@ ds-intro/030-correlations:
   - correlations.png
 ds-intro/020-saving-your-work:
   document-title: Saving your Work
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - remove.png
   - scatterplot-highlighted.png
@@ -63,7 +63,7 @@ ds-intro/020-saving-your-work:
   - save.png
 ds-intro/050-data-construction:
   document-title: Data Construction
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - save-data-workflow.png
   - file.png
@@ -72,7 +72,7 @@ ds-intro/050-data-construction:
   - excel-no-eyes.png
 ds-intro/010-workflows:
   document-title: Orange Workflows
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - data-table-hdi.png
   - scatterplot-show-subset-wf.png
@@ -93,7 +93,7 @@ ds-intro/010-workflows:
   - scatterplot-add-widget.png
 ds-intro/040-data-distributions:
   document-title: Distributions
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - sieve-wf.png
   - dataset-dist-wf.png
@@ -112,7 +112,7 @@ ds-intro/040-data-distributions:
   - box-plot-conditioned.png
 dali4us/1-trees/1-box-plot:
   document-title: Orange and Widgets
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - data-table.png
   - box-plot.png
@@ -122,7 +122,7 @@ dali4us/1-trees/1-box-plot:
   - orange-start.png
 dali4us/1-trees/4-quadrilaterals:
   document-title: Quadrilaterals
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - pivot.png
   - workflow-image-viewer.png
@@ -131,18 +131,18 @@ dali4us/1-trees/4-quadrilaterals:
   - kite.png
 dali4us/1-trees/2-classification-trees-manually:
   document-title: Splitting hairs and feathers
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - boxplot-backbone.png
   - boxplot-airborne.png
 dali4us/1-trees/3-classification-trees:
   document-title: Classification trees
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - tree.png
 dali4us/2-logreg/2-bicycle-2d:
   document-title: Logistic regression
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - scatterplot-line.png
   - data-table.png
@@ -159,7 +159,7 @@ dali4us/2-logreg/2-bicycle-2d:
   - bikes.png
 dali4us/2-logreg/3-accuracy:
   document-title: Accuracy
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - tree-no-prunning-parameters.png
   - tree-accuracy.png
@@ -182,7 +182,7 @@ dali4us/2-logreg/3-accuracy:
   - cv.png
 dali4us/2-logreg/1-dec-boundary:
   document-title: Decision Boundary
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - line-2.png
   - line-1.png
@@ -191,7 +191,7 @@ dali4us/2-logreg/1-dec-boundary:
   - square.png
 dali4us/2-logreg/4-multivariate:
   document-title: Multidimensional Data
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - nomogram-guess.png
   - dataset.png
@@ -202,7 +202,7 @@ dali4us/2-logreg/4-multivariate:
   - cv-on-lr.png
 dali4us/5-houses:
   document-title: Image Analytics + Clustering + Classification
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - confusion-matrix.png
   - image-divaca.png
@@ -213,7 +213,7 @@ dali4us/5-houses:
   - test-and-score.png
 pumice/priimkoslovje/02-koprcani:
   document-title: "Komu so podobni Kopr\u010Dani?"
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - razdalje-razlaga.png
   - kos-dendrograma.png
@@ -227,7 +227,7 @@ pumice/priimkoslovje/02-koprcani:
   - zbirke-razdalje-matrika.png
 pumice/priimkoslovje/01-zajci-in-medvedi:
   document-title: "Je v Sloveniji ve\u010D Zajcev ali Medvedov?"
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - box-box.png
   - workflow-hozjan.png
@@ -243,14 +243,14 @@ pumice/priimkoslovje/01-zajci-in-medvedi:
   - w-tabela.png
 pumice/priimkoslovje/04-najvecji-v-dezeli:
   document-title: "Kdo najve\u010Dji v de\u017Eeli je tej?"
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - delotok-resitev.png
   - tabela.png
   - gruca.png
 pumice/priimkoslovje/03-prleki-in-prekmurci:
   document-title: Saj Prleki so Prekmurci, a niso?
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - delotok-resitev.png
   - prerezan-dendrogram.png
@@ -258,7 +258,7 @@ pumice/priimkoslovje/03-prleki-in-prekmurci:
   - zemljevid-4.png
 pumice/ui-za-ucitelje/38-je-to-res-grucenje:
   document-title: "Je to res gru\u010Denje?!"
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - dendrogram.png
   - gruce-na-zemljevidu.png
@@ -267,7 +267,7 @@ pumice/ui-za-ucitelje/38-je-to-res-grucenje:
   - linkage.png
 pumice/ui-za-ucitelje/37-kje-smo-in-zakaj:
   document-title: Kje smo - in zakaj
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - porazdelitve.png
   - afrika-in-razviti.png
@@ -277,7 +277,7 @@ pumice/ui-za-ucitelje/37-kje-smo-in-zakaj:
   - afrika-in-razviti-porazdelitev.png
 pumice/ui-za-ucitelje/01-ugrizni-v-pomaranco:
   document-title: "Ugrizni v pomaran\u010Do"
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - izhod.png
   - tabela.png
@@ -287,7 +287,7 @@ pumice/ui-za-ucitelje/01-ugrizni-v-pomaranco:
   - zbirke-podatkov.png
 pumice/ui-za-ucitelje/10-skatle-z-brki:
   document-title: "\u0160katle z brki, politiki brez"
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - zenske-afrika.png
   - razsevni-delez-zensk.png
@@ -296,7 +296,7 @@ pumice/ui-za-ucitelje/10-skatle-z-brki:
   - brki-vere.png
 pumice/ui-za-ucitelje/50-zivalsko-drevo:
   document-title: "\u017Divalsko drevo"
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - zuzelke-vretencarji.png
   - drevo.png
@@ -305,7 +305,7 @@ pumice/ui-za-ucitelje/50-zivalsko-drevo:
   - delotok.png
 pumice/ui-za-ucitelje/05-bolj-ali-manj-modri:
   document-title: "Bolj ali manj modre dr\u017Eave"
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - dva-izhoda.png
   - velikost-kosev.png
@@ -316,7 +316,7 @@ pumice/ui-za-ucitelje/05-bolj-ali-manj-modri:
   - kos.png
 pumice/ui-za-ucitelje/02-igra-tabel:
   document-title: Igra tabel
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - dve-tabeli.png
   - preurejanje.png
@@ -324,7 +324,7 @@ pumice/ui-za-ucitelje/02-igra-tabel:
   - po-abecedi.png
 pumice/ui-za-ucitelje/06-pametni-zivijo-dlje:
   document-title: "Pametni \u017Eivijo dlje"
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - regresija.png
   - funkcija.png
@@ -334,7 +334,7 @@ pumice/ui-za-ucitelje/06-pametni-zivijo-dlje:
   - delotok.png
 pumice/ui-za-ucitelje/13-brkate-skatle-brez-brkov:
   document-title: "\u0160katle z brki brez brkov"
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - vecinska-vera-z-brki.png
   - celine-porazdelitev.png
@@ -345,7 +345,7 @@ pumice/ui-za-ucitelje/13-brkate-skatle-brez-brkov:
   - celine.png
 pumice/ui-za-ucitelje/08-vsaka-riba-ni-slanik:
   document-title: Vsaka riba ni slanik
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - dodajanje-tabele.png
   - povecava.png
@@ -355,7 +355,7 @@ pumice/ui-za-ucitelje/08-vsaka-riba-ni-slanik:
   - urejanje-povezav.png
 pumice/ui-za-ucitelje/09-isto-z-manj-slamparije:
   document-title: "Isto, a z manj \u0161lamparije"
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - zdruzi-vrstice.png
   - zdruzi-vrstice-povezovanje.png
@@ -364,7 +364,7 @@ pumice/ui-za-ucitelje/09-isto-z-manj-slamparije:
   - datoteka.png
 pumice/ui-za-ucitelje/07-kdo-je-nasrkal:
   document-title: Kdo je nasrkal?
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - izbiranje-gledanje.png
   - zemljevid.png
@@ -373,7 +373,7 @@ pumice/ui-za-ucitelje/07-kdo-je-nasrkal:
   - delotok.png
 pumice/ui-za-ucitelje/03-nocem-v-solo:
   document-title: "Mami, jest no\u010Dem v \u0161olo!"
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - porazdelitve-intervali.png
   - porazdelitve.png
@@ -381,7 +381,7 @@ pumice/ui-za-ucitelje/03-nocem-v-solo:
   - porazdelitve-tooltip.png
 pumice/ui-za-ucitelje/36-gruce-drzav:
   document-title: "Gru\u010De dr\u017Eav"
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - grucenje.png
   - delotok-grucenje.png
@@ -389,7 +389,7 @@ pumice/ui-za-ucitelje/36-gruce-drzav:
   - linkage.png
 pumice/ui-za-ucitelje/39-poimenovanje:
   document-title: Poimenovanje
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - porazdelitve.png
   - uredi-domeno.png
@@ -397,24 +397,24 @@ pumice/ui-za-ucitelje/39-poimenovanje:
   - delotok.png
 pumice/ui-za-ucitelje/35-kako-dalec-smo-od-kanade:
   document-title: "Kako dale\u010D smo od Kanade?"
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - evklid-manhattan.png
   - matrika-razdalj.png
 pumice/ui-za-ucitelje/51-racunalnik-sestavi-drevo:
   document-title: "Ra\u010Dunalnik sestavi drevo"
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - drevo.png
   - entropija.png
 pumice/ui-za-ucitelje/12-teksaski-ostrostrelec:
   document-title: "Teksa\u0161ki ostrostrelec"
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - TexasSharpShooter.png
 pumice/ui-za-ucitelje/40-ce-bi-bil-svet-ploscat:
   document-title: "\u010Ce bi bil svet plo\u0161\u010Dat"
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - mds-evropa.png
   - kuba.png
@@ -424,12 +424,12 @@ pumice/ui-za-ucitelje/40-ce-bi-bil-svet-ploscat:
   - delotok.png
 pumice/ui-za-ucitelje/04-kje-je-burkina-faso:
   document-title: Kje na svetu je Burkina Faso?!
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - choropleth.png
 pumice/ui-za-ucitelje/11-mi-in-oni:
   document-title: Mi in oni
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - evropa-stara.png
   - zivljenje-afrika-evropa.png
@@ -441,7 +441,7 @@ pumice/ui-za-ucitelje/11-mi-in-oni:
   - starost-in-rodnost.png
 bcm-quiz/01-intro-and-clustering:
   document-title: Quiz
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - distributions-gdp.png
   - scatterplot-age-fertility.png
@@ -452,7 +452,7 @@ bcm-quiz/01-intro-and-clustering:
   - boxplot-gdp.png
 bcm-quiz/03-dim-reduction:
   document-title: Quiz
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - sales.png
   - painted-lin.png
@@ -466,7 +466,7 @@ bcm-quiz/03-dim-reduction:
   - sales-executives.png
 bcm-quiz/02-k-means:
   document-title: Quiz
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - three-workflows.png
   - leukemia.png
@@ -481,7 +481,7 @@ bcm-quiz/02-k-means:
   - smile.png
 bcm-quiz/04-classification:
   document-title: Quiz
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - paint1-ca.png
   - paint1-scatter.png
@@ -493,7 +493,7 @@ bcm-quiz/04-classification:
   - create-instance-workflow.png
 bcm-quiz/05-regression:
   document-title: Quiz
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - preprocess.png
   - fss-house.png
@@ -513,7 +513,7 @@ bcm-quiz/05-regression:
   - regtrain.png
 survival-analysis-tutorial/sa-notes-01-the-data-and-survival-curve:
   document-title: Survival Data and Survival Curve
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - 02-workflow.png
   - 01-datatable-excel.png
@@ -523,7 +523,7 @@ survival-analysis-tutorial/sa-notes-01-the-data-and-survival-curve:
   - 02-km-plot-orange.png
 survival-analysis-tutorial/sa-quiz-01-the-data-and-survival-curve:
   document-title: Survival Data and Survival Curve
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - explanation_2.png
   - explanation_3.png
@@ -533,7 +533,7 @@ survival-analysis-tutorial/sa-quiz-01-the-data-and-survival-curve:
   - explanation_1_old.png
 survival-analysis-tutorial/sa-quiz-03-ranking-genes:
   document-title: Ranking Genes
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - explanation_2.png
   - explanation_1.png
@@ -545,12 +545,12 @@ survival-analysis-tutorial/sa-quiz-03-ranking-genes:
   - uv_geneset.png
 survival-analysis-tutorial/sa-quiz-05-questionnaire:
   document-title: Post-test Questionnaire
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - t-shirt.png
 survival-analysis-tutorial/sa-notes-04-ranking-gene-sets:
   document-title: Ranking gene sets
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - load-custom-genesets.png
   - 068-kmhypoxia.png
@@ -568,7 +568,7 @@ survival-analysis-tutorial/sa-notes-04-ranking-gene-sets:
   - 061-data.png
 survival-analysis-tutorial/sa-quiz-02-exploring-survival-features:
   document-title: Exploring Survival Features
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - explanation_4.2.png
   - explanation_2.png
@@ -580,7 +580,7 @@ survival-analysis-tutorial/sa-quiz-02-exploring-survival-features:
   - explanation_3.2.png
 survival-analysis-tutorial/sa-notes-02-exploring-survival-features:
   document-title: Exploring Survival Features
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - 04-rewire-connection.png
   - 03-workflow.png
@@ -602,7 +602,7 @@ survival-analysis-tutorial/sa-notes-02-exploring-survival-features:
   - 04-distributions.png
 survival-analysis-tutorial/sa-notes-03-ranking-genes:
   document-title: Ranking genes
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - 057-discretize.png
   - 055-geneset.png
@@ -614,7 +614,7 @@ survival-analysis-tutorial/sa-notes-03-ranking-genes:
   - 053-kras.png
 survival-analysis-tutorial/sa-quiz-04-ranking-gene-sets:
   document-title: Ranking gene sets
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - load-custom-genesets.png
   - explanation_2.png
@@ -624,13 +624,13 @@ survival-analysis-tutorial/sa-quiz-04-ranking-gene-sets:
   - explanation_3.2.png
 mlai/quiz1a:
   document-title: Quiz 1
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - boxplot-hdi-05.png
   - rewire-to-boxplot.png
 mlai/quiz2-lr:
   document-title: 'Quiz: Linear Regression'
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - weights-standardized.png
   - cv-unregularized.png
@@ -641,12 +641,12 @@ mlai/quiz2-lr:
   - r2-after-reg.png
 mlai/quiz5:
   document-title: Quiz
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - roc.png
 mlai/quiz3:
   document-title: Quiz
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - bayes-workflow.png
   - bayes-nomogram.png
@@ -654,7 +654,7 @@ mlai/quiz3:
   - create-instance-workflow.png
 mlai/quiz4:
   document-title: 'Quiz: Overfitting'
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - tree-default-nodes.png
   - tree-unprunned-ca.png
@@ -678,7 +678,7 @@ mlai/quiz4:
   - tree-fully-pruned-ca.png
 mlai/quiz1b:
   document-title: Quiz 2
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - distributions-gdp.png
   - scatterplot-age-fertility.png
@@ -687,7 +687,7 @@ mlai/quiz1b:
   - boxplot-gdp.png
 ds-regression/020-regularization:
   document-title: Regularization
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - settings.png
   - workflow-coefficients.png
@@ -695,13 +695,13 @@ ds-regression/020-regularization:
   - workflow-ridge.png
 ds-regression/060-l1-l2:
   document-title: L1 and L2 Regularization
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - experiment.png
   - l1-and-l2.png
 ds-regression/040-live-long:
   document-title: Live Long
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - weights.png
   - feature-constructor.png
@@ -714,14 +714,14 @@ ds-regression/040-live-long:
   - workflow.png
 ds-regression/010-linear-regression:
   document-title: Linear Regression
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - overfitting.png
   - paint.png
   - line.png
 ds-regression/050-analysis:
   document-title: Accuracy Analysis
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - scatterplot-errors.png
   - error-workflow.png
@@ -730,13 +730,13 @@ ds-regression/050-analysis:
   - workflow.png
 ds-regression/030-reg-and-accuracy:
   document-title: Accuracy
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - train-test.png
   - workflow.png
 biomedvis/fundamentals:
   document-title: Fundamentals
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - iphone-barchart-orig.jpg
   - iphone-barchart.jpg
@@ -744,13 +744,13 @@ biomedvis/fundamentals:
   - crick-watson.jpg
 biomedvis/bio:
   document-title: Biological Data
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - pangenome.png
   - heatmap.png
 embedding-explanations/quiz-1-penguins:
   document-title: Penguins
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - penguins.png
   - penguin-schematic.png
@@ -760,7 +760,7 @@ embedding-explanations/quiz-1-penguins:
   - penguins-sm-q3.png
 embedding-explanations/quiz-2-attrition:
   document-title: Employee Attrition
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - employee-attrition-sm-q1.png
   - employee-attrition-sm-q2.png
@@ -771,7 +771,7 @@ embedding-explanations/quiz-2-attrition:
   - employee-attrition.png
 embedding-explanations/quiz-3-wine-quality:
   document-title: Wine Quality
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - wine-quality-sm-q4.png
   - wine-quality-sm-q1.png
@@ -781,7 +781,7 @@ embedding-explanations/quiz-3-wine-quality:
   - wine-quality.png
 embedding-explanations/quiz-1-iris:
   document-title: Iris Flowers
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - iris.png
   - iris-sm.png
@@ -790,7 +790,7 @@ embedding-explanations/quiz-1-iris:
   - flower-schematic.png
 embedding-explanations/quiz-2-titanic:
   document-title: Titanic
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - titanic-sm-q4.png
   - titanic.png
@@ -800,7 +800,7 @@ embedding-explanations/quiz-2-titanic:
   - titanic-sm.png
 embedding-explanations/quiz-3-boston-housing:
   document-title: Boston Housing Prices
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - housing-prices-sm-q4.png
   - housing-prices-sm-q1.png
@@ -810,7 +810,7 @@ embedding-explanations/quiz-3-boston-housing:
   - housing-prices.png
 embedding-explanations/quiz-3-raisin:
   document-title: Raisin
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - raisin-sm.png
   - raisin-sm-q1.png
@@ -819,7 +819,7 @@ embedding-explanations/quiz-3-raisin:
   - raisin.png
 ds-unsupervised/085-kmeans-zoo:
   document-title: k-Means on Zoo
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - animal-types.png
   - cluster-selection.png
@@ -830,7 +830,7 @@ ds-unsupervised/085-kmeans-zoo:
   - edit-links.png
 ds-unsupervised/030-dendrograms:
   document-title: Dendrograms
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - four-clusters.png
   - scatterplot-dendrogram-by-hand.png
@@ -838,7 +838,7 @@ ds-unsupervised/030-dendrograms:
   - dendrogram-scatterplot.png
 ds-unsupervised/050-clustering-geo-maps:
   document-title: Geo Maps
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - geocoding.png
   - four-groups.png
@@ -851,7 +851,7 @@ ds-unsupervised/050-clustering-geo-maps:
   - a.png
 ds-unsupervised/080-kmeans:
   document-title: k-Means
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - silhouette-scoring.png
   - interactive-k-means.png
@@ -859,7 +859,7 @@ ds-unsupervised/080-kmeans:
   - blob.png
 ds-unsupervised/010-euclidean-distances-2d:
   document-title: Distances in 2D
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - distance-matrix.png
   - select-columns.png
@@ -868,7 +868,7 @@ ds-unsupervised/010-euclidean-distances-2d:
   - grades-dataset.png
 ds-unsupervised/140-tsne:
   document-title: t-SNE
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - smiley.png
   - tsne-zoo.png
@@ -876,13 +876,13 @@ ds-unsupervised/140-tsne:
   - mds.png
 ds-unsupervised/040-clustering-higher-dim:
   document-title: High Dimensions
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - clustering.png
   - scatterplot.png
 ds-unsupervised/150-tsne-mds-pca:
   document-title: t-SNE vs PCA vs MDS
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - pca-sc.png
   - tsne-pca.png
@@ -890,7 +890,7 @@ ds-unsupervised/150-tsne-mds-pca:
   - mds-formulation.png
 ds-unsupervised/110-pca-details:
   document-title: PCA details
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - side-points.png
   - side-points-pca.png
@@ -905,7 +905,7 @@ ds-unsupervised/110-pca-details:
   - explore.png
 ds-unsupervised/060-explaining-clusters:
   document-title: Explanations
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - box-plot.png
   - rewiring.png
@@ -916,7 +916,7 @@ ds-unsupervised/060-explaining-clusters:
   - english.png
 ds-unsupervised/130-mds:
   document-title: MDS
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - website.png
   - europe.jpg
@@ -927,7 +927,7 @@ ds-unsupervised/130-mds:
   - mds.png
 ds-unsupervised/120-explaining-pca:
   document-title: Explaining PCA
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - weights.png
   - feature-constructor.png
@@ -939,7 +939,7 @@ ds-unsupervised/120-explaining-pca:
   - paint-data.png
 ds-unsupervised/100-pca:
   document-title: PCA
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - mikly-way.jpg
   - zoo-data.png
@@ -949,7 +949,7 @@ ds-unsupervised/100-pca:
   - explore.png
 ds-unsupervised/020-cluster-distances:
   document-title: Cluster Distances
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - scatterplot-circles.png
   - scatterplot-circles2.png
@@ -959,7 +959,7 @@ ds-unsupervised/020-cluster-distances:
   - linkage-average.png
 ds-unsupervised/070-silhouette:
   document-title: Silhouettes
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - three-outliers.png
   - silhouette-plot.png
@@ -968,34 +968,35 @@ ds-unsupervised/070-silhouette:
   - a.png
 uozp/01-grucenje-kviz:
   document-title: "Gru\u010Denje - kviz"
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - smile.png
 single-cell-tutorial-quiz/sc-03-batch-correction:
   document-title: Batch effect correction
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - batch_tile_annot.jpg
 single-cell-tutorial-quiz/sc-04-exploring-clusters:
   document-title: Exploring clusters
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - tsne-clusters.png
 single-cell-tutorial-quiz/sc-02-data-and-preprocessing:
   document-title: Single Cell Data
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - 2abc_tile_annot.jpg
   - 3abc_tile_annot.jpg
   - 1abc_tile_annot.jpg
 single-cell-tutorial-quiz/sc-01-introduction:
   document-title: Introduction
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - Screenshot 2023-08-22 at 15.11.50.png
+  - 01-sc-workflow.jpeg
 ds-images/010-embedding:
   document-title: Image Embedding
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - clustering.png
   - workflow-embedding.png
@@ -1003,7 +1004,7 @@ ds-images/010-embedding:
   - blog_deeplearning.jpg
 ds-performance/020-thresholds:
   document-title: Tweaking the Threshold
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - predictions-above-50.png
   - distributions.png
@@ -1011,7 +1012,7 @@ ds-performance/020-thresholds:
   - poor-mens-confusion.png
 ds-performance/060-precision-recall:
   document-title: Precision and Recall
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - calibration-plot-pr.png
   - distribution-fraud.png
@@ -1020,7 +1021,7 @@ ds-performance/060-precision-recall:
   - precision-recall.png
 ds-performance/030-operating-conditions:
   document-title: Operating Conditions
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - confusion-matrix.png
   - calibration-sens-spec.png
@@ -1028,7 +1029,7 @@ ds-performance/030-operating-conditions:
   - calibrate-thresholds.png
 ds-performance/040-roc:
   document-title: ROC Curves
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - confusion-matrix.png
   - roc.png
@@ -1036,37 +1037,37 @@ ds-performance/040-roc:
   - roc-workflow.png
 ds-performance/050-auc:
   document-title: Area under the Curve
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - ca-threshold.png
 ds-performance/010-ca:
   document-title: Why Not Just Use Accuracy?
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - confusion-matrix.png
   - workflow.png
 ds-classification/130-knn:
   document-title: k-NN
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - knn-orange.png
   - knn.png
 ds-classification/220-fss-random:
   document-title: Random Data
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - randomize.png
   - cv-on-fss.png
   - cv-on-randomized.png
 ds-classification/200-fss:
   document-title: Feature Subset Selection
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - cv-after-fss.png
   - rank.png
 ds-classification/110-random-forest:
   document-title: Random Forest
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - instability.png
   - accuracy.png
@@ -1074,14 +1075,14 @@ ds-classification/110-random-forest:
   - rank.png
 ds-classification/120-svm:
   document-title: SVM
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - logistic-regression.png
   - svm.png
   - orange-svm.png
 ds-classification/300-scoring:
   document-title: Classification Model Scoring
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - cv-with-constant.png
   - gds4182.png
@@ -1092,13 +1093,13 @@ ds-classification/300-scoring:
   - a.png
 ds-classification/140-naive-bayes:
   document-title: Naive Bayes
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - data.png
   - nomogram.png
 ds-classification/050-cross-validation:
   document-title: Cross-Validation
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - cross-validation.png
   - resample.png
@@ -1106,13 +1107,13 @@ ds-classification/050-cross-validation:
   - test-and-score.png
 ds-classification/030-accuracy:
   document-title: Accuracy
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - predictions.png
   - workflow.png
 ds-classification/100-logreg:
   document-title: Logistic Regression
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - logistic-regression.png
   - nomogram.png
@@ -1120,7 +1121,7 @@ ds-classification/100-logreg:
   - workflow.png
 ds-classification/020-trees:
   document-title: Trees
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - inspection.png
   - box-plot.png
@@ -1128,14 +1129,14 @@ ds-classification/020-trees:
   - tree.png
 ds-classification/210-fss-cheating:
   document-title: Cheating with FSS
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - preprocess.png
   - results.png
   - overfitting-workflow.png
 ds-classification/040-cheating:
   document-title: How to Cheat
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - randomize.png
   - split-distributions.png
@@ -1146,20 +1147,20 @@ ds-classification/040-cheating:
   - overfit-distributions.png
 ds-classification/010-classification:
   document-title: Classification
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - two-scatterplots.png
   - predictions.png
   - iris-data-sample.png
 ds-classification/230-fss-evaluation:
   document-title: Doing it Right
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - fss-to-learner.png
   - fss-to-cv.png
 x01-silhouette:
   document-title: Silhouettes
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - silhouette-a.png
   - silhouette-b.png
@@ -1172,7 +1173,7 @@ x01-silhouette:
   - kmeans-silhouette-scores.png
 xaim-help/xaim-adding-material:
   document-title: Adding material to courses
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - Step 1.png
   - Step 2.png
@@ -1180,7 +1181,7 @@ xaim-help/xaim-adding-material:
   - activities.png
 xaim-help/xaim-adding-files:
   document-title: Adding files and images to lectures
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - Screenshot 2023-01-11 at 10.12.10.png
   - template-course.png
@@ -1193,56 +1194,56 @@ xaim-help/xaim-adding-files:
   - image-name.png
 xaim-help/xaim-login-xaim:
   document-title: 'First Login '
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - demo-sign-in.png
   - password-change.png
   - new-user-account.png
 bcm-homeworks/roc:
   document-title: Homework 5
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - roc.png
 arisa/data-exploration/02-distances:
   document-title: Distances
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - workflow-nn.png
 arisa/data-exploration/01-data:
   document-title: Data exploration
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - workflow-datasets.png
   - datasets-attrition.png
   - boxplot.png
 arisa/data-exploration/04-explanation:
   document-title: Explanations
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - dendrogram-boxplot.png
   - explain-workflow.png
 text-mining/070-semantic-analysis:
   document-title: Semantic Analysis
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - semantic-analysis-workflow.png
   - annotated-corpus-map.png
   - word-cloud-semantic.png
 text-mining/041-word-enrichment:
   document-title: Word Enrichment
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - word-enrichment.png
   - workflow.png
 text-mining/032-model-evaluation:
   document-title: Model Evaluation
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - test-and-score.png
   - workflow.png
 text-mining/071-semantic-search:
   document-title: Semantic Search
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - semantic-viewer.png
   - semantic-search-workflow.png
@@ -1250,13 +1251,13 @@ text-mining/071-semantic-search:
   - word-list.png
 text-mining/033-predictions:
   document-title: Predictions
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - predictions.png
   - workflow.png
 text-mining/010-text-preprocessing:
   document-title: Text Preprocessing
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - filtering.png
   - preprocessed-word-cloud.png
@@ -1267,14 +1268,14 @@ text-mining/010-text-preprocessing:
   - word-cloud.png
 text-mining/020-bag-of-words:
   document-title: Bag of Words
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - data-table.png
   - bag-of-words.png
   - workflow.png
 text-mining/040-document-clustering:
   document-title: Document Clustering
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - hier-clust-clusters.png
   - workflow2.png
@@ -1284,7 +1285,7 @@ text-mining/040-document-clustering:
   - mds.png
 text-mining/060-sentiment-analysis:
   document-title: Sentiment Analysis
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - sentiment-analysis.png
   - heat-map.png
@@ -1293,37 +1294,37 @@ text-mining/060-sentiment-analysis:
   - workflow.png
 text-mining/001-introduction:
   document-title: Introduction to Text Mining
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - corpus.png
   - add-on-installation.png
   - workflow.png
 text-mining/031-logistic-regression:
   document-title: Logistic Regression
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - nomogram.png
   - workflow.png
 text-mining/011-concordances:
   document-title: Concordances
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - concordance.png
   - workflow.png
 text-mining/030-document-classification:
   document-title: Document Classification
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - predictions.png
   - workflow.png
 text-mining/021-document-embedding:
   document-title: Document Embedding
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - word-embeddings.png
 text-mining/050-topic-modeling:
   document-title: Topic Modeling
-  date: '2024-04-02'
+  date: '2024-04-04'
   images:
   - LDA.png
   - schema.png
