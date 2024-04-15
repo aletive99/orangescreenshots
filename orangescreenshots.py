@@ -816,8 +816,17 @@ def extract_workflows(img_names_to_check=None, no_yaml=False):
 
 
 def workflow_to_code(img_names_to_check, return_labels=False, only_enriched=False):
+    """
+    This function returns the code of the widgets present in the image. The code is a binary vector where 1 indicates the
+    presence of the widget or link and 0 indicates the absence of the widget.  If the return_labels parameter is set to
+    True, the function will return the labels of the widgets present in the image. If the only_enriched parameter is set
+    to True, the function will return the code of only the enriched widgets and links.
+    :param img_names_to_check:
+    :param return_labels:
+    :param only_enriched:
+    :return: code: np.array, label_list: np.array
+    """
     yaml_direct = 'image-analysis-results'
-    label_list =[]
     try:
         with open(yaml_direct+'/image-widgets.yaml', 'r') as file:
             widgets = yaml.safe_load(file)
@@ -839,8 +848,9 @@ def workflow_to_code(img_names_to_check, return_labels=False, only_enriched=Fals
         code = []
         if widgets_present is not None:
             for j in range(len(widgets_present)):
+                widget = widgets_present[j].split('/')[0]
                 for i in range(len(list_of_widget)):
-                    if widgets_present[j].split('/')[0] == list_of_widget[i]:
+                    if widget == list_of_widget[i]:
                         widget_matrix[i] = 1
             for i in widget_matrix:
                 code.append(i[0])
@@ -860,8 +870,9 @@ def workflow_to_code(img_names_to_check, return_labels=False, only_enriched=Fals
         code = []
         if widgets_present is not None:
             for j in range(len(widgets_present)):
+                widget = widgets_present[j].split('/')[0]
                 for i in range(len(widgets_enriched)):
-                    if widgets_present[j].split('/')[0] in widgets_enriched[i]:
+                    if widget == widgets_enriched[i]:
                         widget_matrix[i] = 1
             for i in widget_matrix:
                 code.append(i[0])
@@ -888,8 +899,9 @@ def workflow_to_code(img_names_to_check, return_labels=False, only_enriched=Fals
         link_matrix = np.zeros((len(list_of_links), 1))
         if links_present is not None:
             for j in range(len(links_present)):
+                link = links_present[j].split('/')[0]
                 for i in range(len(list_of_links)):
-                    if links_present[j].split('/')[0] == list_of_links[i]:
+                    if link == list_of_links[i]:
                         link_matrix[i] = 1
             for i in link_matrix:
                 code.append(i[0])
@@ -908,8 +920,9 @@ def workflow_to_code(img_names_to_check, return_labels=False, only_enriched=Fals
         link_matrix = np.zeros((len(links_enriched), 1))
         if links_present is not None:
             for j in range(len(links_present)):
+                link = links_present[j].split('/')[0]
                 for i in range(len(links_enriched)):
-                    if links_present[j].split('/')[0] in links_enriched[i]:
+                    if link in links_enriched[i]:
                         link_matrix[i] = 1
             for i in link_matrix:
                 code.append(i[0])
@@ -924,10 +937,14 @@ def workflow_to_code(img_names_to_check, return_labels=False, only_enriched=Fals
         return label_list
 
 
-def create_dataset(min_thresh=3, only_enriched=False):
+def create_dataset(min_thresh=4, only_enriched=False):
     """
     This function creates an excel file with the information about the widgets present in the images. The excel file
-    contains the name of the workflow, the path of the image, and the widgets present in the image
+    contains the name of the workflow, the path of the image, and the widgets present in the image. The function also
+    filters the widgets that are present in less than the min_thresh number of images. If the only_enriched parameter is
+    set to True, the function will only consider the enriched widgets and links.
+    :param min_thresh: int
+    :param only_enriched: bool
     :return:
     """
     workbook = openpyxl.Workbook()
@@ -958,13 +975,19 @@ def create_dataset(min_thresh=3, only_enriched=False):
             sheet.cell(row=i+2, column=j+5, value=code[j])
         progress_bar.update(1)
     progress_bar.close()
+    count_matrix = np.zeros((sheet.max_column-4, 1))
     for i in range(5, sheet.max_column+1):
         count = 0
         for j in range(2, sheet.max_row+1):
             if sheet.cell(row=j, column=i).value == 1:
                 count += 1
-        if count < min_thresh:
-            sheet.delete_cols(i)
+        count_matrix[i-5] = count
+    to_delete = np.where(count_matrix < min_thresh)[0] + 5
+    progress_bar = tqdm(total=len(to_delete), desc='Progress')
+    for i in to_delete:
+        sheet.delete_cols(i)
+        progress_bar.update(1)
+    progress_bar.close()
     workbook.save('image-analysis-results/workflows-dataset.xlsx')
 
 
