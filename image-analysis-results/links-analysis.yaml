@@ -1,0 +1,248 @@
+- Datasets -> Test and Score
+- Single sample scoring -> Data Table
+- Distances -> MDS
+- Ontology -> Tree Viewer
+- Corpus -> Preprocess Text
+- Select Columns -> Distances
+- Data Sampler -> Ontology
+- Test and Score -> Confusion Matrix
+- t-SNE -> Scatter Plot
+- Logistic Regression -> Nomogram
+- Create Instance -> Nomogram
+- Image Embedding -> Data Table
+- Merge Data -> Merge Data
+- Randomize -> Scatter Plot
+- Datasets -> Discretize
+- Randomize -> Ontology
+- File -> Select Columns
+- Corpus -> Concordance
+- Linear Regression -> Polynomial Regression
+- Paint Data -> Tree
+- Paint Data -> Polynomial Regression
+- Predictions -> Data Table
+- t-SNE -> Box Plot
+- Datasets -> k-Means
+- Distributions -> Data Table
+- Datasets -> As Survival Data
+- Data Sampler -> Predictions
+- As Survival Data -> Select Rows
+- Single Cell Datasets -> Data Sampler
+- Data Table -> Data Table
+- Single sample scoring -> Select Columns
+- Predictions -> ROC Analysis
+- File -> Test and Score
+- Linear Regression -> Formula
+- Bag of Words -> Distances
+- Tree Viewer -> Data Table
+- File -> Pivot Table
+- Datasets -> Distances
+- Hierarchical Clustering -> Geocoding
+- Datasets -> Corpus
+- Ontology -> Pythagorean Tree
+- Datasets -> Select Columns
+- Data Table -> Hierarchical Clustering
+- As Survival Data -> Kaplan-Meier Plot
+- Hierarchical Clustering -> k-Means
+- Box Plot -> Geo Map
+- Logistic Regression -> Test and Score
+- Distances -> Distance Matrix
+- Import Images -> Data Table
+- Datasets -> Continuize
+- Predictions -> Distributions
+- Preprocess Text -> Bag of Words
+- Preprocess -> Logistic Regression
+- Transpose -> Formula
+- Linear Regression -> Data Table
+- Confusion Matrix -> Data Table
+- Select Columns -> Test and Score
+- Datasets -> Merge Data
+- Select Rows -> Distances
+- Neighbors -> Data Table
+- Paint Data -> k-Means
+- Datasets -> Logistic Regression
+- Bag of Words -> t-SNE
+- Image Embedding -> Distances
+- Select Rows -> Choropleth Map
+- MDS -> Data Table
+- File -> Preprocess
+- Topic Modelling -> LDAvis
+- Confusion Matrix -> Image Viewer
+- Randomize -> Data Table
+- Hierarchical Clustering -> Data Table
+- Paint Data -> Test and Score
+- Preprocess Text -> Semantic Viewer
+- Distances -> Hierarchical Clustering
+- Datasets -> Naive Bayes
+- Datasets -> PCA
+- Silhouette Plot -> Scatter Plot
+- File -> Randomize
+- Word List -> Semantic Viewer
+- Randomize -> Test and Score
+- Merge Data -> Box Plot
+- Hierarchical Clustering -> Corpus Viewer
+- File -> Ontology
+- Hierarchical Clustering -> Scatter Plot
+- Tree Viewer -> Scatter Plot
+- Hierarchical Clustering -> Edit Domain
+- Paint Data -> Silhouette Plot
+- File -> As Survival Data
+- Continuize -> PCA
+- Import Images -> Image Embedding
+- Image Viewer -> Data Table
+- Datasets -> Choropleth Map
+- Edit Domain -> Distributions
+- Create Instance -> Predictions
+- Predictions -> Scatter Plot
+- Datasets -> Distributions
+- Paint Data -> Distances
+- Paint Data -> t-SNE
+- File -> Naive Bayes
+- Merge Data -> Data Table
+- File -> Create Instance
+- File -> Select Rows
+- Distributions -> Distributions
+- Select Columns -> Rank Survival Features
+- Datasets -> Linear Regression
+- Edit Domain -> PCA
+- Gradient Boosting -> Test and Score
+- Select Columns -> Polynomial Regression
+- Predictions -> Confusion Matrix
+- Datasets -> Kaplan-Meier Plot
+- Paint Data -> Scatter Plot
+- Scatter Plot -> Choropleth Map
+- k-Means -> Merge Data
+- Rank Survival Features -> Genes
+- PCA -> Scatter Plot
+- Discretize -> Kaplan-Meier Plot
+- Random Forest -> Test and Score
+- Bag of Words -> Word Enrichment
+- Select Columns -> As Survival Data
+- Distributions -> Kaplan-Meier Plot
+- Genes -> Distributions
+- Import Images -> Image Viewer
+- File -> Data Sampler
+- Ontology -> Test and Score
+- Paint Data -> kNN
+- Pivot Table -> Image Viewer
+- Genes -> Gene Sets
+- Paint Data -> SVM
+- Tree Viewer -> Box Plot
+- As Survival Data -> Rank Survival Features
+- PCA -> Transpose
+- Topic Modelling -> MDS
+- MDS -> Formula
+- Datasets -> Scatter Plot
+- Predictions -> Predictions
+- Gene Sets -> As Survival Data
+- Paint Data -> PCA
+- Datasets -> Mosaic Display
+- Genes -> Single sample scoring
+- Datasets -> Random Forest
+- Rank Survival Features -> Discretize
+- Randomize -> Preprocess
+- Data Sampler -> Test and Score
+- Datasets -> Correlations
+- File -> Corpus
+- Select Columns -> Discretize
+- Data Sampler -> Data Table
+- Geo Map -> Image Viewer
+- Scatter Plot -> Scatter Plot
+- PCA -> Data Table
+- Naive Bayes -> Nomogram
+- Gene Sets -> Single sample scoring
+- Word Cloud -> Concordance
+- Scatter Plot -> Data Table
+- Polynomial Regression -> Test and Score
+- t-SNE -> Data Table
+- Datasets -> Predictions
+- Gene Sets -> Rank Survival Features
+- Merge Data -> Select Rows
+- Select Columns -> Heat Map
+- File -> Genes
+- Confusion Matrix -> t-SNE
+- Select Columns -> Save Data
+- Logistic Regression -> Predictions
+- Single Cell Datasets -> Data Table
+- Predictions -> Calibration Plot
+- Distance File -> Distance Matrix
+- Datasets -> Sieve Diagram
+- Box Plot -> Box Plot
+- Datasets -> Genes
+- File -> Logistic Regression
+- Bag of Words -> Topic Modelling
+- Datasets -> Data Table
+- Hierarchical Clustering -> Box Plot
+- File -> Merge Data
+- Linear Regression -> Predictions
+- File -> Linear Regression
+- Datasets -> t-SNE
+- Geo Map -> Data Table
+- Calibration Plot -> Predictions
+- Formula -> Data Table
+- Hierarchical Clustering -> Choropleth Map
+- Tree Viewer -> Rank
+- Corpus -> Sentiment Analysis
+- Datasets -> Ontology
+- Select Columns -> Data Table
+- Hierarchical Clustering -> Word Enrichment
+- Distributions -> Choropleth Map
+- File -> Image Embedding
+- Distance File -> MDS
+- Distributions -> Box Plot
+- Datasets -> Data Sampler
+- File -> Data Table
+- Hierarchical Clustering -> Geo Map
+- Edit Domain -> Choropleth Map
+- File -> Box Plot
+- Preprocess -> Linear Regression
+- Select Rows -> Kaplan-Meier Plot
+- Hierarchical Clustering -> Merge Data
+- As Survival Data -> Genes
+- k-Means -> Box Plot
+- Datasets -> Rank Survival Features
+- Preprocess -> Test and Score
+- Heat Map -> Corpus Viewer
+- Formula -> Scatter Plot
+- Data Sampler -> t-SNE
+- Data Sampler -> Randomize
+- Data Table -> Scatter Plot
+- Paint Data -> Select Columns
+- Datasets -> Randomize
+- File -> Predictions
+- Rank -> Test and Score
+- k-Means -> Silhouette Plot
+- Constant -> Test and Score
+- File -> k-Means
+- Datasets -> Rank
+- File -> Geo Map
+- Select Columns -> Scatter Plot
+- Paint Data -> Edit Domain
+- Continuize -> Data Table
+- k-Means -> Distances
+- Pythagorean Forest -> Tree Viewer
+- Datasets -> Silhouette Plot
+- Polynomial Regression -> Data Table
+- Select Columns -> Preprocess
+- Edit Domain -> Box Plot
+- Predictions -> Performance Curve
+- Preprocess Text -> Word Cloud
+- Linear Regression -> Test and Score
+- Test and Score -> Scatter Plot
+- File -> Correlations
+- Select Columns -> k-Means
+- Tree Viewer -> Image Viewer
+- Test and Score -> Formula
+- Random Forest -> Pythagorean Forest
+- Datasets -> Preprocess
+- Data Sampler -> Logistic Regression
+- t-SNE -> Annotated Corpus Map
+- Ontology -> Predictions
+- Geocoding -> Data Table
+- Paint Data -> Interactive k-Means
+- k-Means -> Scatter Plot
+- Data Sampler -> Polynomial Regression
+- Sentiment Analysis -> Select Columns
+- Geocoding -> Choropleth Map
+- File -> Distributions
+- Select Columns -> Data Sampler
+- Datasets -> Box Plot

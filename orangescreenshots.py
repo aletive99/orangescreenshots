@@ -353,7 +353,7 @@ def draw_links(img_names_to_check):
     cv.waitKey(1)
 
 
-def draw_links_and_positions(img_names_to_check):
+def draw_links_and_locations(img_names_to_check):
     """
     This function shows the widget positions as well as the links between the widgets in the image.
     :param img_names_to_check:
@@ -587,62 +587,6 @@ def widget_pairs_from_image(img_names_to_check, show_process=False):
     return link_list
 
 
-def extract_workflows(img_names_to_check=None, no_yaml=False):
-    """
-    This function extracts the workflows from the image. Given the information about the position of the widgets
-    contained in the image, the function crops the image to obtain a new image with only the workflow.
-    :param img_names_to_check: str
-    :param no_yaml: bool
-    """
-    if img_names_to_check is None:
-        try:
-            with open('image-analysis-results/image-widgets.yaml', 'r') as file:
-                widgets = yaml.safe_load(file)
-        except FileNotFoundError:
-            print('The image-widgets.yaml file is missing, please run the update_widget_list function first, set the '
-                  'no_yaml parameter to True or specify the specific image name with the img_names_to_check parameter')
-            return
-        list_to_check = list([])
-        for name in widgets:
-            if widgets[name]['widgets'] is not None:
-                list_to_check.append('orange-lecture-notes-web/public/chapters/' + widgets[name]['path'] + '/' + widgets[name]['filename'])
-    elif no_yaml:
-        list_to_check = get_filenames('orange-lecture-notes-web/public/chapters')
-    else:
-        list_to_check = [img_names_to_check]
-    progress_bar = tqdm(total=len(list_to_check), desc="Progress")
-    for i in range(len(list_to_check)):
-        path = 'cropped_workflows/'+list_to_check[i].split('chapters/')[-1]
-        if not os.path.exists(path):
-            is_there_widget = widgets_from_image(list_to_check[i], False)
-            img = cv.imread(list_to_check[i])
-            widget_size = size_identification(list_to_check[i])
-            which_present = np.where(is_there_widget[:, 0] != 0)[0]
-            y_locs, x_locs = np.unravel_index(is_there_widget[which_present, 1], (is_there_widget[which_present[0], 2],
-                                                                                  is_there_widget[which_present[0], 3]))
-            y_min = max(round(np.min(y_locs)-widget_size/4), 0)
-            x_min = max(round(np.min(x_locs)-widget_size/1.6), 0)
-            y_max = min(round(np.max(y_locs) + widget_size/0.6), img.shape[0])
-            x_max = min(round(np.max(x_locs) + widget_size/0.6), img.shape[1])
-            img = img[y_min:y_max, x_min:x_max]
-            os.makedirs(os.path.dirname(path), exist_ok=True)
-            cv.imwrite(path, img)
-        progress_bar.update(1)
-    progress_bar.close()
-
-
-def workflow_to_code(img_names_to_check):
-    is_there_widget = widgets_from_image(img_names_to_check, False)
-    if is_there_widget is None:
-        return None
-    which = np.where(is_there_widget[:, 0] < 0)[0]
-    widget_presence = is_there_widget[:, 0]
-    for i in which:
-        widget_presence[i - is_there_widget[i, 0] - len(is_there_widget)] += 1
-        widget_presence[i] = 0
-    return widget_presence
-
-
 def update_image_list():
     """
     This function finds all the subdirectories inside the orange-lecture-notes-web/public/chapters directory and checks
@@ -827,7 +771,160 @@ def update_image_links():
     progress_bar.close()
 
 
-def create_dataset():
+def extract_workflows(img_names_to_check=None, no_yaml=False):
+    """
+    This function extracts the workflows from the image. Given the information about the position of the widgets
+    contained in the image, the function crops the image to obtain a new image with only the workflow.
+    :param img_names_to_check: str
+    :param no_yaml: bool
+    """
+    if img_names_to_check is None:
+        try:
+            with open('image-analysis-results/image-widgets.yaml', 'r') as file:
+                widgets = yaml.safe_load(file)
+        except FileNotFoundError:
+            print('The image-widgets.yaml file is missing, please run the update_widget_list function first, set the '
+                  'no_yaml parameter to True or specify the specific image name with the img_names_to_check parameter')
+            return
+        list_to_check = list([])
+        for name in widgets:
+            if widgets[name]['widgets'] is not None:
+                list_to_check.append('orange-lecture-notes-web/public/chapters/' + widgets[name]['path'] + '/' + widgets[name]['filename'])
+    elif no_yaml:
+        list_to_check = get_filenames('orange-lecture-notes-web/public/chapters')
+    else:
+        list_to_check = [img_names_to_check]
+    progress_bar = tqdm(total=len(list_to_check), desc="Progress")
+    for i in range(len(list_to_check)):
+        path = 'cropped_workflows/'+list_to_check[i].split('chapters/')[-1]
+        if not os.path.exists(path):
+            is_there_widget = widgets_from_image(list_to_check[i], False)
+            img = cv.imread(list_to_check[i])
+            widget_size = size_identification(list_to_check[i])
+            which_present = np.where(is_there_widget[:, 0] != 0)[0]
+            y_locs, x_locs = np.unravel_index(is_there_widget[which_present, 1], (is_there_widget[which_present[0], 2],
+                                                                                  is_there_widget[which_present[0], 3]))
+            y_min = max(round(np.min(y_locs)-widget_size/4), 0)
+            x_min = max(round(np.min(x_locs)-widget_size/1.6), 0)
+            y_max = min(round(np.max(y_locs) + widget_size/0.6), img.shape[0])
+            x_max = min(round(np.max(x_locs) + widget_size/0.6), img.shape[1])
+            img = img[y_min:y_max, x_min:x_max]
+            os.makedirs(os.path.dirname(path), exist_ok=True)
+            cv.imwrite(path, img)
+        progress_bar.update(1)
+    progress_bar.close()
+
+
+def workflow_to_code(img_names_to_check, return_labels=False, only_enriched=False):
+    yaml_direct = 'image-analysis-results'
+    label_list =[]
+    try:
+        with open(yaml_direct+'/image-widgets.yaml', 'r') as file:
+            widgets = yaml.safe_load(file)
+    except FileNotFoundError:
+        print('There is no yaml file to read, the program will stop')
+        return
+    key = img_names_to_check.split('cropped_workflows/')[-1]
+    key = os.path.dirname(key) + '---' + os.path.basename(key)
+    widgets_present = widgets[key]['widgets']
+    if not only_enriched:
+        list_of_widget = []
+        for key in widgets:
+             if widgets[key]['widgets'] is not None:
+                for i in range(len(widgets[key]['widgets'])):
+                    widget = widgets[key]['widgets'][i].split('/')[0]
+                    list_of_widget.append(widget)
+        list_of_widget = np.unique(list_of_widget)
+        widget_matrix = np.zeros((len(list_of_widget), 1))
+        code = []
+        if widgets_present is not None:
+            for j in range(len(widgets_present)):
+                for i in range(len(list_of_widget)):
+                    if widgets_present[j].split('/')[0] == list_of_widget[i]:
+                        widget_matrix[i] = 1
+            for i in widget_matrix:
+                code.append(i[0])
+        else:
+            for i in range(len(list_of_widget)):
+                code.append(0)
+        label_list = list_of_widget
+    else:
+        try:
+            with open(yaml_direct+'/widgets-analysis.yaml', 'r') as file:
+                widgets_enriched = yaml.safe_load(file)
+        except FileNotFoundError:
+            print('There is no yaml file to read, please run the data_analysis program first or set the only_enriched '
+                  'parameter to False')
+            return
+        widget_matrix = np.zeros((len(widgets_enriched), 1))
+        code = []
+        if widgets_present is not None:
+            for j in range(len(widgets_present)):
+                for i in range(len(widgets_enriched)):
+                    if widgets_present[j].split('/')[0] in widgets_enriched[i]:
+                        widget_matrix[i] = 1
+            for i in widget_matrix:
+                code.append(i[0])
+        else:
+            for i in range(len(widgets_enriched)):
+                code.append(0)
+        label_list = widgets_enriched
+
+    try:
+        with open(yaml_direct+'/image-links.yaml', 'r') as file:
+            links = yaml.safe_load(file)
+    except FileNotFoundError:
+        print('There is no yaml file to read, please run the update_widget_list function first')
+        return
+    links_present = links[key]['links']
+    if not only_enriched:
+        list_of_links = []
+        for key in links:
+            if links[key]['links'] is not None:
+                for i in range(len(links[key]['links'])):
+                    link = links[key]['links'][i].split('/')[0]
+                    list_of_links.append(link)
+        list_of_links = np.unique(list_of_links)
+        link_matrix = np.zeros((len(list_of_links), 1))
+        if links_present is not None:
+            for j in range(len(links_present)):
+                for i in range(len(list_of_links)):
+                    if links_present[j].split('/')[0] == list_of_links[i]:
+                        link_matrix[i] = 1
+            for i in link_matrix:
+                code.append(i[0])
+        else:
+            for i in range(len(list_of_links)):
+                code.append(0)
+        label_list = np.append(label_list, list_of_links)
+    else:
+        try:
+            with open(yaml_direct+'/links-analysis.yaml', 'r') as file:
+                links_enriched = yaml.safe_load(file)
+        except FileNotFoundError:
+            print('There is no yaml file to read, please run the data_analysis program first or set the only_enriched '
+                  'parameter to False')
+            return
+        link_matrix = np.zeros((len(links_enriched), 1))
+        if links_present is not None:
+            for j in range(len(links_present)):
+                for i in range(len(links_enriched)):
+                    if links_present[j].split('/')[0] in links_enriched[i]:
+                        link_matrix[i] = 1
+            for i in link_matrix:
+                code.append(i[0])
+        else:
+            for i in range(len(links_enriched)):
+                code.append(0)
+        label_list = np.append(label_list, links_enriched)
+
+    if not return_labels:
+        return code
+    else:
+        return label_list
+
+
+def create_dataset(min_thresh=3, only_enriched=False):
     """
     This function creates an excel file with the information about the widgets present in the images. The excel file
     contains the name of the workflow, the path of the image, and the widgets present in the image
@@ -839,21 +936,35 @@ def create_dataset():
         img_names_to_check = get_filenames('cropped_workflows/')
     except FileNotFoundError:
         print('There are no cropped workflows, run the function extract_workflows() first')
-        exit(0)
-    widget_names = get_filenames('widgets/')
+        return
     progress_bar = tqdm(total=len(img_names_to_check), desc='Progress')
     sheet['A1'] = 'Workflow name'
     sheet['B1'] = 'Path'
-    for j in range(len(widget_names)):
-        sheet.cell(row=1, column=j+3, value=urllib.parse.unquote(widget_names[j].split('-')[1]).replace('.png', ''))
+    sheet['C1'] = 'Parent Folder'
+    sheet['D1'] = 'Parent Subfolder'
+    labels = workflow_to_code(img_names_to_check[0], return_labels=True, only_enriched=only_enriched)
+    for j in range(len(labels)):
+        sheet.cell(row=1, column=j+5, value=labels[j])
     for i in range(len(img_names_to_check)):
-        sheet['A'+str(i+2)] = 'Workflow ' + str(i+1)
+        sheet['A'+str(i+2)] = img_names_to_check[i].split('/')[-1].replace('.png', '')
         sheet['B'+str(i+2)] = os.getcwd() + '/' + img_names_to_check[i]
-        code = workflow_to_code(img_names_to_check[i])
+        if os.path.dirname(img_names_to_check[i]).split('/')[-2] != 'cropped_workflows':
+            sheet['C'+str(i+2)] = os.path.dirname(img_names_to_check[i]).split('/')[-2]
+        else:
+            sheet['C'+str(i+2)] = os.path.dirname(img_names_to_check[i]).split('/')[-1]
+        sheet['D'+str(i+2)] = os.path.dirname(img_names_to_check[i]).split('/')[-1]
+        code = workflow_to_code(img_names_to_check[i], only_enriched=only_enriched)
         for j in range(len(code)):
-            sheet.cell(row=i+2, column=j+3, value=code[j])
+            sheet.cell(row=i+2, column=j+5, value=code[j])
         progress_bar.update(1)
     progress_bar.close()
+    for i in range(5, sheet.max_column+1):
+        count = 0
+        for j in range(2, sheet.max_row+1):
+            if sheet.cell(row=j, column=i).value == 1:
+                count += 1
+        if count < min_thresh:
+            sheet.delete_cols(i)
     workbook.save('image-analysis-results/workflows-dataset.xlsx')
 
 

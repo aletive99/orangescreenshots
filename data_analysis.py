@@ -100,30 +100,41 @@ for key in chapter_link_dict:
 f = open("image-analysis-results/widgets-analysis.txt", "w+")
 
 # print results
+enriched_widgets = []
 for key in chapter_dict:
     f.write('\nChapter: ' + chapters[key]['document-title'] + ' (path: ' + key + ', images: ' + str(len(chapters[key]['images'])) +
-          ', widgets: ' + str(chapter_dict[key]['n_widgets']) + ')\n')
+            ', widgets: ' + str(chapter_dict[key]['n_widgets']) + ')\n')
     for widget in chapter_dict[key].keys():
         if widget != 'n_widgets' and chapter_dict[key][widget]['p-value'] < 0.1:
-            if chapter_dict[key][widget]['p-value'] <0.001:
+            enriched_widgets.append(widget)
+            if chapter_dict[key][widget]['p-value'] < 0.001:
                 f.write('    - ' + widget + ' (<0.001, k=' + str(chapter_dict[key][widget]['n_times']) + ')\n')
             else:
                 f.write('    - ' + widget + ' (' + str(chapter_dict[key][widget]['p-value'])[0:5] + ', k=' +
                         str(chapter_dict[key][widget]['n_times']) + ')\n')
+enriched_widgets = list(set(enriched_widgets))
 
-
+enriched_links = []
 for key in chapter_link_dict:
     f.write('\nChapter: ' + chapters[key]['document-title'] + ' (path: ' + key + ', images: ' + str(len(chapters[key]['images'])) +
           ', links: ' + str(chapter_link_dict[key]['n_links']) + ')\n')
     for link in chapter_link_dict[key].keys():
         if link != 'n_links' and chapter_link_dict[key][link]['p-value'] < 0.1:
-            if chapter_link_dict[key][link]['p-value'] <0.001:
+            enriched_links.append(link)
+            if chapter_link_dict[key][link]['p-value'] < 0.001:
                 f.write('    - ' + link + ' (<0.001, k=' + str(chapter_link_dict[key][link]['n_times']) + ')\n')
             else:
                 f.write('    - ' + link + ' (' + str(chapter_link_dict[key][link]['p-value'])[0:5] + ', k=' +
                         str(chapter_link_dict[key][link]['n_times']) + ')\n')
+enriched_links = list(set(enriched_links))
 
 f.close
+
+with open(yaml_direct+'/widgets-analysis.yaml', 'w') as file:
+    yaml.dump(enriched_widgets, file)
+
+with open(yaml_direct+'/links-analysis.yaml', 'w') as file:
+    yaml.dump(enriched_links, file)
 
 
 #%%
