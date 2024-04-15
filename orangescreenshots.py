@@ -771,10 +771,11 @@ def update_image_links():
     progress_bar.close()
 
 
-def extract_workflows(img_names_to_check=None, no_yaml=False):
+def extract_workflows(directory_to_check='orange-lecture-notes-web/public/chapters', img_names_to_check=None, no_yaml=False):
     """
     This function extracts the workflows from the image. Given the information about the position of the widgets
     contained in the image, the function crops the image to obtain a new image with only the workflow.
+    :param directory_to_check: str
     :param img_names_to_check: str
     :param no_yaml: bool
     """
@@ -789,9 +790,9 @@ def extract_workflows(img_names_to_check=None, no_yaml=False):
         list_to_check = list([])
         for name in widgets:
             if widgets[name]['widgets'] is not None:
-                list_to_check.append('orange-lecture-notes-web/public/chapters/' + widgets[name]['path'] + '/' + widgets[name]['filename'])
+                list_to_check.append(directory_to_check + widgets[name]['path'] + '/' + widgets[name]['filename'])
     elif no_yaml:
-        list_to_check = get_filenames('orange-lecture-notes-web/public/chapters')
+        list_to_check = get_filenames(directory_to_check)
     else:
         list_to_check = [img_names_to_check]
     progress_bar = tqdm(total=len(list_to_check), desc="Progress")
