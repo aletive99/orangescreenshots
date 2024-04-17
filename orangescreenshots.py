@@ -167,7 +167,9 @@ def get_widget_description():
         if 'widget-catalog/' in link.get('href'):
             urls.append('https://orangedatamining.com' + link.get('href'))
     descriptions = dict()
+    progress_bar = tqdm(total=len(urls), desc="Progress")
     for url in urls:
+        progress_bar.update(1)
         headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36'}
         if url.split('widget-catalog/')[-1] == '':
             continue
@@ -178,10 +180,12 @@ def get_widget_description():
             for script in soup(['script', 'style']):
                 script.extract()
             text = soup.get_text()
-            descriptions[urllib.parse.unquote(url.split('/')[-2])] = text.split('Input')[0].split('\n')[-2]
+            text = text.split('Outputs')[0]
+            descriptions[urllib.parse.unquote(url.split('/')[-2])] = text.split('Inputs')[0].split('\n')[-2]
         except urllib.error.URLError or urllib.error.HTTPError:
             print('url not found:', url)
             continue
+    progress_bar.close()
     return descriptions
 
 
