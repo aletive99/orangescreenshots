@@ -45,8 +45,3 @@ Contributions are welcome! Please submit bug reports or feature requests through
 
 - Alessandro Tiveron
 - Blaz Zupan
-
-## Credits
-
-- Alessandro Tiveron
-- Blaz Zupan

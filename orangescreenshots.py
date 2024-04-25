@@ -163,27 +163,47 @@ def get_widget_description():
     reqs = requests.get(url)
     soup = BeautifulSoup(reqs.text, 'html.parser')
     urls = []
+    keys = []
     for link in soup.find_all('a'):
-        if 'widget-catalog/' in link.get('href'):
+        if 'widget-catalog/' in link.get('href') and '<img' in str(link):
             urls.append('https://orangedatamining.com' + link.get('href'))
+            link_str = str(link)
+            keys.append(link_str.split('<img')[1].split('"')[1])
     descriptions = dict()
     progress_bar = tqdm(total=len(urls), desc="Progress")
-    for url in urls:
+    for j in range(len(urls)):
         progress_bar.update(1)
         headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36'}
-        if url.split('widget-catalog/')[-1] == '':
+        if urls[j].split('widget-catalog/')[-1] == '':
             continue
         try:
-            req = urllib.request.Request(url, headers=headers)
+            req = urllib.request.Request(urls[j], headers=headers)
             html = urllib.request.urlopen(req).read()
             soup = BeautifulSoup(html, 'html.parser')
             for script in soup(['script', 'style']):
                 script.extract()
             text = soup.get_text()
-            text = text.split('Outputs')[0]
-            descriptions[urllib.parse.unquote(url.split('/')[-2])] = text.split('Inputs')[0].split('\n')[-2]
+
+            description = text.split('\n')[1]
+            if 'Inputs' in text:
+                description += '\nInputs:\n'
+                i = 2
+                while True:
+                    if text.split('Inputs')[1].split('\n')[i] == '' or 'OrangeFAQ' in text.split('Inputs')[1].split('\n')[i]:
+                        break
+                    description += text.split('Inputs')[1].split('\n')[i] + '\n'
+                    i += 1
+            if 'Outputs' in text:
+                description += '\nOutputs:\n'
+                i = 2
+                while True:
+                    if text.split('Outputs')[1].split('\n')[i] == '' or 'OrangeFAQ' in text.split('Outputs')[1].split('\n')[i]:
+                        break
+                    description += text.split('Outputs')[1].split('\n')[i] + '\n'
+                    i += 1
+            descriptions[keys[j]] = description
         except urllib.error.URLError or urllib.error.HTTPError:
-            print('url not found:', url)
+            print('url not found:', urls[j])
             continue
     progress_bar.close()
     return descriptions
@@ -231,6 +251,8 @@ def is_there_widget_creation(img_names_to_check, value_thresh=0.80):
             tmp = np.sum(res > 0.85)
         elif 'Periodogram' in img_names_tgt[j] or 'dictyExpress' in img_names_tgt[j]:
             tmp = np.sum(res > 0.90)
+        elif 'Ontology' in img_names_tgt[j]:
+            tmp = np.sum(res > 1)
         else:
             tmp = np.sum(res > value_thresh)
         form = res.shape
@@ -483,19 +505,20 @@ def link_detection(img_names_to_check, show_process=False):
             except_element = np.arange(iterate) != j
             check_presence = labels_out[except_element, :] == in_to_check[k]
             which_present = np.any(check_presence, axis=1)
+            check_presence = labels_in[except_element, :] == in_to_check[k]
+            which_present = np.logical_or(which_present, np.any(check_presence, axis=1))
             if np.sum(which_present) == 1:
-                label_binary_image = np.where(labels_im == in_to_check[k], 255, 0).astype(dtype='uint8')
-                link_img[label_binary_image == 255] = 255
+                link_img[labels_im == in_to_check[k]] = 255
                 which_indexes = indexes[except_element][which_present] - np.where(is_there_widget[indexes[except_element]
-                [which_present], 0] > 0, 0, is_there_widget[indexes[except_element][which_present], 0])
+                                       [which_present], 0] > 0, 0, is_there_widget[indexes[except_element][which_present], 0])
                 which_indexes = np.where(which_indexes > len(is_there_widget) - 1, which_indexes - len(is_there_widget),
                                          which_indexes)
                 adjusted_element_index = indexes[j] - min(is_there_widget[indexes[j], 0], 0)
                 adjusted_element_index = np.where(adjusted_element_index >= len(is_there_widget),
                                                   adjusted_element_index - len(is_there_widget),
                                                   adjusted_element_index)
-                links[adjusted_element_index, which_indexes] = (links[adjusted_element_index, which_indexes] +
-                                                                np.sum(check_presence, axis=1)[which_present])
+                links[adjusted_element_index, which_indexes] += 1
+                break
             elif np.sum(which_present) > 1:
                 label_binary_image = np.where(labels_im == in_to_check[k], 255, 0).astype(dtype='uint8')
                 start_points, _, _ = find_circle_intersection(label_binary_image, (coord_x[j]-round(widget_size/3.5),
@@ -544,10 +567,11 @@ def link_detection(img_names_to_check, show_process=False):
                             out_element_index = np.where(out_element_index > len(is_there_widget) - 1,
                                                          out_element_index - len(is_there_widget),
                                                          out_element_index)
-                            links[in_element_index, out_element_index] = (links[in_element_index, out_element_index] + 1)
+                            links[in_element_index, out_element_index] += 1
                             link_img[tmp_link_img == 255] = 255
                             break
                         first_iter = False
+                break
     if show_process:
         cv.destroyAllWindows()
         cv.waitKey(1)
@@ -801,7 +825,7 @@ def extract_workflows(directory_to_check='orange-lecture-notes-web/public/chapte
         list_to_check = [img_names_to_check]
     progress_bar = tqdm(total=len(list_to_check), desc="Progress")
     for i in range(len(list_to_check)):
-        path = 'cropped_workflows/'+list_to_check[i].split('chapters/')[-1]
+        path = 'cropped-workflows/'+list_to_check[i].split('chapters/')[-1]
         if not os.path.exists(path):
             is_there_widget = widgets_from_image(list_to_check[i], False)
             img = cv.imread(list_to_check[i])
@@ -838,7 +862,7 @@ def workflow_to_code(img_names_to_check, return_labels=False, only_enriched=Fals
     except FileNotFoundError:
         print('There is no yaml file to read, the program will stop')
         return
-    key = img_names_to_check.split('cropped_workflows/')[-1]
+    key = img_names_to_check.split('cropped-workflows/')[-1]
     key = os.path.dirname(key) + '---' + os.path.basename(key)
     widgets_present = widgets[key]['widgets']
     if not only_enriched:
@@ -955,7 +979,7 @@ def create_dataset(min_thresh=4, only_enriched=False):
     workbook = openpyxl.Workbook()
     sheet = workbook.active
     try:
-        img_names_to_check = get_filenames('cropped_workflows/')
+        img_names_to_check = get_filenames('cropped-workflows/')
     except FileNotFoundError:
         print('There are no cropped workflows, run the function extract_workflows() first')
         return
@@ -970,7 +994,7 @@ def create_dataset(min_thresh=4, only_enriched=False):
     for i in range(len(img_names_to_check)):
         sheet['A'+str(i+2)] = img_names_to_check[i].split('/')[-1].replace('.png', '')
         sheet['B'+str(i+2)] = os.getcwd() + '/' + img_names_to_check[i]
-        if os.path.dirname(img_names_to_check[i]).split('/')[-2] != 'cropped_workflows':
+        if os.path.dirname(img_names_to_check[i]).split('/')[-2] != 'cropped-workflows':
             sheet['C'+str(i+2)] = os.path.dirname(img_names_to_check[i]).split('/')[-2]
         else:
             sheet['C'+str(i+2)] = os.path.dirname(img_names_to_check[i]).split('/')[-1]
@@ -994,6 +1018,107 @@ def create_dataset(min_thresh=4, only_enriched=False):
         progress_bar.update(1)
     progress_bar.close()
     workbook.save('image-analysis-results/workflows-dataset.xlsx')
+
+
+def create_workflow_context(img_name, new_image=False):
+    if not new_image:
+        try:
+            with open('image-analysis-results/image-widgets.yaml', 'r') as file:
+                widgets = yaml.safe_load(file)
+        except FileNotFoundError:
+            print('There is no yaml file to read, please run the update_widget_list function first')
+            return
+        try:
+            with open('image-analysis-results/image-links.yaml', 'r') as file:
+                links = yaml.safe_load(file)
+        except FileNotFoundError:
+            print('There is no yaml file to read, please run the update_image_links function first')
+            return
+        key = img_name.split('cropped-workflows/')[-1]
+        key = os.path.dirname(key) + '---' + os.path.basename(key)
+        widgets_present = widgets[key]['widgets']
+        links_present = links[key]['links']
+    else:
+        link_list = widget_pairs_from_image(img_name)
+        links_present = []
+        widgets_present = []
+        for widget_tuple in link_list:
+            links_present.append(widget_tuple[0][1] + ' -> ' + widget_tuple[1][1])
+            widgets_present.append(widget_tuple[0][1])
+            widgets_present.append(widget_tuple[1][1])
+        links_unique, num_links = np.unique(links_present, return_counts=True)
+        links_present = []
+        for i in range(len(links_unique)):
+            links_present.append(links_unique[i] + '/' + str(num_links[i]))
+        widgets_unique, num_widgets = np.unique(widgets_present, return_counts=True)
+        for i in range(len(widgets_unique)):
+            widgets_present.append(widgets_unique[i] + '/' + str(num_widgets[i]))
+    context_text = ''
+    for widget in widgets_present:
+        context_text += widget + '\n'
+    context_text += '\n'
+
+    widget_in = []
+    widget_out = []
+    found = False
+    for link in links_present:
+        for i in range(int(link.split('/')[1])):
+            widget_in.append(link.split(' -> ')[0])
+            widget_out.append(link.split(' -> ')[1].split('/')[0])
+    while len(widget_in) != 0:
+        possible_widget = []
+        for i in range(len(widget_in)):
+            if widget_in[i] not in widget_out:
+                possible_widget.append(i)
+        if len(possible_widget) == 0:
+            possible_widget = list(range(len(widget_in)))
+        good_to_go = []
+        for i in possible_widget:
+            if widget_out[i] not in widget_out[0:i]+widget_out[i+1:]:
+                good_to_go.append(i)
+        good_to_go = np.unique(good_to_go)
+        if len(good_to_go) == 0:
+            chosen = possible_widget[0]
+            context_text += widget_in[chosen] + ' -> ' + widget_out[chosen] + '\n'
+            widget_in.pop(chosen)
+            widget_out.pop(chosen)
+        elif len(good_to_go) == 1:
+            chosen = good_to_go[0]
+            context_text += widget_in[chosen] + ' -> ' + widget_out[chosen] + '\n'
+            widget_in.pop(chosen)
+            widget_out.pop(chosen)
+        else:
+            for i in good_to_go:
+                if widget_out[i] in widget_in:
+                    chosen = i
+                    context_text += widget_in[chosen] + ' -> ' + widget_out[chosen] + '\n'
+                    widget_in.pop(chosen)
+                    widget_out.pop(chosen)
+                    found = True
+                    break
+            if found is False:
+                chosen = good_to_go[0]
+                context_text += widget_in[chosen] + ' -> ' + widget_out[chosen] + '\n'
+                widget_in.pop(chosen)
+                widget_out.pop(chosen)
+            found = False
+
+    """
+    for link in links_present:
+        link_text = link.split('/')[0]
+        link_num = int(link.split('/')[1])
+        for i in range(link_num):
+            context_text += link_text + '\n'
+    """
+
+    context_text += '\n'
+    widget_desc = get_widget_description()
+    for widget in widgets_present:
+        widget_text = widget.split('/')[0]
+        context_text += widget.split('/')[0] + ': ' + widget_desc[widget_text] + '\n\n'
+    return context_text
+
+
 
 
 #%%

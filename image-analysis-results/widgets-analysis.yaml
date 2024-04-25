@@ -1,86 +1,85 @@
-- Formula
-- Test and Score
-- Tree
-- Image Embedding
-- Kaplan-Meier Plot
-- Merge Data
-- Distributions
-- t-SNE
-- Semantic Viewer
-- Continuize
-- Data Table
-- Distance File
-- Neighbors
-- Topic Modelling
-- Predictions
-- Box Plot
-- Select Columns
-- Single sample scoring
-- Polynomial Regression
-- Sentiment Analysis
-- Ontology
-- Select Rows
-- Save Data
-- Mosaic Display
-- Rank
-- Concordance
-- Linear Regression
-- Edit Domain
-- Tree Viewer
-- Performance Curve
-- k-Means
-- Create Instance
-- LDAvis
-- MDS
-- Hierarchical Clustering
-- Pythagorean Forest
-- Rank Survival Features
-- As Survival Data
-- Geocoding
-- Data Sampler
-- CN2 Rule Viewer
-- Gene Sets
-- Preprocess
 - Nomogram
-- Corpus Viewer
-- Logistic Regression
-- Word List
-- Naive Bayes
-- Confusion Matrix
-- Heat Map
-- Calibration Plot
-- Choropleth Map
-- Corpus
-- Distance Matrix
-- Word Cloud
-- Random Forest
-- Image Viewer
 - Single Cell Datasets
-- Preprocess Text
-- Genes
-- kNN
-- ROC Analysis
-- Word Enrichment
-- File
-- Correlations
-- Distances
-- Annotated Corpus Map
-- Twitter
-- SVM
-- Constant
-- Randomize
 - Import Images
-- Discretize
-- Sieve Diagram
+- Genes
+- Edit Domain
+- LDAvis
+- Datasets
+- Geocoding
+- Rank
+- Random Forest
+- PCA
+- Distance Matrix
+- Polynomial Regression
+- Image Viewer
+- Performance Curve
+- Word Enrichment
+- Concordance
+- t-SNE
+- Geo Map
+- Constant
+- Sentiment Analysis
+- Corpus
 - Transpose
+- Corpus Viewer
+- Tree
+- Merge Data
+- Randomize
+- MDS
+- Predictions
+- Continuize
+- Twitter
+- Hierarchical Clustering
+- Distances
+- Sieve Diagram
+- Neighbors
+- Scatter Plot
+- Word Cloud
+- Formula
+- As Survival Data
+- Preprocess Text
+- Choropleth Map
+- Tree Viewer
+- k-Means
+- Topic Modelling
+- Preprocess
+- Distance File
+- Semantic Viewer
+- ROC Analysis
+- Data Sampler
+- kNN
+- Save Data
+- File
+- Heat Map
+- Image Embedding
+- Pythagorean Tree
+- Select Columns
+- Rank Survival Features
+- Create Instance
+- Calibration Plot
+- Naive Bayes
+- Test and Score
+- Annotated Corpus Map
+- Discretize
+- Single sample scoring
+- Gene Sets
+- Mosaic Display
+- Data Table
+- SVM
+- Silhouette Plot
+- Select Rows
+- Kaplan-Meier Plot
+- Linear Regression
 - Bag of Words
 - Interactive k-Means
 - Paint Data
-- Datasets
-- Scatter Plot
-- Pythagorean Tree
+- Distributions
+- Box Plot
+- Pythagorean Forest
+- CN2 Rule Viewer
+- Word List
+- Confusion Matrix
 - Pivot Table
-- Geo Map
-- PCA
-- Silhouette Plot
 - Gradient Boosting
+- Correlations
+- Logistic Regression
