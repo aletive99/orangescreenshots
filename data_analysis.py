@@ -64,6 +64,8 @@ for key in chapters.keys():
         if links[image_key]['links'] is not None:
             for link in links[image_key]['links']:
                 link_list = link.split('/')[0]
+                while ' (' in link_list:
+                    link_list = link_list.split(' (')[0] + ''.join(link_list.split(')')[1:])
                 n_times = int(link.split('/')[1])
                 total_links += n_times
                 if link_list not in general_link_dict.keys():
@@ -127,8 +129,7 @@ for key in chapter_link_dict:
                 f.write('    - ' + link + ' (' + str(chapter_link_dict[key][link]['p-value'])[0:5] + ', k=' +
                         str(chapter_link_dict[key][link]['n_times']) + ')\n')
 enriched_links = list(set(enriched_links))
-
-f.close
+f.close()
 
 with open(yaml_direct+'/widgets-analysis.yaml', 'w') as file:
     yaml.dump(enriched_widgets, file)
