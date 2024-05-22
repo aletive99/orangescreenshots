@@ -7,7 +7,7 @@ __pycache__/
 *.so
 
 # Data / working folders
-cropped-workflows
+cropped-workflows/
 widgets/
 
 # Distribution / packaging
