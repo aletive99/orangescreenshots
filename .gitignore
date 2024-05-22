@@ -9,6 +9,7 @@ __pycache__/
 # Data / working folders
 cropped-workflows/
 widgets/
+tmp/
 
 # Distribution / packaging
 .Python
