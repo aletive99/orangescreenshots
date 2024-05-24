@@ -1,85 +1,85 @@
-- Edit Domain
-- t-SNE
-- Corpus Viewer
-- Pythagorean Forest
-- Image Embedding
-- kNN
-- Heat Map
-- Single sample scoring
-- Data Sampler
-- k-Means
-- Neighbors
-- Random Forest
-- Logistic Regression
-- Merge Data
-- Image Viewer
-- Create Instance
-- Distance File
-- Geo Map
-- Mosaic Display
-- Gene Sets
-- Tree Viewer
-- Continuize
-- Hierarchical Clustering
-- Sieve Diagram
-- Distances
-- Select Rows
-- Choropleth Map
-- Concordance
-- Save Data
-- Import Images
-- Geocoding
-- Scatter Plot
-- Twitter
-- Nomogram
-- Word Cloud
-- As Survival Data
-- File
-- Constant
-- Data Table
-- ROC Analysis
-- Test and Score
-- Paint Data
-- Pivot Table
-- Interactive k-Means
-- Datasets
-- Gradient Boosting
-- LDAvis
-- Performance Curve
-- Topic Modelling
-- Calibration Plot
-- Word Enrichment
-- Confusion Matrix
-- Rank Survival Features
-- SVM
-- Pythagorean Tree
-- Correlations
-- MDS
-- Box Plot
-- Corpus
-- CN2 Rule Viewer
-- Tree
-- Word List
-- Kaplan-Meier Plot
-- Annotated Corpus Map
-- PCA
-- Single Cell Datasets
-- Transpose
-- Distance Matrix
-- Polynomial Regression
-- Discretize
-- Silhouette Plot
-- Bag of Words
-- Semantic Viewer
-- Select Columns
-- Sentiment Analysis
-- Predictions
-- Preprocess
-- Genes
-- Randomize
-- Preprocess Text
-- Linear Regression
-- Distributions
-- Naive Bayes
-- Formula
-- Rank
+- Data/Datasets
+- Evaluate/Predictions
+- Model/Tree
+- Visualize/Mosaic Display
+- Unsupervised/PCA
+- Evaluate/Test and Score
+- Unsupervised/Hierarchical Clustering
+- Unsupervised/Correlations
+- Text Mining/Semantic Viewer
+- Evaluate/Performance Curve
+- Transform/Select Rows
+- Educational/Interactive k-Means
+- Visualize/Tree Viewer
+- Visualize/Scatter Plot
+- Transform/Pivot Table
+- Model/Naive Bayes
+- Evaluate/Calibration Plot
+- Survival Analysis/Rank Survival Features
+- Visualize/Distributions
+- Visualize/Silhouette Plot
+- Text Mining/Sentiment Analysis
+- Transform/Continuize
+- Data/File
+- Model/Linear Regression
+- Transform/Preprocess
+- Image Analytics/Import Images
+- Single Cell/Single Cell Datasets
+- Transform/Randomize
+- Geo/Geo Map
+- Bioinformatics/Genes
+- Text Mining/Annotated Corpus Map
+- Visualize/Heat Map
+- Text Mining/Concordance
+- Text Mining/Bag of Words
+- Transform/Formula
+- Model/kNN
+- Transform/Create Instance
+- Geo/Choropleth Map
+- Visualize/CN2 Rule Viewer
+- Bioinformatics/Gene Sets
+- Transform/Discretize
+- Model/Random Forest
+- Visualize/Sieve Diagram
+- Evaluate/ROC Analysis
+- Unsupervised/k-Means
+- Model/Logistic Regression
+- Model/Gradient Boosting
+- Data/Paint Data
+- Text Mining/Twitter
+- Visualize/Nomogram
+- Data/Data Table
+- Transform/Select Columns
+- Text Mining/Topic Modelling
+- Data/Edit Domain
+- Transform/Merge Data
+- Transform/Data Sampler
+- Unsupervised/Distance File
+- Text Mining/Corpus
+- Survival Analysis/Kaplan-Meier Plot
+- Survival Analysis/As Survival Data
+- Unsupervised/Distances
+- Unsupervised/MDS
+- Data/Save Data
+- Image Analytics/Image Embedding
+- Educational/Polynomial Regression
+- Bioinformatics/Single sample scoring
+- Model/Constant
+- Visualize/Box Plot
+- Text Mining/LDAvis
+- Geo/Geocoding
+- Unsupervised/Distance Matrix
+- Text Mining/Word Cloud
+- Evaluate/Confusion Matrix
+- Text Mining/Preprocess Text
+- Visualize/Pythagorean Tree
+- Unsupervised/t-SNE
+- Text Mining/Word Enrichment
+- Visualize/Pythagorean Forest
+- Data/Rank
+- Transform/Transpose
+- Model/SVM
+- Text Mining/Word List
+- Image Analytics/Image Viewer
+- Unsupervised/Neighbors
+- Text Mining/Corpus Viewer

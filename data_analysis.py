@@ -6,19 +6,19 @@ yaml_direct = 'image-analysis-results'
 
 try:
     with open(yaml_direct+'/image-list.yaml', 'r') as file:
-        chapters = yaml.safe_load(file)
+        chapters = yaml.full_load(file)
 except FileNotFoundError:
     print('There is no yaml file to read, the program will stop')
     exit(0)
 try:
     with open(yaml_direct+'/image-widgets.yaml', 'r') as file:
-        widgets = yaml.safe_load(file)
+        widgets = yaml.full_load(file)
 except FileNotFoundError:
     print('There is no yaml file to read, the program will stop')
     exit(0)
 try:
     with open(yaml_direct+'/image-links.yaml', 'r') as file:
-        links = yaml.safe_load(file)
+        links = yaml.full_load(file)
 except FileNotFoundError:
     print('There is no yaml file to read, the program will stop')
     exit(0)
@@ -37,18 +37,17 @@ for key in chapters.keys():
     for image_key in keys_list:
         if widgets[image_key]['widgets'] is not None:
             for widget in widgets[image_key]['widgets']:
-                widget_list = widget.split('/')[0]
-                n_times = int(widget.split('/')[1])
-                total_widgets += n_times
+                widget_list = widget[0] + '/' + widget[1]
+                total_widgets += 1
                 if widget_list not in general_dict.keys():
-                    general_dict[widget_list] = n_times
+                    general_dict[widget_list] = 1
                 else:
-                    general_dict[widget_list] += n_times
+                    general_dict[widget_list] += 1
                 if widget_list not in chapter_dict[key].keys():
-                    chapter_dict[key][widget_list] = n_times
+                    chapter_dict[key][widget_list] = 1
                 else:
-                    chapter_dict[key][widget_list] += n_times
-                chapter_dict[key]['n_widgets'] += n_times
+                    chapter_dict[key][widget_list] += 1
+                chapter_dict[key]['n_widgets'] += 1
 
 general_link_dict = dict()
 chapter_link_dict = dict()
@@ -63,20 +62,21 @@ for key in chapters.keys():
     for image_key in keys_list:
         if links[image_key]['links'] is not None:
             for link in links[image_key]['links']:
-                link_list = link.split('/')[0]
-                while ' (' in link_list:
-                    link_list = link_list.split(' (')[0] + ''.join(link_list.split(')')[1:])
-                n_times = int(link.split('/')[1])
-                total_links += n_times
+                if '#' in link[0][1]:
+                    link = ((link[0][0], link[0][1].split(' #')[0]), link[1])
+                if '#' in link[1][1]:
+                    link = (link[0], (link[1][0], link[1][1].split(' #')[0]))
+                link_list = link[0][0] + '/' + link[0][1] + ' -> ' + link[1][0] + '/' + link[1][1]
+                total_links += 1
                 if link_list not in general_link_dict.keys():
-                    general_link_dict[link_list] = n_times
+                    general_link_dict[link_list] = 1
                 else:
-                    general_link_dict[link_list] += n_times
+                    general_link_dict[link_list] += 1
                 if link_list not in chapter_link_dict[key].keys():
-                    chapter_link_dict[key][link_list] = n_times
+                    chapter_link_dict[key][link_list] = 1
                 else:
-                    chapter_link_dict[key][link_list] += n_times
-                chapter_link_dict[key]['n_links'] += n_times
+                    chapter_link_dict[key][link_list] += 1
+                chapter_link_dict[key]['n_links'] += 1
 
 # p-values calculation
 N = total_widgets
