@@ -10342,8 +10342,8 @@ text-mining/030-document-classification---workflow.png:
   links:
   - !!python/tuple
     - !!python/tuple
-      - Evaluate
-      - Predictions
+      - Text Mining
+      - Bag of Words
     - !!python/tuple
       - Model
       - Logistic Regression
@@ -10361,6 +10361,20 @@ text-mining/030-document-classification---workflow.png:
     - !!python/tuple
       - Text Mining
       - Preprocess Text
+  - !!python/tuple
+    - !!python/tuple
+      - Text Mining
+      - Preprocess Text
+    - !!python/tuple
+      - Text Mining
+      - Bag of Words
+  - !!python/tuple
+    - !!python/tuple
+      - Text Mining
+      - Bag of Words
+    - !!python/tuple
+      - Evaluate
+      - Predictions
 text-mining/021-document-embedding---word-embeddings.png:
   path: text-mining/021-document-embedding
   filename: word-embeddings.png

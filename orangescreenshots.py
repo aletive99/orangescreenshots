@@ -170,7 +170,9 @@ def get_widget_description():
         if 'widget-catalog/' in link.get('href') and '<img' in str(link):
             urls.append('https://orangedatamining.com' + link.get('href'))
             link_str = str(link)
-            keys.append(link_str.split('<img')[1].split('"')[1])
+            key = link_str.split('src="')[1].split('"')[0].split('/')[-1].split('.png')[0]
+            key = key.split('-')[0] + '/' + '-'.join(key.split('-')[1:])
+            keys.append(urllib.parse.unquote(key))
     descriptions = dict()
     progress_bar = tqdm(total=len(urls), desc="Progress")
     for j in range(len(urls)):
@@ -185,7 +187,7 @@ def get_widget_description():
             for script in soup(['script', 'style']):
                 script.extract()
             text = soup.get_text()
-            description = text.split('\n')[1] + '\n'
+            description = text.split('\n')[1]
             inputs = ''
             if 'Inputs' in text:
                 i = 2
@@ -625,7 +627,7 @@ def extract_workflow_from_image(img_names_to_check, show_process=False):
     This function returns the list of widget pairs present in the image
     :param img_names_to_check: str
     :param show_process: bool
-    :return: link_list: list of tuples of tuples
+    :return: link_list: Widget
     """
     links, _ = link_detection(img_names_to_check, show_process)
     if links is None:
@@ -707,8 +709,8 @@ class Widget:
         Returns the description of the widget.
         """
         with open('widgets/widget-descriptions.yaml', 'r') as file:
-            descriptions = yaml.safe_load(file)
-        key = self.name.split('#')[0]
+            descriptions = yaml.full_load(file)
+        key = self.module + '/' + self.name.split(' #')[0]
         try:
             return [descriptions[key]['description'], descriptions[key]['inputs'], descriptions[key]['outputs']]
         except KeyError:
@@ -720,21 +722,28 @@ class Workflow:
     This class represents a collection of workflows as a list of tuples of tuples.
     """
     def __init__(self, data):
-        self.data = data
+        if isinstance(data, str):
+            data = extract_workflow_from_image(data)
+        elif not isinstance(data, list):
+            raise TypeError("data must be a list of tuples of tuples or a string")
+        link_list = []
+        for i in data:
+            if isinstance(i[0], Widget):
+                first = (i[0].module, i[0].name)
+            else:
+                first = i[0]
+            if isinstance(i[1], Widget):
+                second = (i[1].module, i[1].name)
+            else:
+                second = i[1]
+            link_list.append((first, second))
+        self.data = link_list
 
     def __str__(self):
         """
-        Custom string representation for the Workflows object.
-        - Flattens the nested tuples structure.
-        - Joins elements within each inner tuple with a colon.
-        - Joins all elements with a newline character.
+        Custom string representation for the Workflow object.
         """
-        links_present = []
-        for widget_tuple in self.data:
-            widget1 = widget_tuple[0][0] + '/' + widget_tuple[0][1]
-            widget2 = widget_tuple[1][0] + '/' + widget_tuple[1][1]
-            links_present.append(widget1 + ' -> ' + widget2)
-        return "- " + "\n- ".join(links_present)
+        return self.get_order()[0]
 
     def __len__(self):
         """
@@ -742,15 +751,79 @@ class Workflow:
         """
         return len(self.data)
 
+    def __getitem__(self, item):
+        """
+        Returns the link at the given index.
+        """
+        return self.data[item]
+
+    def get_order(self):
+        links_present = []
+        widget_in = []
+        widget_out = []
+        for widget_tuple in self.data:
+            widget1 = widget_tuple[0][0] + '/' + widget_tuple[0][1]
+            widget2 = widget_tuple[1][0] + '/' + widget_tuple[1][1]
+            links_present.append(widget1 + ' -> ' + widget2)
+            widget_in.append(widget1)
+            widget_out.append(widget2)
+        link_dict = dict()
+        widget_in_unique = np.unique(widget_in)
+        for i in range(len(widget_in_unique)):
+            for j in range(len(widget_in)):
+                if widget_in_unique[i] == widget_in[j]:
+                    if widget_in_unique[i] not in link_dict:
+                        link_dict[widget_in_unique[i]] = {widget_out[j]}
+                    else:
+                        link_dict[widget_in_unique[i]].add(widget_out[j])
+        widget_order = np.flip(tuple(TopologicalSorter(link_dict).static_order()))
+        link_text = ''
+        widget_text = ''
+        widget_text_list = []
+        dupl = {}
+        for i in widget_order:
+            widget_text_list.append(i.split(' #')[0])
+            for j in range(len(widget_in)):
+                if i == widget_out[j]:
+                    if '(' in widget_in[j]:
+                        try:
+                            if widget_in[j].split(' #')[1][0] not in dupl[widget_in[j].split(' #')[0]]:
+                                instance_num = dupl[widget_in[j].split(' #')[0]]['how many instances'] + 1
+                                dupl[widget_in[j].split(' #')[0]][widget_in[j].split('#')[1][0]] = instance_num
+                                dupl[widget_in[j].split(' #')[0]]['how many instances'] = instance_num
+                        except KeyError:
+                            dupl[widget_in[j].split(' #')[0]] = {widget_in[j].split(' #')[1][0]: 1, 'how many instances': 1}
+                        first_part = widget_in[j].split(' #')[0] + ' #' + str(dupl[widget_in[j].split(' #')[0]][widget_in[j].split(' #')[1][0]])
+                    else:
+                        first_part = widget_in[j]
+                    if '(' in widget_out[j]:
+                        try:
+                            if widget_out[j].split(' #')[1][0] not in dupl[widget_out[j].split('#')[0]]:
+                                instance_num = dupl[widget_out[j].split(' #')[0]]['how many instances'] + 1
+                                dupl[widget_out[j].split(' #')[0]][widget_out[j].split(' #')[1][0]] = instance_num
+                                dupl[widget_out[j].split(' #')[0]]['how many instances'] = instance_num
+                        except KeyError:
+                            dupl[widget_out[j].split(' #')[0]] = {widget_out[j].split('#')[1][0]: 1, 'how many instances': 1}
+                        second_part = widget_out[j].split(' #')[0] + ' #' + str(dupl[widget_out[j].split(' #')[0]][widget_out[j].split(' #')[1][0]])
+                    else:
+                        second_part = widget_out[j]
+                    link_text += '- ' + first_part + ' -> ' + second_part + '\n'
+        _, idx, widget_num = np.unique(widget_text_list, return_counts=True, return_index=True)
+        widget_text_list = np.array(widget_text_list)[np.sort(idx)]
+        widget_num = widget_num[np.argsort(idx)]
+        for i in range(len(widget_text_list)):
+            widget_text += widget_text_list[i] + '/' + str(widget_num[i]) + '\n'
+        return link_text, widget_text_list
+
     def get_widgets(self):
         """
         Returns a list of all unique widgets in the workflows.
         """
-        widgets = set()
-        for workflow in self.data:
-            for widget in workflow:
-                widgets.add(widget)
-        return list(widgets)
+        widget_list = []
+        widget_text_list = self.get_order()[1]
+        for i in widget_text_list:
+            widget_list.append(Widget(i.split('/')[0], i.split('/')[1]))
+        return widget_list
 
 
 def update_image_list():
@@ -767,7 +840,7 @@ def update_image_list():
     progress_bar = tqdm(total=len(markdown_names), desc="Progress")
     try:
         with open(yaml_direct+'/image-list.yaml', 'r') as file:
-            images = yaml.safe_load(file)
+            images = yaml.full_load(file)
     except FileNotFoundError:
         images = dict({})
     for i in range(len(markdown_names)):
@@ -819,7 +892,7 @@ def update_widget_list():
     os.makedirs(yaml_direct, exist_ok=True)
     try:
         with open(yaml_direct+'/image-widgets.yaml', 'r') as file:
-            widgets = yaml.safe_load(file)
+            widgets = yaml.full_load(file)
     except FileNotFoundError:
         widgets = dict({})
     img_names_to_check = get_filenames('orange-lecture-notes-web/public/chapters/')
@@ -839,17 +912,10 @@ def update_widget_list():
             if key not in widgets or key in widgets and today - prev_date > timedelta(days=30):
                 widget_list = widgets_from_image(img_names_to_check[i])
                 if widget_list is not None:
-                    list_of_widgets = list([])
-                    for widget_names in widget_list:
-                        list_of_widgets.append(widget_names[1])
-                    output, count = np.unique(list_of_widgets, return_counts=True)
-                    list_of_widgets = list([])
-                    for j in range(len(output)):
-                        list_of_widgets.append(output[j] + '/' + str(count[j]))
                     widgets[key] = {'path': path,
                                     'filename': img_name,
                                     'date': str(today),
-                                    'widgets': list_of_widgets}
+                                    'widgets': widget_list}
                 else:
                     widgets[key] = {'path': path,
                                     'filename': img_name,
@@ -884,7 +950,7 @@ def update_image_links():
     os.makedirs(yaml_direct, exist_ok=True)
     try:
         with open(yaml_direct+'/image-links.yaml', 'r') as file:
-            links = yaml.safe_load(file)
+            links = yaml.full_load(file)
     except FileNotFoundError:
         links = dict({})
     img_names_to_check = get_filenames('orange-lecture-notes-web/public/chapters/')
@@ -904,17 +970,10 @@ def update_image_links():
             if key not in links or key in links and today - prev_date > timedelta(days=30):
                 link_list = extract_workflow_from_image(img_names_to_check[i])
                 if link_list is not None:
-                    list_of_links = list([])
-                    for link_pairs in link_list:
-                        list_of_links.append(link_pairs[0][1] + ' -> ' + link_pairs[1][1])
-                    output, count = np.unique(list_of_links, return_counts=True)
-                    list_of_links = list([])
-                    for j in range(len(output)):
-                        list_of_links.append(output[j] + '/' + str(count[j]))
                     links[key] = {'path': path,
                                   'filename': img_name,
                                   'date': str(today),
-                                  'links': list_of_links}
+                                  'links': link_list}
                 else:
                     links[key] = {'path': path,
                                   'filename': img_name,
@@ -948,7 +1007,7 @@ def crop_workflows(directory_to_check='orange-lecture-notes-web/public/chapters'
     if img_names_to_check is None:
         try:
             with open('image-analysis-results/image-widgets.yaml', 'r') as file:
-                widgets = yaml.safe_load(file)
+                widgets = yaml.full_load(file)
         except FileNotFoundError:
             print('The image-widgets.yaml file is missing, please run the update_widget_list function first, set the '
                   'no_yaml parameter to True or specify the specific image name with the img_names_to_check parameter')
@@ -996,86 +1055,78 @@ def workflow_to_code(img_names_to_check, return_labels=False, only_enriched=True
     yaml_direct = 'image-analysis-results'
     try:
         with open(yaml_direct+'/image-widgets.yaml', 'r') as file:
-            widgets = yaml.safe_load(file)
+            widgets = yaml.full_load(file)
     except FileNotFoundError:
         print('There is no information about the widget presence, the function will stop. Please run the function '
               'update_widget_list first or download the yaml file from the repository')
         return None
-    key = img_names_to_check.split('cropped-workflows/')[-1]
+    if 'cropped-workflows/' in img_names_to_check:
+        key = img_names_to_check.split('cropped-workflows/')[-1]
+    elif 'orange-lecture-notes-web/public/chapters/' in img_names_to_check:
+        key = img_names_to_check.split('orange-lecture-notes-web/public/chapters/')[-1]
+    else:
+        key = img_names_to_check
     key = os.path.dirname(key) + '---' + os.path.basename(key)
     if key not in widgets:
-        widget_list = widgets_from_image(img_names_to_check)
-        widgets_present = list([])
-        for widget_names in widget_list:
-            widgets_present.append(widget_names[1])
-        output, count = np.unique(widgets_present, return_counts=True)
-        widgets_present = list([])
-        for j in range(len(output)):
-            widgets_present.append(output[j] + '/' + str(count[j]))
+        widgets_list = widgets_from_image(img_names_to_check)
+        if widgets_list is None:
+            print('There are no widgets present in the screenshot, the function will stop')
+            return None
     else:
-        widgets_present = widgets[key]['widgets']
+        widgets_list = widgets[key]['widgets']
+    widgets_present = list([])
+    for widget in widgets_list:
+        widgets_present.append(widget[0] + '/' + widget[1])
     if not only_enriched:
         list_of_widget = []
         for key in widgets:
              if widgets[key]['widgets'] is not None:
                 for i in range(len(widgets[key]['widgets'])):
-                    widget = widgets[key]['widgets'][i].split('/')[0]
+                    widget = widgets[key]['widgets'][i]
                     if widget not in list_of_widget:
                         list_of_widget.append(widget)
         widget_matrix = np.zeros((len(list_of_widget), 1))
         code = []
-        if widgets_present is not None:
-            for j in range(len(widgets_present)):
-                widget = widgets_present[j].split('/')[0]
-                for i in range(len(list_of_widget)):
-                    if widget == list_of_widget[i]:
-                        widget_matrix[i] = 1
-            for i in widget_matrix:
-                code.append(i[0])
-        else:
+        for j in range(len(widgets_present)):
+            widget = widgets_present[j]
             for i in range(len(list_of_widget)):
-                code.append(0)
+                if widget == list_of_widget[i]:
+                    widget_matrix[i] = 1
+        for i in widget_matrix:
+            code.append(i[0])
         label_list = list_of_widget
     else:
         try:
             with open(yaml_direct+'/widgets-analysis.yaml', 'r') as file:
-                widgets_enriched = yaml.safe_load(file)
+                widgets_enriched = yaml.full_load(file)
         except FileNotFoundError:
             print('There is no image-analysis-results/widgets-analysis.yaml file to read, please run the data_analysis '
                   'program first or download the file from the repository')
             return None
         widget_matrix = np.zeros((len(widgets_enriched), 1))
         code = []
-        if widgets_present is not None:
-            for j in range(len(widgets_present)):
-                widget = widgets_present[j].split('/')[0]
-                for i in range(len(widgets_enriched)):
-                    if widget == widgets_enriched[i]:
-                        widget_matrix[i] = 1
-            for i in widget_matrix:
-                code.append(i[0])
-        else:
+        for widget in widgets_present:
             for i in range(len(widgets_enriched)):
-                code.append(0)
+                if widget == widgets_enriched[i]:
+                    widget_matrix[i] = 1
+        for i in widget_matrix:
+            code.append(i[0])
         label_list = widgets_enriched
 
     try:
         with open(yaml_direct+'/image-links.yaml', 'r') as file:
-            links = yaml.safe_load(file)
+            links = yaml.full_load(file)
     except FileNotFoundError:
         print('There is no yaml file to read, please run the update_widget_list function first')
         return None
     if key not in links:
         link_list = extract_workflow_from_image(img_names_to_check)
-        links_present = list([])
-        for link_pairs in link_list:
-            links_present.append(link_pairs[0][1] + ' -> ' + link_pairs[1][1])
-        output, count = np.unique(links_present, return_counts=True)
-        links_present = list([])
-        for j in range(len(output)):
-            links_present.append(output[j] + '/' + str(count[j]))
     else:
-        links_present = links[key]['links']
+        link_list = links[key]['links']
+    links_present = list([])
+    for link_pairs in link_list:
+        links_present.append(link_pairs[0][0]+'/'+link_pairs[0][1] + ' -> ' + link_pairs[1][0]+'/'+link_pairs[1][1])
+
     if not only_enriched:
         list_of_links = []
         for key in links:
@@ -1086,8 +1137,7 @@ def workflow_to_code(img_names_to_check, return_labels=False, only_enriched=True
                         list_of_links.append(link)
         link_matrix = np.zeros((len(list_of_links), 1))
         if links_present is not None:
-            for j in range(len(links_present)):
-                link = links_present[j].split('/')[0]
+            for link in links_present:
                 for i in range(len(list_of_links)):
                     if link == list_of_links[i]:
                         link_matrix[i] = 1
@@ -1100,15 +1150,14 @@ def workflow_to_code(img_names_to_check, return_labels=False, only_enriched=True
     else:
         try:
             with open(yaml_direct+'/links-analysis.yaml', 'r') as file:
-                links_enriched = yaml.safe_load(file)
+                links_enriched = yaml.full_load(file)
         except FileNotFoundError:
             print('There is no image-analysis-results/links-analysis.yaml file to read, please run the data_analysis '
                   'program first or download the file from the repository')
             return None
         link_matrix = np.zeros((len(links_enriched), 1))
         if links_present is not None:
-            for j in range(len(links_present)):
-                link = links_present[j].split('/')[0]
+            for link in links_present:
                 while '#' in link:
                     link = link.split('#')[0] + ''.join(link.split('#')[1:])
                 for i in range(len(links_enriched)):
@@ -1194,7 +1243,7 @@ def get_example_workflows():
             workflow = yaml.full_load(file)
         with open(os.path.dirname(i)+'/description.md', 'r') as file:
             description = file.read()
-        output_list.append([image_name, description, workflow])
+        output_list.append([image_name, workflow, description])
     return output_list
 
 
@@ -1210,15 +1259,15 @@ def create_workflow_context(img_name, ignore='abcdef'):
     """
     try:
         with open('widgets/widget-descriptions.yaml', 'r') as file:
-            widget_desc = yaml.safe_load(file)
+            widget_desc = yaml.full_load(file)
     except FileNotFoundError:
         print('Getting the widget descriptions...')
         get_widget_description()
         with open('widgets/widget-descriptions.yaml', 'r') as file:
-            widget_desc = yaml.safe_load(file)
+            widget_desc = yaml.full_load(file)
     try:
         with open('image-analysis-results/image-links.yaml', 'r') as file:
-            links = yaml.safe_load(file)
+            links = yaml.full_load(file)
     except FileNotFoundError:
         links = dict({})
     key = img_name.split('cropped-workflows/')[-1]
@@ -1268,24 +1317,24 @@ def create_workflow_context(img_name, ignore='abcdef'):
             if i == widget_out[j]:
                 if '(' in widget_in[j]:
                     try:
-                        if widget_in[j].split('#')[1][0] not in dupl[widget_in[j].split('#')[0]]:
-                            instance_num = dupl[widget_in[j].split('#')[0]]['how many instances'] + 1
-                            dupl[widget_in[j].split('#')[0]][widget_in[j].split('#')[1][0]] = instance_num
-                            dupl[widget_in[j].split('#')[0]]['how many instances'] = instance_num
+                        if widget_in[j].split(' #')[1][0] not in dupl[widget_in[j].split('#')[0]]:
+                            instance_num = dupl[widget_in[j].split(' #')[0]]['how many instances'] + 1
+                            dupl[widget_in[j].split(' #')[0]][widget_in[j].split('#')[1][0]] = instance_num
+                            dupl[widget_in[j].split(' #')[0]]['how many instances'] = instance_num
                     except KeyError:
-                        dupl[widget_in[j].split('#')[0]] = {widget_in[j].split('#')[1][0]: 1, 'how many instances': 1}
-                    first_part = widget_in[j].split('#')[0] + '#' + str(dupl[widget_in[j].split('#')[0]][widget_in[j].split('#')[1][0]])
+                        dupl[widget_in[j].split(' #')[0]] = {widget_in[j].split('#')[1][0]: 1, 'how many instances': 1}
+                    first_part = widget_in[j].split(' #')[0] + ' #' + str(dupl[widget_in[j].split(' #')[0]][widget_in[j].split(' #')[1][0]])
                 else:
                     first_part = widget_in[j]
                 if '(' in widget_out[j]:
                     try:
-                        if widget_out[j].split('#')[1][0] not in dupl[widget_out[j].split('#')[0]]:
-                            instance_num = dupl[widget_out[j].split('#')[0]]['how many instances'] + 1
-                            dupl[widget_out[j].split('#')[0]][widget_out[j].split('#')[1][0]] = instance_num
-                            dupl[widget_out[j].split('#')[0]]['how many instances'] = instance_num
+                        if widget_out[j].split(' #')[1][0] not in dupl[widget_out[j].split(' #')[0]]:
+                            instance_num = dupl[widget_out[j].split(' #')[0]]['how many instances'] + 1
+                            dupl[widget_out[j].split(' #')[0]][widget_out[j].split(' #')[1][0]] = instance_num
+                            dupl[widget_out[j].split(' #')[0]]['how many instances'] = instance_num
                     except KeyError:
-                        dupl[widget_out[j].split('#')[0]] = {widget_out[j].split('#')[1][0]: 1, 'how many instances': 1}
-                    second_part = widget_out[j].split('#')[0] + '#' + str(dupl[widget_out[j].split('#')[0]][widget_out[j].split('#')[1][0]])
+                        dupl[widget_out[j].split(' #')[0]] = {widget_out[j].split(' #')[1][0]: 1, 'how many instances': 1}
+                    second_part = widget_out[j].split(' #')[0] + ' #' + str(dupl[widget_out[j].split(' #')[0]][widget_out[j].split(' #')[1][0]])
                 else:
                     second_part = widget_out[j]
                 link_text += first_part + ' -> ' + second_part + '\n'
@@ -1299,32 +1348,97 @@ def create_workflow_context(img_name, ignore='abcdef'):
     return context_text
 
 
-def write_description(img_name):
+def get_workflow_description_prompt(img_name, use_api=False):
     """
     This function uses the OpenAI API to generate a description of the workflow present in the image.
-    :param new_image: bool
+    :param img_name: str
+    :param use_api: bool
     """
-    api_key = os.getenv('OPENAI_API_KEY')
-    if api_key is None:
-        print('OpenAI API key not found.')
-        return None
-    client = OpenAI(api_key=api_key, organization='org-FvAFSFT8g0844DCWV1T2datD')
-    model = 'gpt-3.5-turbo'
-    context = create_workflow_context(img_name)
-    with open('image-analysis-results/description-intro.txt', 'r') as file:
-        intro = file.read()
-    query = intro + context
-    response = client.chat.completions.create(model=model,
-                                              messages=[
-                                                  {"role": "system", "content": "You are ChatGPT, a large language model trained by OpenAI. "
-                                                                                "Answer as concisely as possible.\nKnowledge cutoff: 2021-09-01"
-                                                                                "\nCurrent date: {CurrentDate}"},
-                                                  {'role': 'user', 'content': query},
-                                              ],
-                                              temperature=0.5,
-                                              top_p=0.5)
-    content = response.choices[0].message.content
-    print(content + '\n')
+    with open('data/prompts/prompt-intro.md', 'r') as file:
+        query = file.read()
+    with open('data/prompts/new-description-prompt.md', 'r') as file:
+        query += file.read()
+    examples = get_example_workflows()
+    for example in examples:
+        workflow = Workflow(example[1])
+        query += '## Workflow:\nLinks in the workflow:\n' + str(workflow) + '\n\nWidget descriptions:\n'
+        widgets = workflow.get_widgets()
+        for widget in widgets:
+            descr, inputs, outputs = widget.get_description()
+            query += str(widget) + ': ' + descr + '\n' + 'Inputs: ' + inputs + '\n' + 'Outputs: ' + outputs + '\n\n'
+        query += '## Description:\n' + example[2] + '\n\n'
+    query += '## Workflow:\nLinks in the workflow:\n' + str(Workflow(img_name)) + '\n\nWidget descriptions:\n'
+    for widget in Workflow(img_name).get_widgets():
+        descr, inputs, outputs = widget.get_description()
+        query += str(widget) + ': ' + descr + '\n' + 'Inputs: ' + inputs + '\n' + 'Outputs: ' + outputs + '\n\n'
+    query += '## Description:\n'
+    if use_api:
+        api_key = os.getenv('OPENAI_API_KEY')
+        if api_key is None:
+            print('OpenAI API key not found.')
+            return None
+        client = OpenAI(api_key=api_key, organization='org-FvAFSFT8g0844DCWV1T2datD')
+        model = 'gpt-3.5-turbo'
+        response = client.chat.completions.create(model=model,
+                                                  messages=[
+                                                      {"role": "system", "content": "You are ChatGPT, a large language model trained by OpenAI. "
+                                                                                    "Answer as concisely as possible.\nKnowledge cutoff: 2021-09-01"
+                                                                                    "\nCurrent date: {CurrentDate}"},
+                                                      {'role': 'user', 'content': query},
+                                                  ],
+                                                  temperature=0.5,
+                                                  top_p=0.5)
+        content = response.choices[0].message.content
+        print(content + '\n')
+    else:
+        print(query)
+
+
+def get_workflow_name_prompt(img_name, use_api=False):
+    """
+    This function uses the OpenAI API to generate a prompt that can be used to get the name of the workflow present in
+    the image.
+    :param img_name: str
+    :param use_api: bool
+    """
+    with open('data/prompts/prompt-intro.md', 'r') as file:
+        query = file.read()
+    with open('data/prompts/new-name-prompt.md', 'r') as file:
+        query += file.read()
+    examples = get_example_workflows()
+    for example in examples:
+        workflow = Workflow(example[1])
+        query += '## Workflow:\nLinks in the workflow:\n' + str(workflow) + '\n\nWidget descriptions:\n'
+        widgets = workflow.get_widgets()
+        for widget in widgets:
+            descr, inputs, outputs = widget.get_description()
+            query += str(widget) + ': ' + descr + '\n' + 'Inputs: ' + inputs + '\n' + 'Outputs: ' + outputs + '\n\n'
+        query += '## Image name: ' + example[0] + '\n\n'
+    query += '## Workflow:\nLinks in the workflow:\n' + str(Workflow(img_name)) + '\n\nWidget descriptions:\n'
+    for widget in Workflow(img_name).get_widgets():
+        descr, inputs, outputs = widget.get_description()
+        query += str(widget) + ': ' + descr + '\n' + 'Inputs: ' + inputs + '\n' + 'Outputs: ' + outputs + '\n\n'
+    query += '## Image name:'
+    if use_api:
+        api_key = os.getenv('OPENAI_API_KEY')
+        if api_key is None:
+            print('OpenAI API key not found.')
+            return None
+        client = OpenAI(api_key=api_key, organization='org-FvAFSFT8g0844DCWV1T2datD')
+        model = 'gpt-3.5-turbo'
+        response = client.chat.completions.create(model=model,
+                                                  messages=[
+                                                      {"role": "system", "content": "You are ChatGPT, a large language model trained by OpenAI. "
+                                                                                    "Answer as concisely as possible.\nKnowledge cutoff: 2021-09-01"
+                                                                                    "\nCurrent date: {CurrentDate}"},
+                                                      {'role': 'user', 'content': query},
+                                                  ],
+                                                  temperature=0.5,
+                                                  top_p=0.5)
+        content = response.choices[0].message.content
+        print(content + '\n')
+    else:
+        print(query)
 
 
 def find_closest_workflows(img_name, remove_widget=False, k=10):
@@ -1396,12 +1510,12 @@ def write_new_widget(img_name, remove_widget=False, multiple=True):
         intro = file.read()
     try:
         with open('widgets/widget-descriptions.yaml', 'r') as file:
-            widget_desc = yaml.safe_load(file)
+            widget_desc = yaml.full_load(file)
     except FileNotFoundError:
         print('Getting the widget descriptions...')
         get_widget_description()
         with open('widgets/widget-descriptions.yaml', 'r') as file:
-            widget_desc = yaml.safe_load(file)
+            widget_desc = yaml.full_load(file)
     closest_workflows, possible_widgets, removed_widget = find_closest_workflows(img_name, remove_widget=remove_widget)
     context = create_workflow_context(img_name, ignore=removed_widget)
     query = intro + '\n\nHere is the workflow description:\n\n' + context + '\nHere are the possible new widgets:\n\n'

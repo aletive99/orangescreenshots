@@ -1,5 +1,4 @@
 import unittest
-import yaml
 from orangescreenshots import *
 
 
@@ -56,9 +55,9 @@ class WidgetsFromImageTest(unittest.TestCase):
             screenshot_name = 'data/screenshots/' + general_name
             try:
                 try:
-                    widget_pair_detected = widget_pairs_from_image(screenshot_name + '.png')
+                    widget_pair_detected = extract_workflow_from_image(screenshot_name + '.png', show_process=False)
                 except FileNotFoundError:
-                    widget_pair_detected = widget_pairs_from_image(screenshot_name + '.jpg')
+                    widget_pair_detected = extract_workflow_from_image(screenshot_name + '.jpg', show_process=False)
                 if widget_pair_detected is None and widget_pairs != 'None':
                     remember_test = False
                     is_good = False
