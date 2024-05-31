@@ -120,23 +120,23 @@ Following are the internal functions used to perform the operations used by the 
 | Function name             	| Inputs      		  							| Description                                                                 									|
 | ----------------------------- | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
 | download_widgets           	| None											| Downloads the widget images from the widget catalog                         									|
-| size_identification           | img_name: str, show_circles=False: bool 		| Returns the size of the widget in the screenshot received as input                          					|
+| size_identification           | img_name: str<br> show_circles=False: bool 		| Returns the size of the widget in the screenshot received as input                          					|
 | get_sizes            			| img_name: str            						| Returns the final size of the widget images based on the identified widget size in the screenshot 			|
-| get_filenames                 | direct: str, ext='Image': str     			| Returns all the file paths in the specified folder                                                            |
-| widget_loading        		| img_names_tgt: list of str, img_name: str     | Returns a 3D-array containing all the widget images cropped and scaled 										|
+| get_filenames                 | direct: str<br>ext='Image': str     			| Returns all the file paths in the specified folder                                                            |
+| widget_loading        		| img_names_tgt: list of str<br>img_name: str     | Returns a 3D-array containing all the widget images cropped and scaled 										|
 | get_widget_description        | None                							| Creates a yaml file containing a dictionary with the description of the widgets' functions, inputs and outputs|
 | screenshot_loading            | img_name: str             					| Returns the greyscale image of the screenshot                                     							|
-| is_there_widget_creation   	| img_name: str, value_thresh=0.8: float		| Returns an array containing information about the widgets present in the screenshot         					|
-| find_circle_intersection      | label_binary_image: np.array, center: tuple, radius_size: int, prev_direction: float, connect_type=8: int | Returns the intersections, found closest direction and best intersection index between a binary image and a manually built circle|
-| link_detection                | img_name: str, show_process=False, bool		| Returns an array containing info about the links between the widget											|
+| is_there_widget_creation   	| img_name: str<br>value_thresh=0.8: float		| Returns an array containing information about the widgets present in the screenshot         					|
+| find_circle_intersection      | label_binary_image: np.array<br>center: tuple<br>radius_size: int<br>prev_direction: float<br>connect_type=8: int | Returns the intersections, found closest direction and best intersection index between a binary image and a manually built circle|
+| link_detection                | img_name: str<br>show_process=False, bool		| Returns an array containing info about the links between the widget											|
 | update_image_list             | None											| Parses the images present in the "orange-lecture-notes-web/public/chapters" directory and creates a yaml file containing information about the found chapters|
 | update_widget_list            | None											| Parses the images present in the "orange-lecture-notes-web/public/chapters" directory and creates a yaml file containing information about the widgets present in each image|
 | update_image_links            | None											| Parses the images present in the "orange-lecture-notes-web/public/chapters" directory and creates a yaml file containing information about the links present in each image|
-| crop_workflows        		| directory_to_check='orange-lecture-notes-web/public/chapters': str, img_name=None: bool, no_yaml=False: bool | Crops the workflows from the original screenshot and saves it in a dedicated directory|
-| workflow_to_code        		| workflow: Workflow, return_labels=False: bool, only_enriched=True: bool | Returns an array of numbers that characterizes the workflow 						|
-| create_dataset 				| orange_dataset=True, min_thresh=3, only_enriched=True | Creates an excel file with the codes of the workflows in the documentation based on the inputs given	|
+| crop_workflows        		| directory_to_check='orange-lecture-notes-web/public/chapters': str<br>img_name=None: bool<br>no_yaml=False: bool | Crops the workflows from the original screenshot and saves it in a dedicated directory|
+| workflow_to_code        		| workflow: Workflow<br>return_labels=False: bool<br>only_enriched=True: bool | Returns an array of numbers that characterizes the workflow 						|
+| create_dataset 				| orange_dataset=True<br>min_thresh=3<br>only_enriched=True | Creates an excel file with the codes of the workflows in the documentation based on the inputs given	|
 | get_example_workflows		   	| None											| Loads the sample workflows and returns their names, their links and their description							|
-| find_closest_workflows	   	| workflow: Workflow, remove_widget=False: bool, k=10: int | Returns the widget that are not in the given workflow, but are present in the k-most similar ones	|
+| find_closest_workflows	   	| workflow: Workflow<br>remove_widget=False: bool<br>k=10: int | Returns the widget that are not in the given workflow, but are present in the k-most similar ones	|
 
 
 ## Contributing
