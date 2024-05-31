@@ -65,16 +65,16 @@ def download_widgets():
 download_widgets()
 
 
-def size_identification(img_names_to_check, show_circles=False):
+def size_identification(img_name, show_circles=False):
     """
     This function identifies the size of the widgets in the image. The function returns the size of the widgets in the
     image. If the show_circles parameter is set to True, the function will show the circles that were detected in the
     image.
-    :param img_names_to_check: str
+    :param img_name: str
     :param show_circles: bool
     :return: size_widget: int
     """
-    image_to_check = screenshot_loading(img_names_to_check)
+    image_to_check = screenshot_loading(img_name)
     if image_to_check is None:
         return None
     blurred = cv.GaussianBlur(image_to_check, (5, 5), 0)
@@ -95,15 +95,15 @@ def size_identification(img_names_to_check, show_circles=False):
     return size_widget
 
 
-def get_sizes(img_names_to_check):
+def get_sizes(img_name):
     """
     This function calculates the final size of the widgets to be used in the image processing and the number of pixels to
     keep in the widgets
-    :param img_names_to_check: str
+    :param img_name: str
     :return: final_size: int, pixels_to_keep: int
     """
     widget_size = 100
-    target_size = size_identification(img_names_to_check)
+    target_size = size_identification(img_name)
     if target_size is None:
         return None, None
     pixels_to_keep = 70
@@ -133,15 +133,15 @@ def get_filenames(direct, ext='image'):
     return img_names_tgt
 
 
-def widget_loading(img_names_tgt, img_names_to_check):
+def widget_loading(img_names_tgt, img_name):
     """
     This function loads the widgets to be used in the image processing. The output is a 3D array with the number of
     widgets in the first dimension and the final size of the widgets in the second and third dimensions
     :param img_names_tgt: np.array
-    :param img_names_to_check: str
+    :param img_name: str
     :return: check_img: np.array
     """
-    final_size, pixels_to_keep = get_sizes(img_names_to_check)
+    final_size, pixels_to_keep = get_sizes(img_name)
     if final_size is None:
         return None
     image_size = len(cv.imread(img_names_tgt[0]))
@@ -217,21 +217,21 @@ def get_widget_description():
         yaml.dump(descriptions, file)
 
 
-def screenshot_loading(img_names_to_check):
+def screenshot_loading(img_name):
     """
     This function loads the screenshot to be used to identify the widgets and their links. It loads a color image and
     converts it to grayscale
-    :param img_names_to_check:
+    :param img_name:
     :return: image_to_check: np.array
     """
-    reader = imageio.get_reader(img_names_to_check)
+    reader = imageio.get_reader(img_name)
     for pict in reader:
         frame = cv.cvtColor(pict, cv.COLOR_RGB2BGR)
         image_to_check = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
         return image_to_check
 
 
-def is_there_widget_creation(img_names_to_check, value_thresh=0.80):
+def is_there_widget_creation(img_name, value_thresh=0.8):
     """
     This function creates a matrix with the information of the widgets present in the image. The first column of the
     matrix indicates the widget presence, the second column indicates the location of the widget in the image, the third
@@ -239,17 +239,17 @@ def is_there_widget_creation(img_names_to_check, value_thresh=0.80):
     value of the threshold is 0.81, but it can be changed according to the needs of the user. A lower value will increase
     the number of widgets detected, but it will also increase the number of false positives. A higher value will
     decrease the number of widgets detected, but it will also increase the number of false negatives
-    :param img_names_to_check: str
+    :param img_name: str
     :param value_thresh: float
     :return: is_there_widget: np.array
     """
-    widget_size = size_identification(img_names_to_check)
+    widget_size = size_identification(img_name)
     if widget_size is None:
         return None
     img_names_tgt = get_filenames('widgets')
-    check_img = widget_loading(img_names_tgt, img_names_to_check)
+    check_img = widget_loading(img_names_tgt, img_name)
     is_there_widget = np.zeros((len(check_img), 5), dtype='int64')
-    image_to_check = screenshot_loading(img_names_to_check)
+    image_to_check = screenshot_loading(img_name)
     for j in range(len(img_names_tgt)):
         res = cv.matchTemplate(image_to_check, check_img[j, :, :], cv.TM_CCOEFF_NORMED)
         if ('Data-Datasets' in img_names_tgt[j] or 'Data-File' in img_names_tgt[j] or 'Polynomial%20Regression' in
@@ -316,28 +316,28 @@ def is_there_widget_creation(img_names_to_check, value_thresh=0.80):
     return is_there_widget
 
 
-def draw_locations(img_names_to_check, return_img=False):
+def draw_locations(img_name, return_img=False):
     """
     This function shows the locations of the widgets in the image by highlighting them with a rectangle. The widgets are
     also labeled with their name. If the return_img parameter is set to True, the function will return the image with
     the widgets highlighted
-    :param img_names_to_check: str
+    :param img_name: str
     :param return_img: bool
     """
-    widget_size = size_identification(img_names_to_check)
+    widget_size = size_identification(img_name)
     if widget_size is None:
         print('There is no widget in the image')
         return None
     thickness = np.round(widget_size/2).astype(dtype='int64')
-    final_size, _ = get_sizes(img_names_to_check)
-    is_there_widget = is_there_widget_creation(img_names_to_check)
+    final_size, _ = get_sizes(img_name)
+    is_there_widget = is_there_widget_creation(img_name)
     if is_there_widget is None:
         print('There is no widget in the image')
         return None
     indexes = np.where(is_there_widget[:, 0] != 0)[0]
     form = (is_there_widget[indexes[0], 2], is_there_widget[indexes[0], 3])
     coord_y, coord_x = np.unravel_index(is_there_widget[indexes, 1], form) + np.floor(final_size/2).astype(dtype='int64')
-    image = screenshot_loading(img_names_to_check)
+    image = screenshot_loading(img_name)
     image = cv.cvtColor(image, cv.COLOR_GRAY2BGR)
     adjusted_element_index = np.zeros_like(indexes)
     for j in range(len(indexes)):
@@ -351,7 +351,7 @@ def draw_locations(img_names_to_check, return_img=False):
             label = label.split('-')[1] + '-' + label.split('-')[2]
         label = label.split('.')[0]
         cv.putText(image, label, (coord_x[j]-thickness, coord_y[j]-thickness-10), cv.FONT_HERSHEY_SIMPLEX,
-                   0.25, (0, 0, 255), 1)
+                   widget_size/150, (0, 0, 255), 1)
     if len(np.unique(adjusted_element_index)) == 1:
         print('There is no widget in the image')
         return None
@@ -364,19 +364,19 @@ def draw_locations(img_names_to_check, return_img=False):
         return image
 
 
-def draw_links(img_names_to_check):
+def draw_links(img_name):
     """
     This function shows the links between the widgets in the image by drawing a line between the widgets. If the antennas
     are also shown in the image it means that the links are detected only through the connected components of the links,
     otherwise the links are detected through the circle intersection algorithm used on the link direction.
-    :param img_names_to_check: str
+    :param img_name: str
     """
-    widget_size = size_identification(img_names_to_check)
-    _, link_img = link_detection(img_names_to_check)
+    widget_size = size_identification(img_name)
+    _, link_img = link_detection(img_name)
     if link_img is None or widget_size is None:
         print('There are no links in the image')
         return None
-    image = screenshot_loading(img_names_to_check)
+    image = screenshot_loading(img_name)
     image = cv.cvtColor(image, cv.COLOR_GRAY2BGR)
     image[link_img == 255] = (0, 0, 255)
     cv.imshow('links highlighted in red', image)
@@ -385,17 +385,17 @@ def draw_links(img_names_to_check):
     cv.waitKey(1)
 
 
-def draw_links_and_locations(img_names_to_check):
+def draw_links_and_locations(img_name):
     """
     This function shows the widget positions as well as the links between the widgets in the image.
-    :param img_names_to_check:
+    :param img_name: str
     :return:
     """
-    image = draw_locations(img_names_to_check, return_img=True)
+    image = draw_locations(img_name, return_img=True)
     if image is None:
         print('There is no widget in the image')
         return None
-    _, link_img = link_detection(img_names_to_check)
+    _, link_img = link_detection(img_name)
     if link_img is not None:
         image[link_img == 255] = (0, 0, 255)
         cv.imshow('links and widget locations highlighted in red', image)
@@ -404,14 +404,14 @@ def draw_links_and_locations(img_names_to_check):
         cv.waitKey(1)
 
 
-def widgets_from_image(img_names_to_check, return_list=True):
+def widgets_from_image(img_name, return_list=True):
     """
     This function returns the list of widgets present in the image
-    :param img_names_to_check: str
+    :param img_name: str
     :param return_list: bool
     :return: widget_list: list of tuples
     """
-    is_there_widget = is_there_widget_creation(img_names_to_check)
+    is_there_widget = is_there_widget_creation(img_name)
     if is_there_widget is None:
         return None
     img_names_tgt = get_filenames('widgets/')
@@ -466,16 +466,16 @@ def find_circle_intersection(label_binary_image, center, radius_size, prev_direc
     return found_points, found_direction, best_fit_index
 
 
-def link_detection(img_names_to_check, show_process=False):
+def link_detection(img_name, show_process=False):
     """
     This function detects the links between the widgets in the image. The function returns a matrix with the number of
     links between the widgets. The function also returns an image with the links highlighted. If the show_process
     parameter is set to True, the function will show the process of the link detection.
-    :param img_names_to_check: str
+    :param img_name: str
     :param show_process: bool
     :return: links: np.array, link_img: np.array
     """
-    is_there_widget = widgets_from_image(img_names_to_check, False)
+    is_there_widget = widgets_from_image(img_name, False)
     if is_there_widget is None:
         return None, None
     non_adj_index = np.where(is_there_widget[:, 0] != 0)[0]
@@ -485,14 +485,14 @@ def link_detection(img_names_to_check, show_process=False):
     if which_multiple.size > 0:
         checked_ind = np.zeros((len(which_multiple), np.max(widgets_num)), dtype='int64')
     img_names_tgt = get_filenames('widgets/')
-    final_size, _ = get_sizes(img_names_to_check)
-    widget_size = size_identification(img_names_to_check)
+    final_size, _ = get_sizes(img_name)
+    widget_size = size_identification(img_name)
     tol = round(widget_size/2)
     # first dimension of the matrix will indicate what's the receiving widget and second dimension will be the widget
     # from which the link is coming
     links = np.zeros(([len(img_names_tgt), len(img_names_tgt)]), dtype='int64')
     # image processing to extract connected components
-    tmp_img = screenshot_loading(img_names_to_check)
+    tmp_img = screenshot_loading(img_name)
     indexes = np.where(is_there_widget[:, 0] != 0)[0]
     form = (is_there_widget[indexes[0], 2], is_there_widget[indexes[0], 3])
     coord_y, coord_x = np.unravel_index(is_there_widget[indexes, 1], form) + np.floor(final_size/2).astype(dtype='int64')
@@ -624,14 +624,14 @@ def link_detection(img_names_to_check, show_process=False):
     return links, link_img
 
 
-def extract_workflow_from_image(img_names_to_check, show_process=False):
+def extract_workflow_from_image(img_name, show_process=False):
     """
     This function returns the list of widget pairs present in the image
-    :param img_names_to_check: str
+    :param img_name: str
     :param show_process: bool
     :return: link_list: Widget
     """
-    links, _ = link_detection(img_names_to_check, show_process)
+    links, _ = link_detection(img_name, show_process)
     if links is None:
         return None
     img_names_tgt = get_filenames('widgets/')
@@ -1008,21 +1008,21 @@ def update_image_links():
     progress_bar.close()
 
 
-def crop_workflows(directory_to_check='orange-lecture-notes-web/public/chapters', img_names_to_check=None, no_yaml=False):
+def crop_workflows(directory_to_check='orange-lecture-notes-web/public/chapters', img_name=None, no_yaml=False):
     """
     This function extracts the workflows from the image. Given the information about the position of the widgets
     contained in the image, the function crops the image to obtain a new image with only the workflow.
     :param directory_to_check: str
-    :param img_names_to_check: str
+    :param img_name: str
     :param no_yaml: bool
     """
-    if img_names_to_check is None:
+    if img_name is None:
         try:
             with open('image-analysis-results/image-widgets.yaml', 'r') as file:
                 widgets = yaml.full_load(file)
         except FileNotFoundError:
             print('The image-widgets.yaml file is missing, please run the update_widget_list function first, set the '
-                  'no_yaml parameter to True or specify the specific image name with the img_names_to_check parameter')
+                  'no_yaml parameter to True or specify the specific image name with the img_name parameter')
             return None
         list_to_check = list([])
         for name in widgets:
@@ -1031,7 +1031,7 @@ def crop_workflows(directory_to_check='orange-lecture-notes-web/public/chapters'
     elif no_yaml:
         list_to_check = get_filenames(directory_to_check)
     else:
-        list_to_check = [img_names_to_check]
+        list_to_check = [img_name]
     progress_bar = tqdm(total=len(list_to_check), desc="Progress")
     for i in range(len(list_to_check)):
         path = 'cropped-workflows/'+list_to_check[i].split('chapters/')[-1]
