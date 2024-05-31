@@ -27,19 +27,19 @@ Following are the functions callable by the user:
 - Description: Plots the screenshot with positions of the widgets and their name highlighted in red. Then press any button to close the image.
 - Inputs: img_name: string with the path to the screenshot
 (Internal input variable: return_img=False: bool)
-- Example run: `draw_locations('data/screenshots/workflow.png')` will create the
+- Example run: `draw_locations('data/screenshots/workflow.png')` will create:
 ![image](https://github.com/aletive99/orangescreenshots/blob/main/data/screenshots/examples/draw_locations.png)
 
 #### draw_links: 
 - Description: Plots the screenshot with the identified links highlighted in red. Then press any button to close the image.
 - Inputs: img_name: string with the path to the screenshot
-- Example run: `draw_links('data/screenshots/workflow.png')` will create the
+- Example run: `draw_links('data/screenshots/workflow.png')` will create:
 ![image](https://github.com/aletive99/orangescreenshots/blob/main/data/screenshots/examples/draw_links.png)
 
 #### draw_links_and_locations: 
 - Description: Plots the screenshot with both links and names and locations of the widgets highlighted in red. Then press any button to close the image.
 - Inputs: img_name: string with the path to the screenshot
-- Example run: `draw_links_and_locations('data/screenshots/workflow.png')` will create the
+- Example run: `draw_links_and_locations('data/screenshots/workflow.png')` will create:
 ![image](https://github.com/aletive99/orangescreenshots/blob/main/data/screenshots/examples/draw_links_and_locations.png)
 
 #### widgets_from_image: 
