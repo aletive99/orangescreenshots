@@ -28,7 +28,7 @@ Following are the functions callable by the user:
 - Inputs: img_name: string with the path to the screenshot
 (Internal input variable: return_img=False: bool)
 - Example run: `draw_locations('data/screenshots/workflow.png')` will create the
-![image](https://github.com/aletive99/orangescreenshots/blob/data/screenshots/examples/draw_locations.png)
+![image](https://github.com/aletive99/orangescreenshots/blob/main/data/screenshots/examples/draw_locations.png)
 
 #### draw_links: 
 - Description: Plots the screenshot with the identified links highlighted in red. Then press any button to close the image.
