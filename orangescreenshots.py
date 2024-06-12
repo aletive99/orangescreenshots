@@ -864,7 +864,7 @@ class Workflow:
         self.data = tmp
         return widget
 
-    def get_name(self):
+    def get_name(self, return_name=False):
         """
         Returns the name of the workflow.
         """
@@ -902,9 +902,13 @@ class Workflow:
                                                   temperature=0.5,
                                                   top_p=0.5)
         content = response.choices[0].message.content
-        print(content)
+        if return_name:
+            return content
+        else:
+            print(content)
 
-    def get_description(self):
+
+    def get_description(self, return_description=False):
         with open('data/prompts/prompt-intro.md', 'r') as file:
             query = file.read()
         with open('data/prompts/new-description-prompt.md', 'r') as file:
@@ -939,9 +943,12 @@ class Workflow:
                                                   temperature=0.5,
                                                   top_p=0.5)
         content = response.choices[0].message.content
-        print(content)
+        if return_description:
+            return content
+        else:
+            print(content)
 
-    def get_new_widgets(self):
+    def get_new_widget(self, return_widget=False):
         api_key = os.getenv('OPENAI_API_KEY')
         if api_key is None:
             print('OpenAI API key not found.')
@@ -971,7 +978,10 @@ class Workflow:
                                                   temperature=0.5,
                                                   top_p=0.5)
         content = response.choices[0].message.content
-        print(content)
+        if return_widget:
+            return content
+        else:
+            print(content)
 
 
 def update_image_list():
@@ -1575,7 +1585,7 @@ def get_new_widget_prompt(img_name, remove_widget=False, use_api=False):
     for widget in possible_widgets:
         descr, inputs, outputs = widget.get_description()
         query += str(widget) + ':\n' + 'Description:\n' + descr + '\n' + 'Inputs:\n' + inputs + '\n' + 'Outputs:\n' + outputs + '\n\n'
-    # print(query + '\n')
+    print(query + '\n')
     if use_api:
         response = client.chat.completions.create(model=model,
                                                   messages=[
@@ -1603,7 +1613,7 @@ def new_widget_evaluation():
     for name in filenames:
         print('Evaluating the new_widget_prompt function for the workflow: ' + name + '\n')
         workflow = Workflow(name)
-        response = get_new_widget_prompt(workflow, use_api=True)
+        response = workflow.get_new_widget(True)
         widget_string = name.split('/')[-1].split('.png')[0].replace('_', ' ').replace(',', '/').split('#')
         if isinstance(widget_string, list):
             found = 0
