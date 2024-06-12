@@ -1,0 +1,28 @@
+- !!python/tuple
+  - !!python/tuple
+    - Unsupervised
+    - t-SNE
+  - !!python/tuple
+    - Bioinformatics
+    - Annotator
+- !!python/tuple
+  - !!python/tuple
+    - Bioinformatics
+    - Marker Genes
+  - !!python/tuple
+    - Bioinformatics
+    - Annotator
+- !!python/tuple
+  - !!python/tuple
+    - Bioinformatics
+    - Annotator
+  - !!python/tuple
+    - Data
+    - Data Table
+- !!python/tuple
+  - !!python/tuple
+    - Single Cell
+    - Single Cell Datasets
+  - !!python/tuple
+    - Unsupervised
+    - t-SNE
