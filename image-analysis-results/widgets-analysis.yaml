@@ -1,85 +1,85 @@
-- Data/Datasets
-- Evaluate/Predictions
-- Model/Tree
-- Visualize/Mosaic Display
-- Unsupervised/PCA
-- Evaluate/Test and Score
-- Unsupervised/Hierarchical Clustering
-- Unsupervised/Correlations
-- Text Mining/Semantic Viewer
-- Evaluate/Performance Curve
-- Transform/Select Rows
-- Educational/Interactive k-Means
-- Visualize/Tree Viewer
-- Visualize/Scatter Plot
-- Transform/Pivot Table
-- Model/Naive Bayes
-- Evaluate/Calibration Plot
-- Survival Analysis/Rank Survival Features
-- Visualize/Distributions
-- Visualize/Silhouette Plot
-- Text Mining/Sentiment Analysis
-- Transform/Continuize
-- Data/File
-- Model/Linear Regression
-- Transform/Preprocess
-- Image Analytics/Import Images
-- Single Cell/Single Cell Datasets
-- Transform/Randomize
-- Geo/Geo Map
-- Bioinformatics/Genes
-- Text Mining/Annotated Corpus Map
-- Visualize/Heat Map
-- Text Mining/Concordance
-- Text Mining/Bag of Words
-- Transform/Formula
-- Model/kNN
-- Transform/Create Instance
-- Geo/Choropleth Map
-- Visualize/CN2 Rule Viewer
-- Bioinformatics/Gene Sets
-- Transform/Discretize
-- Model/Random Forest
-- Visualize/Sieve Diagram
-- Evaluate/ROC Analysis
-- Unsupervised/k-Means
-- Model/Logistic Regression
-- Model/Gradient Boosting
-- Data/Paint Data
-- Text Mining/Twitter
-- Visualize/Nomogram
-- Data/Data Table
-- Transform/Select Columns
-- Text Mining/Topic Modelling
-- Data/Edit Domain
-- Transform/Merge Data
-- Transform/Data Sampler
-- Unsupervised/Distance File
-- Text Mining/Corpus
-- Survival Analysis/Kaplan-Meier Plot
-- Survival Analysis/As Survival Data
-- Unsupervised/Distances
-- Unsupervised/MDS
-- Data/Save Data
-- Image Analytics/Image Embedding
-- Educational/Polynomial Regression
 - Bioinformatics/Single sample scoring
-- Model/Constant
-- Visualize/Box Plot
-- Text Mining/LDAvis
-- Geo/Geocoding
-- Unsupervised/Distance Matrix
-- Text Mining/Word Cloud
+- Unsupervised/Distance File
+- Image Analytics/Image Embedding
+- Visualize/Scatter Plot
+- Transform/Data Sampler
+- Visualize/Nomogram
+- Evaluate/Calibration Plot
 - Evaluate/Confusion Matrix
-- Text Mining/Preprocess Text
-- Visualize/Pythagorean Tree
-- Unsupervised/t-SNE
-- Text Mining/Word Enrichment
+- Model/Random Forest
+- Model/Logistic Regression
+- Text Mining/Word Cloud
+- Model/Constant
 - Visualize/Pythagorean Forest
-- Data/Rank
-- Transform/Transpose
-- Model/SVM
 - Text Mining/Word List
-- Image Analytics/Image Viewer
-- Unsupervised/Neighbors
+- Geo/Geo Map
+- Survival Analysis/Rank Survival Features
+- Visualize/Pythagorean Tree
+- Transform/Discretize
+- Text Mining/Word Enrichment
+- Data/Rank
+- Geo/Choropleth Map
+- Bioinformatics/Genes
+- Text Mining/Twitter
+- Text Mining/Topic Modelling
+- Evaluate/ROC Analysis
+- Transform/Randomize
+- Text Mining/Preprocess Text
+- Educational/Interactive k-Means
+- Text Mining/Annotated Corpus Map
+- Model/Gradient Boosting
+- Text Mining/LDAvis
+- Single Cell/Single Cell Datasets
+- Text Mining/Concordance
+- Unsupervised/Hierarchical Clustering
+- Model/Linear Regression
+- Unsupervised/t-SNE
+- Unsupervised/PCA
+- Visualize/CN2 Rule Viewer
+- Evaluate/Performance Curve
+- Educational/Polynomial Regression
+- Text Mining/Bag of Words
+- Evaluate/Test and Score
+- Transform/Transpose
+- Transform/Continuize
+- Survival Analysis/As Survival Data
+- Model/Tree
+- Transform/Formula
+- Image Analytics/Import Images
+- Unsupervised/Distances
+- Data/File
+- Data/Edit Domain
+- Data/Paint Data
 - Text Mining/Corpus Viewer
+- Model/SVM
+- Transform/Merge Data
+- Transform/Select Columns
+- Unsupervised/Neighbors
+- Geo/Geocoding
+- Transform/Create Instance
+- Model/Naive Bayes
+- Text Mining/Sentiment Analysis
+- Transform/Select Rows
+- Visualize/Tree Viewer
+- Visualize/Heat Map
+- Unsupervised/Distance Matrix
+- Visualize/Box Plot
+- Bioinformatics/Gene Sets
+- Visualize/Distributions
+- Transform/Preprocess
+- Data/Save Data
+- Image Analytics/Image Viewer
+- Model/kNN
+- Visualize/Sieve Diagram
+- Unsupervised/k-Means
+- Data/Datasets
+- Visualize/Silhouette Plot
+- Text Mining/Corpus
+- Transform/Pivot Table
+- Unsupervised/Correlations
+- Data/Data Table
+- Survival Analysis/Kaplan-Meier Plot
+- Text Mining/Semantic Viewer
+- Unsupervised/MDS
+- Visualize/Mosaic Display
+- Evaluate/Predictions

@@ -8449,6 +8449,27 @@ ds-performance/030-operating-conditions---workflow-2nd-predictions.png:
       - Data Table
   - !!python/tuple
     - !!python/tuple
+      - Transform
+      - Data Sampler
+    - !!python/tuple
+      - Model
+      - Logistic Regression
+  - !!python/tuple
+    - !!python/tuple
+      - Transform
+      - Data Sampler
+    - !!python/tuple
+      - Evaluate
+      - 'Predictions #2'
+  - !!python/tuple
+    - !!python/tuple
+      - Transform
+      - Data Sampler
+    - !!python/tuple
+      - Evaluate
+      - 'Predictions #1'
+  - !!python/tuple
+    - !!python/tuple
       - Model
       - Logistic Regression
     - !!python/tuple
@@ -9966,6 +9987,20 @@ text-mining/032-model-evaluation---workflow.png:
   links:
   - !!python/tuple
     - !!python/tuple
+      - Text Mining
+      - Bag of Words
+    - !!python/tuple
+      - Evaluate
+      - Test and Score
+  - !!python/tuple
+    - !!python/tuple
+      - Text Mining
+      - Preprocess Text
+    - !!python/tuple
+      - Text Mining
+      - Bag of Words
+  - !!python/tuple
+    - !!python/tuple
       - Model
       - Logistic Regression
     - !!python/tuple
@@ -10053,6 +10088,34 @@ text-mining/033-predictions---workflow.png:
   - !!python/tuple
     - !!python/tuple
       - Text Mining
+      - 'Preprocess Text #1'
+    - !!python/tuple
+      - Text Mining
+      - 'Bag of Words #1'
+  - !!python/tuple
+    - !!python/tuple
+      - Text Mining
+      - 'Preprocess Text #2'
+    - !!python/tuple
+      - Text Mining
+      - 'Bag of Words #2'
+  - !!python/tuple
+    - !!python/tuple
+      - Text Mining
+      - 'Bag of Words #1'
+    - !!python/tuple
+      - Model
+      - Logistic Regression
+  - !!python/tuple
+    - !!python/tuple
+      - Text Mining
+      - 'Bag of Words #2'
+    - !!python/tuple
+      - Evaluate
+      - Predictions
+  - !!python/tuple
+    - !!python/tuple
+      - Text Mining
       - 'Corpus #2'
     - !!python/tuple
       - Text Mining
@@ -10128,6 +10191,20 @@ text-mining/020-bag-of-words---workflow.png:
     - !!python/tuple
       - Text Mining
       - Preprocess Text
+  - !!python/tuple
+    - !!python/tuple
+      - Text Mining
+      - Preprocess Text
+    - !!python/tuple
+      - Text Mining
+      - Bag of Words
+  - !!python/tuple
+    - !!python/tuple
+      - Text Mining
+      - Bag of Words
+    - !!python/tuple
+      - Data
+      - Data Table
 text-mining/040-document-clustering---hier-clust-clusters.png:
   path: text-mining/040-document-clustering
   filename: hier-clust-clusters.png
@@ -10159,6 +10236,20 @@ text-mining/040-document-clustering---workflow2.png:
     - !!python/tuple
       - Text Mining
       - Preprocess Text
+  - !!python/tuple
+    - !!python/tuple
+      - Text Mining
+      - Preprocess Text
+    - !!python/tuple
+      - Text Mining
+      - Bag of Words
+  - !!python/tuple
+    - !!python/tuple
+      - Text Mining
+      - Bag of Words
+    - !!python/tuple
+      - Unsupervised
+      - Distances
 text-mining/040-document-clustering---cviewer-hierclust.png:
   path: text-mining/040-document-clustering
   filename: cviewer-hierclust.png
@@ -10195,6 +10286,20 @@ text-mining/040-document-clustering---workflow.png:
     - !!python/tuple
       - Text Mining
       - Preprocess Text
+  - !!python/tuple
+    - !!python/tuple
+      - Text Mining
+      - Preprocess Text
+    - !!python/tuple
+      - Text Mining
+      - Bag of Words
+  - !!python/tuple
+    - !!python/tuple
+      - Text Mining
+      - Bag of Words
+    - !!python/tuple
+      - Unsupervised
+      - Distances
 text-mining/040-document-clustering---mds.png:
   path: text-mining/040-document-clustering
   filename: mds.png
@@ -10292,6 +10397,20 @@ text-mining/031-logistic-regression---workflow.png:
     - !!python/tuple
       - Text Mining
       - Preprocess Text
+  - !!python/tuple
+    - !!python/tuple
+      - Text Mining
+      - Preprocess Text
+    - !!python/tuple
+      - Text Mining
+      - Bag of Words
+  - !!python/tuple
+    - !!python/tuple
+      - Text Mining
+      - Bag of Words
+    - !!python/tuple
+      - Model
+      - Logistic Regression
 text-mining/011-concordances---concordance.png:
   path: text-mining/011-concordances
   filename: concordance.png

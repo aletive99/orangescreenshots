@@ -1,0 +1,48 @@
+logistic-regression-classification-evaluation.png:
+  widget: 'Evaluate/Confusion Matrix'
+  goal: 'Evaluation'
+data-sampling-and-tree-modeling.png:
+  widget: 'Evaluate/Predictions'
+  goal: 'Evaluation'
+image-clustering-analysis.png:
+  widget: 'Image Analytics/Image Viewer'
+  goal: 'Data Visualization'
+polynomial-regression-analysis.png:
+  widget: 'Data/Data Table'
+  goal: 'Data Visualization'
+survival-feature-ranking.png:
+  widget: 'Survival Analysis/Kaplan-Meier Plot'
+  goal: 'Model Visualization'
+text-analysis-and-visualization.png:
+  widget: 'Text Mining/Corpus Viewer'
+  goal: 'Data Visualization'
+text-preprocessing-workflow.png:
+  widget: 'Text Mining/Word Cloud'
+  goal: 'Further Analysis'
+painted-data-distances.png:
+  widget: 
+    - 'Unsupervised/MDS'
+    - 'Unsupervised/Distance Matrix'
+    - 'Unsupervised/Hierarchical Clustering'
+  goal: 'Further Analysis'
+semantic-document-embedding.png:
+  widget: 'Unsupervised/t-SNE'
+  goal: 'Further Analysis'
+distance-and-text-analysis.png:
+  widget: 'Unsupervised/Hierarchical Clustering'
+  goal: 'Further Analysis'
+data-tree-visualization.png:
+  widget: 'Visualize/Box Plot'
+  goal: 'Data Visualization'
+decision-tree-prediction-analysis.png:
+  widget: 'Evaluate/Confusion Matrix'
+  goal: 'Furter Analysis'
+decision-tree-data-sampling.png:
+  widget: 'Visualize/Pythagorean Tree'
+  goal: 'Model Visualization'
+random-forest-visualization.png:
+  widget: 'Visualize/Tree Viewer'
+  goal: 'Model Visualization'
+attribute-imputation-and-ranking.png:
+  widget: 'Visualize/Scatter Plot'
+  goal: 'Data Visualization'

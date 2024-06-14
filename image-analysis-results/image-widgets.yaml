@@ -7094,6 +7094,9 @@ text-mining/032-model-evaluation---workflow.png:
   - !!python/tuple
     - Text Mining
     - Preprocess Text
+  - !!python/tuple
+    - Text Mining
+    - Bag of Words
 text-mining/071-semantic-search---semantic-viewer.png:
   path: text-mining/071-semantic-search
   filename: semantic-viewer.png
@@ -7157,6 +7160,12 @@ text-mining/033-predictions---workflow.png:
   - !!python/tuple
     - Text Mining
     - Preprocess Text
+  - !!python/tuple
+    - Text Mining
+    - Bag of Words
+  - !!python/tuple
+    - Text Mining
+    - Bag of Words
 text-mining/010-text-preprocessing---filtering.png:
   path: text-mining/010-text-preprocessing
   filename: filtering.png
@@ -7225,6 +7234,9 @@ text-mining/020-bag-of-words---workflow.png:
   - !!python/tuple
     - Text Mining
     - Preprocess Text
+  - !!python/tuple
+    - Text Mining
+    - Bag of Words
 text-mining/040-document-clustering---hier-clust-clusters.png:
   path: text-mining/040-document-clustering
   filename: hier-clust-clusters.png
@@ -7250,6 +7262,9 @@ text-mining/040-document-clustering---workflow2.png:
   - !!python/tuple
     - Text Mining
     - Preprocess Text
+  - !!python/tuple
+    - Text Mining
+    - Bag of Words
 text-mining/040-document-clustering---cviewer-hierclust.png:
   path: text-mining/040-document-clustering
   filename: cviewer-hierclust.png
@@ -7280,6 +7295,9 @@ text-mining/040-document-clustering---workflow.png:
   - !!python/tuple
     - Text Mining
     - Preprocess Text
+  - !!python/tuple
+    - Text Mining
+    - Bag of Words
 text-mining/040-document-clustering---mds.png:
   path: text-mining/040-document-clustering
   filename: mds.png
@@ -7362,6 +7380,9 @@ text-mining/031-logistic-regression---workflow.png:
   - !!python/tuple
     - Text Mining
     - Preprocess Text
+  - !!python/tuple
+    - Text Mining
+    - Bag of Words
 text-mining/011-concordances---concordance.png:
   path: text-mining/011-concordances
   filename: concordance.png
@@ -7406,6 +7427,9 @@ text-mining/030-document-classification---workflow.png:
   - !!python/tuple
     - Text Mining
     - Preprocess Text
+  - !!python/tuple
+    - Text Mining
+    - Bag of Words
 text-mining/021-document-embedding---word-embeddings.png:
   path: text-mining/021-document-embedding
   filename: word-embeddings.png

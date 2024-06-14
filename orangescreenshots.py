@@ -261,10 +261,8 @@ def is_there_widget_creation(img_name, value_thresh=0.8):
     for j in range(len(img_names_tgt)):
         res = cv.matchTemplate(image_to_check, check_img[j, :, :], cv.TM_CCOEFF_NORMED)
         if ('Data-Datasets' in img_names_tgt[j] or 'Data-File' in img_names_tgt[j] or 'Polynomial%20Regression' in
-                img_names_tgt[j]) or 'Distance%20File' in img_names_tgt[j]:
+                img_names_tgt[j]) or 'Distance%20File' in img_names_tgt[j] or 'Impute' in img_names_tgt[j]:
             tmp = np.sum(res > 0.70)
-        elif 'Impute' in img_names_tgt[j]:
-            tmp = np.sum(res > 0.60)
         elif 'Periodogram' in img_names_tgt[j] or 'dictyExpress' in img_names_tgt[j] or 'Correlogram' in img_names_tgt[j]:
             tmp = np.sum(res > 0.90)
         elif 'Ontology' in img_names_tgt[j]:
@@ -880,12 +878,12 @@ class Workflow:
             for widget in widgets:
                 descr, inputs, outputs = widget.get_description()
                 query += str(widget) + ':\n' + 'Description:\n' + descr + '\n' + 'Inputs:\n' + inputs + '\n' + 'Outputs:\n' + outputs + '\n\n'
-            query += '## Image name: ' + example[0] + '\n\n'
+            query += '## Image name:\n' + example[0] + '\n----------------------------------\n\n'
         query += '## Workflow:\nLinks in the workflow:\n' + str(self) + '\n\nWidget descriptions:\n'
         for widget in self.get_widgets():
             descr, inputs, outputs = widget.get_description()
             query += str(widget) + ':\n' + 'Description:\n' + descr + '\n' + 'Inputs:\n' + inputs + '\n' + 'Outputs:\n' + outputs + '\n\n'
-        query += '## Image name:'
+        query += '## Image name:\n'
         api_key = os.getenv('OPENAI_API_KEY')
         if api_key is None:
             print('OpenAI API key not found.')
@@ -906,7 +904,6 @@ class Workflow:
             return content
         else:
             print(content)
-
 
     def get_description(self, return_description=False):
         with open('data/prompts/prompt-intro.md', 'r') as file:
@@ -948,7 +945,7 @@ class Workflow:
         else:
             print(content)
 
-    def get_new_widget(self, return_widget=False):
+    def get_new_widget(self, return_widget=False, goal='Not specified'):
         api_key = os.getenv('OPENAI_API_KEY')
         if api_key is None:
             print('OpenAI API key not found.')
@@ -968,6 +965,7 @@ class Workflow:
         for widget in possible_widgets:
             descr, inputs, outputs = widget.get_description()
             query += str(widget) + ':\n' + 'Description:\n' + descr + '\n' + 'Inputs:\n' + inputs + '\n' + 'Outputs:\n' + outputs + '\n\n'
+        query += '## Goal of the new widget:\n' + goal + '\n----------------------------------\n\n'
         response = client.chat.completions.create(model=model,
                                                   messages=[
                                                       {"role": "system", "content": "You are ChatGPT, a large language model trained by OpenAI. "
@@ -1470,6 +1468,12 @@ def get_workflow_description_prompt(img_name, use_api=False):
     except ValueError:
         print('No links found in the image')
         return None
+    except TypeError:
+        if isinstance(img_name, Workflow):
+            workflow = img_name
+        else:
+            print('The img_name parameter must be a string or a Workflow object')
+            return None
     query += '## Workflow:\nLinks in the workflow:\n' + str(workflow) + '\n\nWidget descriptions:\n'
     for widget in workflow.get_widgets():
         descr, inputs, outputs = widget.get_description()
@@ -1515,17 +1519,23 @@ def get_workflow_name_prompt(img_name, use_api=False):
         for widget in widgets:
             descr, inputs, outputs = widget.get_description()
             query += str(widget) + ':\n' + 'Description:\n' + descr + '\n' + 'Inputs:\n' + inputs + '\n' + 'Outputs:\n' + outputs + '\n\n'
-        query += '## Image name: ' + example[0] + '\n\n'
+        query += '## Image name:\n' + example[0] + '\n-------------------------------\n\n'
     try:
         workflow = Workflow(img_name)
     except ValueError:
         print('No links found in the image')
         return None
+    except TypeError:
+        if isinstance(img_name, Workflow):
+            workflow = img_name
+        else:
+            print('The img_name parameter must be a string or a Workflow object')
+            return None
     query += '## Workflow:\nLinks in the workflow:\n' + str(workflow) + '\n\nWidget descriptions:\n'
     for widget in workflow.get_widgets():
         descr, inputs, outputs = widget.get_description()
         query += str(widget) + ':\n' + 'Description:\n' + descr + '\n' + 'Inputs:\n' + inputs + '\n' + 'Outputs:\n' + outputs + '\n\n'
-    query += '## Image name:'
+    query += '## Image name:\n'
     print(query + '\n')
     if use_api:
         api_key = os.getenv('OPENAI_API_KEY')
@@ -1569,13 +1579,17 @@ def get_new_widget_prompt(img_name, remove_widget=False, use_api=False):
         query = file.read()
     with open('data/prompts/new-widget-prompt.md', 'r') as file:
         query += file.read()
-    if isinstance(img_name, str) or isinstance(img_name, tuple):
+    try:
         workflow = Workflow(img_name)
-    elif isinstance(img_name, Workflow):
-        workflow = img_name
-    else:
-        print('The img_name parameter must be a string, a tuple of tuples of strings or a Workflow object')
+    except ValueError:
+        print('No links found in the image')
         return None
+    except TypeError:
+        if isinstance(img_name, Workflow):
+            workflow = img_name
+        else:
+            print('The img_name parameter must be a string or a Workflow object')
+            return None
     possible_widgets, removed_widget = find_closest_workflows(workflow, remove_widget=remove_widget)
     query += '## Workflow:\nLinks in the workflow:\n' + str(workflow) + '\n\nWidget descriptions:\n'
     for widget in workflow.get_widgets():
@@ -1608,26 +1622,30 @@ def new_widget_evaluation():
     This function evaluates the performance of the new_widget_prompt function by comparing the output of the function
     with the actual widget that comes next in the workflow.
     """
-    correct = True
+    n_correct = 0
     filenames = get_filenames('data/workflows/samples-new-widgets')
+    with open('data/workflows/samples-new-widgets/new-widget-evaluation.yaml', 'r') as file:
+        workflows_info = yaml.safe_load(file)
     for name in filenames:
         print('Evaluating the new_widget_prompt function for the workflow: ' + name + '\n')
         workflow = Workflow(name)
-        response = workflow.get_new_widget(True)
-        widget_string = name.split('/')[-1].split('.png')[0].replace('_', ' ').replace(',', '/').split('#')
-        if isinstance(widget_string, list):
+        target_widget = workflows_info[name.split('/')[-1]]['widget']
+        response = workflow.get_new_widget(True, goal=workflows_info[name.split('/')[-1]]['goal'])
+        if isinstance(target_widget, list):
             found = 0
-            for i in widget_string:
+            for i in target_widget:
                 if i in response:
                     found += 1
+                    n_correct += 1
+                    break
             if found == 0:
-                correct = False
                 print('The response does not contain the removed widget for the workflow: ' + name + '\n\n')
         else:
-            if widget_string not in response:
-                correct = False
+            if target_widget not in response:
                 print('The response does not contain the removed widget for the workflow: ' + name + '\n\n')
-    if correct:
-        print('The new_widget_prompt function works correctly')
+            else:
+                n_correct += 1
+    print('The new_widget_prompt function predicts ' + str(n_correct) + ' out of ' + str(len(filenames)) + ' workflows correctly')
+    print('The accuracy of the new_widget_prompt function is ' + str(n_correct/len(filenames)) + '%')
 
 #%%
