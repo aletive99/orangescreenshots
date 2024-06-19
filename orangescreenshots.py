@@ -704,7 +704,12 @@ class Widget:
     """
     This class represents a widget as a tuple of two strings.
     """
-    def __init__(self, module, name):
+    def __init__(self, module, name=None):
+        if name is None:
+            if '/' in module:
+                module, name = module.split('/')
+            else:
+                raise ValueError("the widget must be a tuple of two strings or a string with a '/' separator")
         self.module = module
         self.name = name
 
@@ -1423,8 +1428,8 @@ def find_closest_workflows(workflow, remove_widget=False, k=10):
     df = pd.read_excel('image-analysis-results/workflows-dataset.xlsx')
     code = df.iloc[:, 4:].values
     unique_code, idx = np.unique(code[:, :how_many_widgets], axis=0, return_index=True)
-    difference = unique_code - workflow_code
-    distances = abs(difference).sum(axis=1)
+    difference = np.where(unique_code - workflow_code < 0, 1, 0)
+    distances = difference.sum(axis=1)
     closest_idx = np.argsort(distances)[:k]
     closest_workflows = []
     possible_widgets = []
@@ -1627,8 +1632,9 @@ def new_widget_evaluation():
     with open('data/workflows/samples-new-widgets/new-widget-evaluation.yaml', 'r') as file:
         workflows_info = yaml.safe_load(file)
     for name in filenames:
-        print('Evaluating the new_widget_prompt function for the workflow: ' + name + '\n')
+        print('Evaluating the new_widget_prompt function for the workflow: ' + name)
         workflow = Workflow(name)
+        possible_widgets, _ = find_closest_workflows(workflow)
         target_widget = workflows_info[name.split('/')[-1]]['widget']
         response = workflow.get_new_widget(True, goal=workflows_info[name.split('/')[-1]]['goal'])
         if isinstance(target_widget, list):
@@ -1639,12 +1645,18 @@ def new_widget_evaluation():
                     n_correct += 1
                     break
             if found == 0:
-                print('The response does not contain the removed widget for the workflow: ' + name + '\n\n')
+                print('The response does not contain the removed widget for the workflow: ' + name)
+                if Widget(target_widget) not in possible_widgets:
+                    print('The widget is not in the possible widgets')
+            print()
         else:
             if target_widget not in response:
-                print('The response does not contain the removed widget for the workflow: ' + name + '\n\n')
+                print('The response does not contain the removed widget for the workflow: ' + name)
+                if Widget(target_widget) not in possible_widgets:
+                    print('The widget is not in the possible widgets')
             else:
                 n_correct += 1
+            print()
     print('The new_widget_prompt function predicts ' + str(n_correct) + ' out of ' + str(len(filenames)) + ' workflows correctly')
     print('The accuracy of the new_widget_prompt function is ' + str(n_correct/len(filenames)) + '%')
 
