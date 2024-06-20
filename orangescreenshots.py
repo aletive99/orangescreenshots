@@ -13,6 +13,10 @@ import openpyxl
 from openai import OpenAI
 from graphlib import TopologicalSorter
 import pandas as pd
+from transformers import AutoTokenizer, AutoModel
+import torch
+import pickle
+from sklearn.metrics.pairwise import cosine_similarity
 
 
 def download_widgets():
@@ -87,7 +91,7 @@ def size_identification(img_name, show_circles=False):
         return None
     blurred = cv.GaussianBlur(image_to_check, (5, 5), 0)
     circles = cv.HoughCircles(blurred, cv.HOUGH_GRADIENT, dp=1, minDist=20,
-                              param1=75, param2=55, minRadius=15, maxRadius=60)
+                              param1=65, param2=55, minRadius=15, maxRadius=60)
     if circles is None:
         return None
     size_widget = (np.round(np.median(circles[0, :, 2])*2)+1).astype(dtype='int64')
@@ -221,7 +225,7 @@ def get_widget_description():
             progress_bar.write('url not found: ' + urls[j])
             continue
     progress_bar.close()
-    with open('widgets/widget-descriptions.yaml', 'w') as file:
+    with open('data/widget-info/widget-descriptions.yaml', 'w') as file:
         yaml.dump(descriptions, file)
 
 
@@ -732,17 +736,79 @@ class Widget:
         Returns the description of the widget.
         """
         try:
-            with open('widgets/widget-descriptions.yaml', 'r') as file:
+            with open('data/widget-info/widget-descriptions.yaml', 'r') as file:
                 descriptions = yaml.full_load(file)
         except FileNotFoundError:
             get_widget_description()
-            with open('widgets/widget-descriptions.yaml', 'r') as file:
+            with open('data/widget-info/widget-descriptions.yaml', 'r') as file:
                 descriptions = yaml.full_load(file)
         key = self.module + '/' + self.name.split(' #')[0]
         try:
             return [descriptions[key]['description'], descriptions[key]['inputs'], descriptions[key]['outputs']]
         except KeyError:
             return None
+
+
+def augment_widget_list(widget_list, n=30):
+    """
+    This function augments the widget list given as input by adding widgets that are similar to the ones in the list and
+    perform an operation along the line of the one specified by the goal parameter. This will be done by embedding the
+    description of each widget using Word2Vec and finding the cosine similarity between the embeddings of the widgets.
+    :param widget_list: list
+    :param goal: str
+    :param n: int
+    :return: augmented_list: list
+    """
+    with open('data/widget-info/widget-embeddings.pkl', 'rb') as f:
+        embeddings = pickle.load(f)
+    widget_names = list(embeddings.keys())
+    similarity_matrix = np.zeros((len(widget_names), 1))
+    for i in range(len(widget_names)):
+        if widget_names[i] in widget_list:
+            continue
+        cumulative_similarity = 0
+        for j in range(len(widget_list)):
+            cumulative_similarity += cosine_similarity([embeddings[widget_names[i]]], [embeddings[str(widget_list[j])]])
+        cumulative_similarity /= len(widget_list)
+        similarity_matrix[i] = cumulative_similarity
+    similar_indices = similarity_matrix.argsort(axis=0)[-(n-len(widget_list)):][::-1]
+    augmented_list = widget_list
+    for i in similar_indices:
+        augmented_list.append(Widget(widget_names[i[0]]))
+    return augmented_list
+
+
+def get_embedding(text=None):
+    """
+    This function returns the embedding of the given text using the DistilBERT model. If the text is None, the function
+    will return the embeddings of the widget descriptions and save them in a pickle file. Otherwise, the function will
+    return the embedding of the given text.
+    :param text: str
+    :return: embeddings: np.array
+    """
+    model_name = "distilbert-base-uncased"
+    tokenizer = AutoTokenizer.from_pretrained(model_name)
+    model = AutoModel.from_pretrained(model_name)
+    embeddings = dict({})
+    if text is None:
+        with open('data/widget-info/widget-descriptions.yaml', 'r') as file:
+            widget_descriptions = yaml.safe_load(file)
+        progress_bar = tqdm(total=len(widget_descriptions), desc='Progress')
+        for widget, info in widget_descriptions.items():
+            inputs = tokenizer(info['description'], return_tensors="pt", truncation=True, padding=True)
+            with torch.no_grad():
+                outputs = model(**inputs)
+            embeddings.update({widget: outputs.last_hidden_state.mean(dim=1).squeeze().numpy()})
+            progress_bar.update(1)
+        progress_bar.close()
+        with open('data/widget-info/widget-embeddings.pkl', 'wb') as f:
+            pickle.dump(embeddings, f)
+    elif isinstance(text, str):
+        inputs = tokenizer(text, return_tensors="pt", truncation=True, padding=True)
+        with torch.no_grad():
+            outputs = model(**inputs)
+        embeddings = outputs.last_hidden_state.mean(dim=1).squeeze().numpy()
+        return embeddings
 
 
 class Workflow:
@@ -882,12 +948,12 @@ class Workflow:
             widgets = workflow.get_widgets()
             for widget in widgets:
                 descr, inputs, outputs = widget.get_description()
-                query += str(widget) + ':\n' + 'Description:\n' + descr + '\n' + 'Inputs:\n' + inputs + '\n' + 'Outputs:\n' + outputs + '\n\n'
+                query += str(widget) + ':\n' + 'Description:\n' + descr + '\n' + 'Inputs:\n' + inputs + '\n\n' + 'Outputs:\n' + outputs + '\n\n\n'
             query += '## Image name:\n' + example[0] + '\n----------------------------------\n\n'
         query += '## Workflow:\nLinks in the workflow:\n' + str(self) + '\n\nWidget descriptions:\n'
         for widget in self.get_widgets():
             descr, inputs, outputs = widget.get_description()
-            query += str(widget) + ':\n' + 'Description:\n' + descr + '\n' + 'Inputs:\n' + inputs + '\n' + 'Outputs:\n' + outputs + '\n\n'
+            query += str(widget) + ':\n' + 'Description:\n' + descr + '\n' + 'Inputs:\n' + inputs + '\n\n' + 'Outputs:\n' + outputs + '\n\n\n'
         query += '## Image name:\n'
         api_key = os.getenv('OPENAI_API_KEY')
         if api_key is None:
@@ -922,12 +988,12 @@ class Workflow:
             widgets = workflow.get_widgets()
             for widget in widgets:
                 descr, inputs, outputs = widget.get_description()
-                query += str(widget) + ':\n' + 'Description:\n' + descr + '\n' + 'Inputs:\n' + inputs + '\n' + 'Outputs:\n' + outputs + '\n\n'
+                query += str(widget) + ':\n' + 'Description:\n' + descr + '\n' + 'Inputs:\n' + inputs + '\n\n' + 'Outputs:\n' + outputs + '\n\n\n'
             query += '## Description:\n' + example[2] + '\n\n'
         query += '## Workflow:\nLinks in the workflow:\n' + str(self) + '\n\nWidget descriptions:\n'
         for widget in self.get_widgets():
             descr, inputs, outputs = widget.get_description()
-            query += str(widget) + ':\n' + 'Description:\n' + descr + '\n' + 'Inputs: ' + inputs + '\n' + 'Outputs: ' + outputs + '\n\n'
+            query += str(widget) + ':\n' + 'Description:\n' + descr + '\n' + 'Inputs: ' + inputs + '\n\n' + 'Outputs: ' + outputs + '\n\n\n'
         query += '## Description:\n'
         api_key = os.getenv('OPENAI_API_KEY')
         if api_key is None:
@@ -962,14 +1028,15 @@ class Workflow:
         with open('data/prompts/new-widget-prompt.md', 'r') as file:
             query += file.read()
         possible_widgets, _ = find_closest_workflows(self)
+        possible_widgets = augment_widget_list(possible_widgets)
         query += '## Workflow:\nLinks in the workflow:\n' + str(self) + '\n\nWidget descriptions:\n'
         for widget in self.get_widgets():
             descr, inputs, outputs = widget.get_description()
-            query += str(widget) + ':\n' + 'Description:\n' + descr + '\n' + 'Inputs:\n' + inputs + '\n' + 'Outputs:\n' + outputs + '\n\n'
+            query += str(widget) + ':\n' + 'Description:\n' + descr + '\n' + 'Inputs:\n' + inputs + '\n\n' + 'Outputs:\n' + outputs + '\n\n\n'
         query += '## Possible widgets:\n'
         for widget in possible_widgets:
             descr, inputs, outputs = widget.get_description()
-            query += str(widget) + ':\n' + 'Description:\n' + descr + '\n' + 'Inputs:\n' + inputs + '\n' + 'Outputs:\n' + outputs + '\n\n'
+            query += str(widget) + ':\n' + 'Description:\n' + descr + '\n' + 'Inputs:\n' + inputs + '\n\n' + 'Outputs:\n' + outputs + '\n\n\n'
         query += '## Goal of the new widget:\n' + goal + '\n----------------------------------\n\n'
         response = client.chat.completions.create(model=model,
                                                   messages=[
@@ -1466,7 +1533,7 @@ def get_workflow_description_prompt(img_name, use_api=False):
         widgets = workflow.get_widgets()
         for widget in widgets:
             descr, inputs, outputs = widget.get_description()
-            query += str(widget) + ':\n' + 'Description:\n' + descr + '\n' + 'Inputs:\n' + inputs + '\n' + 'Outputs:\n' + outputs + '\n\n'
+            query += str(widget) + ':\n' + 'Description:\n' + descr + '\n' + 'Inputs:\n' + inputs + '\n\n' + 'Outputs:\n' + outputs + '\n\n\n'
         query += '## Description:\n' + example[2] + '\n\n'
     try:
         workflow = Workflow(img_name)
@@ -1482,7 +1549,7 @@ def get_workflow_description_prompt(img_name, use_api=False):
     query += '## Workflow:\nLinks in the workflow:\n' + str(workflow) + '\n\nWidget descriptions:\n'
     for widget in workflow.get_widgets():
         descr, inputs, outputs = widget.get_description()
-        query += str(widget) + ':\n' + 'Description:\n' + descr + '\n' + 'Inputs: ' + inputs + '\n' + 'Outputs: ' + outputs + '\n\n'
+        query += str(widget) + ':\n' + 'Description:\n' + descr + '\n' + 'Inputs: ' + inputs + '\n\n' + 'Outputs: ' + outputs + '\n\n\n'
     query += '## Description:\n'
     print(query + '\n')
     if use_api:
@@ -1523,7 +1590,7 @@ def get_workflow_name_prompt(img_name, use_api=False):
         widgets = workflow.get_widgets()
         for widget in widgets:
             descr, inputs, outputs = widget.get_description()
-            query += str(widget) + ':\n' + 'Description:\n' + descr + '\n' + 'Inputs:\n' + inputs + '\n' + 'Outputs:\n' + outputs + '\n\n'
+            query += str(widget) + ':\n' + 'Description:\n' + descr + '\n' + 'Inputs:\n' + inputs + '\n\n' + 'Outputs:\n' + outputs + '\n\n\n'
         query += '## Image name:\n' + example[0] + '\n-------------------------------\n\n'
     try:
         workflow = Workflow(img_name)
@@ -1539,7 +1606,7 @@ def get_workflow_name_prompt(img_name, use_api=False):
     query += '## Workflow:\nLinks in the workflow:\n' + str(workflow) + '\n\nWidget descriptions:\n'
     for widget in workflow.get_widgets():
         descr, inputs, outputs = widget.get_description()
-        query += str(widget) + ':\n' + 'Description:\n' + descr + '\n' + 'Inputs:\n' + inputs + '\n' + 'Outputs:\n' + outputs + '\n\n'
+        query += str(widget) + ':\n' + 'Description:\n' + descr + '\n' + 'Inputs:\n' + inputs + '\n\n' + 'Outputs:\n' + outputs + '\n\n\n'
     query += '## Image name:\n'
     print(query + '\n')
     if use_api:
@@ -1596,14 +1663,15 @@ def get_new_widget_prompt(img_name, remove_widget=False, use_api=False):
             print('The img_name parameter must be a string or a Workflow object')
             return None
     possible_widgets, removed_widget = find_closest_workflows(workflow, remove_widget=remove_widget)
+    possible_widgets = augment_widget_list(possible_widgets)
     query += '## Workflow:\nLinks in the workflow:\n' + str(workflow) + '\n\nWidget descriptions:\n'
     for widget in workflow.get_widgets():
         descr, inputs, outputs = widget.get_description()
-        query += str(widget) + ':\n' + 'Description:\n' + descr + '\n' + 'Inputs:\n' + inputs + '\n' + 'Outputs:\n' + outputs + '\n\n'
+        query += str(widget) + ':\n' + 'Description:\n' + descr + '\n' + 'Inputs:\n' + inputs + '\n\n' + 'Outputs:\n' + outputs + '\n\n\n'
     query += '## Possible widgets:\n'
     for widget in possible_widgets:
         descr, inputs, outputs = widget.get_description()
-        query += str(widget) + ':\n' + 'Description:\n' + descr + '\n' + 'Inputs:\n' + inputs + '\n' + 'Outputs:\n' + outputs + '\n\n'
+        query += str(widget) + ':\n' + 'Description:\n' + descr + '\n' + 'Inputs:\n' + inputs + '\n\n' + 'Outputs:\n' + outputs + '\n\n\n'
     print(query + '\n')
     if use_api:
         response = client.chat.completions.create(model=model,
@@ -1628,36 +1696,67 @@ def new_widget_evaluation():
     with the actual widget that comes next in the workflow.
     """
     n_correct = 0
+    ignored = 0
     filenames = get_filenames('data/workflows/samples-new-widgets')
     with open('data/workflows/samples-new-widgets/new-widget-evaluation.yaml', 'r') as file:
         workflows_info = yaml.safe_load(file)
     for name in filenames:
-        print('Evaluating the new_widget_prompt function for the workflow: ' + name)
-        workflow = Workflow(name)
+        try:
+            workflow = Workflow(name)
+        except ValueError:
+            ignored += 1
+            continue
         possible_widgets, _ = find_closest_workflows(workflow)
-        target_widget = workflows_info[name.split('/')[-1]]['widget']
-        response = workflow.get_new_widget(True, goal=workflows_info[name.split('/')[-1]]['goal'])
-        if isinstance(target_widget, list):
-            found = 0
-            for i in target_widget:
-                if i in response:
-                    found += 1
-                    n_correct += 1
-                    break
-            if found == 0:
-                print('The response does not contain the removed widget for the workflow: ' + name)
-                if Widget(target_widget) not in possible_widgets:
-                    print('The widget is not in the possible widgets')
-            print()
+        if isinstance(workflows_info[name.split('/')[-1]]['goal'], list):
+            for goal in workflows_info[name.split('/')[-1]]['goal']:
+                print('Evaluating the new_widget_prompt function for the workflow: ' + name + ' for goal ' + goal)
+                target_widget = workflows_info[name.split('/')[-1]]['widget'][goal]
+                response = workflow.get_new_widget(True, goal=goal)
+                if isinstance(target_widget, list):
+                    found = 0
+                    for i in target_widget:
+                        if i in response:
+                            found += 1
+                            n_correct += 1
+                            break
+                    if found == 0:
+                        print('The response does not contain the removed widget for the workflow: ' + name + ' for goal ' + goal)
+                        if Widget(target_widget[0]) not in possible_widgets and Widget(target_widget[1]) not in possible_widgets:
+                            print('The widget is not in the possible widgets')
+                else:
+                    if target_widget in response:
+                        n_correct += 1
+                    else:
+                        print('The response does not contain the removed widget for the workflow: ' + name + ' for goal ' + goal)
+                        if Widget(target_widget) not in possible_widgets:
+                            print('The widget is not in the possible widgets')
+                print()
         else:
-            if target_widget not in response:
-                print('The response does not contain the removed widget for the workflow: ' + name)
-                if Widget(target_widget) not in possible_widgets:
-                    print('The widget is not in the possible widgets')
+            print('Evaluating the new_widget_prompt function for the workflow: ' + name)
+            target_widget = workflows_info[name.split('/')[-1]]['widget']
+            response = workflow.get_new_widget(True, goal=workflows_info[name.split('/')[-1]]['goal'])
+            print('ChatGPT response for goal ' + workflows_info[name.split('/')[-1]]['goal'] + ':\n' + response)
+            if isinstance(target_widget, list):
+                found = 0
+                for i in target_widget:
+                    if i in response:
+                        found += 1
+                        n_correct += 1
+                        break
+                if found == 0:
+                    print('The response does not contain the removed widget for the workflow: ' + name)
+                    if Widget(target_widget) not in possible_widgets:
+                        print('The widget is not in the possible widgets')
+                print('\n')
             else:
-                n_correct += 1
-            print()
-    print('The new_widget_prompt function predicts ' + str(n_correct) + ' out of ' + str(len(filenames)) + ' workflows correctly')
-    print('The accuracy of the new_widget_prompt function is ' + str(n_correct/len(filenames)) + '%')
+                if target_widget not in response:
+                    print('The response does not contain the removed widget for the workflow: ' + name)
+                    if Widget(target_widget) not in possible_widgets:
+                        print('The widget is not in the possible widgets')
+                else:
+                    n_correct += 1
+                print('\n')
+    print('The new_widget_prompt function predicts ' + str(n_correct) + ' out of ' + str(len(filenames)-ignored) + ' workflows correctly')
+    print('The accuracy of the new_widget_prompt function is ' + str(n_correct/(len(filenames)-ignored)*100)[:4] + '%')
 
 #%%

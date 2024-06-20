@@ -1,0 +1,1399 @@
+Associate/Association Rules:
+  description: Induction of association rules.
+  inputs: '- Data: Data set'
+  outputs: '- Matching Data: Data instances matching the criteria.'
+Associate/Frequent Itemsets:
+  description: Finds frequent itemsets in the data.
+  inputs: '- Data: Data set'
+  outputs: '- Matching Data: Data instances matching the criteria.'
+Bioinformatics/Annotator:
+  description: The widget provides an option to annotate cells with cell types based
+    on
+  inputs: '- Reference Data: Data set with gene expression values.
+
+    - Secondary Data: Subset of instances (optional).
+
+    - Genes: Marker genes.'
+  outputs: '- Selected Data: Instances selected from the plot.
+
+    - Data: Data with additional columns with annotations, clusters,
+
+    - and projection'
+Bioinformatics/Cluster Analysis:
+  description: Display differentially expressed genes that characterize the cluster.
+  inputs: '- Data: Data set.
+
+    - Custom Gene Sets: Genes to compare.'
+  outputs: '- Selected Data: Data selected in the widget.'
+Bioinformatics/Databases Update:
+  description: Updates local systems biology databases, like gene ontologies,
+  inputs: '- None'
+  outputs: '- None'
+Bioinformatics/Differential Expression:
+  description: Plots differential gene expression for selected experiments.
+  inputs: '- Data: Data set.'
+  outputs: '- Data Subset: Differentially expressed genes.
+
+    - Remaining Data Subset: Genes that were not differentially expressed.
+
+    - Selected Genes: Genes from the select data with scores appended.'
+Bioinformatics/GEO Data Sets:
+  description: Provides access to data sets from gene expression omnibus GEO
+  inputs: '- None'
+  outputs: '- Expression data: Data set selected in the widget with genes or samples
+    in rows.'
+Bioinformatics/GO Browser:
+  description: Provides access to Gene Ontology database.
+  inputs: '- Cluster Data: Data on clustered genes.
+
+    - Reference Data: Data with genes for the reference set (optional).'
+  outputs: '- Data on Selected Genes: Data on genes from the selected GO node.
+
+    - Enrichment Report: Data on GO enrichment analysis.'
+Bioinformatics/Gene Set Enrichment:
+  description: Enrich gene sets.
+  inputs: '- Data: Data set.
+
+    - Custom Gene Sets: Genes to compare.
+
+    - Reference Genes: Genes used as reference.'
+  outputs: '- Matched Genes: Genes that match.'
+Bioinformatics/Gene Sets:
+  description: Lists of genes associated with specific biological function.
+  inputs: '- Data: Data set.
+
+    - Custom Gene Sets: Genes to compare.'
+  outputs: '- Data: Instances with gene metadata within the selected gene sets.
+
+    - Gene Sets: Selected gene sets for utilization in other widgets (e.g., Single
+    Sample Scoring).'
+Bioinformatics/Genes:
+  description: Match input gene ID's with corresponding Entrez ID's.
+  inputs: '- Data: Data set.'
+  outputs: '- Data: Instances with meta data that the user has manually selected in
+    the widget.
+
+    - Genes: All genes from the input with included gene info summary and matcher
+    result.'
+Bioinformatics/Homologs:
+  description: Finds homologs to genes in the input data set.
+  inputs: '- Data: Input data set.'
+  outputs: '- Genes: List of homologs.'
+Bioinformatics/KEGG Pathways:
+  description: Diagrams of molecular interactions, reactions, and relations.
+  inputs: '- Data: Data set.
+
+    - Reference: Referential data set.'
+  outputs: '- Selected Data: Data subset.
+
+    - Unselected Data: Remaining data.'
+Bioinformatics/Marker Genes:
+  description: Widget provides access to a public database of marker genes.
+  inputs: No inputs
+  outputs: '- Genes'
+Bioinformatics/Single sample scoring:
+  description: Scoring gene sets by single sample.
+  inputs: '- Data: Input data set.
+
+    - Custom Gene Sets: Gene sets to be used for scoring.'
+  outputs: '- Data: Data set with enrichment scores corresponding to the selected
+    gene sets.'
+Bioinformatics/Volcano Plot:
+  description: Plots significance versus fold-change for gene expression rates.
+  inputs: '- Data: Input data set.'
+  outputs: '- Selected Data: Data subset.'
+Bioinformatics/dictyExpress:
+  description: Gives access to dictyExpress
+  inputs: '- None'
+  outputs: '- Data: Selected experiment (time-course gene expression data).'
+Data/CSV File Import:
+  description: Import a data table from a CSV formatted file.
+  inputs: No inputs
+  outputs: '- Data: dataset from the .csv file
+
+    - Data Frame: pandas DataFrame object'
+Data/Color:
+  description: Set color legend for variables.
+  inputs: '- Data: input data set'
+  outputs: '- Data: data set with a new color legend'
+Data/Data Info:
+  description: Displays information on a selected dataset.
+  inputs: '- Data: input dataset'
+  outputs: No outputs
+Data/Data Table:
+  description: Displays attribute-value data in a spreadsheet.
+  inputs: '- Data: input dataset'
+  outputs: '- Selected Data: instances selected from the table'
+Data/Datasets:
+  description: Load a dataset from an online repository.
+  inputs: No inputs
+  outputs: '- Data: output dataset'
+Data/Edit Domain:
+  description: Rename features and their values.
+  inputs: '- Data: input dataset'
+  outputs: '- Data: dataset with edited domain'
+Data/Feature Statistics:
+  description: Show basic statistics for data features.
+  inputs: '- Data: input data'
+  outputs: '- Reduced data: table containing only selected features
+
+    - Statistics: table containing statistics of the selected features'
+Data/File:
+  description: Reads attribute-value data from an input file.
+  inputs: No inputs
+  outputs: '- Data: dataset from the file'
+Data/Paint Data:
+  description: Paints data on a 2D plane. You can place individual data points or
+    use a brush to paint larger datasets.
+  inputs: No inputs
+  outputs: '- Data: dataset as painted in the plot'
+Data/Rank:
+  description: Ranking of attributes in classification or regression datasets.
+  inputs: '- Data: input dataset
+
+    - Scorer: models for feature scoring'
+  outputs: '- Reduced Data: dataset with selected attributes
+
+    - Scores: data table with feature scores
+
+    - Features: list of attributes'
+Data/SQL Table:
+  description: Reads data from an SQL database.
+  inputs: No inputs
+  outputs: '- Data: dataset from the database'
+Data/Save Data:
+  description: Saves data to a file.
+  inputs: '- Data: input dataset'
+  outputs: No outputs
+Educational/EnKlik Anketa:
+  description: Import data from EnKlikAnketa (1ka.si) public URL.
+  inputs: No inputs
+  outputs: '- Data: survey results'
+Educational/Google Sheets:
+  description: Read data from a Google Sheets spreadsheet.
+  inputs: No inputs
+  outputs: '- Data: data set from the Google Sheets service.'
+Educational/Gradient Descent:
+  description: Educational widget that shows the gradient descent algorithm on a logistic
+    or linear regression.
+  inputs: '- Data: input data set'
+  outputs: '- Data: data with columns selected in the widget
+
+    - Classifier: model produced at the current step of the algorithm.
+
+    - Coefficients: coefficients at the current step of the algorithm.'
+Educational/Interactive k-Means:
+  description: Educational widget that shows the working of a k-means clustering.
+  inputs: '- Data: input data set'
+  outputs: '- Data: data set with cluster annotation
+
+    - Centroids: centroids position'
+Educational/Pie Chart:
+  description: The widget for visualizing discrete attributes in the pie chart.
+  inputs: '- Data: input data set'
+  outputs: No outputs
+Educational/Polynomial Classification:
+  description: Educational widget that visually demonstrates classification in two-dimensional
+    space.
+  inputs: '- Data: input data set
+
+    - Preprocessor (optional): data preprocessors
+
+    - Learner (optional): classification algorithm used in the widget (default:Logistic
+    Regression)'
+  outputs: '- Learner: classification algorithm used in the widget
+
+    - Classifier: trained classifier
+
+    - Coefficients: classifier coefficients if it has them'
+Educational/Polynomial Regression:
+  description: Educational widget that interactively shows regression line for different
+    regressors.
+  inputs: '- Data: input data set. It needs at least two continuous attributes.
+
+    - Preprocessor: data preprocessors
+
+    - Learner: regression algorithm used in the widget. Default set to Linear Regression.'
+  outputs: '- Learner: regression algorithm used in the widget
+
+    - Predictor: trained regressor
+
+    - Coefficients: regressor coefficients if any'
+Educational/Random Data:
+  description: Generate random data sample.
+  inputs: '- None'
+  outputs: '- Data: randomly generated data'
+Evaluate/Calibration Plot:
+  description: Shows the match between classifiers' probability predictions and actual
+    class probabilities.
+  inputs: '- Evaluation Results: results of testing classification algorithms'
+  outputs: '- Calibrated Model: a model with calibrated probabilities or a model with
+    the same probabilities but different classification threshold'
+Evaluate/Confusion Matrix:
+  description: Shows proportions between the predicted and actual class.
+  inputs: '- Evaluation results: results of testing classification algorithms'
+  outputs: '- Selected Data: data subset selected from confusion matrix
+
+    - Data: data with the additional information on whether a data instance was selected'
+Evaluate/Performance Curve:
+  description: Construct and display a performance curve from the evaluation of classifiers.
+  inputs: '- Evaluation Results: results of testing classification algorithms'
+  outputs: '- Calibrated Model: trained model using the calibrated learner'
+Evaluate/Predictions:
+  description: Shows models' predictions on the data.
+  inputs: '- Data: input dataset
+
+    - Predictors: predictors to be used on the data'
+  outputs: '- Predictions: data with added predictions
+
+    - Evaluation Results: results of testing classification algorithms'
+Evaluate/ROC Analysis:
+  description: Plots a true positive rate against a false positive rate of a test.
+  inputs: '- Evaluation Results: results of testing classification algorithms'
+  outputs: No outputs
+Evaluate/Test and Score:
+  description: Tests learning algorithms on data.
+  inputs: '- Data: input dataset
+
+    - Test Data: separate data for testing
+
+    - Learner: learning algorithm(s)'
+  outputs: '- Evaluation Results: results of testing classification algorithms'
+Explain/Explain Model:
+  description: Explains a classification or regression model. Explains which features
+    contribute the most and how they contribute toward the prediction for a specific
+    class.
+  inputs: '- Data: dataset used to compute the explanations
+
+    - Model: a model which widget explains'
+  outputs: '- Selected data: data instance that belong to selected points in the plot
+
+    - Scores: The score of each attribute. Features that contribute more toward the
+    final prediction have higher scores.'
+Explain/Explain Prediction:
+  description: Explains which features contribute the most to the prediction for a
+    single instance based on the model and how they contribute.
+  inputs: '- Model: a model whose predictions are explained by the widget
+
+    - Background data: data needed to compute explanations
+
+    - Data: Single data instance whose prediction is explained by the widget'
+  outputs: '- Scores: The SHAP value of each features value. Features that contribute
+    more to prediction have higher score deviation from the 0.'
+Explain/Explain Predictions:
+  description: Explains which features contribute the most to the predictions for
+    the selected instances based on the model and how they contribute.
+  inputs: '- Model: model whose predictions are explained by the widget
+
+    - Background data: dataset needed to compute explanations
+
+    - Data: dataset whose predictions are explained by the widget'
+  outputs: '- Selected Data: instances selected from the plot
+
+    - Data: original dataset with an additional column showing whether the instance
+    is selected
+
+    - Scores: SHAP values for each feature. Features that contribute more to prediction
+    have a higher score deviation from 0.'
+Explain/Feature Importance:
+  description: Inspect model using the Permutation Feature Importance technique.
+  inputs: '- Data: dataset used to compute the explanations
+
+    - Model: a model which widget explains'
+  outputs: '- Selected data: data instances that belong to selected features in the
+    plot
+
+    - Scores: Mean and standard deviation of score for each feature.'
+Explain/ICE:
+  description: "Displays one line per instance that shows how the instance\u2019s\
+    \ prediction changes when a feature changes."
+  inputs: '- Model: model
+
+    - Data: dataset'
+  outputs: '- Selected Data: instances selected from the plot
+
+    - Data: data with an additional column showing whether a point is selected'
+Geo/Choropleth Map:
+  description: A thematic map in which areas are shaded in proportion to the measurement
+    of the statistical variable being displayed.
+  inputs: '- Data: input dataset'
+  outputs: '- Selected Data: instances selected from the map.
+
+    - Data: data with an additional column showing whether a point is selected'
+Geo/Geo Map:
+  description: Show data points on a map.
+  inputs: '- Data: input dataset
+
+    - Data Subset: subset of instances'
+  outputs: '- Selected Data: instances selected from the plot
+
+    - Data: data with an additional column showing whether a point is selected'
+Geo/Geo Transform:
+  description: Transform geographic coordinates from one system to another.
+  inputs: '- Data: input dataset'
+  outputs: '- Data: data with transformed coordinates.'
+Geo/Geocoding:
+  description: Encode region names into geographical coordinates, or reverse-geocode
+    latitude and longitude pairs into regions.
+  inputs: '- Data: An input data set.'
+  outputs: '- Coded Data: Data set with new meta attributes.'
+Image Analytics/Image Embedding:
+  description: Image embedding through deep neural networks.
+  inputs: '- Images: List of images.'
+  outputs: '- Embeddings: Images represented with a vector of numbers.
+
+    - Skipped Images: List of images where embeddings were not calculated.'
+Image Analytics/Image Grid:
+  description: Displays images in a similarity grid.
+  inputs: '- Embeddings: Image embeddings from Image Embedding widget.
+
+    - Data Subset: A subset of embeddings or images.'
+  outputs: '- Images: Images from the dataset with an additional column specifying
+    if the image is selected or the group, if there are several.
+
+    - Selected Images: Selected images with an additional column specifying the group.'
+Image Analytics/Image Viewer:
+  description: Displays images that come with a data set.
+  inputs: '- Data: A data set with images.'
+  outputs: '- Data: Images that come with the data.
+
+    - Selected images: Images selected in the widget.'
+Image Analytics/Import Images:
+  description: Import images from a directory(s).
+  inputs: No inputs
+  outputs: '- Data: Dataset describing one image in each row.'
+Image Analytics/Save Images:
+  description: Save images in the directory structure.
+  inputs: '- Data: images to save.'
+  outputs: No outputs
+Model/AdaBoost:
+  description: An ensemble meta-algorithm that combines weak learners and adapts to
+    the 'hardness' of each training sample.
+  inputs: '- Data: input dataset
+
+    - Preprocessor: preprocessing method(s)
+
+    - Learner: learning algorithm'
+  outputs: '- Learner: AdaBoost learning algorithm
+
+    - Model: trained model'
+Model/CN2 Rule Induction:
+  description: Induce rules from data using CN2 algorithm.
+  inputs: '- Data: input dataset
+
+    - Preprocessor: preprocessing method(s)'
+  outputs: '- Learner: CN2 learning algorithm
+
+    - CN2 Rule Classifier: trained model'
+Model/Calibrated Learner:
+  description: Wraps another learner with probability calibration and decision threshold
+    optimization.
+  inputs: '- Data: input dataset
+
+    - Preprocessor: preprocessing method(s)
+
+    - Base Learner: learner to calibrate'
+  outputs: '- Learner: calibrated learning algorithm
+
+    - Model: trained model using the calibrated learner'
+Model/Constant:
+  description: Predict the most frequent class or mean value from the training set.
+  inputs: '- Data: input dataset
+
+    - Preprocessor: preprocessing method(s)'
+  outputs: '- Learner: majority/mean learning algorithm
+
+    - Model: trained model'
+Model/Curve Fit:
+  description: Fit a function to data.
+  inputs: '- Data: input dataset
+
+    - Preprocessor: preprocessing method(s)'
+  outputs: '- Learner: curve fit learning algorithm
+
+    - Model: trained model
+
+    - Coefficients: fitted coefficients'
+Model/Gradient Boosting:
+  description: Predict using gradient boosting on decision trees.
+  inputs: '- Data: input dataset
+
+    - Preprocessor: preprocessing method(s)'
+  outputs: '- Learner: gradient boosting learning algorithm
+
+    - Model: trained model'
+Model/Linear Regression:
+  description: A linear regression algorithm with optional L1 (LASSO), L2 (ridge)
+    or L1L2 (elastic net) regularization.
+  inputs: '- Data: input dataset
+
+    - Preprocessor: preprocessing method(s)'
+  outputs: '- Learner: linear regression learning algorithm
+
+    - Model: trained model
+
+    - Coefficients: linear regression coefficients'
+Model/Load Model:
+  description: Load a model from an input file.
+  inputs: No inputs
+  outputs: '- Model: trained model'
+Model/Logistic Regression:
+  description: The logistic regression classification algorithm with LASSO (L1) or
+    ridge (L2) regularization.
+  inputs: '- Data: input dataset
+
+    - Preprocessor: preprocessing method(s)'
+  outputs: '- Learner: logistic regression learning algorithm
+
+    - Model: trained model
+
+    - Coefficients: logistic regression coefficients'
+Model/Naive Bayes:
+  description: A fast and simple probabilistic classifier based on Bayes' theorem
+    with the assumption of feature independence.
+  inputs: '- Data: input dataset
+
+    - Preprocessor: preprocessing method(s)'
+  outputs: '- Learner: naive bayes learning algorithm
+
+    - Model: trained model'
+Model/Neural Network:
+  description: A multi-layer perceptron (MLP) algorithm with backpropagation.
+  inputs: '- Data: input dataset
+
+    - Preprocessor: preprocessing method(s)'
+  outputs: '- Learner: multi-layer perceptron learning algorithm
+
+    - Model: trained model'
+Model/Random Forest:
+  description: Predict using an ensemble of decision trees.
+  inputs: '- Data: input dataset
+
+    - Preprocessor: preprocessing method(s)'
+  outputs: '- Learner: random forest learning algorithm
+
+    - Model: trained model'
+Model/SVM:
+  description: Support Vector Machines map inputs to higher-dimensional feature spaces.
+  inputs: '- Data: input dataset
+
+    - Preprocessor: preprocessing method(s)'
+  outputs: '- Learner: linear regression learning algorithm
+
+    - Model: trained model
+
+    - Support Vectors: instances used as support vectors'
+Model/Save Model:
+  description: Save a trained model to an output file.
+  inputs: '- Model: trained model'
+  outputs: No outputs
+Model/Stacking:
+  description: Stack multiple models.
+  inputs: '- Data: input dataset
+
+    - Preprocessor: preprocessing method(s)
+
+    - Learners: learning algorithm
+
+    - Aggregate: model aggregation method'
+  outputs: '- Learner: aggregated (stacked) learning algorithm
+
+    - Model: trained model'
+Model/Stochastic Gradient Descent:
+  description: Minimize an objective function using a stochastic approximation of
+    gradient descent.
+  inputs: '- Data: input dataset
+
+    - Preprocessor: preprocessing method(s)'
+  outputs: '- Learner: stochastic gradient descent learning algorithm
+
+    - Model: trained model'
+Model/Tree:
+  description: A tree algorithm with forward pruning.
+  inputs: '- Data: input dataset
+
+    - Preprocessor: preprocessing method(s)'
+  outputs: '- Learner: decision tree learning algorithm
+
+    - Model: trained model'
+Model/kNN:
+  description: Predict according to the nearest training instances.
+  inputs: '- Data: input dataset
+
+    - Preprocessor: preprocessing method(s)'
+  outputs: '- Learner: kNN learning algorithm
+
+    - Model: trained model'
+Networks/Network Analysis:
+  description: Statistical analysis of network data.
+  inputs: '- Network: An instance of Network Graph.
+
+    - Items: Properties of a network file.'
+  outputs: '- Network: An instance of Network Graph with appended information.
+
+    - Items: New properties of a network file.'
+Networks/Network Clustering:
+  description: Detect clusters in a network.
+  inputs: '- Network: An instance of Network Graph.'
+  outputs: '- Network: An instance of Network Graph with clustering information appended.'
+Networks/Network Explorer:
+  description: Visually explore the network and its properties.
+  inputs: '- Network: An instance of Network Graph.
+
+    - Node Subset: A subset of vertices.
+
+    - Node Data: Information on vertices.
+
+    - Node Distances: Data on distances between nodes.'
+  outputs: '- Selected sub-network: A network of selected nodes.
+
+    - Distance Matrix: Distance matrix.
+
+    - Selected Items: Information on selected vertices.
+
+    - Highlighted Items: Information on highlighted vertices.
+
+    - Remaining Items: Information on remaining items (not selected or highlighted).'
+Networks/Network File:
+  description: Read network graph file in Pajek format.
+  inputs: No inputs
+  outputs: '- Network: An instance of Network Graph.
+
+    - Items: Properties of a network file.'
+Networks/Network From Distances:
+  description: Constructs a network from distances between instances.
+  inputs: '- Distances: A distance matrix.'
+  outputs: '- Network: An instance of Network Graph.
+
+    - Data: Attribute-valued data set.
+
+    - Distances: A distance matrix.'
+Networks/Network Generator:
+  description: Construct example graphs.
+  inputs: No inputs
+  outputs: '- Generated Network: An instance of Network Graph.'
+Networks/Network Of Groups:
+  description: Group instances by feature and connect related groups.
+  inputs: '- Network: An instance of network graph.
+
+    - Data: Properties of a network graph.'
+  outputs: '- Network: A grouped network graph.
+
+    - Data: Properties of the group network graph.'
+Networks/Single Mode:
+  description: Convert multimodal graphs to single modal.
+  inputs: '- Network: An instance of a bipartite network graph.'
+  outputs: '- Network: An instance of single network graph.'
+Single Cell/Align Datasets:
+  description: Alignment of multiple datasets with a diagram of correlation visualization.
+  inputs: '- Data: single cell dataset'
+  outputs: '- Transformed Data: aligned data
+
+    - Genes per n. Components'
+Single Cell/Batch Effect Removal:
+  description: Batch effect normalization on Single Cell data set.
+  inputs: No inputs
+  outputs: '- Data: Single cell dataset.'
+Single Cell/Dot Matrix:
+  description: Perform cluster analysis.
+  inputs: '- Data: Single cell dataset.'
+  outputs: '- Selected Data
+
+    - Data: Single cell dataset.
+
+    - Contingency Table'
+Single Cell/Filter:
+  description: Filter cells/genes.
+  inputs: '- Data: input dataset'
+  outputs: '- Data: filtered dataset'
+Single Cell/Load Data:
+  description: Load samples for multi-sample analysis.
+  inputs: No inputs
+  outputs: '- Data: Single cell dataset.'
+Single Cell/Score Cells:
+  description: Add a cell score based on the given set of genes.
+  inputs: '- Data: input dataset
+
+    - Genes: dataset with gene names'
+  outputs: '- Data: dataset with a meta column reporting on cell scores'
+Single Cell/Score Genes:
+  description: Gene scoring based on statistics of their expression profiles or information
+    content about cell types.
+  inputs: '- Data: input dataset
+
+    - Scorer: (multiple) prediction model(s)'
+  outputs: '- Reduced Data: expression data containing selected genes
+
+    - Scores: gene scores'
+Single Cell/Single Cell Datasets:
+  description: Load a single cell data from an online repository.
+  inputs: No inputs
+  outputs: '- Data: A single cell dataset containing cells and their gene expression
+    or gene markers.'
+Single Cell/Single Cell Preprocess:
+  description: Preprocess Single Cell data set.
+  inputs: '- Data: Single cell dataset.'
+  outputs: '- Preprocessed Data: Preprocessed dataset.'
+Spectroscopy/Average Spectra:
+  description: Average spectra.
+  inputs: '- Data: input dataset'
+  outputs: '- Averages: averaged dataset'
+Spectroscopy/HyperSpectra:
+  description: Plots 2D map of hyperspectra.
+  inputs: '- Data: input dataset'
+  outputs: '- Selection: spectra from selected area
+
+    - Data: dataset with information whether a spectrum was selected or not'
+Spectroscopy/Integrate Spectra:
+  description: Integrate spectra in various ways.
+  inputs: '- Data: input dataset'
+  outputs: '- Integrated Data: data with integrals appended
+
+    - Preprocessor: preprocessing method'
+Spectroscopy/Interferogram to Spectrum:
+  description: Performs Fast Fourier Transform on an interferogram, including zero
+    filling, apodization and phase correction.
+  inputs: '- Interferogram: input interferogram'
+  outputs: '- Spectra: dataset with spectra
+
+    - Phases: phases'
+Spectroscopy/Interpolate:
+  description: Interpolate spectra.
+  inputs: '- Data: input dataset
+
+    - Points: a reference data set'
+  outputs: '- Interpolated Data: aligned dataset'
+Spectroscopy/Multifile:
+  description: Read data from input files and send a data table to the output.
+  inputs: No inputs
+  outputs: '- Data: a data table of all the loaded files'
+Spectroscopy/Peak Fit:
+  description: Fit data to a composite peak model.
+  inputs: '- Data: Input data set'
+  outputs: '- Fit Parameters: Best fit values for the model parameters
+
+    - Fits: Total evaluated best fit
+
+    - Residuals: Difference between Fits and Data
+
+    - Data: Input data set annotated with Fit Parameters'
+Spectroscopy/Preprocess Spectra:
+  description: Construct a data preprocessing pipeline.
+  inputs: '- Data: required input data set
+
+    - Reference: optional reference data set used in some preprocessing methods'
+  outputs: '- Preprocessed Data: transformed data set
+
+    - Preprocessor: preprocessing methods'
+Spectroscopy/Reshape Map:
+  description: Builds or modifies the shape of the input dataset to create 2D maps
+    from series data or change the dimensions of existing 2D datasets.
+  inputs: '- Data: input dataset'
+  outputs: '- Map Data: data as a map'
+Spectroscopy/SNR:
+  description: Signal-to-Noise Ratio (SNR)
+  inputs: '- Data: input dataset'
+  outputs: '- Signal-to-noise ratio: signal-to-noise ratio dataset'
+Spectroscopy/Spectra:
+  description: Visually explore series of spectra with no spatial information.
+  inputs: '- Data: input dataset
+
+    - Data Subset:subset of the data'
+  outputs: '- Selection: selected spectra'
+Spectroscopy/Tile File:
+  description: Read data tile-by-tile from input file(s), preprocess the spectra,
+    and send a data table to the output.
+  inputs: '- Preprocessor: A preprocessor list from the Preprocess Spectra widget'
+  outputs: '- Data: preprocessed dataset read from the input file(s)'
+Survival Analysis/As Survival Data:
+  description: Mark features Time and Event as target variables.
+  inputs: '- Data: reference dataset'
+  outputs: '- Data: reference dataset with selected Time and Event marked as target
+    variables'
+Survival Analysis/Cohorts:
+  description: Calculate the risk score for each data instance and stratify into high
+    and low-risk cohorts.
+  inputs: '- Data: reference survival dataset'
+  outputs: '- Data: reference data set augumented with two new variables, one with
+    the computed risk scores and a binary variable stratifying instances into low
+    and high-risk'
+Survival Analysis/Cox regression:
+  description: Fit the Cox regression model on input data.
+  inputs: '- Data: reference survival dataset
+
+    - Preprocessor: preprocessing method'
+  outputs: '- Learner: Cox regression learning algorithm
+
+    - Model trained model
+
+    - Coefficients: Cox regression coefficients'
+Survival Analysis/Kaplan-Meier Plot:
+  description: Visualisation of Kaplan-Meier estimator.
+  inputs: '- Data: reference survival dataset'
+  outputs: '- Data: reference survival dataset with an additional column showing whether
+    a point is selected
+
+    - Selected Data: instances selected from the plot'
+Survival Analysis/Rank Survival Features:
+  description: Rank features according to univariate estimate of importance by Cox
+    regression model.
+  inputs: '- Data: reference survival dataset'
+  outputs: '- Reduced data: data comprised of selected features'
+Survival Analysis/Stepwise Cox Regression:
+  description: Perform feature selection through backward elimination process.
+  inputs: '- todo'
+  outputs: '- todo'
+Text Mining/Annotated Corpus Map:
+  description: Annotated Corpus Map visualises, cluster, and annotates documents with
+    keywords
+  inputs: '- Corpus: A collection of documents to visualise.'
+  outputs: '- Selected Document: Documents selected from the plot
+
+    - Corpus: Data with an additional column showing whether a document is selected
+    and information about the cluster the document belongs to
+
+    - Scores: Table with scores and p-values for each keyword averaged per cluster'
+Text Mining/Bag of Words:
+  description: Generates a bag of words from the input corpus.
+  inputs: '- Corpus: A collection of documents.'
+  outputs: '- Corpus: Corpus with bag of words features appended.'
+Text Mining/Collocations:
+  description: Compute significant bigrams and trigrams.
+  inputs: '- Corpus: A collection of documents.'
+  outputs: '- Table: A list of bigrams or trigrams.'
+Text Mining/Concordance:
+  description: Display the context of the word.
+  inputs: '- Corpus: A collection of documents.'
+  outputs: '- Selected Documents: Documents containing the queried word.
+
+    - Concordances: A table of concordances.'
+Text Mining/Corpus:
+  description: Load a corpus of text documents, (optionally) tagged with categories,
+    or change the data input signal to the corpus.
+  inputs: '- Data: Input data (optional)'
+  outputs: '- Corpus: A collection of documents.'
+Text Mining/Corpus Viewer:
+  description: Displays corpus content.
+  inputs: '- Corpus: A collection of documents.'
+  outputs: '- Corpus: Documents containing the queried word.'
+Text Mining/Corpus to Network:
+  description: Creates a network from given corpus. Network nodes can be either documents
+    or words (ngrams).
+  inputs: '- Corpus: A collection of documents.'
+  outputs: '- Network: A network generated from input corpus.
+
+    - Node data: Additional data about nodes.'
+Text Mining/Create Corpus:
+  description: Write/paste documents to create a corpus
+  inputs: No inputs
+  outputs: '- Corpus: The created corpus.'
+Text Mining/Document Embedding:
+  description: Embeds documents from input corpus into vector space by using pre-trained
+  inputs: '- Corpus: A collection of documents.'
+  outputs: '- Corpus: Corpus with new features appended.'
+Text Mining/Document Map:
+  description: Displays geographic locations mentioned in the text.
+  inputs: '- Data: Data set.'
+  outputs: '- Corpus: Documents containing mentions of selected geographical regions.'
+Text Mining/Duplicate Detection:
+  description: Detect & remove duplicates from a corpus.
+  inputs: '- Distances: A distance matrix.'
+  outputs: '- Corpus Without Duplicated: Corpus with duplicates removed.
+
+    - Duplicates Cluster: Documents belonging to selected cluster.
+
+    - Corpus: Corpus with appended cluster labels.'
+Text Mining/Extract Keywords:
+  description: Infers characteristic words from the input corpus.
+  inputs: '- Corpus: A collection of documents.
+
+    - Words: A table of words.'
+  outputs: '- Words: A table of words.'
+Text Mining/Import Documents:
+  description: Import text documents from folders.
+  inputs: '- None'
+  outputs: '- Corpus: A collection of documents from the local machine.
+
+    - Skipped Documents: A list of documents that couldn''t be imported.'
+Text Mining/LDAvis:
+  description: Interactive exploration of LDA topics.
+  inputs: '- Topics: All LDA topics from topic modeling.'
+  outputs: No outputs
+Text Mining/NY Times:
+  description: Loads data from the New York Times' Article Search API.
+  inputs: '- None'
+  outputs: '- Corpus: A collection of documents from the New York Times newspaper.'
+Text Mining/Ontology:
+  description: Generate, edit, load and save ontologies.
+  inputs: '- Words: A table of words.'
+  outputs: '- Words: A table of words.'
+Text Mining/Preprocess Text:
+  description: Preprocesses corpus with selected methods.
+  inputs: '- Corpus: A collection of documents.'
+  outputs: '- Corpus: Preprocessed corpus.'
+Text Mining/Pubmed:
+  description: Fetch data from PubMed journals.
+  inputs: '- None'
+  outputs: '- Corpus: A collection of documents from the PubMed online service.'
+Text Mining/Score Documents:
+  description: Scores documents based on word appearance.
+  inputs: '- Corpus: A collection of documents
+
+    - Words: A table with at least one column with words'
+  outputs: '- Corpus: A collection of documents with scores'
+Text Mining/Semantic Viewer:
+  description: Displays corpus semantics.
+  inputs: '- Corpus: A collection of documents.
+
+    - Words: A table of words.'
+  outputs: '- Matching Docs: Selected documents.
+
+    - Other Docs: Other documents.
+
+    - Corpus: A collection of documents.'
+Text Mining/Sentiment Analysis:
+  description: Predict sentiment from text.
+  inputs: '- Corpus: A collection of documents.'
+  outputs: '- Corpus: A corpus with information on the sentiment of each document.'
+Text Mining/Similarity Hashing:
+  description: Computes documents hashes.
+  inputs: '- Corpus: A collection of documents.'
+  outputs: '- Corpus: Corpus with simhash value as attributes.'
+Text Mining/Statistics:
+  description: Create new statistic variables for documents.
+  inputs: '- Corpus: A collection of documents.'
+  outputs: '- Corpus: Corpus with additional attributes.'
+Text Mining/The Guardian:
+  description: Fetching data from The Guardian Open Platform.
+  inputs: '- None'
+  outputs: '- Corpus: A collection of documents from the Guardian newspaper.'
+Text Mining/Topic Modelling:
+  description: Topic modelling with Latent Dirichlet Allocation, Latent Semantic Indexing
+    or Hierarchical Dirichlet Process.
+  inputs: '- Corpus: A collection of documents.'
+  outputs: '- Corpus: Corpus with topic weights appended.
+
+    - Topics: Selected topics with word weights.
+
+    - All Topics: Token weights per topic.'
+Text Mining/Tweet Profiler:
+  description: Detect Ekman's, Plutchik's or Profile of Mood States' emotions in tweets.
+  inputs: '- Corpus: A collection of tweets (or other documents).'
+  outputs: '- Corpus: A corpus with information on the sentiment of each document.'
+Text Mining/Twitter:
+  description: Fetching data from The Twitter Search API.
+  inputs: '- None'
+  outputs: '- Corpus: A collection of tweets from the Twitter API.'
+Text Mining/Wikipedia:
+  description: Fetching data from MediaWiki RESTful web service API.
+  inputs: '- None'
+  outputs: '- Corpus: A collection of documents from the Wikipedia.'
+Text Mining/Word Cloud:
+  description: Generates a word cloud from corpus.
+  inputs: '- Topic: Selected topic.
+
+    - Corpus: A collection of documents.'
+  outputs: '- Corpus: Documents that match the selection.
+
+    - Selected Word: Selected word that can be used as query in Concordance.
+
+    - Word Counts: Words and their weights.'
+Text Mining/Word Enrichment:
+  description: Word enrichment analysis for selected documents.
+  inputs: '- Corpus: A collection of documents.
+
+    - Selected Data: Selected instances from corpus.'
+  outputs: '- None'
+Text Mining/Word List:
+  description: Create a list of words.
+  inputs: '- Words: A table of words.'
+  outputs: '- Selected Words: Words selected from the table.
+
+    - Words: A table of words.'
+Time Series/ARIMA Model:
+  description: Model the time series using ARMA, ARIMA, or ARIMAX model.
+  inputs: '- Time series: Time series as output by As Timeseries widget.
+
+    - Exogenous data: Time series of additional independent variables that can be
+    used in an ARIMAX model.'
+  outputs: '- Time series model: The ARIMA model fitted to input time series.
+
+    - Forecast: The forecast time series.
+
+    - Fitted values: The values that the model was actually fitted to, equals to original
+    values - residuals.
+
+    - Residuals: The errors the model made at each step.'
+Time Series/Correlogram:
+  description: Visualize variables' auto-correlation.
+  inputs: '- Time series: Time series as output by As Timeseries widget.'
+  outputs: No outputs
+Time Series/Difference:
+  description: Make the time series stationary by replacing it with 1st or 2nd order
+    discrete difference along its values.
+  inputs: '- Time series: a dataset, often as output by As Timeseries widget.'
+  outputs: '- Time series: differences of input time series.'
+Time Series/Form Timeseries:
+  description: Reinterpret a Table object as a Timeseries object.
+  inputs: '- Data: Any data table.'
+  outputs: '- Time series: Data table reinterpreted as time series.'
+Time Series/Granger Causality:
+  description: Test if one time series Granger-causes (i.e. can be an indicator of)
+    another time series.
+  inputs: '- Time series: Time series as output by As Timeseries widget.'
+  outputs: No outputs
+Time Series/Interpolate:
+  description: Induce missing values in the time series by interpolation.
+  inputs: '- Time series: Time series as output by As Timeseries widget.'
+  outputs: '- Time series: The input time series with the chosen default interpolation
+    method for when the algorithms require interpolated time series (without missing
+    values).
+
+    - Interpolated time series: The input time series with any missing values interpolated
+    according to the chosen interpolation method.'
+Time Series/Line Chart:
+  description: Visualize time series' sequence and progression in the most basic time
+    series visualization imaginable.
+  inputs: '- Time series: a dataset, often as output by As Timeseries widget.
+
+    - Features: list of attributes
+
+    - Forecast: time series forecast as output by one of the models (like VAR or ARIMA).'
+  outputs: No outputs
+Time Series/Model Evaluation:
+  description: Evaluate different time series' models.
+  inputs: '- Time series: Time series as output by As Timeseries widget.
+
+    - Time series model(s): The time series model(s) to evaluate (e.g. VAR or ARIMA).'
+  outputs: No outputs
+Time Series/Moving Transform:
+  description: Compute aggregations over a sliding window, consecutive blocks or time
+    periods of time series.
+  inputs: '- Time series: Time series (e.g. one provided by As Timeseries widget).'
+  outputs: '- Time series: Data with computed aggregations'
+Time Series/Periodogram:
+  description: Visualize time series' cycles, seasonality, periodicity, and most significant
+    periods.
+  inputs: '- Time series: Time series from the File or as output by As Timeseries
+    widget.'
+  outputs: No outputs
+Time Series/Seasonal Adjustment:
+  description: Decompose the time series into seasonal, trend, and residual components.
+  inputs: '- Time series: Time series as output by As Timeseries widget.'
+  outputs: '- Time series: Original time series with some additional columns: seasonal
+    component, trend component, residual component, and seasonally adjusted time series.'
+Time Series/Spiralogram:
+  description: Visualize time series' periodicity in a spiral heatmap.
+  inputs: '- Time series: Time series from File or as output by As Timeseries widget.'
+  outputs: '- Selected Data: instances selected from the plot
+
+    - Statistics: data table with statistics as shown in the plot'
+Time Series/Time Slice:
+  description: Select a slice of measurements on a time interval.
+  inputs: '- Data: Time series as output by As Timeseries widget.'
+  outputs: '- Subset: Selected time slice from the time series.'
+Time Series/VAR Model:
+  description: Model the time series using vector autoregression (VAR) model.
+  inputs: '- Time series: Time series as output by As Timeseries widget.'
+  outputs: '- Time series model: The VAR model fitted to input time series.
+
+    - Forecast: The forecast time series.
+
+    - Fitted values: The values that the model was actually fitted to, equals to original
+    values - residuals.
+
+    - Residuals: The errors the model made at each step.'
+Time Series/Yahoo Finance:
+  description: Generate time series from Yahoo Finance stock market data.
+  inputs: No inputs
+  outputs: '- Time series: Time series table of open, high, low, close (OHLC) prices,
+    volume and adjusted close price.'
+Transform/Aggregate Columns:
+  description: Compute a sum, max, min ... of selected columns.
+  inputs: '- Data: input dataset'
+  outputs: '- Data: extended dataset'
+Transform/Apply Domain:
+  description: Given dataset and template transforms the dataset.
+  inputs: '- Data: input dataset
+
+    - Template Data: template for transforming the dataset'
+  outputs: '- Transformed Data: transformed dataset'
+Transform/Concatenate:
+  description: Concatenates data from multiple sources.
+  inputs: '- Primary Data: data set that defines the attribute set
+
+    - Additional Data: additional data set'
+  outputs: '- Data: concatenated data'
+Transform/Continuize:
+  description: Turns discrete variables (attributes) into numeric ("continuous") dummy
+    variables.
+  inputs: '- Data: input data set'
+  outputs: '- Data: transformed data set'
+Transform/Create Class:
+  description: Create class attribute from a string attribute.
+  inputs: '- Data: input dataset'
+  outputs: '- Data: dataset with a new class variable'
+Transform/Create Instance:
+  description: Interactively creates an instance from a sample dataset.
+  inputs: '- Data: input dataset
+
+    - Reference: refrence dataset'
+  outputs: '- Data: input dataset appended the created instance'
+Transform/Data Sampler:
+  description: Selects a subset of data instances from an input dataset.
+  inputs: '- Data: input dataset'
+  outputs: '- Data Sample: sampled data instances
+
+    - Remaining Data: out-of-sample data'
+Transform/Discretize:
+  description: Converts numeric attributes to categorical.
+  inputs: '- Data: input dataset'
+  outputs: '- Data: dataset with discretized values'
+Transform/Formula:
+  description: Add new features to your dataset.
+  inputs: '- Data: input dataset'
+  outputs: '- Data: dataset with additional features'
+Transform/Group by:
+  description: Groups data by selected variables and aggregate columns with selected
+    aggregations.
+  inputs: '- Data: input data table'
+  outputs: '- Data: aggregated data'
+Transform/Impute:
+  description: Replaces unknown values in the data.
+  inputs: '- Data: input dataset
+
+    - Learner: learning algorithm for imputation'
+  outputs: '- Data: dataset with imputed values'
+Transform/Melt:
+  description: Transform wide data to narrow.
+  inputs: '- Data: wide data table'
+  outputs: '- Data: narrow data table'
+Transform/Merge Data:
+  description: Merges two datasets, based on values of selected attributes.
+  inputs: '- Data: input dataset
+
+    - Extra Data: additional dataset'
+  outputs: '- Data: dataset with features added from extra data'
+Transform/Pivot Table:
+  description: Reshape data table based on column values.
+  inputs: '- Data: input data set'
+  outputs: '- Pivot Table: contingency matrix as shown in the widget
+
+    - Filtered Data: subset selected from the plot
+
+    - Grouped Data: aggregates over groups defined by row values'
+Transform/Preprocess:
+  description: Preprocesses data with selected methods.
+  inputs: '- Data: input dataset'
+  outputs: '- Preprocessor: preprocessing method
+
+    - Preprocessed Data: data preprocessed with selected methods'
+Transform/Purge Domain:
+  description: Removes unused attribute values and useless attributes, sorts the remaining
+    values.
+  inputs: '- Data: input dataset'
+  outputs: '- Data: filtered dataset'
+Transform/Python Script:
+  description: Extends functionalities through Python scripting.
+  inputs: '- Data (Orange.data.Table): input dataset bound to in_data variable
+
+    - Learner (Orange.classification.Learner): input learner bound to in_learner variable
+
+    - Classifier (Orange.classification.Learner): input classifier bound to in_classifier
+    variable
+
+    - Object: input Python object bound to in_object variable'
+  outputs: '- Data (Orange.data.Table): dataset retrieved from out_data variable
+
+    - Learner (Orange.classification.Learner): learner retrieved from out_learner
+    variable
+
+    - Classifier (Orange.classification.Learner): classifier retrieved from out_classifier
+    variable
+
+    - Object: Python object retrieved from out_object variable'
+Transform/Randomize:
+  description: Shuffles classes, attributes and/or metas of an input dataset.
+  inputs: '- Data: input dataset'
+  outputs: '- Data: randomized dataset'
+Transform/Select Columns:
+  description: Manual selection of data attributes and composition of data domain.
+  inputs: '- Data: input dataset'
+  outputs: '- Data: dataset with columns as set in the widget'
+Transform/Select Rows:
+  description: Selects data instances based on conditions over data features.
+  inputs: '- Data: input dataset'
+  outputs: '- Matching Data: instances that match the conditions
+
+    - Non-Matching Data: instances that do not match the conditions
+
+    - Data: data with an additional column showing whether a instance is selected'
+Transform/Select by Data Index:
+  description: Match instances by index from data subset.
+  inputs: '- Data: reference data set
+
+    - Data Subset: subset to match'
+  outputs: '- Matching data: subset from reference data set that matches indices from
+    subset data
+
+    - Unmatched data: subset from reference data set that does not match indices from
+    subset data
+
+    - Annotated data: reference data set with an additional column defining matches'
+Transform/Transpose:
+  description: Transposes a data table.
+  inputs: '- Data: input dataset'
+  outputs: '- Data: transposed dataset'
+Transform/Unique:
+  description: Remove duplicated data instances.
+  inputs: '- Data: data table'
+  outputs: '- Data: data table without duplicates'
+Unsupervised/Correlations:
+  description: Compute all pairwise attribute correlations.
+  inputs: '- Data: input dataset'
+  outputs: '- Data: input dataset
+
+    - Features: selected pair of features
+
+    - Correlations: data table with correlation scores'
+Unsupervised/Correspondence Analysis:
+  description: Correspondence analysis for categorical multivariate data.
+  inputs: '- Data: input dataset'
+  outputs: '- Coordinates: coordinates of all components'
+Unsupervised/DBSCAN:
+  description: Groups items using the DBSCAN clustering algorithm.
+  inputs: '- Data: input dataset'
+  outputs: '- Data: dataset with cluster label as a meta attribute'
+Unsupervised/Distance File:
+  description: Loads an existing distance file.
+  inputs: No inputs
+  outputs: '- Distance File: distance matrix'
+Unsupervised/Distance Map:
+  description: Visualizes distances between items.
+  inputs: '- Distances: distance matrix'
+  outputs: '- Data: instances selected from the matrix
+
+    - Features: attributes selected from the matrix'
+Unsupervised/Distance Matrix:
+  description: Visualizes distance measures in a distance matrix.
+  inputs: '- Distances: distance matrix'
+  outputs: '- Distances: distance matrix
+
+    - Table: distance measures in a distance matrix'
+Unsupervised/Distance Transformation:
+  description: Transforms distances in a dataset.
+  inputs: '- Distances: distance matrix'
+  outputs: '- Distances: transformed distance matrix'
+Unsupervised/Distances:
+  description: Computes distances between rows/columns in a dataset.
+  inputs: '- Data: input dataset'
+  outputs: '- Distances: distance matrix'
+Unsupervised/Hierarchical Clustering:
+  description: Groups items using a hierarchical clustering algorithm.
+  inputs: '- Distances: distance matrix'
+  outputs: '- Selected Data: instances selected from the plot
+
+    - Data: data with an additional column showing whether an instance is selected'
+Unsupervised/Louvain Clustering:
+  description: Groups items using the Louvain clustering algorithm.
+  inputs: '- Data: input dataset'
+  outputs: '- Data: dataset with cluster label as a meta attribute
+
+    - Graph (with the Network addon): the weighted k-nearest neighbor graph'
+Unsupervised/MDS:
+  description: Multidimensional scaling (MDS) projects items onto a plane fitted to
+    given distances between points.
+  inputs: '- Data: input dataset
+
+    - Distances: distance matrix
+
+    - Data Subset: subset of instances'
+  outputs: '- Selected Data: instances selected from the plot
+
+    - Data: dataset with MDS coordinates'
+Unsupervised/Manifold Learning:
+  description: Nonlinear dimensionality reduction.
+  inputs: '- Data: input dataset'
+  outputs: '- Transformed Data: dataset with reduced coordinates'
+Unsupervised/Neighbors:
+  description: Compute nearest neighbors in data according to reference.
+  inputs: '- Data: An input data set.
+
+    - Reference: A reference data for neighbor computation.'
+  outputs: '- Neighbors: A data table of nearest neighbors according to reference.'
+Unsupervised/Outliers:
+  description: Outlier detection widget.
+  inputs: '- Data: input dataset'
+  outputs: '- Outliers: instances scored as outliers
+
+    - Inliers: instances not scored as outliers
+
+    - Data: input dataset appended Outlier variable'
+Unsupervised/PCA:
+  description: PCA linear transformation of input data.
+  inputs: '- Data: input dataset'
+  outputs: '- Transformed Data: PCA transformed data
+
+    - Components: Eigenvectors.'
+Unsupervised/Save Distance Matrix:
+  description: Saves a distance matrix.
+  inputs: '- Distances: distance matrix'
+  outputs: No outputs
+Unsupervised/Self-Organizing Map:
+  description: Computation of a self-organizing map.
+  inputs: '- Data: input dataset'
+  outputs: '- Selected Data: instances selected from the plot
+
+    - Data: data with an additional column showing whether a point is selected'
+Unsupervised/k-Means:
+  description: Groups items using the k-Means clustering algorithm.
+  inputs: '- Data: input dataset'
+  outputs: '- Data: dataset with cluster label as a meta attribute
+
+    - Centroids: table with initial centroid coordinates'
+Unsupervised/t-SNE:
+  description: Two-dimensional data projection with t-SNE.
+  inputs: '- Data: input dataset
+
+    - Data Subset: subset of instances'
+  outputs: '- Selected Data: instances selected from the plot
+
+    - Data: data with an additional column showing whether a point is selected'
+Visualize/Bar Plot:
+  description: Visualizes comparisons among discrete categories.
+  inputs: '- Data: input dataset
+
+    - Data Subset: subset of instances'
+  outputs: '- Selected Data: instances selected from the plot
+
+    - Data: data with an additional column showing whether a point is selected'
+Visualize/Box Plot:
+  description: Shows distribution of attribute values.
+  inputs: '- Data: input dataset'
+  outputs: '- Selected Data: instances selected from the plot
+
+    - Data: data with an additional column showing whether a point is selected'
+Visualize/CN2 Rule Viewer:
+  description: CN2 Rule Viewer
+  inputs: '- Data: dataset to filter
+
+    - CN2 Rule Classifier: CN2 Rule Classifier, including a list of induced rules'
+  outputs: '- Filtered Data: data instances covered by all selected rules'
+Visualize/Distributions:
+  description: Displays value distributions for a single attribute.
+  inputs: '- Data: input dataset'
+  outputs: '- Selected Data: instances selected from the plot
+
+    - Data: data with an additional column showing whether an instance is selected
+
+    - Histogram Data: bins and instance counts from the histogram'
+Visualize/FreeViz:
+  description: Displays FreeViz projection.
+  inputs: '- Data: input dataset
+
+    - Data Subset: subset of instances'
+  outputs: '- Selected Data: instances selected from the plot
+
+    - Data: data with an additional column showing whether a point is selected
+
+    - Components: FreeViz vectors'
+Visualize/Heat Map:
+  description: Plots a heat map for a pair of attributes.
+  inputs: '- Data: input dataset'
+  outputs: '- Selected Data: instances selected from the plot
+
+    - Data: data with an additional column showing whether a point is selected'
+Visualize/Line Plot:
+  description: Visualization of data profiles (e.g., time series).
+  inputs: '- Data: input dataset
+
+    - Data Subset: subset of instances'
+  outputs: '- Selected Data: instances selected from the plot
+
+    - Data: data with an additional column showing whether a point is selected'
+Visualize/Linear Projection:
+  description: A linear projection method with explorative data analysis.
+  inputs: '- Data: input dataset
+
+    - Data Subset: subset of instances
+
+    - Projection: custom projection vectors'
+  outputs: '- Selected Data: instances selected from the plot
+
+    - Data: data with an additional column showing whether a point is selected
+
+    - Components: projection vectors'
+Visualize/Mosaic Display:
+  description: Display data in a mosaic plot.
+  inputs: '- Data: input dataset
+
+    - Data subset: subset of instances'
+  outputs: '- Selected data: instances selected from the plot'
+Visualize/Nomogram:
+  description: Nomograms for visualization of Naive Bayes and Logistic Regression
+    classifiers.
+  inputs: '- Classifier: trained classifier
+
+    - Data: input dataset'
+  outputs: '- Features: selected variables, 10 by default'
+Visualize/Pythagorean Forest:
+  description: Pythagorean forest for visualizing random forests.
+  inputs: '- Random Forest: tree models from random forest'
+  outputs: '- Tree: selected tree model'
+Visualize/Pythagorean Tree:
+  description: Pythagorean tree visualization for classification or regression trees.
+  inputs: '- Tree: tree model
+
+    - Selected Data: instances selected from the tree'
+  outputs: No outputs
+Visualize/Radviz:
+  description: Radviz vizualization with explorative data analysis and intelligent
+    data
+  inputs: '- Data: input dataset
+
+    - Data Subset: subset of instances'
+  outputs: '- Selected Data: instances selected from the plot
+
+    - Data: data with an additional column showing whether a point is selected
+
+    - Components: Radviz vectors'
+Visualize/Scatter Plot:
+  description: Scatter plot visualization with exploratory analysis and intelligent
+    data visualization enhancements.
+  inputs: '- Data: input dataset
+
+    - Data Subset: subset of instances
+
+    - Features: list of attributes'
+  outputs: '- Selected Data: instances selected from the plot
+
+    - Data: data with an additional column showing whether a point is selected'
+Visualize/Sieve Diagram:
+  description: Plots a sieve diagram for a pair of attributes.
+  inputs: '- Data: input dataset'
+  outputs: No outputs
+Visualize/Silhouette Plot:
+  description: A graphical representation of consistency within clusters of data.
+  inputs: '- Data: input dataset'
+  outputs: '- Selected Data: instances selected from the plot
+
+    - Data: data with an additional column showing whether a point is selected'
+Visualize/Tree Viewer:
+  description: A visualization of classification and regression trees.
+  inputs: '- Tree: decision tree'
+  outputs: '- Selected Data: instances selected from the tree node
+
+    - Data: data with an additional column showing whether a point is selected'
+Visualize/Venn Diagram:
+  description: Plots a Venn diagram for two or more data subsets.
+  inputs: '- Data: input dataset'
+  outputs: '- Selected Data: instances selected from the plot
+
+    - Data: entire data with a column indicating whether an instance was selected
+    or not'
+Visualize/Violin Plot:
+  description: Visualize the distribution of feature values in a violin plot.
+  inputs: '- Data: input dataset'
+  outputs: '- Selected Data: instances selected from the plot
+
+    - Data: data with an additional column showing whether a point is selected'
