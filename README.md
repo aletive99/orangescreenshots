@@ -110,17 +110,21 @@ str(work1) = 'Data/File -> Unsupervised/Distances\nUnsupervised/Distances -> Uns
 ```
 - Length: `len(work1)` will output an integer saying how many links are in the workflow
 - Get Item: `work1[i]` will output the i-th link in the workflow as a tuple of tuples
-- `work1.get_widgets` will output a list of the Widget objects used in the workflow
-- `work1.remove_widget(wid1)` will remove `wid1` from the workflow by removing its links. If `wid1` is not specified then the function will remove randomly one of the last 2 widgets in the workflow (chosen by topological order) and the respective links.
+- `work1.get_widgets()` will output a list of the Widget objects used in the workflow
+- `work1.get_context()` will output a string conatining the context required to characterize the workflow
+- `work1.remove_widget(wid1)` will remove `wid1` from the workflow by removing its links. If `wid1` is not specified then the function will remove randomly one of the last 2 widgets in the workflow (chosen by topological order) and the respective links
+- `work1.get_name()` will use the OpenAI API to generate a name for the given workflow
+- `work1.get_description()` will use the OpenAI API to generate a description of the given workflow
+- `work1.get_new_widget(goal)` will use the OpenAI API to give three widgets that might come next in the workflow according to the `goal: string` given as input. If the goal is not specified then the function will output give three widgets that generally fit well in the workflow
 
 
 ### Internal functions
-Following are the internal functions used to perform the operations used by the user callable functions or used to create yaml files that allow these functions to work. We suggest no to use these functions.
+Following are the internal functions used to perform the operations used by the user callable functions or used to create yaml files that allow these functions to work. We suggest not to use these functions.
 
 | Function name             	| Inputs      		  							| Description                                                                 									|
 | ----------------------------- | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
 | download_widgets           	| None											| Downloads the widget images from the widget catalog                         									|
-| size_identification           | img_name: str<br> show_circles=False: bool 		| Returns the size of the widget in the screenshot received as input                          					|
+| size_identification           | img_name: str<br> show_circles=False: bool 		| Returns the size of the widget in the screenshot received as input                          				|
 | get_sizes            			| img_name: str            						| Returns the final size of the widget images based on the identified widget size in the screenshot 			|
 | get_filenames                 | direct: str<br>ext='Image': str     			| Returns all the file paths in the specified folder                                                            |
 | widget_loading        		| img_names_tgt: list of str<br>img_name: str     | Returns a 3D-array containing all the widget images cropped and scaled 										|
@@ -129,14 +133,17 @@ Following are the internal functions used to perform the operations used by the 
 | is_there_widget_creation   	| img_name: str<br>value_thresh=0.8: float		| Returns an array containing information about the widgets present in the screenshot         					|
 | find_circle_intersection      | label_binary_image: np.array<br>center: tuple<br>radius_size: int<br>prev_direction: float<br>connect_type=8: int | Returns the intersections, found closest direction and best intersection index between a binary image and a manually built circle|
 | link_detection                | img_name: str<br>show_process=False, bool		| Returns an array containing info about the links between the widget											|
+| augment_widget_list           | widget_list: list of Widget<br>n=20, int		| Returns a list containing 20 widgets: the widgets present in the original list plus the most similar ones to those|
+| get_embedding					| text=None: str								| If text is not changed, this functions creates a file containing the text embeddings of the widgets' descriptions, otherwise it will output the embedding of the text given as input|
 | update_image_list             | None											| Parses the images present in the "orange-lecture-notes-web/public/chapters" directory and creates a yaml file containing information about the found chapters|
 | update_widget_list            | None											| Parses the images present in the "orange-lecture-notes-web/public/chapters" directory and creates a yaml file containing information about the widgets present in each image|
 | update_image_links            | None											| Parses the images present in the "orange-lecture-notes-web/public/chapters" directory and creates a yaml file containing information about the links present in each image|
 | crop_workflows        		| directory_to_check='orange-lecture-notes-web/public/chapters': str<br>img_name=None: bool<br>no_yaml=False: bool | Crops the workflows from the original screenshot and saves it in a dedicated directory|
-| workflow_to_code        		| workflow: Workflow<br>return_labels=False: bool<br>only_enriched=True: bool | Returns an array of numbers that characterizes the workflow 						|
+| workflow_to_code        		| workflow: Workflow<br>return_labels=False: bool<br>only_enriched=True: bool | Returns an array of numbers that characterizes the workflow 					|
 | create_dataset 				| orange_dataset=True<br>min_thresh=3<br>only_enriched=True | Creates an excel file with the codes of the workflows in the documentation based on the inputs given	|
 | get_example_workflows		   	| None											| Loads the sample workflows and returns their names, their links and their description							|
 | find_closest_workflows	   	| workflow: Workflow<br>remove_widget=False: bool<br>k=10: int | Returns the widget that are not in the given workflow, but are present in the k-most similar ones	|
+| new_widget_evaluation		   	| None											| Performs evaluation of the work1.get_new_widgets(goal) function on a test set 								|
 
 
 ## Contributing
