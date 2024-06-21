@@ -760,22 +760,24 @@ class Widget:
                 return None
 
 
-def augment_widget_list(widget_list, n=20):
+def augment_widget_list(widget_list, present_widgets, n=20):
     """
     This function augments the widget list given as input by adding widgets that are similar to the ones in the list. The
     similarity is assessed through the embedding of the widget descriptions performed by the DistilBERT model and saved
     by the get_embedding function.
     :param widget_list: list
-    :param goal: str
+    :param present_widgets: list
     :param n: int
     :return: augmented_list: list
     """
+    if len(widget_list) >= n:
+        return widget_list[:n]
     with open('data/widget-info/widget-embeddings.pkl', 'rb') as f:
         embeddings = pickle.load(f)
     widget_names = list(embeddings.keys())
     similarity_matrix = np.zeros((len(widget_names), 1))
     for i in range(len(widget_names)):
-        if widget_names[i] in widget_list:
+        if Widget(widget_names[i]) in widget_list or Widget(widget_names[i]) in present_widgets:
             continue
         cumulative_similarity = 0
         for j in range(len(widget_list)):
@@ -1071,7 +1073,7 @@ class Workflow:
         with open('data/prompts/new-widget-prompt.md', 'r') as file:
             query += file.read()
         possible_widgets, _ = find_closest_workflows(self)
-        possible_widgets = augment_widget_list(possible_widgets)
+        possible_widgets = augment_widget_list(possible_widgets, present_widgets=self.get_widgets())
         query += '## Workflow:\nLinks in the workflow:\n' + str(self) + '\n\nWidget descriptions:\n'
         self.get_context(True)
         query += '## Possible widgets:\n'
@@ -1591,7 +1593,7 @@ def get_workflow_description_prompt(img_name):
     print(query + '\n')
 
 
-def get_workflow_name_prompt(img_name, use_api=False):
+def get_workflow_name_prompt(img_name):
     """
     This function uses the OpenAI API to generate a prompt that can be used to get the name of the workflow present in
     the image.
@@ -1605,10 +1607,7 @@ def get_workflow_name_prompt(img_name, use_api=False):
     for example in examples:
         workflow = Workflow(example[1])
         query += '## Workflow:\nLinks in the workflow:\n' + str(workflow) + '\n\nWidget descriptions:\n'
-        widgets = workflow.get_widgets()
-        for widget in widgets:
-            descr, inputs, outputs = widget.get_description()
-            query += str(widget) + ':\n' + 'Description:\n' + descr + '\n' + 'Inputs:\n' + inputs + '\n\n' + 'Outputs:\n' + outputs + '\n\n\n'
+        query += workflow.get_context(True)
         query += '## Image name:\n' + example[0] + '\n-------------------------------\n\n'
     try:
         workflow = Workflow(img_name)
@@ -1622,14 +1621,12 @@ def get_workflow_name_prompt(img_name, use_api=False):
             print('The img_name parameter must be a string or a Workflow object')
             return None
     query += '## Workflow:\nLinks in the workflow:\n' + str(workflow) + '\n\nWidget descriptions:\n'
-    for widget in workflow.get_widgets():
-        descr, inputs, outputs = widget.get_description()
-        query += str(widget) + ':\n' + 'Description:\n' + descr + '\n' + 'Inputs:\n' + inputs + '\n\n' + 'Outputs:\n' + outputs + '\n\n\n'
+    query += workflow.get_context(True)
     query += '## Image name:\n'
     print(query + '\n')
 
 
-def get_new_widget_prompt(img_name, remove_widget=False):
+def get_new_widget_prompt(img_name, goal='Not specified', remove_widget=False):
     """
     This function describes what widget can come next in the given workflow. The function uses the OpenAI API to provide
     which widgets can come next in the workflow and the reason for each widget. If the remove_widget parameter is set to
@@ -1637,15 +1634,10 @@ def get_new_widget_prompt(img_name, remove_widget=False):
     obtained workflow. If the multiple parameter is set to True, the function will ask GPT to provide multiple widgets
     that can come next in the workflow as well as a reason for each widget.
     :param img_name: str, tuples of tuples of str or Workflow
+    :param goal: str
     :param remove_widget: bool or Widget
     :return: str
     """
-    api_key = os.getenv('OPENAI_API_KEY')
-    if api_key is None:
-        print('OpenAI API key not found.')
-        return None
-    client = OpenAI(api_key=api_key, organization='org-FvAFSFT8g0844DCWV1T2datD')
-    model = 'gpt-3.5-turbo-0125'
     with open('data/prompts/prompt-intro.md', 'r') as file:
         query = file.read()
     with open('data/prompts/new-widget-prompt.md', 'r') as file:
@@ -1662,15 +1654,14 @@ def get_new_widget_prompt(img_name, remove_widget=False):
             print('The img_name parameter must be a string or a Workflow object')
             return None
     possible_widgets, removed_widget = find_closest_workflows(workflow, remove_widget=remove_widget)
-    possible_widgets = augment_widget_list(possible_widgets)
+    possible_widgets = augment_widget_list(possible_widgets, present_widgets=workflow.get_widgets())
     query += '## Workflow:\nLinks in the workflow:\n' + str(workflow) + '\n\nWidget descriptions:\n'
-    for widget in workflow.get_widgets():
-        descr, inputs, outputs = widget.get_description()
-        query += str(widget) + ':\n' + 'Description:\n' + descr + '\n' + 'Inputs:\n' + inputs + '\n\n' + 'Outputs:\n' + outputs + '\n\n\n'
+    query += workflow.get_context(True)
     query += '## Possible widgets:\n'
     for widget in possible_widgets:
-        descr, inputs, outputs = widget.get_description()
+        descr, inputs, outputs = widget.get_description(True)
         query += str(widget) + ':\n' + 'Description:\n' + descr + '\n' + 'Inputs:\n' + inputs + '\n\n' + 'Outputs:\n' + outputs + '\n\n\n'
+    query += '## Goal of the new widget:\n' + goal + '\n----------------------------------\n\n'
     print(query + '\n')
 
 
@@ -1745,7 +1736,7 @@ def new_widget_evaluation():
                 else:
                     n_correct += 1
                 print('\n')
-    print('The new_widget_prompt function predicts ' + str(n_correct) + ' out of ' + str(len(filenames)-ignored) + ' workflows correctly')
-    print('The accuracy of the new_widget_prompt function is ' + str(n_correct/(len(filenames)-ignored)*100)[:4] + '%')
+    print('The new_widget_prompt function predicts ' + str(n_correct) + ' out of ' + str(len(filenames)-ignored+1) + ' workflows correctly')
+    print('The accuracy of the new_widget_prompt function is ' + str(n_correct/(len(filenames)-ignored+1)*100)[:4] + '%')
 
 #%%
