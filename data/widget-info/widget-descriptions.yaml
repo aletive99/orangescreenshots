@@ -1,14 +1,19 @@
 Associate/Association Rules:
-  description: Induction of association rules.
+  description: This widget implements FP-growth frequent pattern mining algorithm
+    [1] with bucketing optimization [2] for conditional databases of few items. For
+    inducing classification rules, it generates rules for the entire itemset and skips
+    the rules where the consequent does not match one of the class' values.
   inputs: '- Data: Data set'
   outputs: '- Matching Data: Data instances matching the criteria.'
+  short description: Induction of association rules.
 Associate/Frequent Itemsets:
-  description: Finds frequent itemsets in the data.
+  description: The widget finds frequent items in a data set based on a measure of
   inputs: '- Data: Data set'
   outputs: '- Matching Data: Data instances matching the criteria.'
+  short description: Finds frequent itemsets in the data.
 Bioinformatics/Annotator:
-  description: The widget provides an option to annotate cells with cell types based
-    on
+  description: This widget receives gene expression data together with mapping to
+    a
   inputs: '- Reference Data: Data set with gene expression values.
 
     - Secondary Data: Subset of instances (optional).
@@ -19,47 +24,74 @@ Bioinformatics/Annotator:
     - Data: Data with additional columns with annotations, clusters,
 
     - and projection'
+  short description: The widget provides an option to annotate cells with cell types
+    based on
 Bioinformatics/Cluster Analysis:
-  description: Display differentially expressed genes that characterize the cluster.
+  description: Cluster Analysis widget displays differentially expressed genes that
+    characterize the cluster, and corresponding gene terms that describe differentially
+    expressed genes.
   inputs: '- Data: Data set.
 
     - Custom Gene Sets: Genes to compare.'
   outputs: '- Selected Data: Data selected in the widget.'
+  short description: Display differentially expressed genes that characterize the
+    cluster.
 Bioinformatics/Databases Update:
-  description: Updates local systems biology databases, like gene ontologies,
+  description: Outputs
   inputs: '- None'
   outputs: '- None'
+  short description: Updates local systems biology databases, like gene ontologies,
 Bioinformatics/Differential Expression:
-  description: Plots differential gene expression for selected experiments.
+  description: This widget plots a differential gene
   inputs: '- Data: Data set.'
   outputs: '- Data Subset: Differentially expressed genes.
 
     - Remaining Data Subset: Genes that were not differentially expressed.
 
     - Selected Genes: Genes from the select data with scores appended.'
+  short description: Plots differential gene expression for selected experiments.
 Bioinformatics/GEO Data Sets:
-  description: Provides access to data sets from gene expression omnibus GEO
+  description: GEO DataSets is a database of gene
   inputs: '- None'
   outputs: '- Expression data: Data set selected in the widget with genes or samples
     in rows.'
+  short description: Provides access to data sets from gene expression omnibus GEO
 Bioinformatics/GO Browser:
-  description: Provides access to Gene Ontology database.
+  description: GO Browser widget provides access to Gene Ontology database. Gene Ontology
+    (GO) classifies genes and gene products to terms organized in a graph structure
+    called an ontology. The widget takes any data on genes as an input (it is best
+    to input statistically significant genes, for example from the output of the Differential
+    Expression widget) and shows a ranked list of GO terms with p-values. This is
+    a great tool for finding biological processes that are over- or under-represented
+    in a particular gene set. The user can filter input data by selecting terms in
+    a list.
   inputs: '- Cluster Data: Data on clustered genes.
 
     - Reference Data: Data with genes for the reference set (optional).'
   outputs: '- Data on Selected Genes: Data on genes from the selected GO node.
 
     - Enrichment Report: Data on GO enrichment analysis.'
+  short description: Provides access to Gene Ontology database.
 Bioinformatics/Gene Set Enrichment:
-  description: Enrich gene sets.
+  description: Gene Set Enrichment Analysis (GSEA) is a method to find gene sets overrepresented
+    in a large group of genes, possibly associated with different phenotypes. For
+    each gene set in the given set of gene sets, the widget calculates the enrichment
+    using the hypergeometric test which determines the probability of observing the
+    overlap between the genes in the gene set and the input genes by chance, given
+    the total number of genes in the genome and the number of genes in the gene set.
   inputs: '- Data: Data set.
 
     - Custom Gene Sets: Genes to compare.
 
     - Reference Genes: Genes used as reference.'
   outputs: '- Matched Genes: Genes that match.'
+  short description: Enrich gene sets.
 Bioinformatics/Gene Sets:
-  description: Lists of genes associated with specific biological function.
+  description: Gene sets are lists of genes associated with a specific biological
+    function. The Gene Sets widget allows you to select gene sets from multiple databases,
+    including the MSigDB, Gene Ontology, KEGG, and Reactome databases, or to create
+    your own custom gene sets. You can also select gene sets and feed it to other
+    widgets.
   inputs: '- Data: Data set.
 
     - Custom Gene Sets: Genes to compare.'
@@ -67,88 +99,139 @@ Bioinformatics/Gene Sets:
 
     - Gene Sets: Selected gene sets for utilization in other widgets (e.g., Single
     Sample Scoring).'
+  short description: Lists of genes associated with specific biological function.
 Bioinformatics/Genes:
-  description: Match input gene ID's with corresponding Entrez ID's.
+  description: To work with widgets in the bioinformatics add-on data sets must be
   inputs: '- Data: Data set.'
   outputs: '- Data: Instances with meta data that the user has manually selected in
     the widget.
 
     - Genes: All genes from the input with included gene info summary and matcher
     result.'
+  short description: Match input gene ID's with corresponding Entrez ID's.
 Bioinformatics/Homologs:
-  description: Finds homologs to genes in the input data set.
+  description: The Homologs widget finds homologs to genes in the input data set for
+    the selected organism. Homologs are genes or proteins that share a common ancestry,
+    often found in different species, and may have similar functions or sequences.
+    Studying homologs is useful because it provides insights into evolutionary relationships,
+    gene function, drug discovery, and aids in comparative genomics and experimental
+    design
   inputs: '- Data: Input data set.'
   outputs: '- Genes: List of homologs.'
+  short description: Finds homologs to genes in the input data set.
 Bioinformatics/KEGG Pathways:
-  description: Diagrams of molecular interactions, reactions, and relations.
+  description: KEGG Pathways widget displays diagrams of molecular interactions,
   inputs: '- Data: Data set.
 
     - Reference: Referential data set.'
   outputs: '- Selected Data: Data subset.
 
     - Unselected Data: Remaining data.'
+  short description: Diagrams of molecular interactions, reactions, and relations.
 Bioinformatics/Marker Genes:
-  description: Widget provides access to a public database of marker genes.
+  description: Outputs
   inputs: No inputs
   outputs: '- Genes'
+  short description: Widget provides access to a public database of marker genes.
 Bioinformatics/Single sample scoring:
-  description: Scoring gene sets by single sample.
+  description: The single-sample extension of Gene Set Enrichment Analysis (ssGSEA)
+    is a widely used method that assigns scores to gene sets based on individual sample
+    gene overexpression. It calculates scores by summing the contributions of genes
+    based on their rank in an ordered expression matrix, with high expression values
+    positively impacting the score.
   inputs: '- Data: Input data set.
 
     - Custom Gene Sets: Gene sets to be used for scoring.'
   outputs: '- Data: Data set with enrichment scores corresponding to the selected
     gene sets.'
+  short description: Scoring gene sets by single sample.
 Bioinformatics/Volcano Plot:
-  description: Plots significance versus fold-change for gene expression rates.
+  description: Volcano plot is a graphical method for
   inputs: '- Data: Input data set.'
   outputs: '- Selected Data: Data subset.'
+  short description: Plots significance versus fold-change for gene expression rates.
 Bioinformatics/dictyExpress:
-  description: Gives access to dictyExpress
+  description: dictyExpress widget gives a direct access to the dictyExpress database.
+    It allows you to download the data from selected experiments in Dictyostelium
+    by Baylor College of Medicine. The widget requires internet connection to work.
   inputs: '- None'
   outputs: '- Data: Selected experiment (time-course gene expression data).'
+  short description: Gives access to dictyExpress
 Data/CSV File Import:
-  description: Import a data table from a CSV formatted file.
+  description: The CSV File Import widget reads comma-separated files and sends the
+    dataset to its output channel. File separators can be commas, semicolons, spaces,
+    tabs or manually-defined delimiters. The history of most recently opened files
+    is maintained in the widget.
   inputs: No inputs
   outputs: '- Data: dataset from the .csv file
 
     - Data Frame: pandas DataFrame object'
+  short description: Import a data table from a CSV formatted file.
 Data/Color:
-  description: Set color legend for variables.
+  description: The Color widget sets the color legend for visualizations.
   inputs: '- Data: input data set'
   outputs: '- Data: data set with a new color legend'
+  short description: Set color legend for variables.
 Data/Data Info:
-  description: Displays information on a selected dataset.
+  description: ''
   inputs: '- Data: input dataset'
   outputs: No outputs
+  short description: Displays information on a selected dataset.
 Data/Data Table:
-  description: Displays attribute-value data in a spreadsheet.
+  description: The Data Table widget receives one or more datasets in its input and
+    presents them as a spreadsheet. Data instances may be sorted by attribute values.
+    The widget also supports manual selection of data instances.
   inputs: '- Data: input dataset'
   outputs: '- Selected Data: instances selected from the table'
+  short description: Displays attribute-value data in a spreadsheet.
 Data/Datasets:
-  description: Load a dataset from an online repository.
+  description: Datasets widget retrieves selected dataset from the server and sends
+    it to the output. File is downloaded to the local memory and thus instantly available
+    even without the internet connection. Each dataset is provided with a description
+    and information on the data size, number of instances, number of variables, target
+    and tags.
   inputs: No inputs
   outputs: '- Data: output dataset'
+  short description: Load a dataset from an online repository.
 Data/Edit Domain:
-  description: Rename features and their values.
+  description: This widget can be used to edit/change a dataset's domain - rename
+    features, rename or merge values of categorical features, add a categorical value,
+    and assign labels.
   inputs: '- Data: input dataset'
   outputs: '- Data: dataset with edited domain'
+  short description: Rename features and their values.
 Data/Feature Statistics:
-  description: Show basic statistics for data features.
+  description: The Feature Statistics widget provides a quick way to inspect and find
+    interesting features in a given data set.
   inputs: '- Data: input data'
   outputs: '- Reduced data: table containing only selected features
 
     - Statistics: table containing statistics of the selected features'
+  short description: Show basic statistics for data features.
 Data/File:
-  description: Reads attribute-value data from an input file.
+  description: The File widget reads the input data file (data table with data instances)
+    and sends the dataset to its output channel. The history of most recently opened
+    files is maintained in the widget. The widget also includes a directory with sample
+    datasets that come pre-installed with Orange.
   inputs: No inputs
   outputs: '- Data: dataset from the file'
+  short description: Reads attribute-value data from an input file.
 Data/Paint Data:
-  description: Paints data on a 2D plane. You can place individual data points or
-    use a brush to paint larger datasets.
+  description: The widget supports the creation of a new dataset by visually placing
+    data points on a two-dimension plane. Data points can be placed on the plane individually
+    (Put) or in a larger number by brushing (Brush). Data points can belong to classes
+    if the data is intended to be used in supervised learning.
   inputs: No inputs
   outputs: '- Data: dataset as painted in the plot'
+  short description: Paints data on a 2D plane. You can place individual data points
+    or use a brush to paint larger datasets.
 Data/Rank:
-  description: Ranking of attributes in classification or regression datasets.
+  description: The Rank widget scores variables according to their correlation with
+    discrete or numeric target variable, based on applicable internal scorers (like
+    information gain, chi-square and linear regression) and any connected external
+    models that supports scoring, such as linear regression, logistic regression,
+    random forest, SGD, etc. The widget can also handle unsupervised data, but only
+    by external scorers, such as PCA.
   inputs: '- Data: input dataset
 
     - Scorer: models for feature scoring'
@@ -157,44 +240,55 @@ Data/Rank:
     - Scores: data table with feature scores
 
     - Features: list of attributes'
+  short description: Ranking of attributes in classification or regression datasets.
 Data/SQL Table:
-  description: Reads data from an SQL database.
+  description: The SQL widget accesses data stored in an SQL database. It can connect
+    to PostgreSQL (requires psycopg2 module) or SQL Server (requires pymssql module).
   inputs: No inputs
   outputs: '- Data: dataset from the database'
+  short description: Reads data from an SQL database.
 Data/Save Data:
-  description: Saves data to a file.
+  description: ''
   inputs: '- Data: input dataset'
   outputs: No outputs
+  short description: Saves data to a file.
 Educational/EnKlik Anketa:
-  description: Import data from EnKlikAnketa (1ka.si) public URL.
+  description: The EnKlik Anketa widget retrieves survey results obtained from the
+    EnKlikAnketa service. You need to create a public link to to retrieve the results.
+    Go to the survey you wish to retrieve, then select Data (Podatki) tab and create
+    a public link (javna povezava) at the top right corner.
   inputs: No inputs
   outputs: '- Data: survey results'
+  short description: Import data from EnKlikAnketa (1ka.si) public URL.
 Educational/Google Sheets:
-  description: Read data from a Google Sheets spreadsheet.
+  description: Description
   inputs: No inputs
   outputs: '- Data: data set from the Google Sheets service.'
+  short description: Read data from a Google Sheets spreadsheet.
 Educational/Gradient Descent:
-  description: Educational widget that shows the gradient descent algorithm on a logistic
-    or linear regression.
+  description: Description
   inputs: '- Data: input data set'
   outputs: '- Data: data with columns selected in the widget
 
     - Classifier: model produced at the current step of the algorithm.
 
     - Coefficients: coefficients at the current step of the algorithm.'
+  short description: Educational widget that shows the gradient descent algorithm
+    on a logistic or linear regression.
 Educational/Interactive k-Means:
-  description: Educational widget that shows the working of a k-means clustering.
+  description: Description
   inputs: '- Data: input data set'
   outputs: '- Data: data set with cluster annotation
 
     - Centroids: centroids position'
+  short description: Educational widget that shows the working of a k-means clustering.
 Educational/Pie Chart:
-  description: The widget for visualizing discrete attributes in the pie chart.
+  description: ''
   inputs: '- Data: input data set'
   outputs: No outputs
+  short description: The widget for visualizing discrete attributes in the pie chart.
 Educational/Polynomial Classification:
-  description: Educational widget that visually demonstrates classification in two-dimensional
-    space.
+  description: Description
   inputs: '- Data: input data set
 
     - Preprocessor (optional): data preprocessors
@@ -206,9 +300,10 @@ Educational/Polynomial Classification:
     - Classifier: trained classifier
 
     - Coefficients: classifier coefficients if it has them'
+  short description: Educational widget that visually demonstrates classification
+    in two-dimensional space.
 Educational/Polynomial Regression:
-  description: Educational widget that interactively shows regression line for different
-    regressors.
+  description: Description
   inputs: '- Data: input data set. It needs at least two continuous attributes.
 
     - Preprocessor: data preprocessors
@@ -219,50 +314,89 @@ Educational/Polynomial Regression:
     - Predictor: trained regressor
 
     - Coefficients: regressor coefficients if any'
+  short description: Educational widget that interactively shows regression line for
+    different regressors.
 Educational/Random Data:
-  description: Generate random data sample.
+  description: Random Data allows creating random data sets, where variables correspond
+    to the selected distributions. The user can specify the number of rows (samples)
+    and the number of variables for each distribution. Distributions from the Scipy's
+    stats module are used.
   inputs: '- None'
   outputs: '- Data: randomly generated data'
+  short description: Generate random data sample.
 Evaluate/Calibration Plot:
-  description: Shows the match between classifiers' probability predictions and actual
-    class probabilities.
+  description: The Calibration Plot plots probabilities predicted by the classifier(s)
+    against actual class probabilities. We would use this widget to see whether a
+    classifier is overly optimistic (gives predominantly positive results) or pessimistic
+    (gives predominantly negative results). The widget can also output a calibrated
+    model, where the user sets his/her own probability threshold.
   inputs: '- Evaluation Results: results of testing classification algorithms'
   outputs: '- Calibrated Model: a model with calibrated probabilities or a model with
     the same probabilities but different classification threshold'
+  short description: Shows the match between classifiers' probability predictions
+    and actual class probabilities.
 Evaluate/Confusion Matrix:
-  description: Shows proportions between the predicted and actual class.
+  description: The Confusion Matrix gives the number/proportion of instances between
+    the predicted and actual class. The selection of the elements in the matrix feeds
+    the corresponding instances into the output signal. This way, one can observe
+    which specific instances were misclassified and how.
   inputs: '- Evaluation results: results of testing classification algorithms'
   outputs: '- Selected Data: data subset selected from confusion matrix
 
     - Data: data with the additional information on whether a data instance was selected'
+  short description: Shows proportions between the predicted and actual class.
 Evaluate/Performance Curve:
-  description: Construct and display a performance curve from the evaluation of classifiers.
+  description: 'The Performance Curve shows the curves for analysing the proportion
+    of true positive data instances in relation to the classifier''s threshold or
+    the number of instances that we classify as positive. It offers three types of
+    performance curves: lift curve, cumulative gains, and precision-recall curve.'
   inputs: '- Evaluation Results: results of testing classification algorithms'
   outputs: '- Calibrated Model: trained model using the calibrated learner'
+  short description: Construct and display a performance curve from the evaluation
+    of classifiers.
+Evaluate/Permutation Plot:
+  description: ''
+  inputs: '- Data: input dataset
+
+    - Learner: learning algorithm'
+  outputs: No outputs
+  short description: Check the validity and the degree of overfit for the input learner.
 Evaluate/Predictions:
-  description: Shows models' predictions on the data.
+  description: The widget receives a dataset and one or more predictors (predictive
+    models, not learning algorithms - see the example below). It outputs the data
+    and the predictions.
   inputs: '- Data: input dataset
 
     - Predictors: predictors to be used on the data'
   outputs: '- Predictions: data with added predictions
 
     - Evaluation Results: results of testing classification algorithms'
+  short description: Shows models' predictions on the data.
 Evaluate/ROC Analysis:
-  description: Plots a true positive rate against a false positive rate of a test.
+  description: ''
   inputs: '- Evaluation Results: results of testing classification algorithms'
   outputs: No outputs
+  short description: Plots a true positive rate against a false positive rate of a
+    test.
 Evaluate/Test and Score:
-  description: Tests learning algorithms on data.
+  description: The widget tests learning algorithms. Different sampling schemes are
+    available, including using separate test data. The widget does two things. First,
+    it shows a table with different classifier performance measures, such as classification
+    accuracy and area under the curve. Second, it outputs evaluation results, which
+    can be used by other widgets for analyzing the performance of classifiers, such
+    as ROC Analysis or Confusion Matrix.
   inputs: '- Data: input dataset
 
     - Test Data: separate data for testing
 
     - Learner: learning algorithm(s)'
   outputs: '- Evaluation Results: results of testing classification algorithms'
+  short description: Tests learning algorithms on data.
 Explain/Explain Model:
-  description: Explains a classification or regression model. Explains which features
-    contribute the most and how they contribute toward the prediction for a specific
-    class.
+  description: Explain Model widget explains classification and regression models
+    with SHAP library. The widget gets a trained model and reference data on input.
+    It uses the provided data to compute the contribution of each feature toward the
+    prediction for a selected class.
   inputs: '- Data: dataset used to compute the explanations
 
     - Model: a model which widget explains'
@@ -270,9 +404,16 @@ Explain/Explain Model:
 
     - Scores: The score of each attribute. Features that contribute more toward the
     final prediction have higher scores.'
+  short description: Explains a classification or regression model. Explains which
+    features contribute the most and how they contribute toward the prediction for
+    a specific class.
 Explain/Explain Prediction:
-  description: Explains which features contribute the most to the prediction for a
-    single instance based on the model and how they contribute.
+  description: Explain Prediction widget explains classification or regression model's
+    prediction for the provided data instance. The widget shows what features affect
+    the prediction of selected class the most and how they contribute (towards or
+    against the prediction). The explanation is computed with removing features, replacing
+    them with different options from the background data, and observing the change
+    in the prediction.
   inputs: '- Model: a model whose predictions are explained by the widget
 
     - Background data: data needed to compute explanations
@@ -280,9 +421,15 @@ Explain/Explain Prediction:
     - Data: Single data instance whose prediction is explained by the widget'
   outputs: '- Scores: The SHAP value of each features value. Features that contribute
     more to prediction have higher score deviation from the 0.'
+  short description: Explains which features contribute the most to the prediction
+    for a single instance based on the model and how they contribute.
 Explain/Explain Predictions:
-  description: Explains which features contribute the most to the predictions for
-    the selected instances based on the model and how they contribute.
+  description: "Explain Predictions widget explains classification or regression model's\
+    \ predictions for the provided data instances.OrangeFAQLicensePrivacyCitationContactDownloadWindowsMac\
+    \ OSOther platformsCommunityTwitterFacebookStack ExchangeYouTubeDiscordDocumentationGet\
+    \ startedYouTube tutorialsExample workflowsWidgetsScriptingDevelopersGitHubGetting\
+    \ startedDonate to OrangeCopyright \xA9 University of LjubljanaThis site uses\
+    \ cookies to improve your experience.DetailsUnderstand"
   inputs: '- Model: model whose predictions are explained by the widget
 
     - Background data: dataset needed to compute explanations
@@ -295,8 +442,14 @@ Explain/Explain Predictions:
 
     - Scores: SHAP values for each feature. Features that contribute more to prediction
     have a higher score deviation from 0.'
+  short description: Explains which features contribute the most to the predictions
+    for the selected instances based on the model and how they contribute.
 Explain/Feature Importance:
-  description: Inspect model using the Permutation Feature Importance technique.
+  description: Feature Importance widget explains classification and regression models.
+    The widget gets a trained model and reference data on input. It uses the provided
+    data to compute the contribution of each feature toward the prediction, by measuring
+    the increase in the prediction error of the model after we permuted the feature's
+    values, which breaks the relationship between the feature and the target.
   inputs: '- Data: dataset used to compute the explanations
 
     - Model: a model which widget explains'
@@ -304,47 +457,70 @@ Explain/Feature Importance:
     plot
 
     - Scores: Mean and standard deviation of score for each feature.'
+  short description: Inspect model using the Permutation Feature Importance technique.
 Explain/ICE:
-  description: "Displays one line per instance that shows how the instance\u2019s\
-    \ prediction changes when a feature changes."
+  description: The ICE (Individual Conditional Expectation) widget visualizes the
+    dependence of the prediction on a feature for each instance separately, resulting
+    in one line per instance, compared to one line overall in partial dependence plots.
   inputs: '- Model: model
 
     - Data: dataset'
   outputs: '- Selected Data: instances selected from the plot
 
     - Data: data with an additional column showing whether a point is selected'
+  short description: "Displays one line per instance that shows how the instance\u2019\
+    s prediction changes when a feature changes."
 Geo/Choropleth Map:
-  description: A thematic map in which areas are shaded in proportion to the measurement
-    of the statistical variable being displayed.
+  description: Choropleth provides an easy way to visualize how a measurement varies
+    across a geographic area or show the level of variability within a region. There
+    are several levels of granularity available, from countries to states, counties,
+    or municipalities.
   inputs: '- Data: input dataset'
   outputs: '- Selected Data: instances selected from the map.
 
     - Data: data with an additional column showing whether a point is selected'
+  short description: A thematic map in which areas are shaded in proportion to the
+    measurement of the statistical variable being displayed.
 Geo/Geo Map:
-  description: Show data points on a map.
+  description: Geo Map widget visualizes geo-spatial data on a map. It works on datasets
+    containing latitude and longitude variables in WGS 84 (EPSG:4326) format. We can
+    use it much like we use Scatter Plot widget.
   inputs: '- Data: input dataset
 
     - Data Subset: subset of instances'
   outputs: '- Selected Data: instances selected from the plot
 
     - Data: data with an additional column showing whether a point is selected'
+  short description: Show data points on a map.
 Geo/Geo Transform:
-  description: Transform geographic coordinates from one system to another.
+  description: Geo Transform widget converts latitude and longitude data from one
+    geodesic system to another. It uses pyproj library for the conversion.
   inputs: '- Data: input dataset'
   outputs: '- Data: data with transformed coordinates.'
+  short description: Transform geographic coordinates from one system to another.
 Geo/Geocoding:
-  description: Encode region names into geographical coordinates, or reverse-geocode
-    latitude and longitude pairs into regions.
+  description: Geocoding widget extracts latitude/longitude pairs from region names
+    or synthesizes latitude/longitude to return region name. If the region is large,
+    say a country, encoder with return the latitude and longitude of geometric centre.
   inputs: '- Data: An input data set.'
   outputs: '- Coded Data: Data set with new meta attributes.'
+  short description: Encode region names into geographical coordinates, or reverse-geocode
+    latitude and longitude pairs into regions.
 Image Analytics/Image Embedding:
-  description: Image embedding through deep neural networks.
+  description: Image Embedding reads images and uploads them to a remote server or
+    evaluate them locally. Deep learning models are used to calculate a feature vector
+    for each image. It returns an enhanced data table with additional columns (image
+    descriptors).
   inputs: '- Images: List of images.'
   outputs: '- Embeddings: Images represented with a vector of numbers.
 
     - Skipped Images: List of images where embeddings were not calculated.'
+  short description: Image embedding through deep neural networks.
 Image Analytics/Image Grid:
-  description: Displays images in a similarity grid.
+  description: The Image Grid widget can display images from a dataset in a similarity
+    grid - images with similar content are placed closer to each other. It can be
+    used for image comparison, while looking for similarities or discrepancies between
+    selected data instances (e.g. bacterial growth or bitmap representations of handwriting).
   inputs: '- Embeddings: Image embeddings from Image Embedding widget.
 
     - Data Subset: A subset of embeddings or images.'
@@ -352,23 +528,32 @@ Image Analytics/Image Grid:
     if the image is selected or the group, if there are several.
 
     - Selected Images: Selected images with an additional column specifying the group.'
+  short description: Displays images in a similarity grid.
 Image Analytics/Image Viewer:
-  description: Displays images that come with a data set.
+  description: The Image Viewer widget can display images from a data set, which are
   inputs: '- Data: A data set with images.'
   outputs: '- Data: Images that come with the data.
 
     - Selected images: Images selected in the widget.'
+  short description: Displays images that come with a data set.
 Image Analytics/Import Images:
-  description: Import images from a directory(s).
+  description: Import Images walks through a directory and returs one row per located
+    image. Columns include image name, path to image, width, height and image size.
+    Column with image path is later used as an attribute for image visualization and
+    embedding.
   inputs: No inputs
   outputs: '- Data: Dataset describing one image in each row.'
+  short description: Import images from a directory(s).
 Image Analytics/Save Images:
-  description: Save images in the directory structure.
+  description: ''
   inputs: '- Data: images to save.'
   outputs: No outputs
+  short description: Save images in the directory structure.
 Model/AdaBoost:
-  description: An ensemble meta-algorithm that combines weak learners and adapts to
-    the 'hardness' of each training sample.
+  description: The AdaBoost (short for "Adaptive boosting") widget is a machine-learning
+    algorithm, formulated by Yoav Freund and Robert Schapire. It can be used with
+    other learning algorithms to boost their performance. It does so by tweaking the
+    weak learners.
   inputs: '- Data: input dataset
 
     - Preprocessor: preprocessing method(s)
@@ -377,17 +562,23 @@ Model/AdaBoost:
   outputs: '- Learner: AdaBoost learning algorithm
 
     - Model: trained model'
+  short description: An ensemble meta-algorithm that combines weak learners and adapts
+    to the 'hardness' of each training sample.
 Model/CN2 Rule Induction:
-  description: Induce rules from data using CN2 algorithm.
+  description: The CN2 algorithm is a classification technique designed for the efficient
+    induction of simple, comprehensible rules of form "if cond then predict class",
+    even in domains where noise may be present.
   inputs: '- Data: input dataset
 
     - Preprocessor: preprocessing method(s)'
   outputs: '- Learner: CN2 learning algorithm
 
     - CN2 Rule Classifier: trained model'
+  short description: Induce rules from data using CN2 algorithm.
 Model/Calibrated Learner:
-  description: Wraps another learner with probability calibration and decision threshold
-    optimization.
+  description: This learner produces a model that calibrates the distribution of class
+    probabilities and optimizes decision threshold. The widget works only for binary
+    classification tasks.
   inputs: '- Data: input dataset
 
     - Preprocessor: preprocessing method(s)
@@ -396,16 +587,22 @@ Model/Calibrated Learner:
   outputs: '- Learner: calibrated learning algorithm
 
     - Model: trained model using the calibrated learner'
+  short description: Wraps another learner with probability calibration and decision
+    threshold optimization.
 Model/Constant:
-  description: Predict the most frequent class or mean value from the training set.
+  description: This learner produces a model that always predicts themajority for
+    classification tasks and mean value for regression tasks.
   inputs: '- Data: input dataset
 
     - Preprocessor: preprocessing method(s)'
   outputs: '- Learner: majority/mean learning algorithm
 
     - Model: trained model'
+  short description: Predict the most frequent class or mean value from the training
+    set.
 Model/Curve Fit:
-  description: Fit a function to data.
+  description: The Curve Fit widget fits an arbitrary function to the input data.
+    It only works for regression tasks.
   inputs: '- Data: input dataset
 
     - Preprocessor: preprocessing method(s)'
@@ -414,17 +611,25 @@ Model/Curve Fit:
     - Model: trained model
 
     - Coefficients: fitted coefficients'
+  short description: Fit a function to data.
 Model/Gradient Boosting:
-  description: Predict using gradient boosting on decision trees.
+  description: Gradient Boosting is a machine learning technique for regression and
+    classification problems, which produces a prediction model in the form of an ensemble
+    of weak prediction models, typically decision trees.
   inputs: '- Data: input dataset
 
     - Preprocessor: preprocessing method(s)'
   outputs: '- Learner: gradient boosting learning algorithm
 
     - Model: trained model'
+  short description: Predict using gradient boosting on decision trees.
 Model/Linear Regression:
-  description: A linear regression algorithm with optional L1 (LASSO), L2 (ridge)
-    or L1L2 (elastic net) regularization.
+  description: The Linear Regression widget constructs a learner/predictor that learns
+    a linear function from its input data. The model can identify the relationship
+    between a predictor xi and the response variable y. Additionally, Lasso and Ridge
+    regularization parameters can be specified. Lasso regression minimizes a penalized
+    version of the least squares loss function with L1-norm penalty and Ridge regularization
+    with L2-norm penalty.
   inputs: '- Data: input dataset
 
     - Preprocessor: preprocessing method(s)'
@@ -433,13 +638,16 @@ Model/Linear Regression:
     - Model: trained model
 
     - Coefficients: linear regression coefficients'
+  short description: A linear regression algorithm with optional L1 (LASSO), L2 (ridge)
+    or L1L2 (elastic net) regularization.
 Model/Load Model:
-  description: Load a model from an input file.
+  description: ''
   inputs: No inputs
   outputs: '- Model: trained model'
+  short description: Load a model from an input file.
 Model/Logistic Regression:
-  description: The logistic regression classification algorithm with LASSO (L1) or
-    ridge (L2) regularization.
+  description: Logistic Regression learns a Logistic Regression model from the data.
+    It only works for classification tasks.
   inputs: '- Data: input dataset
 
     - Preprocessor: preprocessing method(s)'
@@ -448,33 +656,46 @@ Model/Logistic Regression:
     - Model: trained model
 
     - Coefficients: logistic regression coefficients'
+  short description: The logistic regression classification algorithm with LASSO (L1)
+    or ridge (L2) regularization.
 Model/Naive Bayes:
-  description: A fast and simple probabilistic classifier based on Bayes' theorem
-    with the assumption of feature independence.
+  description: Naive Bayes learns a Naive Bayesian model from the data. It only works
+    for classification tasks.
   inputs: '- Data: input dataset
 
     - Preprocessor: preprocessing method(s)'
   outputs: '- Learner: naive bayes learning algorithm
 
     - Model: trained model'
+  short description: A fast and simple probabilistic classifier based on Bayes' theorem
+    with the assumption of feature independence.
 Model/Neural Network:
-  description: A multi-layer perceptron (MLP) algorithm with backpropagation.
+  description: The Neural Network widget uses sklearn's Multi-layer Perceptron algorithm
+    that can learn non-linear models as well as linear.
   inputs: '- Data: input dataset
 
     - Preprocessor: preprocessing method(s)'
   outputs: '- Learner: multi-layer perceptron learning algorithm
 
     - Model: trained model'
+  short description: A multi-layer perceptron (MLP) algorithm with backpropagation.
 Model/Random Forest:
-  description: Predict using an ensemble of decision trees.
+  description: Random forest is an ensemble learning method used for classification,
+    regression and other tasks. It was first proposed by Tin Kam Ho and further developed
+    by Leo Breiman (Breiman, 2001) and Adele Cutler.
   inputs: '- Data: input dataset
 
     - Preprocessor: preprocessing method(s)'
   outputs: '- Learner: random forest learning algorithm
 
     - Model: trained model'
+  short description: Predict using an ensemble of decision trees.
 Model/SVM:
-  description: Support Vector Machines map inputs to higher-dimensional feature spaces.
+  description: Support vector machine (SVM) is a machine learning technique that separates
+    the attribute space with a hyperplane, thus maximizing the margin between the
+    instances of different classes or class values. The technique often yields supreme
+    predictive performance results. Orange embeds a popular implementation of SVM
+    from the LIBSVM package. This widget is its graphical user interface.
   inputs: '- Data: input dataset
 
     - Preprocessor: preprocessing method(s)'
@@ -483,12 +704,19 @@ Model/SVM:
     - Model: trained model
 
     - Support Vectors: instances used as support vectors'
+  short description: Support Vector Machines map inputs to higher-dimensional feature
+    spaces.
 Model/Save Model:
-  description: Save a trained model to an output file.
+  description: ''
   inputs: '- Model: trained model'
   outputs: No outputs
+  short description: Save a trained model to an output file.
 Model/Stacking:
-  description: Stack multiple models.
+  description: Stacking is an ensemble method that computes a meta model from several
+    base models. The Stacking widget has the Aggregate input, which provides a method
+    for aggregating the input models. If no aggregation input is given the default
+    methods are used. Those are Logistic Regression for classification and Ridge Regression
+    for regression problems.
   inputs: '- Data: input dataset
 
     - Preprocessor: preprocessing method(s)
@@ -499,45 +727,68 @@ Model/Stacking:
   outputs: '- Learner: aggregated (stacked) learning algorithm
 
     - Model: trained model'
+  short description: Stack multiple models.
 Model/Stochastic Gradient Descent:
-  description: Minimize an objective function using a stochastic approximation of
-    gradient descent.
+  description: The Stochastic Gradient Descent widget uses stochastic gradient descent
+    that minimizes a chosen loss function with a linear function. The algorithm approximates
+    a true gradient by considering one sample at a time, and simultaneously updates
+    the model based on the gradient of the loss function. For regression, it returns
+    predictors as minimizers of the sum, i.e. M-estimators, and is especially useful
+    for large-scale and sparse datasets.
   inputs: '- Data: input dataset
 
     - Preprocessor: preprocessing method(s)'
   outputs: '- Learner: stochastic gradient descent learning algorithm
 
     - Model: trained model'
+  short description: Minimize an objective function using a stochastic approximation
+    of gradient descent.
 Model/Tree:
-  description: A tree algorithm with forward pruning.
+  description: Tree is a simple algorithm that splits the data into nodes by class
+    purity (information gain for categorical and MSE for numeric target variable).
+    It is a precursor to Random Forest. Tree in Orange is designed in-house and can
+    handle both categorical and numeric datasets.
   inputs: '- Data: input dataset
 
     - Preprocessor: preprocessing method(s)'
   outputs: '- Learner: decision tree learning algorithm
 
     - Model: trained model'
+  short description: A tree algorithm with forward pruning.
 Model/kNN:
-  description: Predict according to the nearest training instances.
+  description: The kNN widget uses the kNN algorithm that searches for k closest training
+    examples in feature space and uses their average as prediction.
   inputs: '- Data: input dataset
 
     - Preprocessor: preprocessing method(s)'
   outputs: '- Learner: kNN learning algorithm
 
     - Model: trained model'
+  short description: Predict according to the nearest training instances.
 Networks/Network Analysis:
-  description: Statistical analysis of network data.
+  description: Network Analysis widget computes node-level and graph-level summary
+    statistics for the network. It outputs a network with the new computed statistics
+    and an extended item data table (node-level indices only).
   inputs: '- Network: An instance of Network Graph.
 
     - Items: Properties of a network file.'
   outputs: '- Network: An instance of Network Graph with appended information.
 
     - Items: New properties of a network file.'
+  short description: Statistical analysis of network data.
 Networks/Network Clustering:
-  description: Detect clusters in a network.
+  description: Network Clustering widget finds clusters in a network. Clustering works
+    with two algorithms, one from Raghavan et al. (2007), which uses label propagation
+    to find appropriate clusters, and one from Leung et al. (2009), which builds upon
+    the work from Raghavan and adds hop attenuation as a parameters for cluster formation.
   inputs: '- Network: An instance of Network Graph.'
   outputs: '- Network: An instance of Network Graph with clustering information appended.'
+  short description: Detect clusters in a network.
 Networks/Network Explorer:
-  description: Visually explore the network and its properties.
+  description: Network Explorer is the primary widget for visualizing network graphs.
+    It displays a graph with Fruchterman-Reingold layout optimization and enables
+    setting the color, size and label of nodes. One can also highlight nodes of specific
+    properties and output them.
   inputs: '- Network: An instance of Network Graph.
 
     - Node Subset: A subset of vertices.
@@ -554,121 +805,204 @@ Networks/Network Explorer:
     - Highlighted Items: Information on highlighted vertices.
 
     - Remaining Items: Information on remaining items (not selected or highlighted).'
+  short description: Visually explore the network and its properties.
 Networks/Network File:
-  description: Read network graph file in Pajek format.
+  description: Network File widget reads network files and sends the input data to
+    its output channel. History of the most recently opened files in maintained in
+    the widget. The widget also includes a directory with sample data sets that come
+    pre-installed with the add-on.
   inputs: No inputs
   outputs: '- Network: An instance of Network Graph.
 
     - Items: Properties of a network file.'
+  short description: Read network graph file in Pajek format.
 Networks/Network From Distances:
-  description: Constructs a network from distances between instances.
+  description: Outputs
   inputs: '- Distances: A distance matrix.'
   outputs: '- Network: An instance of Network Graph.
 
     - Data: Attribute-valued data set.
 
     - Distances: A distance matrix.'
+  short description: Constructs a network from distances between instances.
 Networks/Network Generator:
-  description: Construct example graphs.
+  description: Network Generator constructs exemplary networks. It is mostly intended
+    for teaching/learning about networks.
   inputs: No inputs
   outputs: '- Generated Network: An instance of Network Graph.'
+  short description: Construct example graphs.
 Networks/Network Of Groups:
-  description: Group instances by feature and connect related groups.
+  description: Network of Groups is the network version of the group-by operation.
+    Nodes with the same values of the attribute, selected in the dropdown, will be
+    represented as a single node.
   inputs: '- Network: An instance of network graph.
 
     - Data: Properties of a network graph.'
   outputs: '- Network: A grouped network graph.
 
     - Data: Properties of the group network graph.'
+  short description: Group instances by feature and connect related groups.
 Networks/Single Mode:
-  description: Convert multimodal graphs to single modal.
+  description: Single Mode works with bipartite (or multipartite) networks, where
+    different parts are distinguished by values of the chosen discrete variable. A
+    typical example would be a network that connects persons with events that they
+    attended. The widget creates a new network, which contains the nodes from the
+    chosen group of original network's nodes (e.g. persons). Two nodes in the resulting
+    network are connected if they share a common neighbor from the second chosen group
+    (e.g. events).
   inputs: '- Network: An instance of a bipartite network graph.'
   outputs: '- Network: An instance of single network graph.'
+  short description: Convert multimodal graphs to single modal.
 Single Cell/Align Datasets:
-  description: Alignment of multiple datasets with a diagram of correlation visualization.
+  description: ''
   inputs: '- Data: single cell dataset'
   outputs: '- Transformed Data: aligned data
 
     - Genes per n. Components'
+  short description: Alignment of multiple datasets with a diagram of correlation
+    visualization.
 Single Cell/Batch Effect Removal:
-  description: Batch effect normalization on Single Cell data set.
+  description: Outputs
   inputs: No inputs
   outputs: '- Data: Single cell dataset.'
+  short description: Batch effect normalization on Single Cell data set.
 Single Cell/Dot Matrix:
-  description: Perform cluster analysis.
+  description: Score Cells scores the cells (rows) in the input data based on expression
+    of input marker genes. Input data has to include gene names in column headers
+    (as attribute names). The score is computed independently for each cell and is
+    equal to the maximum expression of the marker genes. If expressions for all the
+    marker genes are missing, the cell obtains a score of zero. If Genes input is
+    provided, one of the columns must include names of genes that match those from
+    expression data.
   inputs: '- Data: Single cell dataset.'
   outputs: '- Selected Data
 
     - Data: Single cell dataset.
 
     - Contingency Table'
+  short description: Perform cluster analysis.
 Single Cell/Filter:
-  description: Filter cells/genes.
+  description: The Filter widget filters cells or genes by the number of positive
+    measurements. One can select genes in visualization to remove the unfrequent and
+    overly frequent cells/genes.
   inputs: '- Data: input dataset'
   outputs: '- Data: filtered dataset'
+  short description: Filter cells/genes.
 Single Cell/Load Data:
-  description: Load samples for multi-sample analysis.
+  description: The single-sample extension of Gene Set Enrichment Analysis (ssGSEA)
+    is a widely used method that assigns scores to gene sets based on individual sample
+    gene overexpression. It calculates scores by summing the contributions of genes
+    based on their rank in an ordered expression matrix, with high expression values
+    positively impacting the score.
   inputs: No inputs
   outputs: '- Data: Single cell dataset.'
+  short description: Load samples for multi-sample analysis.
 Single Cell/Score Cells:
-  description: Add a cell score based on the given set of genes.
+  description: Score Cells scores the cells (rows) in the input data based on expression
+    of input marker genes. Input data has to include gene names in column headers
+    (as attribute names). The score is computed independently for each cell and is
+    equal to the maximum expression of the marker genes. If expressions for all the
+    marker genes are missing, the cell obtains a score of zero. If Genes input is
+    provided, one of the columns must include names of genes that match those from
+    expression data.
   inputs: '- Data: input dataset
 
     - Genes: dataset with gene names'
   outputs: '- Data: dataset with a meta column reporting on cell scores'
+  short description: Add a cell score based on the given set of genes.
 Single Cell/Score Genes:
-  description: Gene scoring based on statistics of their expression profiles or information
-    content about cell types.
+  description: The Score Genes widget considers gene expression data with genes in
+    columns and single cell
   inputs: '- Data: input dataset
 
     - Scorer: (multiple) prediction model(s)'
   outputs: '- Reduced Data: expression data containing selected genes
 
     - Scores: gene scores'
+  short description: Gene scoring based on statistics of their expression profiles
+    or information content about cell types.
 Single Cell/Single Cell Datasets:
-  description: Load a single cell data from an online repository.
+  description: Single Cell Datasets retrieves a selected data set from the data base
+    server and sends the data to the output. Gene expression data sets include cells
+    in rows and genes in columns. The data set file is downloaded to the local memory,
+    and for subsequent requests instantly available
   inputs: No inputs
   outputs: '- Data: A single cell dataset containing cells and their gene expression
     or gene markers.'
+  short description: Load a single cell data from an online repository.
 Single Cell/Single Cell Preprocess:
-  description: Preprocess Single Cell data set.
+  description: The Filter widget filters cells or genes by the number of positive
+    measurements. One can select genes in visualization to remove the unfrequent and
+    overly frequent cells/genes.
   inputs: '- Data: Single cell dataset.'
   outputs: '- Preprocessed Data: Preprocessed dataset.'
+  short description: Preprocess Single Cell data set.
+Single Cell/Spatial Autocorrelation Scorer:
+  description: Spatial Autocorrelation Scorer calculates the spatial autocorrelation
+    score (Moran's I or Geary's C) for each gene in the dataset. The input dataset
+    must include gene expression values in columns and spatial coordinates (x and
+    y) in selected columns. The adjacency matrix is computed using k-nearest neighbors
+    based on the spatial coordinates. The scores are computed independently for each
+    gene.
+  inputs: '- Data: input dataset with spatial coordinates and gene expression values'
+  outputs: '- Scorer: an instance of SpatialScorer containing the adjacency matrix
+    and selected method for scoring'
+  short description: Calculate Moran's I or Geary's C spatial autocorrelation score
+    based on input gene expression data.
 Spectroscopy/Average Spectra:
-  description: Average spectra.
+  description: The Average Spectra widget enables you to calculate average spectra.
+    It can output the average of the entire dataset, or average into groups defined
+    by a Categorical feature.
   inputs: '- Data: input dataset'
   outputs: '- Averages: averaged dataset'
+  short description: Average spectra.
 Spectroscopy/HyperSpectra:
-  description: Plots 2D map of hyperspectra.
+  description: The HyperSpectra widget plots hyperspectra that were read from the
+    .map file. To use this widget with infrared spectral data, you need to transform
+    it with Reshape Map widget.
   inputs: '- Data: input dataset'
   outputs: '- Selection: spectra from selected area
 
     - Data: dataset with information whether a spectrum was selected or not'
+  short description: Plots 2D map of hyperspectra.
 Spectroscopy/Integrate Spectra:
-  description: Integrate spectra in various ways.
+  description: The Integrate Spectra widget allows you to add integrals to your data
+    by selecting regions of interest and integrating them with several methods.
   inputs: '- Data: input dataset'
   outputs: '- Integrated Data: data with integrals appended
 
     - Preprocessor: preprocessing method'
+  short description: Integrate spectra in various ways.
 Spectroscopy/Interferogram to Spectrum:
-  description: Performs Fast Fourier Transform on an interferogram, including zero
-    filling, apodization and phase correction.
+  description: The Average Spectra widget enables you to calculate average spectra.
+    It can output the average of the entire dataset, or average into groups defined
+    by a Categorical feature.
   inputs: '- Interferogram: input interferogram'
   outputs: '- Spectra: dataset with spectra
 
     - Phases: phases'
+  short description: Performs Fast Fourier Transform on an interferogram, including
+    zero filling, apodization and phase correction.
 Spectroscopy/Interpolate:
-  description: Interpolate spectra.
+  description: The Interpolate widget enables you to align datasets with different
+    wavenumbers. It has automatic interpolation or you can provide the reference data
+    set to align with.
   inputs: '- Data: input dataset
 
     - Points: a reference data set'
   outputs: '- Interpolated Data: aligned dataset'
+  short description: Interpolate spectra.
 Spectroscopy/Multifile:
-  description: Read data from input files and send a data table to the output.
+  description: The Multifile widget loads data from different sources and works like
+    Concatenate widget for spectroscopy. The widget will output a union of attributes
+    and features, with missing values for non-matching wavenumbers. To interpolate
+    missing data, use the Interpolate widget.
   inputs: No inputs
   outputs: '- Data: a data table of all the loaded files'
+  short description: Read data from input files and send a data table to the output.
 Spectroscopy/Peak Fit:
-  description: Fit data to a composite peak model.
+  description: The Peak Fit widget computes the least-squares minimization curve fit
+    for arbitrary,
   inputs: '- Data: Input data set'
   outputs: '- Fit Parameters: Best fit values for the model parameters
 
@@ -677,48 +1011,67 @@ Spectroscopy/Peak Fit:
     - Residuals: Difference between Fits and Data
 
     - Data: Input data set annotated with Fit Parameters'
+  short description: Fit data to a composite peak model.
 Spectroscopy/Preprocess Spectra:
-  description: Construct a data preprocessing pipeline.
+  description: The Preprocess Spectra widget applies a series of preprocessing methods
+    to spectral data. You can select the preprocessing method from the list and press
+    the triangle button on the right to visualize the result. The order of the preprocessing
+    matters, so to change the order of the preprocessing, just drag and drop the method
+    to its proper place.
   inputs: '- Data: required input data set
 
     - Reference: optional reference data set used in some preprocessing methods'
   outputs: '- Preprocessed Data: transformed data set
 
     - Preprocessor: preprocessing methods'
+  short description: Construct a data preprocessing pipeline.
 Spectroscopy/Reshape Map:
-  description: Builds or modifies the shape of the input dataset to create 2D maps
-    from series data or change the dimensions of existing 2D datasets.
+  description: The Reshape Map widget transforms the input data to a map.
   inputs: '- Data: input dataset'
   outputs: '- Map Data: data as a map'
+  short description: Builds or modifies the shape of the input dataset to create 2D
+    maps from series data or change the dimensions of existing 2D datasets.
 Spectroscopy/SNR:
-  description: Signal-to-Noise Ratio (SNR)
+  description: SNR = \(\frac{\overline{Spectra_{x, y}}}{\sigma _{x, y}}\)
   inputs: '- Data: input dataset'
   outputs: '- Signal-to-noise ratio: signal-to-noise ratio dataset'
+  short description: Signal-to-Noise Ratio (SNR)
 Spectroscopy/Spectra:
-  description: Visually explore series of spectra with no spatial information.
+  description: The Spectra widget allows visual exploration of multiple spectra.
   inputs: '- Data: input dataset
 
     - Data Subset:subset of the data'
   outputs: '- Selection: selected spectra'
+  short description: Visually explore series of spectra with no spatial information.
 Spectroscopy/Tile File:
-  description: Read data tile-by-tile from input file(s), preprocess the spectra,
-    and send a data table to the output.
+  description: The Tilefile widgets loads data from compatible mosaic spectral images
+    and applies the supplied
   inputs: '- Preprocessor: A preprocessor list from the Preprocess Spectra widget'
   outputs: '- Data: preprocessed dataset read from the input file(s)'
+  short description: Read data tile-by-tile from input file(s), preprocess the spectra,
+    and send a data table to the output.
 Survival Analysis/As Survival Data:
-  description: Mark features Time and Event as target variables.
+  description: As Survival enables the user to manually select which feature will
+    be treated as the Time and Event target variable in the survival dataset.
   inputs: '- Data: reference dataset'
   outputs: '- Data: reference dataset with selected Time and Event marked as target
     variables'
+  short description: Mark features Time and Event as target variables.
 Survival Analysis/Cohorts:
-  description: Calculate the risk score for each data instance and stratify into high
-    and low-risk cohorts.
+  description: Cohorts is a widget that receives a survival dataset and assigns a
+    risk score to each data instance. The risk score is derived from the fitted Cox
+    regression
   inputs: '- Data: reference survival dataset'
   outputs: '- Data: reference data set augumented with two new variables, one with
     the computed risk scores and a binary variable stratifying instances into low
     and high-risk'
+  short description: Calculate the risk score for each data instance and stratify
+    into high and low-risk cohorts.
 Survival Analysis/Cox regression:
-  description: Fit the Cox regression model on input data.
+  description: Cox Regression is a method for investigating the effect of several
+    variables upon the time a specified event takes to happen. It assumes that the
+    effects of the predictor variables upon survival are constant over time and are
+    additive in one scale.
   inputs: '- Data: reference survival dataset
 
     - Preprocessor: preprocessing method'
@@ -727,25 +1080,43 @@ Survival Analysis/Cox regression:
     - Model trained model
 
     - Coefficients: Cox regression coefficients'
+  short description: Fit the Cox regression model on input data.
 Survival Analysis/Kaplan-Meier Plot:
-  description: Visualisation of Kaplan-Meier estimator.
+  description: Kaplan-Meier Plot is a visual representation of the estimated survival
+    function that shows the probability of an event at a respective time interval.
+    It works on survival datasets, which by definition include time and event observations.
+    We can select which features should serve as Time and Event variables manually
+    using As Survival. The plot allows visualisation of the survival functions of
+    different groups based on feature values. This can be selected on the left side
+    of the widget, where we can also choose wheter to display confidence intervals,
+    median and/or censored data instances. The plot enables interactive selection
+    of data instances that are propagated down the workflow for potential further
+    analysis. The method for Kaplan-Meier estimation is implemented in lifelines (the
+    python package for survival analysis) by Davidson-Pilon (2019).
   inputs: '- Data: reference survival dataset'
   outputs: '- Data: reference survival dataset with an additional column showing whether
     a point is selected
 
     - Selected Data: instances selected from the plot'
+  short description: Visualisation of Kaplan-Meier estimator.
 Survival Analysis/Rank Survival Features:
-  description: Rank features according to univariate estimate of importance by Cox
-    regression model.
+  description: 'Rank Survival Features receives a survival dataset on the input and
+    ranks each feature according to a univariate estimate of importance by the Cox
+    regression model. It provides four different statistical measures to rank and
+    report on the importance of a feature: Log-Likelihood, Log-Likelihood Ratio, p-value
+    and FDR. The user can select any feature or'
   inputs: '- Data: reference survival dataset'
   outputs: '- Reduced data: data comprised of selected features'
+  short description: Rank features according to univariate estimate of importance
+    by Cox regression model.
 Survival Analysis/Stepwise Cox Regression:
-  description: Perform feature selection through backward elimination process.
+  description: Outputs
   inputs: '- todo'
   outputs: '- todo'
+  short description: Perform feature selection through backward elimination process.
 Text Mining/Annotated Corpus Map:
-  description: Annotated Corpus Map visualises, cluster, and annotates documents with
-    keywords
+  description: The Annotated Corpus Map widget provides a 2-dimensional scatter plot
+    visualization
   inputs: '- Corpus: A collection of documents to visualise.'
   outputs: '- Selected Document: Documents selected from the plot
 
@@ -753,96 +1124,158 @@ Text Mining/Annotated Corpus Map:
     and information about the cluster the document belongs to
 
     - Scores: Table with scores and p-values for each keyword averaged per cluster'
+  short description: Annotated Corpus Map visualises, cluster, and annotates documents
+    with keywords
 Text Mining/Bag of Words:
-  description: Generates a bag of words from the input corpus.
+  description: Bag of Words model creates a corpus with word counts for each data
+    instance (document). The count can be either absolute, binary (contains or does
+    not contain) or sublinear (logarithm of the term frequency). Bag of words model
+    is required in combination with Word Enrichment and could be used for predictive
+    modelling.
   inputs: '- Corpus: A collection of documents.'
   outputs: '- Corpus: Corpus with bag of words features appended.'
+  short description: Generates a bag of words from the input corpus.
 Text Mining/Collocations:
-  description: Compute significant bigrams and trigrams.
+  description: Collocations finds frequently co-occurring words in a corpus. It displays
+    bigrams or trigrams by the score.
   inputs: '- Corpus: A collection of documents.'
   outputs: '- Table: A list of bigrams or trigrams.'
+  short description: Compute significant bigrams and trigrams.
 Text Mining/Concordance:
-  description: Display the context of the word.
+  description: Concordance finds the queried word in a text and displays the context
+    in which this word is used. Results in a single color come from the same document.
+    The widget can output selected documents for further analysis or a table of concordances
+    for the queried word. Note that the widget finds only exact matches of a word,
+    which means that if you query the word 'do', the word 'doctor' won't appear in
+    the results.
   inputs: '- Corpus: A collection of documents.'
   outputs: '- Selected Documents: Documents containing the queried word.
 
     - Concordances: A table of concordances.'
+  short description: Display the context of the word.
 Text Mining/Corpus:
-  description: Load a corpus of text documents, (optionally) tagged with categories,
-    or change the data input signal to the corpus.
+  description: 'Corpus widget can work in two modes:'
   inputs: '- Data: Input data (optional)'
   outputs: '- Corpus: A collection of documents.'
+  short description: Load a corpus of text documents, (optionally) tagged with categories,
+    or change the data input signal to the corpus.
 Text Mining/Corpus Viewer:
-  description: Displays corpus content.
+  description: Corpus Viewer is meant for viewing text files (instances of Corpus).
+    It will always output an instance of corpus. If RegExp filtering is used, the
+    widget will output only matching documents.
   inputs: '- Corpus: A collection of documents.'
   outputs: '- Corpus: Documents containing the queried word.'
+  short description: Displays corpus content.
 Text Mining/Corpus to Network:
-  description: Creates a network from given corpus. Network nodes can be either documents
-    or words (ngrams).
+  description: Corpus to Network can operate either on documents or words (ngrams).
+    If nodes are documents, there's an edge between two documents if number of words
+    (ngrams) that appears in both documents is at least Threshold. If nodes are words
+    (ngrams), there's an edge between two words if the number of times they both appear
+    inside of a window (of size 2 * Window size + 1) is at least Threshold. Only words
+    that have frequency higher than Frequency Threshold will be included as nodes.
+    This is a word co-occurrence network.
   inputs: '- Corpus: A collection of documents.'
   outputs: '- Network: A network generated from input corpus.
 
     - Node data: Additional data about nodes.'
+  short description: Creates a network from given corpus. Network nodes can be either
+    documents or words (ngrams).
 Text Mining/Create Corpus:
-  description: Write/paste documents to create a corpus
+  description: Create Corpus is a widget for quick creation of a sample of documents.
+    It enables manual entry or copy-pasting content from clipboard. The widget would
+    typically be used in an educational setting or for predicting a sample of documents.
   inputs: No inputs
   outputs: '- Corpus: The created corpus.'
+  short description: Write/paste documents to create a corpus
 Text Mining/Document Embedding:
-  description: Embeds documents from input corpus into vector space by using pre-trained
+  description: Document Embedding parses n-grams of each document in corpus, obtains
+    embedding
   inputs: '- Corpus: A collection of documents.'
   outputs: '- Corpus: Corpus with new features appended.'
+  short description: Embeds documents from input corpus into vector space by using
+    pre-trained
 Text Mining/Document Map:
-  description: Displays geographic locations mentioned in the text.
+  description: Document Map widget shows geolocations from textual (string) data.
+    It finds mentions of geographic names (countries and capitals) and displays distributions
+    (frequency of mentions) of these names on a map. It works with any Orange widget
+    that outputs a data table and that contains at least one string attribute. The
+    widget outputs selected data instances, that is all documents containing mentions
+    of a selected country (or countries).
   inputs: '- Data: Data set.'
   outputs: '- Corpus: Documents containing mentions of selected geographical regions.'
+  short description: Displays geographic locations mentioned in the text.
 Text Mining/Duplicate Detection:
-  description: Detect & remove duplicates from a corpus.
+  description: Duplicate Detection uses clustering to find duplicates in the corpus.
+    It is great with the Twitter widget for removing retweets and other similar documents.
   inputs: '- Distances: A distance matrix.'
   outputs: '- Corpus Without Duplicated: Corpus with duplicates removed.
 
     - Duplicates Cluster: Documents belonging to selected cluster.
 
     - Corpus: Corpus with appended cluster labels.'
+  short description: Detect & remove duplicates from a corpus.
 Text Mining/Extract Keywords:
-  description: Infers characteristic words from the input corpus.
+  description: Outputs
   inputs: '- Corpus: A collection of documents.
 
     - Words: A table of words.'
   outputs: '- Words: A table of words.'
+  short description: Infers characteristic words from the input corpus.
 Text Mining/Import Documents:
-  description: Import text documents from folders.
+  description: Import Documents widget retrieves text files from folders and creates
+    a corpus. The widget reads .txt, .docx, .odt, .pdf, .xml, and .conllu files. If
+    a folder contains subfolders, they will be used as class labels.
   inputs: '- None'
   outputs: '- Corpus: A collection of documents from the local machine.
 
     - Skipped Documents: A list of documents that couldn''t be imported.'
+  short description: Import text documents from folders.
 Text Mining/LDAvis:
-  description: Interactive exploration of LDA topics.
+  description: ''
   inputs: '- Topics: All LDA topics from topic modeling.'
   outputs: No outputs
+  short description: Interactive exploration of LDA topics.
 Text Mining/NY Times:
-  description: Loads data from the New York Times' Article Search API.
+  description: NYTimes widget loads data from New York Times' Article Search API.
+    You can query NYTimes articles from September 18, 1851 to today, but the API limit
+    is set to allow retrieving only a 1000 documents per query. Define which features
+    to use for text mining, Headline and Abstract being selected by default.
   inputs: '- None'
   outputs: '- Corpus: A collection of documents from the New York Times newspaper.'
+  short description: Loads data from the New York Times' Article Search API.
 Text Mining/Ontology:
-  description: Generate, edit, load and save ontologies.
+  description: Outputs
   inputs: '- Words: A table of words.'
   outputs: '- Words: A table of words.'
+  short description: Generate, edit, load and save ontologies.
 Text Mining/Preprocess Text:
-  description: Preprocesses corpus with selected methods.
+  description: Preprocess Text splits your text into smaller units (tokens), filters
+    them, runs normalization (stemming, lemmatization), creates n-grams and tags tokens
+    with part-of-speech labels. Steps in the analysis are applied sequentially and
+    can be reordered. Click and drag the preprocessor to change the order.
   inputs: '- Corpus: A collection of documents.'
   outputs: '- Corpus: Preprocessed corpus.'
+  short description: Preprocesses corpus with selected methods.
 Text Mining/Pubmed:
-  description: Fetch data from PubMed journals.
+  description: PubMed comprises more than 26 million citations for biomedical literature
+    from MEDLINE, life science journals, and online books. The widget allows you to
+    query and retrieve these entries. You can use regular search or construct advanced
+    queries.
   inputs: '- None'
   outputs: '- Corpus: A collection of documents from the PubMed online service.'
+  short description: Fetch data from PubMed journals.
 Text Mining/Score Documents:
-  description: Scores documents based on word appearance.
+  description: Score Document assigns scores to each document based on words at the
+    input. The score with the selected scoring method is calculated for each word
+    and aggregated together with the selected aggregation function on the document
+    level.
   inputs: '- Corpus: A collection of documents
 
     - Words: A table with at least one column with words'
   outputs: '- Corpus: A collection of documents with scores'
+  short description: Scores documents based on word appearance.
 Text Mining/Semantic Viewer:
-  description: Displays corpus semantics.
+  description: ''
   inputs: '- Corpus: A collection of documents.
 
     - Words: A table of words.'
@@ -851,45 +1284,83 @@ Text Mining/Semantic Viewer:
     - Other Docs: Other documents.
 
     - Corpus: A collection of documents.'
+  short description: Displays corpus semantics.
 Text Mining/Sentiment Analysis:
-  description: Predict sentiment from text.
+  description: Sentiment Analysis predicts sentiment for each document in a corpus.
+    It uses Liu & Hu and Vader sentiment modules from NLTK, multilingual sentiment
+    lexicons from the Data Science Lab, SentiArt from Arthur Jacobs, and LiLaH sentiment
+    from Walter Daelemans et al. All of them are lexicon-based. For Liu & Hu, you
+    can choose English or Slovenian version. Vader works only on English. Multilingual
+    sentiment supports several languages, which are listed at the bottom of this page.
+    SentiArt works on English and German. LiLaH sentiment supports Slovenian, Croatian,
+    and Dutch. Custom dictionary enables one to upload custom positive and negative
+    sentiment dictionaries. Custom files should be plain text files (.txt) with each
+    word in its own line.
   inputs: '- Corpus: A collection of documents.'
   outputs: '- Corpus: A corpus with information on the sentiment of each document.'
+  short description: Predict sentiment from text.
 Text Mining/Similarity Hashing:
-  description: Computes documents hashes.
+  description: Similarity Hashing is a widget that transforms documents into similarity
+    vectors. The widget uses SimHash method from from Moses Charikar.
   inputs: '- Corpus: A collection of documents.'
   outputs: '- Corpus: Corpus with simhash value as attributes.'
+  short description: Computes documents hashes.
 Text Mining/Statistics:
-  description: Create new statistic variables for documents.
+  description: Statistics is a feature constructor widget that adds simple document
+    statistics to a corpus. It supports both standard statistical measures and user-defined
+    variables.
   inputs: '- Corpus: A collection of documents.'
   outputs: '- Corpus: Corpus with additional attributes.'
+  short description: Create new statistic variables for documents.
 Text Mining/The Guardian:
-  description: Fetching data from The Guardian Open Platform.
+  description: Guardian retrieves articles from the Guardian newspaper via their API.
+    For the widget to work, you need to provide the API key, which you can get at
+    their access platform.
   inputs: '- None'
   outputs: '- Corpus: A collection of documents from the Guardian newspaper.'
+  short description: Fetching data from The Guardian Open Platform.
 Text Mining/Topic Modelling:
-  description: Topic modelling with Latent Dirichlet Allocation, Latent Semantic Indexing
-    or Hierarchical Dirichlet Process.
+  description: Topic Modelling discovers abstract topics in a corpus based on clusters
+    of words found in each document and their respective frequency. A document typically
+    contains multiple topics in different proportions, thus the widget also reports
+    on the topic weight per document.
   inputs: '- Corpus: A collection of documents.'
   outputs: '- Corpus: Corpus with topic weights appended.
 
     - Topics: Selected topics with word weights.
 
     - All Topics: Token weights per topic.'
+  short description: Topic modelling with Latent Dirichlet Allocation, Latent Semantic
+    Indexing or Hierarchical Dirichlet Process.
 Text Mining/Tweet Profiler:
-  description: Detect Ekman's, Plutchik's or Profile of Mood States' emotions in tweets.
+  description: Tweet Profiler retrieves information on sentiment from the server for
+    each given tweet (or document). The widget sends data to the server, where a model
+    computes emotion probabilities and/or scores. The widget support three classifications
+    of emotion, namely Ekman's, Plutchik's and Profile of Mood States (POMS).
   inputs: '- Corpus: A collection of tweets (or other documents).'
   outputs: '- Corpus: A corpus with information on the sentiment of each document.'
+  short description: Detect Ekman's, Plutchik's or Profile of Mood States' emotions
+    in tweets.
 Text Mining/Twitter:
-  description: Fetching data from The Twitter Search API.
+  description: Twitter widget enables querying tweets through Twitter API. You can
+    query by content, author or both and  accumulate results should you wish to create
+    a larger data set. The widget only supports REST API and allows queries for up
+    to two weeks back.
   inputs: '- None'
   outputs: '- Corpus: A collection of tweets from the Twitter API.'
+  short description: Fetching data from The Twitter Search API.
 Text Mining/Wikipedia:
-  description: Fetching data from MediaWiki RESTful web service API.
+  description: Wikipedia widget is used to retrieve texts from Wikipedia API and it
+    is useful mostly for teaching and demonstration.
   inputs: '- None'
   outputs: '- Corpus: A collection of documents from the Wikipedia.'
+  short description: Fetching data from MediaWiki RESTful web service API.
 Text Mining/Word Cloud:
-  description: Generates a word cloud from corpus.
+  description: Word Cloud displays tokens in the corpus, their size denoting the frequency
+    of the word in corpus or an average bag of words count, when bag of words features
+    are at the input of the widget. Words are listed by their frequency (weight) in
+    the widget. The widget outputs documents, containing selected tokens from the
+    word cloud.
   inputs: '- Topic: Selected topic.
 
     - Corpus: A collection of documents.'
@@ -898,20 +1369,28 @@ Text Mining/Word Cloud:
     - Selected Word: Selected word that can be used as query in Concordance.
 
     - Word Counts: Words and their weights.'
+  short description: Generates a word cloud from corpus.
 Text Mining/Word Enrichment:
-  description: Word enrichment analysis for selected documents.
+  description: Word Enrichment displays a list of words with lower p-values (higher
+    significance) for a selected subset compared to the entire corpus. Lower p-value
+    indicates a higher likelihood that the word is significant for the selected subset
+    (not randomly occurring in a text). FDR (False Discovery Rate) is linked to p-value
+    and reports on the expected percent of false predictions in the set of predictions,
+    meaning it account for false positives in list of low p-values.
   inputs: '- Corpus: A collection of documents.
 
     - Selected Data: Selected instances from corpus.'
   outputs: '- None'
+  short description: Word enrichment analysis for selected documents.
 Text Mining/Word List:
-  description: Create a list of words.
+  description: Outputs
   inputs: '- Words: A table of words.'
   outputs: '- Selected Words: Words selected from the table.
 
     - Words: A table of words.'
+  short description: Create a list of words.
 Time Series/ARIMA Model:
-  description: Model the time series using ARMA, ARIMA, or ARIMAX model.
+  description: Using this widget, you can model the time series with ARIMA model.
   inputs: '- Time series: Time series as output by As Timeseries widget.
 
     - Exogenous data: Time series of additional independent variables that can be
@@ -924,26 +1403,34 @@ Time Series/ARIMA Model:
     values - residuals.
 
     - Residuals: The errors the model made at each step.'
+  short description: Model the time series using ARMA, ARIMA, or ARIMAX model.
 Time Series/Correlogram:
-  description: Visualize variables' auto-correlation.
+  description: ''
   inputs: '- Time series: Time series as output by As Timeseries widget.'
   outputs: No outputs
+  short description: Visualize variables' auto-correlation.
 Time Series/Difference:
-  description: Make the time series stationary by replacing it with 1st or 2nd order
-    discrete difference along its values.
+  description: ''
   inputs: '- Time series: a dataset, often as output by As Timeseries widget.'
   outputs: '- Time series: differences of input time series.'
+  short description: Make the time series stationary by replacing it with 1st or 2nd
+    order discrete difference along its values.
 Time Series/Form Timeseries:
-  description: Reinterpret a Table object as a Timeseries object.
+  description: This widget reinterprets any data table as a time series, so it can
+    be used with the rest of the widgets in this add-on. In the widget, you can set
+    which data attribute represents the time variable.
   inputs: '- Data: Any data table.'
   outputs: '- Time series: Data table reinterpreted as time series.'
+  short description: Reinterpret a Table object as a Timeseries object.
 Time Series/Granger Causality:
-  description: Test if one time series Granger-causes (i.e. can be an indicator of)
-    another time series.
+  description: ''
   inputs: '- Time series: Time series as output by As Timeseries widget.'
   outputs: No outputs
+  short description: Test if one time series Granger-causes (i.e. can be an indicator
+    of) another time series.
 Time Series/Interpolate:
-  description: Induce missing values in the time series by interpolation.
+  description: Most time series algorithms assume, you don't have any missing values
+    in
   inputs: '- Time series: Time series as output by As Timeseries widget.'
   outputs: '- Time series: The input time series with the chosen default interpolation
     method for when the algorithms require interpolated time series (without missing
@@ -951,49 +1438,63 @@ Time Series/Interpolate:
 
     - Interpolated time series: The input time series with any missing values interpolated
     according to the chosen interpolation method.'
+  short description: Induce missing values in the time series by interpolation.
 Time Series/Line Chart:
-  description: Visualize time series' sequence and progression in the most basic time
-    series visualization imaginable.
+  description: ''
   inputs: '- Time series: a dataset, often as output by As Timeseries widget.
 
     - Features: list of attributes
 
     - Forecast: time series forecast as output by one of the models (like VAR or ARIMA).'
   outputs: No outputs
+  short description: Visualize time series' sequence and progression in the most basic
+    time series visualization imaginable.
 Time Series/Model Evaluation:
-  description: Evaluate different time series' models.
+  description: ''
   inputs: '- Time series: Time series as output by As Timeseries widget.
 
     - Time series model(s): The time series model(s) to evaluate (e.g. VAR or ARIMA).'
   outputs: No outputs
+  short description: Evaluate different time series' models.
 Time Series/Moving Transform:
-  description: Compute aggregations over a sliding window, consecutive blocks or time
-    periods of time series.
+  description: ''
   inputs: '- Time series: Time series (e.g. one provided by As Timeseries widget).'
   outputs: '- Time series: Data with computed aggregations'
+  short description: Compute aggregations over a sliding window, consecutive blocks
+    or time periods of time series.
 Time Series/Periodogram:
-  description: Visualize time series' cycles, seasonality, periodicity, and most significant
-    periods.
+  description: ''
   inputs: '- Time series: Time series from the File or as output by As Timeseries
     widget.'
   outputs: No outputs
+  short description: Visualize time series' cycles, seasonality, periodicity, and
+    most significant periods.
 Time Series/Seasonal Adjustment:
-  description: Decompose the time series into seasonal, trend, and residual components.
+  description: ''
   inputs: '- Time series: Time series as output by As Timeseries widget.'
   outputs: '- Time series: Original time series with some additional columns: seasonal
     component, trend component, residual component, and seasonally adjusted time series.'
+  short description: Decompose the time series into seasonal, trend, and residual
+    components.
 Time Series/Spiralogram:
-  description: Visualize time series' periodicity in a spiral heatmap.
+  description: Spiralogram is intended for visualizing time series and for comparing
+    attribute values by categorical variables. Instances can be selected from the
+    plot and sent downstream.
   inputs: '- Time series: Time series from File or as output by As Timeseries widget.'
   outputs: '- Selected Data: instances selected from the plot
 
     - Statistics: data table with statistics as shown in the plot'
+  short description: Visualize time series' periodicity in a spiral heatmap.
 Time Series/Time Slice:
-  description: Select a slice of measurements on a time interval.
+  description: Time slice is a subset selection widget designed specifically for time
+    series and for interactive visualizations. It enables selecting a subset of the
+    data by date and/or hour. Moreover, it can output data from a sliding window with
+    options for step size and speed of the output change.
   inputs: '- Data: Time series as output by As Timeseries widget.'
   outputs: '- Subset: Selected time slice from the time series.'
+  short description: Select a slice of measurements on a time interval.
 Time Series/VAR Model:
-  description: Model the time series using vector autoregression (VAR) model.
+  description: Using this widget, you can model the time series using VAR model.
   inputs: '- Time series: Time series as output by As Timeseries widget.'
   outputs: '- Time series model: The VAR model fitted to input time series.
 
@@ -1003,98 +1504,168 @@ Time Series/VAR Model:
     values - residuals.
 
     - Residuals: The errors the model made at each step.'
+  short description: Model the time series using vector autoregression (VAR) model.
 Time Series/Yahoo Finance:
-  description: Generate time series from Yahoo Finance stock market data.
+  description: This widget fetches historical stock market data from Yahoo Finance
+    and outputs it as a time series data table.
   inputs: No inputs
   outputs: '- Time series: Time series table of open, high, low, close (OHLC) prices,
     volume and adjusted close price.'
+  short description: Generate time series from Yahoo Finance stock market data.
 Transform/Aggregate Columns:
-  description: Compute a sum, max, min ... of selected columns.
+  description: Aggregate Columns outputs an aggregation of selected columns, for example
+    a sum, min, max, etc.
   inputs: '- Data: input dataset'
   outputs: '- Data: extended dataset'
+  short description: Compute a sum, max, min ... of selected columns.
 Transform/Apply Domain:
-  description: Given dataset and template transforms the dataset.
+  description: Apply Domain maps new data into a transformed space. For example, if
+    we transform some data with PCA and wish to observe new data in the same space,
+    we can use Apply Domain to map the new data into the PCA space created from the
+    original data.
   inputs: '- Data: input dataset
 
     - Template Data: template for transforming the dataset'
   outputs: '- Transformed Data: transformed dataset'
+  short description: Given dataset and template transforms the dataset.
 Transform/Concatenate:
-  description: Concatenates data from multiple sources.
+  description: The widget concatenates multiple sets of instances (data sets). The
+    merge is "vertical", in a sense that two sets of 10 and 5 instances yield a new
+    set of 15 instances.
   inputs: '- Primary Data: data set that defines the attribute set
 
     - Additional Data: additional data set'
   outputs: '- Data: concatenated data'
+  short description: Concatenates data from multiple sources.
 Transform/Continuize:
-  description: Turns discrete variables (attributes) into numeric ("continuous") dummy
-    variables.
+  description: The Continuize widget receives a data set in the input and outputs
+    the same data set in which some or all categorical variables are replaced with
+    continuous ones and numeric variables are scaled.
   inputs: '- Data: input data set'
   outputs: '- Data: transformed data set'
+  short description: Turns discrete variables (attributes) into numeric ("continuous")
+    dummy variables.
 Transform/Create Class:
-  description: Create class attribute from a string attribute.
+  description: Create Class creates a new class attribute from an existing discrete
+    or string attribute. The widget matches the string value of the selected attribute
+    and constructs a new user-defined value for matching instances.
   inputs: '- Data: input dataset'
   outputs: '- Data: dataset with a new class variable'
+  short description: Create class attribute from a string attribute.
 Transform/Create Instance:
-  description: Interactively creates an instance from a sample dataset.
+  description: The Create Instance widget creates a new instance, based on the input
+    data. The widget displays all variables of the input dataset in a table of two
+    columns. The column Variable represents the variable's name, meanwhile the column
+    Value enables setting the variable's value. Each value is initially set to median
+    value of the variable. The values can be manually set to Median, Mean, Random
+    or Input by clicking the corresponding button. For easier searching through the
+    variables, the table has filter attached. When clicking upon one of the mentioned
+    buttons, only filtered variables are considered. One can also set the value by
+    right-clicking a row and selecting an option in a context menu.
   inputs: '- Data: input dataset
 
     - Reference: refrence dataset'
   outputs: '- Data: input dataset appended the created instance'
+  short description: Interactively creates an instance from a sample dataset.
 Transform/Data Sampler:
-  description: Selects a subset of data instances from an input dataset.
+  description: The Data Sampler widget implements several data sampling methods. It
+    outputs a sampled and a complementary dataset (with instances from the input set
+    that are not included in the sampled dataset). The output is processed after the
+    input dataset is provided and Sample Data is pressed.
   inputs: '- Data: input dataset'
   outputs: '- Data Sample: sampled data instances
 
     - Remaining Data: out-of-sample data'
+  short description: Selects a subset of data instances from an input dataset.
 Transform/Discretize:
-  description: Converts numeric attributes to categorical.
+  description: The Discretize widget discretizes numeric variables.
   inputs: '- Data: input dataset'
   outputs: '- Data: dataset with discretized values'
+  short description: Converts numeric attributes to categorical.
 Transform/Formula:
-  description: Add new features to your dataset.
+  description: Formula allows computing new columns by combining the existing ones
+    with a user-defined expression. The resulting column can be categorical, numerical
+    or textual.
   inputs: '- Data: input dataset'
   outputs: '- Data: dataset with additional features'
+  short description: Add new features to your dataset.
 Transform/Group by:
-  description: Groups data by selected variables and aggregate columns with selected
-    aggregations.
+  description: Group By widget first identifies groups based on selected variables
+    in the Group by list. Groups are defined by all distinct combinations of values
+    in selected variables.
   inputs: '- Data: input data table'
   outputs: '- Data: aggregated data'
+  short description: Groups data by selected variables and aggregate columns with
+    selected aggregations.
 Transform/Impute:
-  description: Replaces unknown values in the data.
+  description: 'Some Orange''s algorithms and visualizations cannot handle unknown
+    values in the data. This widget does what statisticians call imputation: it substitutes
+    missing values by values either computed from the data or set by the user. The
+    default imputation is (1-NN).'
   inputs: '- Data: input dataset
 
     - Learner: learning algorithm for imputation'
   outputs: '- Data: dataset with imputed values'
+  short description: Replaces unknown values in the data.
 Transform/Melt:
-  description: Transform wide data to narrow.
+  description: The Melt widget receives a dataset in the more common wide format and
+    outputs a table of (row_id, variable, value) triplets.
   inputs: '- Data: wide data table'
   outputs: '- Data: narrow data table'
+  short description: Transform wide data to narrow.
 Transform/Merge Data:
-  description: Merges two datasets, based on values of selected attributes.
+  description: The Merge Data widget is used to horizontally merge two datasets, based
+    on the values of selected attributes (columns). In the input, two datasets are
+    required, data and extra data. Rows from the two data sets are matched by the
+    values of pairs of attributes, chosen by the user. The widget produces one output.
+    It corresponds to the instances from the input data to which attributes (columns)
+    from input extra data are appended.
   inputs: '- Data: input dataset
 
     - Extra Data: additional dataset'
   outputs: '- Data: dataset with features added from extra data'
+  short description: Merges two datasets, based on values of selected attributes.
 Transform/Pivot Table:
-  description: Reshape data table based on column values.
+  description: Pivot Table summarizes the data of a more extensive table into a table
+    of statistics. The statistics can include sums, averages, counts, etc. The widget
+    also allows selecting a subset from the table and grouping by row values, which
+    have to be a discrete variable. Data with only numeric variables cannot be displayed
+    in the table.
   inputs: '- Data: input data set'
   outputs: '- Pivot Table: contingency matrix as shown in the widget
 
     - Filtered Data: subset selected from the plot
 
     - Grouped Data: aggregates over groups defined by row values'
+  short description: Reshape data table based on column values.
 Transform/Preprocess:
-  description: Preprocesses data with selected methods.
+  description: Preprocessing is crucial for achieving better-quality analysis results.
+    The Preprocess widget offers several preprocessing methods that can be combined
+    in a single preprocessing pipeline. Some methods are available as separate widgets,
+    which offer advanced techniques and greater parameter tuning.
   inputs: '- Data: input dataset'
   outputs: '- Preprocessor: preprocessing method
 
     - Preprocessed Data: data preprocessed with selected methods'
+  short description: Preprocesses data with selected methods.
 Transform/Purge Domain:
-  description: Removes unused attribute values and useless attributes, sorts the remaining
-    values.
+  description: "Definitions of nominal attributes sometimes contain values which don\u2019\
+    t appear in the data. Even if this does not happen in the original data, filtering\
+    \ the data, selecting exemplary subsets and alike can remove all examples for\
+    \ which the attribute has some particular value. Such values clutter data presentation,\
+    \ especially various visualizations, and should be removed."
   inputs: '- Data: input dataset'
   outputs: '- Data: filtered dataset'
+  short description: Removes unused attribute values and useless attributes, sorts
+    the remaining values.
 Transform/Python Script:
-  description: Extends functionalities through Python scripting.
+  description: Python Script widget can be used to run a python script in the input,
+    when a suitable functionality is not implemented in an existing widget. The script
+    has in_data, in_distance, in_learner, in_classifier and in_object variables (from
+    input signals) in its local namespace. If a signal is not connected or it did
+    not yet receive any data, those variables contain None. For the case when multiple
+    inputs are connected to the widget, the lists in_datas, in_distances, in_learners,
+    in_classifiers and in_objects may be used instead.
   inputs: '- Data (Orange.data.Table): input dataset bound to in_data variable
 
     - Learner (Orange.classification.Learner): input learner bound to in_learner variable
@@ -1112,24 +1683,39 @@ Transform/Python Script:
     variable
 
     - Object: Python object retrieved from out_object variable'
+  short description: Extends functionalities through Python scripting.
 Transform/Randomize:
-  description: Shuffles classes, attributes and/or metas of an input dataset.
+  description: The Randomize widget receives a dataset in the input and outputs the
+    same dataset in which the classes, attributes or/and metas are shuffled.
   inputs: '- Data: input dataset'
   outputs: '- Data: randomized dataset'
+  short description: Shuffles classes, attributes and/or metas of an input dataset.
 Transform/Select Columns:
-  description: Manual selection of data attributes and composition of data domain.
+  description: The Select Columns widget is used to manually compose your data domain.
+    The user can decide which attributes will be used and how. Orange distinguishes
+    between ordinary attributes, (optional) class attributes and meta attributes.
+    For instance, for building a classification model, the domain would be composed
+    of a set of attributes and a discrete class attribute. Meta attributes are not
+    used in modeling, but several widgets can use them as instance labels.
   inputs: '- Data: input dataset'
   outputs: '- Data: dataset with columns as set in the widget'
+  short description: Manual selection of data attributes and composition of data domain.
 Transform/Select Rows:
-  description: Selects data instances based on conditions over data features.
+  description: This widget selects a subset from an input dataset, based on user-defined
+    conditions. Instances that match the selection rule are placed in the output Matching
+    Data channel.
   inputs: '- Data: input dataset'
   outputs: '- Matching Data: instances that match the conditions
 
     - Non-Matching Data: instances that do not match the conditions
 
     - Data: data with an additional column showing whether a instance is selected'
+  short description: Selects data instances based on conditions over data features.
 Transform/Select by Data Index:
-  description: Match instances by index from data subset.
+  description: Select by Data Index enables matching the data by indices. Each row
+    in a data set has an index and given a subset, this widget can match these indices
+    to indices from the reference data. Most often it is used to retrieve the original
+    data from the transformed data (say, from PCA space).
   inputs: '- Data: reference data set
 
     - Data Subset: subset to match'
@@ -1140,69 +1726,113 @@ Transform/Select by Data Index:
     subset data
 
     - Annotated data: reference data set with an additional column defining matches'
+  short description: Match instances by index from data subset.
 Transform/Transpose:
-  description: Transposes a data table.
+  description: Transpose widget transposes data table.
   inputs: '- Data: input dataset'
   outputs: '- Data: transposed dataset'
+  short description: Transposes a data table.
 Transform/Unique:
-  description: Remove duplicated data instances.
+  description: The widget removes duplicated data instances. The user can choose a
+    subset of observed variables, so two instances are considered as duplicates although
+    they may differ in values of other, ignored variables.
   inputs: '- Data: data table'
   outputs: '- Data: data table without duplicates'
+  short description: Remove duplicated data instances.
 Unsupervised/Correlations:
-  description: Compute all pairwise attribute correlations.
+  description: Correlations computes Pearson or Spearman correlation scores for all
+    pairs of features in a dataset. These methods can only detect monotonic relationship.
   inputs: '- Data: input dataset'
   outputs: '- Data: input dataset
 
     - Features: selected pair of features
 
     - Correlations: data table with correlation scores'
+  short description: Compute all pairwise attribute correlations.
 Unsupervised/Correspondence Analysis:
-  description: Correspondence analysis for categorical multivariate data.
+  description: Correspondence Analysis (CA) computes the CA linear transformation
+    of the input data. While it is similar to PCA, CA computes linear transformation
+    on discrete rather than on continuous data.
   inputs: '- Data: input dataset'
   outputs: '- Coordinates: coordinates of all components'
+  short description: Correspondence analysis for categorical multivariate data.
 Unsupervised/DBSCAN:
-  description: Groups items using the DBSCAN clustering algorithm.
+  description: The widget applies the DBSCAN clustering algorithm to the data and
+    outputs a new dataset with cluster labels as a meta attribute. The widget also
+    shows the sorted graph with distances to k-th nearest neighbors. With k values
+    set to Core point neighbors as suggested in the methods article. This gives the
+    user the idea of an ideal selection for Neighborhood distance setting. As suggested
+    by the authors, this parameter should be set to the first value in the first "valley"
+    in the graph.
   inputs: '- Data: input dataset'
   outputs: '- Data: dataset with cluster label as a meta attribute'
+  short description: Groups items using the DBSCAN clustering algorithm.
 Unsupervised/Distance File:
-  description: Loads an existing distance file.
+  description: ''
   inputs: No inputs
   outputs: '- Distance File: distance matrix'
+  short description: Loads an existing distance file.
 Unsupervised/Distance Map:
-  description: Visualizes distances between items.
+  description: The Distance Map visualizes distances between objects. The visualization
+    is the same as if we printed out a table of numbers, except that the numbers are
+    replaced by colored spots.
   inputs: '- Distances: distance matrix'
   outputs: '- Data: instances selected from the matrix
 
     - Features: attributes selected from the matrix'
+  short description: Visualizes distances between items.
 Unsupervised/Distance Matrix:
-  description: Visualizes distance measures in a distance matrix.
+  description: The Distance Matrix widget creates a distance matrix, which is a two-dimensional
+    array containing the distances, taken pairwise, between the elements of a set.
+    The number of elements in the dataset defines the size of the matrix. Data matrices
+    are essential for hierarchical clustering and they are extremely useful in bioinformatics
+    as well, where they are used to represent protein structures in a coordinate-independent
+    manner.
   inputs: '- Distances: distance matrix'
   outputs: '- Distances: distance matrix
 
     - Table: distance measures in a distance matrix'
+  short description: Visualizes distance measures in a distance matrix.
 Unsupervised/Distance Transformation:
-  description: Transforms distances in a dataset.
+  description: The Distances Transformation widget is used for the normalization and
+    inversion of distance matrices. The normalization of data is necessary to bring
+    all the variables into proportion with one another.
   inputs: '- Distances: distance matrix'
   outputs: '- Distances: transformed distance matrix'
+  short description: Transforms distances in a dataset.
 Unsupervised/Distances:
-  description: Computes distances between rows/columns in a dataset.
+  description: The Distances widget computes distances between rows or columns in
+    a dataset. By default, the data will be normalized to ensure equal treatment of
+    individual features. Normalization is always done column-wise.
   inputs: '- Data: input dataset'
   outputs: '- Distances: distance matrix'
+  short description: Computes distances between rows/columns in a dataset.
 Unsupervised/Hierarchical Clustering:
-  description: Groups items using a hierarchical clustering algorithm.
+  description: The widget computes hierarchical clustering of arbitrary types of objects
+    from a matrix of distances and shows a corresponding dendrogram. Distances can
+    be computed with the Distances widget
   inputs: '- Distances: distance matrix'
   outputs: '- Selected Data: instances selected from the plot
 
     - Data: data with an additional column showing whether an instance is selected'
+  short description: Groups items using a hierarchical clustering algorithm.
 Unsupervised/Louvain Clustering:
-  description: Groups items using the Louvain clustering algorithm.
+  description: The widget first converts the input data into a k-nearest neighbor
+    graph. To preserve the notions of distance, the Jaccard index for the number of
+    shared neighbors is used to weight the edges. Finally, a modularity optimization
+    community detection algorithm is applied to the graph to retrieve clusters of
+    highly interconnected nodes. The widget outputs a new dataset in which the cluster
+    label is used as a meta attribute.
   inputs: '- Data: input dataset'
   outputs: '- Data: dataset with cluster label as a meta attribute
 
     - Graph (with the Network addon): the weighted k-nearest neighbor graph'
+  short description: Groups items using the Louvain clustering algorithm.
 Unsupervised/MDS:
-  description: Multidimensional scaling (MDS) projects items onto a plane fitted to
-    given distances between points.
+  description: Multidimensional scaling is a technique which finds a low-dimensional
+    (in our case a two-dimensional) projection of points, where it tries to fit distances
+    between points as well as possible. The perfect fit is typically impossible to
+    obtain since the data is high-dimensional or the distances are not Euclidean.
   inputs: '- Data: input dataset
 
     - Distances: distance matrix
@@ -1211,84 +1841,155 @@ Unsupervised/MDS:
   outputs: '- Selected Data: instances selected from the plot
 
     - Data: dataset with MDS coordinates'
+  short description: Multidimensional scaling (MDS) projects items onto a plane fitted
+    to given distances between points.
 Unsupervised/Manifold Learning:
-  description: Nonlinear dimensionality reduction.
+  description: Manifold Learning is a technique which finds a non-linear manifold
+    within the higher-dimensional space. The widget then outputs new coordinates which
+    correspond to a two-dimensional space. Such data can be later visualized with
+    Scatter Plot or other visualization widgets.
   inputs: '- Data: input dataset'
   outputs: '- Transformed Data: dataset with reduced coordinates'
+  short description: Nonlinear dimensionality reduction.
 Unsupervised/Neighbors:
-  description: Compute nearest neighbors in data according to reference.
+  description: The Neighbors widget computes nearest neighbors for a given reference
+    and for a given distance measure. The reference can be either one instance or
+    more instances. In the case with one reference widget outputs closest n instances
+    from data where n is set by the Number of neighbors option in the widget. When
+    reference contains more instances widget computes the combined distance for each
+    data instance as a minimum of distances to each reference. Widget outputs n data
+    instances with lowest combined distance.
   inputs: '- Data: An input data set.
 
     - Reference: A reference data for neighbor computation.'
   outputs: '- Neighbors: A data table of nearest neighbors according to reference.'
+  short description: Compute nearest neighbors in data according to reference.
 Unsupervised/Outliers:
-  description: Outlier detection widget.
+  description: The Outliers widget applies one of the four methods for outlier detection.
+    All methods apply classification to the dataset. One-class SVM with non-linear
+    kernels (RBF) performs well with non-Gaussian distributions, while Covariance
+    estimator works only for data with Gaussian distribution. One efficient way to
+    perform outlier detection on moderately high dimensional datasets is to use the
+    Local Outlier Factor algorithm. The algorithm computes a score reflecting the
+    degree of abnormality of the observations. It measures the local density deviation
+    of a given data point with respect to its neighbors. Another efficient way of
+    performing outlier detection in high-dimensional datasets is to use random forests
+    (Isolation Forest).
   inputs: '- Data: input dataset'
   outputs: '- Outliers: instances scored as outliers
 
     - Inliers: instances not scored as outliers
 
     - Data: input dataset appended Outlier variable'
+  short description: Outlier detection widget.
 Unsupervised/PCA:
-  description: PCA linear transformation of input data.
+  description: Principal Component Analysis (PCA) computes the PCA linear transformation
+    of the input data. It outputs either a transformed dataset with weights of individual
+    instances or weights of principal components.
   inputs: '- Data: input dataset'
   outputs: '- Transformed Data: PCA transformed data
 
     - Components: Eigenvectors.'
+  short description: PCA linear transformation of input data.
 Unsupervised/Save Distance Matrix:
-  description: Saves a distance matrix.
+  description: ''
   inputs: '- Distances: distance matrix'
   outputs: No outputs
+  short description: Saves a distance matrix.
 Unsupervised/Self-Organizing Map:
-  description: Computation of a self-organizing map.
+  description: A self-organizing map (SOM) is a type of artificial neural network
+    (ANN) that is trained using unsupervised learning to produce a two-dimensional,
+    discretized representation of the data. It is a method to do dimensionality reduction.
+    Self-organizing maps use a neighborhood function to preserve the topological properties
+    of the input space.
   inputs: '- Data: input dataset'
   outputs: '- Selected Data: instances selected from the plot
 
     - Data: data with an additional column showing whether a point is selected'
+  short description: Computation of a self-organizing map.
 Unsupervised/k-Means:
-  description: Groups items using the k-Means clustering algorithm.
+  description: The widget applies the k-Means clustering algorithm to the data and
+    outputs a new dataset in which the cluster label is added as a meta attribute.
+    Silhouette scores of clustering results for various k are also shown in the widget.
+    When using the silhouette score option, the higher the silhouette score, the better
+    the clustering.
   inputs: '- Data: input dataset'
   outputs: '- Data: dataset with cluster label as a meta attribute
 
     - Centroids: table with initial centroid coordinates'
+  short description: Groups items using the k-Means clustering algorithm.
 Unsupervised/t-SNE:
-  description: Two-dimensional data projection with t-SNE.
+  description: The t-SNE widget creates a visualization using t-distributed stochastic
+    neighbor embedding (t-SNE). t-SNE is a dimensionality reduction technique, similar
+    to MDS, where points are mapped to 2-D space by their probability distribution.
   inputs: '- Data: input dataset
+
+    - Distances: distance matrix
 
     - Data Subset: subset of instances'
   outputs: '- Selected Data: instances selected from the plot
 
-    - Data: data with an additional column showing whether a point is selected'
+    - Data: data with t-SNE coordinates and an additional column showing whether a
+    point is selected'
+  short description: Two-dimensional data projection with t-SNE.
 Visualize/Bar Plot:
-  description: Visualizes comparisons among discrete categories.
+  description: The Bar Plot widget visualizes numeric variables and compares them
+    by a categorical variable. The widget is useful for observing outliers, distributions
+    within groups, and comparing categories.
   inputs: '- Data: input dataset
 
     - Data Subset: subset of instances'
   outputs: '- Selected Data: instances selected from the plot
 
     - Data: data with an additional column showing whether a point is selected'
+  short description: Visualizes comparisons among discrete categories.
 Visualize/Box Plot:
-  description: Shows distribution of attribute values.
+  description: The Box Plot widget shows the distributions of attribute values. It
+    is a good practice to check any new data with this widget to quickly discover
+    any anomalies, such as duplicated values (e.g., gray and grey), outliers, and
+    alike. Bars can be selected - for example, values for categorical data or the
+    quantile range for numeric data.
   inputs: '- Data: input dataset'
   outputs: '- Selected Data: instances selected from the plot
 
     - Data: data with an additional column showing whether a point is selected'
+  short description: Shows distribution of attribute values.
 Visualize/CN2 Rule Viewer:
-  description: CN2 Rule Viewer
+  description: A widget that displays CN2 classification rules. If data is also connected,
+    upon rule selection, one can analyze which instances abide to the conditions.
   inputs: '- Data: dataset to filter
 
     - CN2 Rule Classifier: CN2 Rule Classifier, including a list of induced rules'
   outputs: '- Filtered Data: data instances covered by all selected rules'
+  short description: CN2 Rule Viewer
 Visualize/Distributions:
-  description: Displays value distributions for a single attribute.
+  description: The Distributions widget displays the value distribution of discrete
+    or continuous attributes. If the data contains a class variable, distributions
+    may be conditioned on the class.
   inputs: '- Data: input dataset'
   outputs: '- Selected Data: instances selected from the plot
 
     - Data: data with an additional column showing whether an instance is selected
 
     - Histogram Data: bins and instance counts from the histogram'
+  short description: Displays value distributions for a single attribute.
 Visualize/FreeViz:
-  description: Displays FreeViz projection.
+  description: 'FreeViz uses a paradigm borrowed from particle physics: points in
+    the same class attract each other, those from different class repel each other,
+    and the resulting forces are exerted on the anchors of the attributes, that is,
+    on unit vectors of each of the dimensional axis. The points cannot move (are projected
+    in the projection space), but the attribute anchors can, so the optimization process
+    is a hill-climbing optimization where at the end the anchors are placed such that
+    forces are in equilibrium. The button Optimize is used to invoke the optimization
+    process. The result of the optimization may depend on the initial placement of
+    the anchors, which can be set in a circle, arbitrary or even manually. The later
+    also works at any stage of optimization, and we recommend to play with this option
+    in order to understand how a change of one anchor affects the positions of the
+    data points. In any linear projection, projections of unit vector that are very
+    short compared to the others indicate that their associated attribute is not very
+    informative for particular classification task. Those vectors, that is, their
+    corresponding anchors, may be hidden from the visualization using Radius slider
+    in Show anchors box.'
   inputs: '- Data: input dataset
 
     - Data Subset: subset of instances'
@@ -1297,22 +1998,34 @@ Visualize/FreeViz:
     - Data: data with an additional column showing whether a point is selected
 
     - Components: FreeViz vectors'
+  short description: Displays FreeViz projection.
 Visualize/Heat Map:
-  description: Plots a heat map for a pair of attributes.
+  description: Heat map is a graphical method for visualizing attribute values in
+    a two-way matrix. It only works on datasets containing numeric variables. The
+    values are represented by color according to the selected color pallette. By combining
+    class variable and attributes on x and y axes, we see where the attribute values
+    are the strongest and where the weakest, thus enabling us to find typical features
+    for each class.
   inputs: '- Data: input dataset'
   outputs: '- Selected Data: instances selected from the plot
 
     - Data: data with an additional column showing whether a point is selected'
+  short description: Plots a heat map for a pair of attributes.
 Visualize/Line Plot:
-  description: Visualization of data profiles (e.g., time series).
+  description: Line plot a type of plot which displays the data as a series of points,
+    connected by straight line segments. It only works for numerical data, while categorical
+    can be used for grouping of the data points.
   inputs: '- Data: input dataset
 
     - Data Subset: subset of instances'
   outputs: '- Selected Data: instances selected from the plot
 
     - Data: data with an additional column showing whether a point is selected'
+  short description: Visualization of data profiles (e.g., time series).
 Visualize/Linear Projection:
-  description: A linear projection method with explorative data analysis.
+  description: This widget displays linear projections of class-labeled data. It supports
+    various types of projections such as circular, linear discriminant analysis, and
+    principal component analysis.
   inputs: '- Data: input dataset
 
     - Data Subset: subset of instances
@@ -1323,32 +2036,63 @@ Visualize/Linear Projection:
     - Data: data with an additional column showing whether a point is selected
 
     - Components: projection vectors'
+  short description: A linear projection method with explorative data analysis.
 Visualize/Mosaic Display:
-  description: Display data in a mosaic plot.
+  description: The Mosaic plot is a graphical representation of a two-way frequency
+    table or a contingency table. It is used for visualizing data from two or more
+    qualitative variables and was introduced in 1981 by Hartigan and Kleiner and expanded
+    and refined by Friendly in 1994. It provides the user with the means to more efficiently
+    recognize relationships between different variables. If you wish to read up on
+    the history of Mosaic Display, additional reading is available here.
   inputs: '- Data: input dataset
 
     - Data subset: subset of instances'
   outputs: '- Selected data: instances selected from the plot'
+  short description: Display data in a mosaic plot.
 Visualize/Nomogram:
-  description: Nomograms for visualization of Naive Bayes and Logistic Regression
-    classifiers.
+  description: The Nomogram enables some classifier's (more precisely Naive Bayes
+    classifier and Logistic Regression classifier) visual representation. It offers
+    an insight into the structure of the training data and effects of the attributes
+    on the class probabilities. Besides visualization of the classifier, the widget
+    offers interactive support for prediction of class probabilities. A snapshot below
+    shows the nomogram of the Titanic dataset, that models the probability for a passenger
+    not to survive the disaster of the Titanic.
   inputs: '- Classifier: trained classifier
 
     - Data: input dataset'
   outputs: '- Features: selected variables, 10 by default'
+  short description: Nomograms for visualization of Naive Bayes and Logistic Regression
+    classifiers.
 Visualize/Pythagorean Forest:
-  description: Pythagorean forest for visualizing random forests.
+  description: Pythagorean Forest shows all learned decision tree models from Random
+    Forest widget. It displays them as Pythagorean trees, each visualization pertaining
+    to one randomly constructed tree. In the visualization, you can select a tree
+    and display it in Pythagorean Tree widget. The best tree is the one with the shortest
+    and most strongly colored branches. This means few attributes split the branches
+    well.
   inputs: '- Random Forest: tree models from random forest'
   outputs: '- Tree: selected tree model'
+  short description: Pythagorean forest for visualizing random forests.
 Visualize/Pythagorean Tree:
-  description: Pythagorean tree visualization for classification or regression trees.
+  description: ''
   inputs: '- Tree: tree model
 
     - Selected Data: instances selected from the tree'
   outputs: No outputs
+  short description: Pythagorean tree visualization for classification or regression
+    trees.
 Visualize/Radviz:
-  description: Radviz vizualization with explorative data analysis and intelligent
-    data
+  description: 'Radviz (Hoffman et al. 1997) is a non-linear multi-dimensional visualization
+    technique that can display data defined by three or more variables in a 2-dimensional
+    projection. The visualized variables are presented as anchor points equally spaced
+    around the perimeter of a unit circle. Data instances are shown as points inside
+    the circle, with their positions determined by a metaphor from physics: each point
+    is held in place with springs that are attached at the other end to the variable
+    anchors. The stiffness of each spring is proportional to the value of the corresponding
+    variable and the point ends up at the position where the spring forces are in
+    equilibrium. Prior to visualization, variable values are scaled to lie between
+    0 and 1. Data instances that are close to a set of variable anchors have higher
+    values for these variables than for the others.'
   inputs: '- Data: input dataset
 
     - Data Subset: subset of instances'
@@ -1357,9 +2101,17 @@ Visualize/Radviz:
     - Data: data with an additional column showing whether a point is selected
 
     - Components: Radviz vectors'
+  short description: Radviz vizualization with explorative data analysis and intelligent
+    data
 Visualize/Scatter Plot:
-  description: Scatter plot visualization with exploratory analysis and intelligent
-    data visualization enhancements.
+  description: The Scatter Plot widget provides a 2-dimensional scatter plot visualization.
+    The data is displayed as a collection of points, each having the value of the
+    x-axis attribute determining the position on the horizontal axis and the value
+    of the y-axis attribute determining the position on the vertical axis. Various
+    properties of the graph, like color, size and shape of the points, axis titles,
+    maximum point size and jittering can be adjusted on the left side of the widget.
+    A snapshot below shows the scatter plot of the Iris dataset with the coloring
+    matching of the class attribute.
   inputs: '- Data: input dataset
 
     - Data Subset: subset of instances
@@ -1368,32 +2120,55 @@ Visualize/Scatter Plot:
   outputs: '- Selected Data: instances selected from the plot
 
     - Data: data with an additional column showing whether a point is selected'
+  short description: Scatter plot visualization with exploratory analysis and intelligent
+    data visualization enhancements.
 Visualize/Sieve Diagram:
-  description: Plots a sieve diagram for a pair of attributes.
+  description: ''
   inputs: '- Data: input dataset'
   outputs: No outputs
+  short description: Plots a sieve diagram for a pair of attributes.
 Visualize/Silhouette Plot:
-  description: A graphical representation of consistency within clusters of data.
+  description: The Silhouette Plot widget offers a graphical representation of consistency
+    within clusters of data and provides the user with the means to visually assess
+    cluster quality. The silhouette score is a measure of how similar an object is
+    to its own cluster in comparison to other clusters and is crucial in the creation
+    of a silhouette plot. The silhouette score close to 1 indicates that the data
+    instance is close to the center of the cluster and instances possessing the silhouette
+    scores close to 0 are on the border between two clusters.
   inputs: '- Data: input dataset'
   outputs: '- Selected Data: instances selected from the plot
 
     - Data: data with an additional column showing whether a point is selected'
+  short description: A graphical representation of consistency within clusters of
+    data.
 Visualize/Tree Viewer:
-  description: A visualization of classification and regression trees.
+  description: This is a versatile widget with 2-D visualization of classification
+    and regression trees. The user can select a node, instructing the widget to output
+    the data associated with the node, thus enabling explorative data analysis.
   inputs: '- Tree: decision tree'
   outputs: '- Selected Data: instances selected from the tree node
 
     - Data: data with an additional column showing whether a point is selected'
+  short description: A visualization of classification and regression trees.
 Visualize/Venn Diagram:
-  description: Plots a Venn diagram for two or more data subsets.
+  description: The Venn Diagram widget displays logical relations between datasets
+    by showing the number of common data instances (rows) or the number of shared
+    features (columns). Selecting a part of the visualization outputs the corresponding
+    instances or features.
   inputs: '- Data: input dataset'
   outputs: '- Selected Data: instances selected from the plot
 
     - Data: entire data with a column indicating whether an instance was selected
     or not'
+  short description: Plots a Venn diagram for two or more data subsets.
 Visualize/Violin Plot:
-  description: Visualize the distribution of feature values in a violin plot.
+  description: The Violin Plot widget plays a similar role as a Box Plot. It shows
+    the distribution of quantitative data across several levels of a categorical variable
+    such that those distributions can be compared. Unlike the Box Plot, in which all
+    of the plot components correspond to actual data points, the Violin Plot features
+    a kernel density estimation of the underlying distribution.
   inputs: '- Data: input dataset'
   outputs: '- Selected Data: instances selected from the plot
 
     - Data: data with an additional column showing whether a point is selected'
+  short description: Visualize the distribution of feature values in a violin plot.

@@ -1,5 +1,6 @@
 import numpy as np
 import cv2 as cv
+import openai
 import requests
 from bs4 import BeautifulSoup
 import os
@@ -168,8 +169,8 @@ def widget_loading(img_names_tgt, img_name):
 
 def get_widget_description():
     """
-    This function gets the description of the widgets from the Orange Data Mining website. The function writes a yaml
-    file with the description of the widgets
+    This function gets the description of the widgets from the Orange Data Mining website. The function then writes a
+    yaml file with the description of the widgets
     """
     url = 'https://orangedatamining.com/widget-catalog/'
     reqs = requests.get(url)
@@ -197,7 +198,7 @@ def get_widget_description():
             for script in soup(['script', 'style']):
                 script.extract()
             text = soup.get_text()
-            description = text.split('\n')[1]
+            short_description = text.split('\n')[1]
             inputs = ''
             if 'Inputs' in text:
                 i = 2
@@ -217,10 +218,14 @@ def get_widget_description():
                         break
                     outputs += '- ' + text.split('Outputs')[1].split('\n')[i] + '\n'
                     i += 1
+                description_after = text.split(outputs.split('- ')[-1])[1]
             outputs = outputs[:-1]
             if outputs == '' or outputs == 'None':
                 outputs = 'No outputs'
-            descriptions[keys[j]] = {'description': description, 'inputs': inputs, 'outputs': outputs}
+                description_after = text.split(inputs.split('- ')[-1])[1]
+            if '\n' in description_after:
+                description = description_after.split('\n')[1]
+            descriptions[keys[j]] = {'description': description, 'inputs': inputs, 'outputs': outputs, 'short description': short_description}
         except urllib.error.URLError or urllib.error.HTTPError:
             progress_bar.write('url not found: ' + urls[j])
             continue
@@ -731,7 +736,7 @@ class Widget:
     def __hash__(self):
         return hash((self.module, self.name))
 
-    def get_description(self):
+    def get_description(self, short_description=False):
         """
         Returns the description of the widget.
         """
@@ -743,17 +748,23 @@ class Widget:
             with open('data/widget-info/widget-descriptions.yaml', 'r') as file:
                 descriptions = yaml.full_load(file)
         key = self.module + '/' + self.name.split(' #')[0]
-        try:
-            return [descriptions[key]['description'], descriptions[key]['inputs'], descriptions[key]['outputs']]
-        except KeyError:
-            return None
+        if short_description:
+            try:
+                return [descriptions[key]['short description'], descriptions[key]['inputs'], descriptions[key]['outputs']]
+            except KeyError:
+                return None
+        else:
+            try:
+                return [descriptions[key]['description'], descriptions[key]['inputs'], descriptions[key]['outputs']]
+            except KeyError:
+                return None
 
 
-def augment_widget_list(widget_list, n=30):
+def augment_widget_list(widget_list, n=20):
     """
-    This function augments the widget list given as input by adding widgets that are similar to the ones in the list and
-    perform an operation along the line of the one specified by the goal parameter. This will be done by embedding the
-    description of each widget using Word2Vec and finding the cosine similarity between the embeddings of the widgets.
+    This function augments the widget list given as input by adding widgets that are similar to the ones in the list. The
+    similarity is assessed through the embedding of the widget descriptions performed by the DistilBERT model and saved
+    by the get_embedding function.
     :param widget_list: list
     :param goal: str
     :param n: int
@@ -854,6 +865,10 @@ class Workflow:
         return self.data[item]
 
     def get_order(self):
+        """
+        Returns the order of the widgets in the workflow.
+        :return: link_text: str, widget_text_list: list
+        """
         links_present = []
         widget_in = []
         widget_out = []
@@ -908,6 +923,7 @@ class Workflow:
     def get_widgets(self):
         """
         Returns a list of all unique widgets in the workflows.
+        :return: widget_list: list
         """
         widget_list = []
         widget_text_list = self.get_order()[1]
@@ -916,9 +932,23 @@ class Workflow:
                 widget_list.append(Widget(i.split('/')[0], i.split('/')[1].split(' #')[0]))
         return widget_list
 
+    def get_context(self, short_description=False):
+        """
+        Returns the context of the workflow.
+        :param short_description: bool
+        :return: context: str
+        """
+        context = ''
+        for widget in self.get_widgets():
+            descr, inputs, outputs = widget.get_description(short_description=short_description)
+            context += str(widget) + ':\n' + 'Description:\n' + descr + '\n' + 'Inputs: ' + inputs + '\n\n' + 'Outputs: ' + outputs + '\n\n\n'
+        return context
+
     def remove_widget(self, widget=None):
         """
         Removes all links that contain the given widget.
+        :param widget: Widget
+        :return: widget: Widget
         """
         np.random.seed(11)
         if widget is None:
@@ -936,6 +966,8 @@ class Workflow:
     def get_name(self, return_name=False):
         """
         Returns the name of the workflow.
+        :param return_name: bool
+        :return: name: str
         """
         with open('data/prompts/prompt-intro.md', 'r') as file:
             query = file.read()
@@ -960,7 +992,7 @@ class Workflow:
             print('OpenAI API key not found.')
             return None
         client = OpenAI(api_key=api_key, organization='org-FvAFSFT8g0844DCWV1T2datD')
-        model = 'gpt-3.5-turbo'
+        model = 'gpt-3.5-turbo-0125'
         response = client.chat.completions.create(model=model,
                                                   messages=[
                                                       {"role": "system", "content": "You are ChatGPT, a large language model trained by OpenAI. "
@@ -970,13 +1002,18 @@ class Workflow:
                                                   ],
                                                   temperature=0.5,
                                                   top_p=0.5)
-        content = response.choices[0].message.content
+        name = response.choices[0].message.content
         if return_name:
-            return content
+            return name
         else:
-            print(content)
+            print(name)
 
     def get_description(self, return_description=False):
+        """
+        Returns the description of the workflow.
+        :param return_description: bool
+        :return: description: str
+        """
         with open('data/prompts/prompt-intro.md', 'r') as file:
             query = file.read()
         with open('data/prompts/new-description-prompt.md', 'r') as file:
@@ -1000,7 +1037,7 @@ class Workflow:
             print('OpenAI API key not found.')
             return None
         client = OpenAI(api_key=api_key, organization='org-FvAFSFT8g0844DCWV1T2datD')
-        model = 'gpt-3.5-turbo'
+        model = 'gpt-3.5-turbo-0125'
         response = client.chat.completions.create(model=model,
                                                   messages=[
                                                       {"role": "system", "content": "You are ChatGPT, a large language model trained by OpenAI. "
@@ -1010,19 +1047,25 @@ class Workflow:
                                                   ],
                                                   temperature=0.5,
                                                   top_p=0.5)
-        content = response.choices[0].message.content
+        description = response.choices[0].message.content
         if return_description:
-            return content
+            return description
         else:
-            print(content)
+            print(description)
 
     def get_new_widget(self, return_widget=False, goal='Not specified'):
+        """
+        Returns three new widgets that should be added to the workflow and provides an explanation for each.
+        :param return_widget: bool
+        :param goal: str
+        :return: new_widgets: str
+        """
         api_key = os.getenv('OPENAI_API_KEY')
         if api_key is None:
             print('OpenAI API key not found.')
             return None
         client = OpenAI(api_key=api_key, organization='org-FvAFSFT8g0844DCWV1T2datD')
-        model = 'gpt-3.5-turbo'
+        model = 'gpt-3.5-turbo-0125'
         with open('data/prompts/prompt-intro.md', 'r') as file:
             query = file.read()
         with open('data/prompts/new-widget-prompt.md', 'r') as file:
@@ -1030,12 +1073,10 @@ class Workflow:
         possible_widgets, _ = find_closest_workflows(self)
         possible_widgets = augment_widget_list(possible_widgets)
         query += '## Workflow:\nLinks in the workflow:\n' + str(self) + '\n\nWidget descriptions:\n'
-        for widget in self.get_widgets():
-            descr, inputs, outputs = widget.get_description()
-            query += str(widget) + ':\n' + 'Description:\n' + descr + '\n' + 'Inputs:\n' + inputs + '\n\n' + 'Outputs:\n' + outputs + '\n\n\n'
+        self.get_context(True)
         query += '## Possible widgets:\n'
         for widget in possible_widgets:
-            descr, inputs, outputs = widget.get_description()
+            descr, inputs, outputs = widget.get_description(True)
             query += str(widget) + ':\n' + 'Description:\n' + descr + '\n' + 'Inputs:\n' + inputs + '\n\n' + 'Outputs:\n' + outputs + '\n\n\n'
         query += '## Goal of the new widget:\n' + goal + '\n----------------------------------\n\n'
         response = client.chat.completions.create(model=model,
@@ -1047,11 +1088,11 @@ class Workflow:
                                                   ],
                                                   temperature=0.5,
                                                   top_p=0.5)
-        content = response.choices[0].message.content
+        new_widgets = response.choices[0].message.content
         if return_widget:
-            return content
+            return new_widgets
         else:
-            print(content)
+            print(new_widgets)
 
 
 def update_image_list():
@@ -1384,14 +1425,13 @@ def workflow_to_code(workflow, return_labels=False, only_enriched=True, discount
 
 def create_dataset(orange_dataset=True, min_thresh=3, only_enriched=True):
     """
-    This function creates an excel file with the information about the widgets present in the images. The excel file
+    This function creates an Excel file with the information about the widgets present in the images. The Excel file
     contains the name of the workflow, the path of the image, and the widgets present in the image. The function also
     filters the widgets that are present in less than the min_thresh number of images. If the only_enriched parameter is
     set to True, the function will only consider the enriched widgets and links.
     :param orange_dataset: bool
     :param min_thresh: int
     :param only_enriched: bool
-    :return: np.array
     """
     try:
         img_names_to_check = get_filenames('cropped-workflows/')
@@ -1452,7 +1492,7 @@ def create_dataset(orange_dataset=True, min_thresh=3, only_enriched=True):
 
 def get_example_workflows():
     """
-    This function loads the names, descriptions and workflows of 5 example workflows.
+    This function loads the names, descriptions and Workflows of 5 example workflows.
     :return: output_list: list of lists of str, list of tuples of tuples, str
     """
     folders = get_filenames('data/workflows/samples')
@@ -1496,6 +1536,7 @@ def find_closest_workflows(workflow, remove_widget=False, k=10):
     code = df.iloc[:, 4:].values
     unique_code, idx = np.unique(code[:, :how_many_widgets], axis=0, return_index=True)
     difference = np.where(unique_code - workflow_code < 0, 1, 0)
+    difference[np.where(unique_code - workflow_code > 0)[0], np.where(unique_code - workflow_code > 0)[1]] = 0.1
     distances = difference.sum(axis=1)
     closest_idx = np.argsort(distances)[:k]
     closest_workflows = []
@@ -1516,11 +1557,10 @@ def find_closest_workflows(workflow, remove_widget=False, k=10):
     return possible_widgets, removed_widget
 
 
-def get_workflow_description_prompt(img_name, use_api=False):
+def get_workflow_description_prompt(img_name):
     """
     This function uses the OpenAI API to generate a description of the workflow present in the image.
-    :param img_name: str
-    :param use_api: bool
+    :param img_name: str or Workflow
     """
     with open('data/prompts/prompt-intro.md', 'r') as file:
         query = file.read()
@@ -1547,37 +1587,15 @@ def get_workflow_description_prompt(img_name, use_api=False):
             print('The img_name parameter must be a string or a Workflow object')
             return None
     query += '## Workflow:\nLinks in the workflow:\n' + str(workflow) + '\n\nWidget descriptions:\n'
-    for widget in workflow.get_widgets():
-        descr, inputs, outputs = widget.get_description()
-        query += str(widget) + ':\n' + 'Description:\n' + descr + '\n' + 'Inputs: ' + inputs + '\n\n' + 'Outputs: ' + outputs + '\n\n\n'
     query += '## Description:\n'
     print(query + '\n')
-    if use_api:
-        api_key = os.getenv('OPENAI_API_KEY')
-        if api_key is None:
-            print('OpenAI API key not found.')
-            return None
-        client = OpenAI(api_key=api_key, organization='org-FvAFSFT8g0844DCWV1T2datD')
-        model = 'gpt-3.5-turbo'
-        response = client.chat.completions.create(model=model,
-                                                  messages=[
-                                                      {"role": "system", "content": "You are ChatGPT, a large language model trained by OpenAI. "
-                                                                                    "Answer as concisely as possible.\nKnowledge cutoff: 2021-09-01"
-                                                                                    "\nCurrent date: {CurrentDate}"},
-                                                      {'role': 'user', 'content': query},
-                                                  ],
-                                                  temperature=0.5,
-                                                  top_p=0.5)
-        content = response.choices[0].message.content
-        print('ChatGPT:\n' + content + '\n')
 
 
 def get_workflow_name_prompt(img_name, use_api=False):
     """
     This function uses the OpenAI API to generate a prompt that can be used to get the name of the workflow present in
     the image.
-    :param img_name: str
-    :param use_api: bool
+    :param img_name: str or Workflow
     """
     with open('data/prompts/prompt-intro.md', 'r') as file:
         query = file.read()
@@ -1609,27 +1627,9 @@ def get_workflow_name_prompt(img_name, use_api=False):
         query += str(widget) + ':\n' + 'Description:\n' + descr + '\n' + 'Inputs:\n' + inputs + '\n\n' + 'Outputs:\n' + outputs + '\n\n\n'
     query += '## Image name:\n'
     print(query + '\n')
-    if use_api:
-        api_key = os.getenv('OPENAI_API_KEY')
-        if api_key is None:
-            print('OpenAI API key not found.')
-            return None
-        client = OpenAI(api_key=api_key, organization='org-FvAFSFT8g0844DCWV1T2datD')
-        model = 'gpt-3.5-turbo'
-        response = client.chat.completions.create(model=model,
-                                                  messages=[
-                                                      {"role": "system", "content": "You are ChatGPT, a large language model trained by OpenAI. "
-                                                                                    "Answer as concisely as possible.\nKnowledge cutoff: 2021-09-01"
-                                                                                    "\nCurrent date: {CurrentDate}"},
-                                                      {'role': 'user', 'content': query},
-                                                  ],
-                                                  temperature=0.5,
-                                                  top_p=0.5)
-        content = response.choices[0].message.content
-        print('ChatGPT:\n' + content + '\n')
 
 
-def get_new_widget_prompt(img_name, remove_widget=False, use_api=False):
+def get_new_widget_prompt(img_name, remove_widget=False):
     """
     This function describes what widget can come next in the given workflow. The function uses the OpenAI API to provide
     which widgets can come next in the workflow and the reason for each widget. If the remove_widget parameter is set to
@@ -1638,7 +1638,6 @@ def get_new_widget_prompt(img_name, remove_widget=False, use_api=False):
     that can come next in the workflow as well as a reason for each widget.
     :param img_name: str, tuples of tuples of str or Workflow
     :param remove_widget: bool or Widget
-    :param use_api: bool
     :return: str
     """
     api_key = os.getenv('OPENAI_API_KEY')
@@ -1646,7 +1645,7 @@ def get_new_widget_prompt(img_name, remove_widget=False, use_api=False):
         print('OpenAI API key not found.')
         return None
     client = OpenAI(api_key=api_key, organization='org-FvAFSFT8g0844DCWV1T2datD')
-    model = 'gpt-3.5-turbo'
+    model = 'gpt-3.5-turbo-0125'
     with open('data/prompts/prompt-intro.md', 'r') as file:
         query = file.read()
     with open('data/prompts/new-widget-prompt.md', 'r') as file:
@@ -1673,21 +1672,6 @@ def get_new_widget_prompt(img_name, remove_widget=False, use_api=False):
         descr, inputs, outputs = widget.get_description()
         query += str(widget) + ':\n' + 'Description:\n' + descr + '\n' + 'Inputs:\n' + inputs + '\n\n' + 'Outputs:\n' + outputs + '\n\n\n'
     print(query + '\n')
-    if use_api:
-        response = client.chat.completions.create(model=model,
-                                                  messages=[
-                                                      {"role": "system", "content": "You are ChatGPT, a large language model trained by OpenAI. "
-                                                                                    "Answer as concisely as possible.\nKnowledge cutoff: 2021-09-01"
-                                                                                    "\nCurrent date: {CurrentDate}"},
-                                                      {'role': 'user', 'content': query},
-                                                  ],
-                                                  temperature=0.5,
-                                                  top_p=0.5)
-        content = response.choices[0].message.content
-        print('ChatGPT:\n' + content + '\n')
-        return content
-    else:
-        return removed_widget
 
 
 def new_widget_evaluation():
@@ -1714,14 +1698,17 @@ def new_widget_evaluation():
                 response = workflow.get_new_widget(True, goal=goal)
                 if isinstance(target_widget, list):
                     found = 0
+                    present = True
                     for i in target_widget:
+                        if Widget(i) not in possible_widgets:
+                            present = present and False
                         if i in response:
                             found += 1
                             n_correct += 1
                             break
                     if found == 0:
                         print('The response does not contain the removed widget for the workflow: ' + name + ' for goal ' + goal)
-                        if Widget(target_widget[0]) not in possible_widgets and Widget(target_widget[1]) not in possible_widgets:
+                        if not present:
                             print('The widget is not in the possible widgets')
                 else:
                     if target_widget in response:
@@ -1735,17 +1722,19 @@ def new_widget_evaluation():
             print('Evaluating the new_widget_prompt function for the workflow: ' + name)
             target_widget = workflows_info[name.split('/')[-1]]['widget']
             response = workflow.get_new_widget(True, goal=workflows_info[name.split('/')[-1]]['goal'])
-            print('ChatGPT response for goal ' + workflows_info[name.split('/')[-1]]['goal'] + ':\n' + response)
             if isinstance(target_widget, list):
                 found = 0
+                present = True
                 for i in target_widget:
+                    if Widget(i) not in possible_widgets:
+                        present = present and False
                     if i in response:
                         found += 1
                         n_correct += 1
                         break
                 if found == 0:
                     print('The response does not contain the removed widget for the workflow: ' + name)
-                    if Widget(target_widget) not in possible_widgets:
+                    if not present:
                         print('The widget is not in the possible widgets')
                 print('\n')
             else:
