@@ -1,6 +1,0 @@
-- [[['Data', 'Datasets'],['Bioinformatics', 'Genes']], 1]
-- [[['Bioinformatics', 'Genes'],['Bioinformatics', 'Single sample scoring']], 1]
-- [[['Bioinformatics', 'Gene Sets'],['Bioinformatics', 'Single sample scoring']], 1]
-- [[['Bioinformatics', 'Single sample scoring'],['Transform', 'Select Columns']], 1]
-- [[['Transform', 'Select Columns'],['Transform', 'Discretize']], 1]
-- [[['Transform', 'Discretize'],['Survival Analysis', 'Kaplan-Meier Plot']],1]
