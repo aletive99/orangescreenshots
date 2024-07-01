@@ -1,0 +1,98 @@
+logistic-regression-classification-evaluation.png:
+  widget: 
+    Evaluation: 'Evaluate/Confusion Matrix'
+    New model implementation: 'Model/Tree'
+  goal:
+    - 'Evaluation'
+    - 'New model implementation'
+data-sampling-and-tree-modeling.png:
+  widget: 'Evaluate/Predictions'
+  goal: 'Evaluation'
+image-clustering-analysis.png:
+  widget: 'Image Analytics/Image Viewer'
+  goal: 'Data Visualization'
+polynomial-regression-analysis.png:
+  widget: 'Data/Data Table'
+  goal: 'Data Visualization'
+survival-feature-ranking.png:
+  widget: 'Survival Analysis/Kaplan-Meier Plot'
+  goal: 'Model Visualization'
+corpus-from-documents.png:
+  widget: 'Text Mining/Corpus Viewer'
+  goal: 'Data Visualization'
+text-preprocessing-workflow.png:
+  widget: 
+    - 'Text Mining/Word Cloud'
+    - 'Text Mining/Bag of Words'
+  goal: 'Further Analysis'
+painted-data-distances.png:
+  widget: 
+    - 'Unsupervised/MDS'
+    - 'Unsupervised/Distance Matrix'
+    - 'Unsupervised/Hierarchical Clustering'
+  goal: 'Further Analysis'
+semantic-document-embedding.png:
+  widget: 'Unsupervised/t-SNE'
+  goal: 'Further Analysis'
+distance-and-text-analysis.png:
+  widget: 'Unsupervised/Hierarchical Clustering'
+  goal: 'Further Analysis'
+data-tree-visualization.png:
+  widget: 'Visualize/Box Plot'
+  goal: 'Data Visualization'
+decision-tree-prediction-analysis.png:
+  widget: 'Evaluate/Confusion Matrix'
+  goal: 'Further Analysis'
+decision-tree-data-sampling.png:
+  widget: 'Visualize/Tree Viewer'
+  goal: 'Model Visualization'
+random-forest-visualization.png:
+  widget: 'Visualize/Tree Viewer'
+  goal: 'Model Visualization'
+attribute-imputation-and-ranking.png:
+  widget: 'Visualize/Scatter Plot'
+  goal: 'Data Visualization'
+k-means-clustering-analysis.png:
+  widget: 'Visualize/Silhouette Plot'
+  goal: 'Model Visualization'
+logistic-regression-model-fitting.png:
+  widget: 'Visualize/Nomogram'
+  goal: 'Model Visualization'
+naive-bayes-classification-model.png:
+  widget: 'Visualize/Nomogram'
+  goal: 'Model Visualization'
+text-sentiment-prediction.png:
+  widget: 'Visualize/Heat Map'
+  goal: 'Model Visualization'
+pairwise-attribute-correlations-analysis.png:
+  widget: 'Visualize/Scatter Plot'
+  goal: 'Data Visualization'
+image-embedding-and-neighbor-analysis.png:
+  widget: 'Image Analytics/Image Viewer'
+  goal: 'Data Visualization'
+PCA-data-transformation.png:
+  widget: 'Visualize/Scatter Plot'
+  goal: 'Data Visualization'
+text-document-visualization.png:
+  widget: 'Text Mining/Annotated Corpus Map'
+  goal: 'Further Analysis'
+topic-modeling-with-bag-of-words.png:
+  widget: 'Text Mining/LDAvis'
+  goal: 'Further Analysis'
+bag-of-words-analysis.png:
+  widget: 'Text Mining/Word Enrichment'
+  goal: 'Further Analysis'
+box-plot-visualization.png:
+  widget: 'Transform/Purge Domain'
+  goal: 'Data Transformation'
+image-embedding-analysis.png:
+  widget: 'Image Analytics/Image Grid'
+  goal: 'Further Analysis'
+image-loading.png:
+  widget: 'Image Analytics/Image Embedding'
+  goal: 'Data Transformation'
+corpus-loading.png:
+  widget:
+    - 'Text Mining/Document Embedding'
+    - 'Text Mining/Preprocess Text'
+  goal: 'Data Transformation'

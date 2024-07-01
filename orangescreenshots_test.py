@@ -4,7 +4,7 @@ from orangescreenshots import *
 
 class WidgetsFromImageTest(unittest.TestCase):
     def test_widgets_from_image(self):
-        yaml_file_widgets = get_filenames('data/widget_test/', '.yaml')
+        yaml_file_widgets = get_filenames('data/test/widget_test/', '.yaml')
         remember_test = True
         for yaml_name in yaml_file_widgets:
             is_good = True
@@ -12,7 +12,7 @@ class WidgetsFromImageTest(unittest.TestCase):
             print('\nTesting', general_name)
             with open(yaml_name, 'r') as file:
                 widget_list = yaml.safe_load(file)
-            screenshot_name = 'data/screenshots/' + general_name
+            screenshot_name = 'data/test/screenshots/' + general_name
             try:
                 try:
                     widget_list_detected = widgets_from_image(screenshot_name + '.png')
@@ -45,14 +45,14 @@ class WidgetsFromImageTest(unittest.TestCase):
 
     def test_widget_pairs_from_image(self):
         remember_test = True
-        yaml_file_pairs = get_filenames('data/link_test/', '.yaml')
+        yaml_file_pairs = get_filenames('data/test/link_test/', '.yaml')
         for yaml_name in yaml_file_pairs:
             is_good = True
             general_name = yaml_name.split('/')[-1].removesuffix('.yaml')
             print('\nTesting', general_name)
             with open(yaml_name, 'r') as file:
                 widget_pairs = yaml.safe_load(file)
-            screenshot_name = 'data/screenshots/' + general_name
+            screenshot_name = 'data/test/screenshots/' + general_name
             try:
                 try:
                     widget_pair_detected = extract_workflow_from_image(screenshot_name + '.png', show_process=False)

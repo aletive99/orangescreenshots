@@ -1,6 +1,5 @@
 import numpy as np
 import cv2 as cv
-import openai
 import requests
 from bs4 import BeautifulSoup
 import os
@@ -760,14 +759,16 @@ class Widget:
                 return None
 
 
-def augment_widget_list(widget_list, present_widgets, n=20):
+def augment_widget_list(widget_list, present_widgets, goal=None, n=20, k=4):
     """
     This function augments the widget list given as input by adding widgets that are similar to the ones in the list. The
     similarity is assessed through the embedding of the widget descriptions performed by the DistilBERT model and saved
     by the get_embedding function.
     :param widget_list: list
     :param present_widgets: list
+    :param goal: str
     :param n: int
+    :param k: int
     :return: augmented_list: list
     """
     if len(widget_list) >= n:
@@ -775,19 +776,26 @@ def augment_widget_list(widget_list, present_widgets, n=20):
     with open('data/widget-info/widget-embeddings.pkl', 'rb') as f:
         embeddings = pickle.load(f)
     widget_names = list(embeddings.keys())
-    similarity_matrix = np.zeros((len(widget_names), 1))
+    present_widgets = present_widgets + widget_list
+    similarity_matrix = np.zeros((len(widget_names), len(present_widgets)))
+    if goal is not None:
+        goal_embedding = get_embedding(goal)
+        for i in range(len(widget_names)):
+            if Widget(widget_names[i]) in present_widgets:
+                continue
+            similarity_matrix[i, 0] = cosine_similarity([embeddings[widget_names[i]]], [goal_embedding])
+    else:
+        for i in range(len(widget_names)):
+            if Widget(widget_names[i]) in present_widgets:
+                continue
+            for j in range(len(present_widgets)):
+                similarity_matrix[i, j] = cosine_similarity([embeddings[widget_names[i]]], [embeddings[str(present_widgets[j])]])
     for i in range(len(widget_names)):
-        if Widget(widget_names[i]) in widget_list or Widget(widget_names[i]) in present_widgets:
-            continue
-        cumulative_similarity = 0
-        for j in range(len(widget_list)):
-            cumulative_similarity += cosine_similarity([embeddings[widget_names[i]]], [embeddings[str(widget_list[j])]])
-        cumulative_similarity /= len(widget_list)
-        similarity_matrix[i] = cumulative_similarity
-    similar_indices = similarity_matrix.argsort(axis=0)[-(n-len(widget_list)):][::-1]
+        similarity_matrix[i, 0] = similarity_matrix[i, similarity_matrix[i, :].argsort()[-k:][::-1]].mean()
+    similar_indices = similarity_matrix[:, 0].argsort(axis=0)[-(n-len(widget_list)):][::-1]
     augmented_list = widget_list
     for i in similar_indices:
-        augmented_list.append(Widget(widget_names[i[0]]))
+        augmented_list.append(Widget(widget_names[i]))
     return augmented_list
 
 
@@ -829,12 +837,28 @@ class Workflow:
     This class represents a collection of workflows as a list of tuples of tuples.
     """
     def __init__(self, data):
+        workflow_name = data
         if isinstance(data, str):
             data = extract_workflow_from_image(data)
         elif not isinstance(data, list):
             raise TypeError("the input must be a list of tuples of tuples or a string, got " + str(type(data)) + " instead")
         if data is None:
-            raise ValueError("No links found in the image")
+            if size_identification(workflow_name) is not None:
+                is_there_widget = is_there_widget_creation(workflow_name)
+                img_names_tgt = get_filenames('widgets/')
+                ind_present = np.where(is_there_widget[:, 0] != 0)[0].astype(dtype='int64')
+                adjusted_element_index = ind_present - min(is_there_widget[ind_present, 0], 0)
+                tmp = urllib.parse.unquote(img_names_tgt[adjusted_element_index[0]])
+                _, module_name = os.path.split(tmp)
+                if len(module_name.split('-')) == 2:
+                    module, name = module_name.split('-')
+                else:
+                    module = module_name.split('-')[0]
+                    name = module_name.split('-')[1] + '-' + module_name.split('-')[2]
+                name = name.split('.')[0]
+                data = [((module, name), ('None', 'None'))]
+            else:
+                raise ValueError("No links found in the image")
         link_list = []
         for i in data:
             if isinstance(i[0], Widget):
@@ -894,7 +918,8 @@ class Workflow:
         widget_text_list = []
         dupl = {}
         for i in widget_order:
-            widget_text_list.append(i)
+            if 'None' not in i:
+                widget_text_list.append(i)
             for j in range(len(widget_in)):
                 if i == widget_out[j]:
                     if '(' in widget_in[j]:
@@ -965,9 +990,10 @@ class Workflow:
         self.data = tmp
         return widget
 
-    def get_name(self, return_name=False):
+    def get_name(self, model='gpt-3.5-turbo-0125', return_name=False):
         """
         Returns the name of the workflow.
+        :param model: str
         :param return_name: bool
         :return: name: str
         """
@@ -994,7 +1020,6 @@ class Workflow:
             print('OpenAI API key not found.')
             return None
         client = OpenAI(api_key=api_key, organization='org-FvAFSFT8g0844DCWV1T2datD')
-        model = 'gpt-3.5-turbo-0125'
         response = client.chat.completions.create(model=model,
                                                   messages=[
                                                       {"role": "system", "content": "You are ChatGPT, a large language model trained by OpenAI. "
@@ -1010,9 +1035,10 @@ class Workflow:
         else:
             print(name)
 
-    def get_description(self, return_description=False):
+    def get_description(self, model='gpt-3.5-turbo-0125', return_description=False):
         """
         Returns the description of the workflow.
+        :param model: str
         :param return_description: bool
         :return: description: str
         """
@@ -1039,7 +1065,6 @@ class Workflow:
             print('OpenAI API key not found.')
             return None
         client = OpenAI(api_key=api_key, organization='org-FvAFSFT8g0844DCWV1T2datD')
-        model = 'gpt-3.5-turbo-0125'
         response = client.chat.completions.create(model=model,
                                                   messages=[
                                                       {"role": "system", "content": "You are ChatGPT, a large language model trained by OpenAI. "
@@ -1055,9 +1080,10 @@ class Workflow:
         else:
             print(description)
 
-    def get_new_widget(self, return_widget=False, goal='Not specified'):
+    def get_new_widget(self, model='gpt-3.5-turbo-0125', return_widget=False, goal='Not specified'):
         """
         Returns three new widgets that should be added to the workflow and provides an explanation for each.
+        :param model: str
         :param return_widget: bool
         :param goal: str
         :return: new_widgets: str
@@ -1067,13 +1093,12 @@ class Workflow:
             print('OpenAI API key not found.')
             return None
         client = OpenAI(api_key=api_key, organization='org-FvAFSFT8g0844DCWV1T2datD')
-        model = 'gpt-3.5-turbo-0125'
         with open('data/prompts/prompt-intro.md', 'r') as file:
             query = file.read()
         with open('data/prompts/new-widget-prompt.md', 'r') as file:
             query += file.read()
         possible_widgets, _ = find_closest_workflows(self)
-        possible_widgets = augment_widget_list(possible_widgets, present_widgets=self.get_widgets())
+        possible_widgets = augment_widget_list(possible_widgets, self.get_widgets())
         query += '## Workflow:\nLinks in the workflow:\n' + str(self) + '\n\nWidget descriptions:\n'
         self.get_context(True)
         query += '## Possible widgets:\n'
@@ -1336,6 +1361,8 @@ def workflow_to_code(workflow, return_labels=False, only_enriched=True, discount
     widget_list = []
     for widget in workflow.get_widgets():
         widget_list.append(str(widget).split(' #')[0])
+    indexes = []
+    found_input = False
     if not only_enriched:
         list_of_widget = []
         for key in widgets:
@@ -1346,12 +1373,17 @@ def workflow_to_code(workflow, return_labels=False, only_enriched=True, discount
                     if str(widget) not in list_of_widget:
                         list_of_widget.append(str(widget))
         code = []
-        for i in list_of_widget:
-            if i in widget_list:
+        for i in range(len(list_of_widget)):
+            widget = list_of_widget[i]
+            if widget == 'Data/File' or widget == 'Data/Paint Data' or widget == 'Data/Datasets':
+                indexes.append(i)
+            if widget in widget_list:
+                if widget == 'Data/File' or widget == 'Data/Paint Data' or widget == 'Data/Datasets':
+                    found_input = True
                 if discount_multiple:
                     code.append(1)
                 else:
-                    code.append(widget_list.count(i))
+                    code.append(widget_list.count(widget))
             else:
                 code.append(0)
         label_list = list_of_widget
@@ -1364,12 +1396,23 @@ def workflow_to_code(workflow, return_labels=False, only_enriched=True, discount
                   'program first or download the file from the repository')
             return None
         code = []
-        for i in widgets_enriched:
-            if i in widget_list:
-                code.append(1)
+        for i in range(len(widgets_enriched)):
+            widget = widgets_enriched[i]
+            if widget == 'Data/File' or widget == 'Data/Paint Data' or widget == 'Data/Datasets':
+                indexes.append(i)
+            if widget in widget_list:
+                if widget == 'Data/File' or widget == 'Data/Paint Data' or widget == 'Data/Datasets':
+                    found_input = True
+                if discount_multiple:
+                    code.append(1)
+                else:
+                    code.append(widget_list.count(widget))
             else:
                 code.append(0)
         label_list = widgets_enriched
+    if found_input:
+        for i in indexes:
+            code[i] = 1
 
     try:
         with open(yaml_direct+'/image-links.yaml', 'r') as file:
@@ -1500,7 +1543,7 @@ def get_example_workflows():
     folders = get_filenames('data/workflows/samples')
     output_list = []
     for i in folders:
-        image_name = i.split('/')[-2].replace('-', ' ')
+        image_name = i.split('/')[-2]
         with open(os.path.dirname(i)+'/workflow.yaml', 'r') as file:
             workflow = yaml.full_load(file)
         with open(os.path.dirname(i)+'/description.md', 'r') as file:
@@ -1589,6 +1632,9 @@ def get_workflow_description_prompt(img_name):
             print('The img_name parameter must be a string or a Workflow object')
             return None
     query += '## Workflow:\nLinks in the workflow:\n' + str(workflow) + '\n\nWidget descriptions:\n'
+    for widget in workflow.get_widgets():
+        descr, inputs, outputs = widget.get_description()
+        query += str(widget) + ':\n' + 'Description:\n' + descr + '\n' + 'Inputs: ' + inputs + '\n\n' + 'Outputs: ' + outputs + '\n\n\n'
     query += '## Description:\n'
     print(query + '\n')
 
@@ -1665,15 +1711,15 @@ def get_new_widget_prompt(img_name, goal='Not specified', remove_widget=False):
     print(query + '\n')
 
 
-def new_widget_evaluation():
+def new_widget_evaluation(check_all=True, model='gpt-3.5-turbo-0125'):
     """
     This function evaluates the performance of the new_widget_prompt function by comparing the output of the function
     with the actual widget that comes next in the workflow.
     """
     n_correct = 0
     ignored = 0
-    filenames = get_filenames('data/workflows/samples-new-widgets')
-    with open('data/workflows/samples-new-widgets/new-widget-evaluation.yaml', 'r') as file:
+    filenames = get_filenames('data/workflows/evaluation/new-widgets')
+    with open('data/workflows/evaluation/new-widgets/new-widget-evaluation.yaml', 'r') as file:
         workflows_info = yaml.safe_load(file)
     for name in filenames:
         try:
@@ -1682,17 +1728,21 @@ def new_widget_evaluation():
             ignored += 1
             continue
         possible_widgets, _ = find_closest_workflows(workflow)
+        possible_widgets = augment_widget_list(possible_widgets, present_widgets=workflow.get_widgets())
         if isinstance(workflows_info[name.split('/')[-1]]['goal'], list):
             for goal in workflows_info[name.split('/')[-1]]['goal']:
                 print('Evaluating the new_widget_prompt function for the workflow: ' + name + ' for goal ' + goal)
                 target_widget = workflows_info[name.split('/')[-1]]['widget'][goal]
-                response = workflow.get_new_widget(True, goal=goal)
+                if check_all:
+                    response = workflow.get_new_widget(return_widget=True, goal=goal, model=model)
+                else:
+                    response = ''
                 if isinstance(target_widget, list):
                     found = 0
-                    present = True
+                    present = False
                     for i in target_widget:
-                        if Widget(i) not in possible_widgets:
-                            present = present and False
+                        if Widget(i) in possible_widgets:
+                            present = present or True
                         if i in response:
                             found += 1
                             n_correct += 1
@@ -1701,6 +1751,9 @@ def new_widget_evaluation():
                         print('The response does not contain the removed widget for the workflow: ' + name + ' for goal ' + goal)
                         if not present:
                             print('The widget is not in the possible widgets')
+                            if not check_all:
+                                for i in possible_widgets:
+                                    print(str(i))
                 else:
                     if target_widget in response:
                         n_correct += 1
@@ -1708,17 +1761,23 @@ def new_widget_evaluation():
                         print('The response does not contain the removed widget for the workflow: ' + name + ' for goal ' + goal)
                         if Widget(target_widget) not in possible_widgets:
                             print('The widget is not in the possible widgets')
+                            if not check_all:
+                                for i in possible_widgets:
+                                    print(str(i))
                 print()
         else:
             print('Evaluating the new_widget_prompt function for the workflow: ' + name)
             target_widget = workflows_info[name.split('/')[-1]]['widget']
-            response = workflow.get_new_widget(True, goal=workflows_info[name.split('/')[-1]]['goal'])
+            if check_all:
+                response = workflow.get_new_widget(return_widget=True, goal=workflows_info[name.split('/')[-1]]['goal'], model=model)
+            else:
+                response = ''
             if isinstance(target_widget, list):
                 found = 0
-                present = True
+                present = False
                 for i in target_widget:
-                    if Widget(i) not in possible_widgets:
-                        present = present and False
+                    if Widget(i) in possible_widgets:
+                        present = present or True
                     if i in response:
                         found += 1
                         n_correct += 1
@@ -1727,12 +1786,18 @@ def new_widget_evaluation():
                     print('The response does not contain the removed widget for the workflow: ' + name)
                     if not present:
                         print('The widget is not in the possible widgets')
+                        if not check_all:
+                            for i in possible_widgets:
+                                print(str(i))
                 print('\n')
             else:
                 if target_widget not in response:
                     print('The response does not contain the removed widget for the workflow: ' + name)
                     if Widget(target_widget) not in possible_widgets:
                         print('The widget is not in the possible widgets')
+                        if not check_all:
+                            for i in possible_widgets:
+                                print(str(i))
                 else:
                     n_correct += 1
                 print('\n')
