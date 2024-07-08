@@ -921,7 +921,7 @@ class Workflow:
             if 'None' not in i:
                 widget_text_list.append(i)
             for j in range(len(widget_in)):
-                if i == widget_out[j]:
+                if i == widget_in[j]:
                     if '(' in widget_in[j]:
                         try:
                             if widget_in[j].split(' #')[1][0] not in dupl[widget_in[j].split(' #')[0]]:
@@ -997,24 +997,7 @@ class Workflow:
         :param return_name: bool
         :return: name: str
         """
-        with open('data/prompts/prompt-intro.md', 'r') as file:
-            query = file.read()
-        with open('data/prompts/new-name-prompt.md', 'r') as file:
-            query += file.read()
-        examples = get_example_workflows()
-        for example in examples:
-            workflow = Workflow(example[1])
-            query += '## Workflow:\nLinks in the workflow:\n' + str(workflow) + '\n\nWidget descriptions:\n'
-            widgets = workflow.get_widgets()
-            for widget in widgets:
-                descr, inputs, outputs = widget.get_description()
-                query += str(widget) + ':\n' + 'Description:\n' + descr + '\n' + 'Inputs:\n' + inputs + '\n\n' + 'Outputs:\n' + outputs + '\n\n\n'
-            query += '## Image name:\n' + example[0] + '\n----------------------------------\n\n'
-        query += '## Workflow:\nLinks in the workflow:\n' + str(self) + '\n\nWidget descriptions:\n'
-        for widget in self.get_widgets():
-            descr, inputs, outputs = widget.get_description()
-            query += str(widget) + ':\n' + 'Description:\n' + descr + '\n' + 'Inputs:\n' + inputs + '\n\n' + 'Outputs:\n' + outputs + '\n\n\n'
-        query += '## Image name:\n'
+        query = get_workflow_name_prompt(self, return_query=True)
         api_key = os.getenv('OPENAI_API_KEY')
         if api_key is None:
             print('OpenAI API key not found.')
@@ -1042,24 +1025,7 @@ class Workflow:
         :param return_description: bool
         :return: description: str
         """
-        with open('data/prompts/prompt-intro.md', 'r') as file:
-            query = file.read()
-        with open('data/prompts/new-description-prompt.md', 'r') as file:
-            query += file.read()
-        examples = get_example_workflows()
-        for example in examples:
-            workflow = Workflow(example[1])
-            query += '## Workflow:\nLinks in the workflow:\n' + str(workflow) + '\n\nWidget descriptions:\n'
-            widgets = workflow.get_widgets()
-            for widget in widgets:
-                descr, inputs, outputs = widget.get_description()
-                query += str(widget) + ':\n' + 'Description:\n' + descr + '\n' + 'Inputs:\n' + inputs + '\n\n' + 'Outputs:\n' + outputs + '\n\n\n'
-            query += '## Description:\n' + example[2] + '\n\n'
-        query += '## Workflow:\nLinks in the workflow:\n' + str(self) + '\n\nWidget descriptions:\n'
-        for widget in self.get_widgets():
-            descr, inputs, outputs = widget.get_description()
-            query += str(widget) + ':\n' + 'Description:\n' + descr + '\n' + 'Inputs: ' + inputs + '\n\n' + 'Outputs: ' + outputs + '\n\n\n'
-        query += '## Description:\n'
+        query = get_workflow_description_prompt(self, return_query=True)
         api_key = os.getenv('OPENAI_API_KEY')
         if api_key is None:
             print('OpenAI API key not found.')
@@ -1088,24 +1054,12 @@ class Workflow:
         :param goal: str
         :return: new_widgets: str
         """
+        query = get_new_widget_prompt(self, goal=goal, return_query=True)
         api_key = os.getenv('OPENAI_API_KEY')
         if api_key is None:
             print('OpenAI API key not found.')
             return None
         client = OpenAI(api_key=api_key, organization='org-FvAFSFT8g0844DCWV1T2datD')
-        with open('data/prompts/prompt-intro.md', 'r') as file:
-            query = file.read()
-        with open('data/prompts/new-widget-prompt.md', 'r') as file:
-            query += file.read()
-        possible_widgets, _ = find_closest_workflows(self)
-        possible_widgets = augment_widget_list(possible_widgets, self.get_widgets())
-        query += '## Workflow:\nLinks in the workflow:\n' + str(self) + '\n\nWidget descriptions:\n'
-        self.get_context(True)
-        query += '## Possible widgets:\n'
-        for widget in possible_widgets:
-            descr, inputs, outputs = widget.get_description(True)
-            query += str(widget) + ':\n' + 'Description:\n' + descr + '\n' + 'Inputs:\n' + inputs + '\n\n' + 'Outputs:\n' + outputs + '\n\n\n'
-        query += '## Goal of the new widget:\n' + goal + '\n----------------------------------\n\n'
         response = client.chat.completions.create(model=model,
                                                   messages=[
                                                       {"role": "system", "content": "You are ChatGPT, a large language model trained by OpenAI. "
@@ -1602,10 +1556,50 @@ def find_closest_workflows(workflow, remove_widget=False, k=10):
     return possible_widgets, removed_widget
 
 
-def get_workflow_description_prompt(img_name):
+def get_workflow_name_prompt(img_name, return_query=False):
+    """
+    This function uses the OpenAI API to generate a prompt that can be used to get the name of the workflow present in
+    the image.
+    :param img_name: str or Workflow
+    :param return_query: bool
+    :return: query: str
+    """
+    with open('data/prompts/prompt-intro.md', 'r') as file:
+        query = file.read()
+    with open('data/prompts/new-name-prompt.md', 'r') as file:
+        query += file.read()
+    examples = get_example_workflows()
+    for example in examples:
+        workflow = Workflow(example[1])
+        query += '## Workflow:\nLinks in the workflow:\n' + str(workflow) + '\n\nWidget descriptions:\n'
+        query += workflow.get_context(True)
+        query += '## Image name:\n' + example[0] + '\n-------------------------------\n\n'
+    try:
+        workflow = Workflow(img_name)
+    except ValueError:
+        print('No links found in the image')
+        return None
+    except TypeError:
+        if isinstance(img_name, Workflow):
+            workflow = img_name
+        else:
+            print('The img_name parameter must be a string or a Workflow object')
+            return None
+    query += '## Workflow:\nLinks in the workflow:\n' + str(workflow) + '\n\nWidget descriptions:\n'
+    query += workflow.get_context(True)
+    query += '## Image name:\n'
+    if return_query:
+        return query
+    else:
+        print(query + '\n')
+
+
+def get_workflow_description_prompt(img_name, return_query=False):
     """
     This function uses the OpenAI API to generate a description of the workflow present in the image.
     :param img_name: str or Workflow
+    :param return_query: bool
+    :return: query: str
     """
     with open('data/prompts/prompt-intro.md', 'r') as file:
         query = file.read()
@@ -1636,43 +1630,13 @@ def get_workflow_description_prompt(img_name):
         descr, inputs, outputs = widget.get_description()
         query += str(widget) + ':\n' + 'Description:\n' + descr + '\n' + 'Inputs: ' + inputs + '\n\n' + 'Outputs: ' + outputs + '\n\n\n'
     query += '## Description:\n'
-    print(query + '\n')
+    if return_query:
+        return query
+    else:
+        print(query + '\n')
 
 
-def get_workflow_name_prompt(img_name):
-    """
-    This function uses the OpenAI API to generate a prompt that can be used to get the name of the workflow present in
-    the image.
-    :param img_name: str or Workflow
-    """
-    with open('data/prompts/prompt-intro.md', 'r') as file:
-        query = file.read()
-    with open('data/prompts/new-name-prompt.md', 'r') as file:
-        query += file.read()
-    examples = get_example_workflows()
-    for example in examples:
-        workflow = Workflow(example[1])
-        query += '## Workflow:\nLinks in the workflow:\n' + str(workflow) + '\n\nWidget descriptions:\n'
-        query += workflow.get_context(True)
-        query += '## Image name:\n' + example[0] + '\n-------------------------------\n\n'
-    try:
-        workflow = Workflow(img_name)
-    except ValueError:
-        print('No links found in the image')
-        return None
-    except TypeError:
-        if isinstance(img_name, Workflow):
-            workflow = img_name
-        else:
-            print('The img_name parameter must be a string or a Workflow object')
-            return None
-    query += '## Workflow:\nLinks in the workflow:\n' + str(workflow) + '\n\nWidget descriptions:\n'
-    query += workflow.get_context(True)
-    query += '## Image name:\n'
-    print(query + '\n')
-
-
-def get_new_widget_prompt(img_name, goal='Not specified', remove_widget=False):
+def get_new_widget_prompt(img_name, goal='Not specified', remove_widget=False, return_query=False):
     """
     This function describes what widget can come next in the given workflow. The function uses the OpenAI API to provide
     which widgets can come next in the workflow and the reason for each widget. If the remove_widget parameter is set to
@@ -1682,7 +1646,8 @@ def get_new_widget_prompt(img_name, goal='Not specified', remove_widget=False):
     :param img_name: str, tuples of tuples of str or Workflow
     :param goal: str
     :param remove_widget: bool or Widget
-    :return: str
+    :param return_query: bool
+    :return: query: str
     """
     with open('data/prompts/prompt-intro.md', 'r') as file:
         query = file.read()
@@ -1708,7 +1673,10 @@ def get_new_widget_prompt(img_name, goal='Not specified', remove_widget=False):
         descr, inputs, outputs = widget.get_description(True)
         query += str(widget) + ':\n' + 'Description:\n' + descr + '\n' + 'Inputs:\n' + inputs + '\n\n' + 'Outputs:\n' + outputs + '\n\n\n'
     query += '## Goal of the new widget:\n' + goal + '\n----------------------------------\n\n'
-    print(query + '\n')
+    if return_query:
+        return query
+    else:
+        print(query + '\n')
 
 
 def new_widget_evaluation(check_all=True, model='gpt-3.5-turbo-0125'):
