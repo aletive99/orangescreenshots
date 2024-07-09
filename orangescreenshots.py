@@ -606,7 +606,8 @@ def link_detection(img_name, show_process=False):
                             prev_direction = found_direction[best_fit_index]
                         if show_process:
                             image_to_show = cv.cvtColor(tmp_img, cv.COLOR_GRAY2BGR)
-                            cv.drawMarker(image_to_show, center, (0, 0, 255), cv.MARKER_CROSS, round(widget_size/4), 2)
+                            cv.drawMarker(image_to_show, center, (0, 0, 255), cv.MARKER_CROSS, round(widget_size/6), 2)
+                            cv.circle(image_to_show, center, round(widget_size/10), (0, 0, 255), 2)
                             cv.imshow('image', image_to_show)
                             cv.waitKey(100)
                         n_iter += 1
@@ -1018,14 +1019,15 @@ class Workflow:
         else:
             print(name)
 
-    def get_description(self, model='gpt-3.5-turbo-0125', return_description=False):
+    def get_description(self, model='gpt-3.5-turbo-0125', return_description=False, concise_description=True):
         """
         Returns the description of the workflow.
         :param model: str
         :param return_description: bool
+        :param concise_description: bool
         :return: description: str
         """
-        query = get_workflow_description_prompt(self, return_query=True)
+        query = get_workflow_description_prompt(self, return_query=True, concise_description=concise_description)
         api_key = os.getenv('OPENAI_API_KEY')
         if api_key is None:
             print('OpenAI API key not found.')
@@ -1489,19 +1491,25 @@ def create_dataset(orange_dataset=True, min_thresh=3, only_enriched=True):
         workbook.save('image-analysis-results/workflows-dataset.xlsx')
 
 
-def get_example_workflows():
+def get_example_workflows(concise_description):
     """
-    This function loads the names, descriptions and Workflows of 5 example workflows.
+    This function loads the names, descriptions and Workflows of 5 example workflows. If concise_description is set to
+    True, the function will return a concise description of the workflow alongside the remaining information, otherwise
+    a detailed description will be provided.
+    :param concise_description: str
     :return: output_list: list of lists of str, list of tuples of tuples, str
     """
     folders = get_filenames('data/workflows/samples')
     output_list = []
     for i in folders:
-        image_name = i.split('/')[-2]
-        with open(os.path.dirname(i)+'/workflow.yaml', 'r') as file:
-            workflow = yaml.full_load(file)
-        with open(os.path.dirname(i)+'/description.md', 'r') as file:
-            description = file.read()
+        image_name = i.split('/')[-1]
+        with open('data/workflows/samples/samples.yaml', 'r') as file:
+            info = yaml.full_load(file)
+        workflow = info[image_name]['workflow']
+        if concise_description:
+            description = info[image_name]['concise']
+        else:
+            description = info[image_name]['detailed']
         output_list.append([image_name, workflow, description])
     return output_list
 
@@ -1594,18 +1602,19 @@ def get_workflow_name_prompt(img_name, return_query=False):
         print(query + '\n')
 
 
-def get_workflow_description_prompt(img_name, return_query=False):
+def get_workflow_description_prompt(img_name, return_query=False, concise_description=True):
     """
     This function uses the OpenAI API to generate a description of the workflow present in the image.
     :param img_name: str or Workflow
     :param return_query: bool
+    :param concise_description: bool
     :return: query: str
     """
     with open('data/prompts/prompt-intro.md', 'r') as file:
         query = file.read()
     with open('data/prompts/new-description-prompt.md', 'r') as file:
         query += file.read()
-    examples = get_example_workflows()
+    examples = get_example_workflows(concise_description)
     for example in examples:
         workflow = Workflow(example[1])
         query += '## Workflow:\nLinks in the workflow:\n' + str(workflow) + '\n\nWidget descriptions:\n'

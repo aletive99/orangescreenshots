@@ -1,0 +1,209 @@
+distance-analysis-and-clustering.png:
+  workflow:
+    - !!python/tuple
+      - !!python/tuple
+        - Data
+        - File
+      - !!python/tuple
+        - Data
+        - 'Data Table #1'
+    - !!python/tuple
+      - !!python/tuple
+        - Unsupervised
+        - Distances
+      - !!python/tuple
+        - Unsupervised
+        - Hierarchical Clustering
+    - !!python/tuple
+      - !!python/tuple
+        - Unsupervised
+        - Distances
+      - !!python/tuple
+        - Unsupervised
+        - Distance Map
+    - !!python/tuple
+      - !!python/tuple
+        - Data
+        - File
+      - !!python/tuple
+        - Unsupervised
+        - Distances
+    - !!python/tuple
+      - !!python/tuple
+        - Unsupervised
+        - Hierarchical Clustering
+      - !!python/tuple
+        - Data
+        - 'Data Table #2'
+    - !!python/tuple
+      - !!python/tuple
+        - Unsupervised
+        - Hierarchical Clustering
+      - !!python/tuple
+        - Visualize
+        - Box Plot
+  concise:
+    "In this workflow a dataset is loaded from a local file and immediately visualized. The distance matrix is then calculated from the data and visualized in a distance map which also shows resulting dendrogram. From the distance matrix a more detailed hierarchial clustering is performed from which the user can select brances in order to visualize the selected subset in a data table and in a box plot, which provides insights into the distribution of of features in the dataset."
+  detailed:
+    "This workflow first loads a dataset from a local file through the File widget which is then visualized in a Data Table. The data points distances are then calculated thanks to the Distances widget and passed down to both the Distance Map and Hierarchical Clustering widgets. The first allows us to visualize the data distances in a heat map, while the second performs hierarchical clustering on the data. The user can then manually select clusters in the Hierarchical Clustering widget, which are then visualized in a Data Table and in a Box Plot. This workflow allows the user to perform hierarchical clustering on the loaded data and explore the similarities and differences between or within clusters."
+
+exploratory-data-analysis.png:
+  workflow:
+    - !!python/tuple
+      - !!python/tuple
+        - Data
+        - Datasets
+      - !!python/tuple
+        - Transform
+        - Pivot Table
+    - !!python/tuple
+      - !!python/tuple
+        - Transform
+        - Pivot Table
+      - !!python/tuple
+        - Transform
+        - Select Columns
+    - !!python/tuple
+      - !!python/tuple
+        - Transform
+        - Select Columns
+      - !!python/tuple
+        - Visualize
+        - Line Plot
+  concise:
+    "In this workflow a dataset is loaded from an online repository and processed in the pivot table by summarizing categorical features from the data with user selected statistical descriptors. The resulting data is further modified by selecting columns of interest and finally visualized in a line plot to provide visualization of the data profiles."
+  detailed:
+    "This workflow first loads the data through the Datasets widget. The loaded dataset is then passed down to the Pivot Table which allows us to transform the data into aggregate values. The result of this operation is then passed down to the Select Columns widget which lets us manually compose the dataset. Lastly the modified data is given as input to the Line Plot which allows us to visualize the data profiles. This workflow allows the user to explore different compositions of the dataset to see if any features trend appears."
+
+logistic-regression-classification.png:
+  workflow:
+    - !!python/tuple
+      - !!python/tuple
+        - Model
+        - Logistic Regression
+      - !!python/tuple
+        - Evaluate
+        - Test and Score
+    - !!python/tuple
+      - !!python/tuple
+        - Data
+        - File
+      - !!python/tuple
+        - Evaluate
+        - Test and Score
+    - !!python/tuple
+      - !!python/tuple
+        - Evaluate
+        - Test and Score
+      - !!python/tuple
+        - Evaluate
+        - Confusion Matrix
+    - !!python/tuple
+      - !!python/tuple
+        - Evaluate
+        - Confusion Matrix
+      - !!python/tuple
+        - Visualize
+        - Scatter Plot
+    - !!python/tuple
+      - !!python/tuple
+        - Data
+        - File
+      - !!python/tuple
+        - Visualize
+        - Scatter Plot
+  concise:
+    "This workflow uses the dataset loaded from a local file to train and evaluate a logistic regression model to classify the data. The evaluation results are visualized in a confusion matrix, which allows the user to select classes subsets to be visualized in a scatter plot along side the original dataset."
+  detailed:
+    "This workflow first loads a dataset through the File widget. This dataset is passed down to the Test & Score widget which trains and evaluates the learner coming from the Logistic Regression. The evaluation results are then passed down to the Confusion Matrix widget, allowing the user to visualize the proportions of data correctly classified. Both the original data and the selected data from the Confusion Matrix is finally passed down to the Scatter Plot widget allowing for comparison between the full dataset and class subsets. This workflow allows the user to perform logistic regression on the dataset and evaluate the results through the visualization of the predicted classes and their relative features."
+
+semantic-word-map-analysis.png:
+  workflow:
+    - !!python/tuple
+      - !!python/tuple
+        - Text Mining
+        - Import Documents
+      - !!python/tuple
+        - Text Mining
+        - Preprocess Text
+    - !!python/tuple
+      - !!python/tuple
+        - Text Mining
+        - Preprocess Text
+      - !!python/tuple
+        - Text Mining
+        - Word Cloud
+    - !!python/tuple
+      - !!python/tuple
+        - Text Mining
+        - Word Cloud
+      - !!python/tuple
+        - Text Mining
+        - Corpus
+    - !!python/tuple
+      - !!python/tuple
+        - Text Mining
+        - Corpus
+      - !!python/tuple
+        - Text Mining
+        - Document Embedding
+    - !!python/tuple
+      - !!python/tuple
+        - Text Mining
+        - Document Embedding
+      - !!python/tuple
+        - Unsupervised
+        - Distances
+    - !!python/tuple
+      - !!python/tuple
+        - Text Mining
+        - Document Embedding
+      - !!python/tuple
+        - Unsupervised
+        - t-SNE
+    - !!python/tuple
+      - !!python/tuple
+        - Unsupervised
+        - Distances
+      - !!python/tuple
+        - Unsupervised
+        - Hierarchical Clustering
+  concise:
+    "This text mining pipeline parses for documents in a local repository and from them creates a corpus which is then preprocessed using user selected methods, such as tokenization, filtering, etc. From the processed corpus the most frequent words are shown in a word cloud which allows the user to select words of interest. From the selected words a corpus is created and embedded into a vector space. This embedding is used both to perform a hierarchical clustering analysis and to visualize the documents in a 2-dimensional space through a t-SNE representation."
+  detailed:
+    "This workflow imports text documents from folders through the Import Documents. The obtained corpus is preprocessed with selected methods with the Preprocess Text. The obtained new Corpus is then visualized through a Word Cloud where the users can select words to be analyzed. The selected words are then transformed into a Corpus through its relative widget which passes it to the Document Embedding which embeds the input corpus into a vector space and appends the features to the corpus. The obtained corpus is then visualized in a 2-dimensional space through a t-SNE. The Distances between the data points are also calculated and used to perform Hierarchical Clustering. This workflow allows the user to select frequent words from an imported document and visualize and identify potential clusters of semantically related words."
+
+t-SNE-cell-genes-analysis.png:
+  workflow:
+    - !!python/tuple
+      - !!python/tuple
+        - Unsupervised
+        - t-SNE
+      - !!python/tuple
+        - Bioinformatics
+        - Annotator
+    - !!python/tuple
+      - !!python/tuple
+        - Bioinformatics
+        - Marker Genes
+      - !!python/tuple
+        - Bioinformatics
+        - Annotator
+    - !!python/tuple
+      - !!python/tuple
+        - Bioinformatics
+        - Annotator
+      - !!python/tuple
+        - Data
+        - Data Table
+    - !!python/tuple
+      - !!python/tuple
+        - Single Cell
+        - Single Cell Datasets
+      - !!python/tuple
+        - Unsupervised
+        - t-SNE
+  concise:
+    "In this workflow a single cell dataset is loaded and visualized into 2-dimensional space using the t-SNE widget which adds the found coordinates as two different columns in the dataset. The modified cell data is then further annotated with the corresponding cell type which is inferred with marker genes data. Finally the resulting dataset is viewed in a tabular format inside a data table."
+  detailed:
+    "This workflow first loads a Single Cell Dataset from an online repository. This data is then mapped into 2-dimensional space thanks to the t-SNE widget, which also adds two columns containing coordinates information to every data instance. The dataset is then passed to the Annotator widget which annotates cells with their type based on the Marker Genes which are given by the relative widget. The data with additional columns with annotations, clusters and projection is then visualized through a Data Table. This workflow allows the user to load and visualize a single cell dataset, identify the cell types and visualize them, enhancing the understanding of specific functions and interactions."
