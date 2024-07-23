@@ -10,6 +10,7 @@ __pycache__/
 cropped-workflows/
 widgets/
 tmp/
+output-images/
 
 # Distribution / packaging
 .Python
