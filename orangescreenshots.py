@@ -75,6 +75,7 @@ def _download_widgets():
 
 
 _download_widgets()
+os.makedirs('output-images', exist_ok=True)
 
 
 def _size_identification(img_name, show_circles=False):
@@ -145,12 +146,13 @@ def _get_filenames(direct, ext='image'):
     return img_names_tgt
 
 
-def _widget_loading(img_names_tgt, img_name):
+def _widget_loading(img_names_tgt, img_name, save_sample=False):
     """
     This function loads the widgets to be used in the image processing. The output is a 3D array with the number of
     widgets in the first dimension and the final size of the widgets in the second and third dimensions
     :param img_names_tgt: np.array
     :param img_name: str
+    :param save_sample: bool
     :return: check_img: np.array
     """
     final_size, pixels_to_keep = _get_sizes(img_name)
@@ -163,7 +165,10 @@ def _widget_loading(img_names_tgt, img_name):
                                        [round((image_size-pixels_to_keep)/2):round((image_size+pixels_to_keep)/2)-1,
                                         round((image_size-pixels_to_keep)/2):round((image_size+pixels_to_keep)/2)-1],
                                         (final_size, final_size), interpolation=4)
-    return check_img
+    if save_sample:
+        cv.imwrite('output-images/sample_widget.png', check_img[0, :, :])
+    else:
+        return check_img
 
 
 def _get_widget_description():
@@ -372,6 +377,7 @@ def draw_locations(img_name, return_img=False):
         print('There is no widget in the image')
         return None
     if not return_img:
+        cv.imwrite('output-images/widget_locations.png', image)
         cv.imshow('widget locations highlighted in red', image)
         cv.waitKey(0)
         cv.destroyAllWindows()
@@ -395,6 +401,7 @@ def draw_links(img_name):
     image = _screenshot_loading(img_name)
     image = cv.cvtColor(image, cv.COLOR_GRAY2BGR)
     image[link_img == 255] = (0, 0, 255)
+    cv.imwrite('output-images/highlighted-links.png', image)
     cv.imshow('links highlighted in red', image)
     cv.waitKey(0)
     cv.destroyAllWindows()
@@ -405,7 +412,6 @@ def draw_links_and_locations(img_name):
     """
     This function shows the widget positions as well as the links between the widgets in the image.
     :param img_name: str
-    :return:
     """
     image = draw_locations(img_name, return_img=True)
     if image is None:
@@ -414,6 +420,7 @@ def draw_links_and_locations(img_name):
     _, link_img = _link_detection(img_name)
     if link_img is not None:
         image[link_img == 255] = (0, 0, 255)
+        cv.imwrite('output-images/links-widget-locations.png')
         cv.imshow('links and widget locations highlighted in red', image)
         cv.waitKey(0)
         cv.destroyAllWindows()
