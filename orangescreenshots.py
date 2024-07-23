@@ -13,13 +13,13 @@ import openpyxl
 from openai import OpenAI
 from graphlib import TopologicalSorter
 import pandas as pd
-from transformers import AutoTokenizer, AutoModel
+from transformers import BertModel, BertTokenizer
 import torch
 import pickle
 from sklearn.metrics.pairwise import cosine_similarity
 
 
-def download_widgets():
+def _download_widgets():
     """
     These operations guarantee that the widgets are downloaded and updated everytime the library is imported.
     """
@@ -74,10 +74,10 @@ def download_widgets():
         print('Widgets downloaded and updated')
 
 
-download_widgets()
+_download_widgets()
 
 
-def size_identification(img_name, show_circles=False):
+def _size_identification(img_name, show_circles=False):
     """
     This function identifies the size of the widgets in the image. The function returns the size of the widgets in the
     image. If the show_circles parameter is set to True, the function will show the circles that were detected in the
@@ -86,11 +86,11 @@ def size_identification(img_name, show_circles=False):
     :param show_circles: bool
     :return: size_widget: int
     """
-    image_to_check = screenshot_loading(img_name)
+    image_to_check = _screenshot_loading(img_name)
     if image_to_check is None:
         return None
     blurred = cv.GaussianBlur(image_to_check, (5, 5), 0)
-    circles = cv.HoughCircles(blurred, cv.HOUGH_GRADIENT, dp=1, minDist=20,
+    circles = cv.HoughCircles(blurred, cv.HOUGH_GRADIENT, dp=1, minDist=30,
                               param1=65, param2=55, minRadius=15, maxRadius=60)
     if circles is None:
         return None
@@ -107,7 +107,7 @@ def size_identification(img_name, show_circles=False):
     return size_widget
 
 
-def get_sizes(img_name):
+def _get_sizes(img_name):
     """
     This function calculates the final size of the widgets to be used in the image processing and the number of pixels to
     keep in the widgets
@@ -115,7 +115,7 @@ def get_sizes(img_name):
     :return: final_size: int, pixels_to_keep: int
     """
     widget_size = 100
-    target_size = size_identification(img_name)
+    target_size = _size_identification(img_name)
     if target_size is None:
         return None, None
     pixels_to_keep = 70
@@ -124,7 +124,7 @@ def get_sizes(img_name):
     return final_size, pixels_to_keep
 
 
-def get_filenames(direct, ext='image'):
+def _get_filenames(direct, ext='image'):
     """
     This function gets the filenames of the widgets from the folder created by the get_widgets function. By default, the
     extension is set to 'image' meaning that only images of the type '.png' and '.jpg' will be extracted, but it can be
@@ -145,7 +145,7 @@ def get_filenames(direct, ext='image'):
     return img_names_tgt
 
 
-def widget_loading(img_names_tgt, img_name):
+def _widget_loading(img_names_tgt, img_name):
     """
     This function loads the widgets to be used in the image processing. The output is a 3D array with the number of
     widgets in the first dimension and the final size of the widgets in the second and third dimensions
@@ -153,7 +153,7 @@ def widget_loading(img_names_tgt, img_name):
     :param img_name: str
     :return: check_img: np.array
     """
-    final_size, pixels_to_keep = get_sizes(img_name)
+    final_size, pixels_to_keep = _get_sizes(img_name)
     if final_size is None:
         return None
     image_size = len(cv.imread(img_names_tgt[0]))
@@ -166,7 +166,7 @@ def widget_loading(img_names_tgt, img_name):
     return check_img
 
 
-def get_widget_description():
+def _get_widget_description():
     """
     This function gets the description of the widgets from the Orange Data Mining website. The function then writes a
     yaml file with the description of the widgets
@@ -233,7 +233,7 @@ def get_widget_description():
         yaml.dump(descriptions, file)
 
 
-def screenshot_loading(img_name):
+def _screenshot_loading(img_name):
     """
     This function loads the screenshot to be used to identify the widgets and their links. It loads a color image and
     converts it to grayscale
@@ -247,7 +247,7 @@ def screenshot_loading(img_name):
         return image_to_check
 
 
-def is_there_widget_creation(img_name, value_thresh=0.8):
+def _is_there_widget_creation(img_name, value_thresh=0.8):
     """
     This function creates a matrix with the information of the widgets present in the image. The first column of the
     matrix indicates the widget presence, the second column indicates the location of the widget in the image, the third
@@ -259,13 +259,13 @@ def is_there_widget_creation(img_name, value_thresh=0.8):
     :param value_thresh: float
     :return: is_there_widget: np.array
     """
-    widget_size = size_identification(img_name)
+    widget_size = _size_identification(img_name)
     if widget_size is None:
         return None
-    img_names_tgt = get_filenames('widgets')
-    check_img = widget_loading(img_names_tgt, img_name)
+    img_names_tgt = _get_filenames('widgets')
+    check_img = _widget_loading(img_names_tgt, img_name)
     is_there_widget = np.zeros((len(check_img), 5), dtype='int64')
-    image_to_check = screenshot_loading(img_name)
+    image_to_check = _screenshot_loading(img_name)
     for j in range(len(img_names_tgt)):
         res = cv.matchTemplate(image_to_check, check_img[j, :, :], cv.TM_CCOEFF_NORMED)
         if ('Data-Datasets' in img_names_tgt[j] or 'Data-File' in img_names_tgt[j] or 'Polynomial%20Regression' in
@@ -340,27 +340,27 @@ def draw_locations(img_name, return_img=False):
     :param img_name: str
     :param return_img: bool
     """
-    widget_size = size_identification(img_name)
+    widget_size = _size_identification(img_name)
     if widget_size is None:
         print('There is no widget in the image')
         return None
     thickness = np.round(widget_size/2).astype(dtype='int64')
-    final_size, _ = get_sizes(img_name)
-    is_there_widget = is_there_widget_creation(img_name)
+    final_size, _ = _get_sizes(img_name)
+    is_there_widget = _is_there_widget_creation(img_name)
     if is_there_widget is None:
         print('There is no widget in the image')
         return None
     indexes = np.where(is_there_widget[:, 0] != 0)[0]
     form = (is_there_widget[indexes[0], 2], is_there_widget[indexes[0], 3])
     coord_y, coord_x = np.unravel_index(is_there_widget[indexes, 1], form) + np.floor(final_size/2).astype(dtype='int64')
-    image = screenshot_loading(img_name)
+    image = _screenshot_loading(img_name)
     image = cv.cvtColor(image, cv.COLOR_GRAY2BGR)
     adjusted_element_index = np.zeros_like(indexes)
     for j in range(len(indexes)):
         cv.rectangle(image, (coord_x[j]-thickness, coord_y[j]-thickness), (coord_x[j]+thickness, coord_y[j]+thickness),
                      (0, 0, 255), 2)
         adjusted_element_index[j] = indexes[j] - min(is_there_widget[indexes[j], 0], 0) - len(is_there_widget)
-        label = urllib.parse.unquote(get_filenames('widgets/')[adjusted_element_index[j]])
+        label = urllib.parse.unquote(_get_filenames('widgets/')[adjusted_element_index[j]])
         if len(label.split('-')) == 2:
             label = label.split('-')[1]
         else:
@@ -387,12 +387,12 @@ def draw_links(img_name):
     otherwise the links are detected through the circle intersection algorithm used on the link direction.
     :param img_name: str
     """
-    widget_size = size_identification(img_name)
-    _, link_img = link_detection(img_name)
+    widget_size = _size_identification(img_name)
+    _, link_img = _link_detection(img_name)
     if link_img is None or widget_size is None:
         print('There are no links in the image')
         return None
-    image = screenshot_loading(img_name)
+    image = _screenshot_loading(img_name)
     image = cv.cvtColor(image, cv.COLOR_GRAY2BGR)
     image[link_img == 255] = (0, 0, 255)
     cv.imshow('links highlighted in red', image)
@@ -411,7 +411,7 @@ def draw_links_and_locations(img_name):
     if image is None:
         print('There is no widget in the image')
         return None
-    _, link_img = link_detection(img_name)
+    _, link_img = _link_detection(img_name)
     if link_img is not None:
         image[link_img == 255] = (0, 0, 255)
         cv.imshow('links and widget locations highlighted in red', image)
@@ -420,17 +420,17 @@ def draw_links_and_locations(img_name):
         cv.waitKey(1)
 
 
-def widgets_from_image(img_name, return_list=True):
+def _widgets_from_image(img_name, return_list=True):
     """
     This function returns the list of widgets present in the image
     :param img_name: str
     :param return_list: bool
     :return: widget_list: list of tuples
     """
-    is_there_widget = is_there_widget_creation(img_name)
+    is_there_widget = _is_there_widget_creation(img_name)
     if is_there_widget is None:
         return None
-    img_names_tgt = get_filenames('widgets/')
+    img_names_tgt = _get_filenames('widgets/')
     ind_present = np.where(is_there_widget[:, 0] != 0)[0].astype(dtype='int64')
     adjusted_element_index = np.zeros_like(ind_present)
     widget_list = list([])
@@ -454,7 +454,7 @@ def widgets_from_image(img_name, return_list=True):
         return is_there_widget
 
 
-def find_circle_intersection(label_binary_image, center, radius_size, prev_direction, connect_type=8):
+def _find_circle_intersection(label_binary_image, center, radius_size, prev_direction, connect_type=8):
     """
     This function finds the intersection of a hand build circle with the white pixels of the binary image. The function
     returns the points of intersection, the direction of the points relative to the center, and the index of the point
@@ -482,7 +482,7 @@ def find_circle_intersection(label_binary_image, center, radius_size, prev_direc
     return found_points, found_direction, best_fit_index
 
 
-def link_detection(img_name, show_process=False):
+def _link_detection(img_name, show_process=False):
     """
     This function detects the links between the widgets in the image. The function returns a matrix with the number of
     links between the widgets. The function also returns an image with the links highlighted. If the show_process
@@ -491,7 +491,7 @@ def link_detection(img_name, show_process=False):
     :param show_process: bool
     :return: links: np.array, link_img: np.array
     """
-    is_there_widget = widgets_from_image(img_name, False)
+    is_there_widget = _widgets_from_image(img_name, False)
     if is_there_widget is None:
         return None, None
     non_adj_index = np.where(is_there_widget[:, 0] != 0)[0]
@@ -500,15 +500,15 @@ def link_detection(img_name, show_process=False):
     which_multiple = widgets_unique[np.where(widgets_num > 1)[0]]
     if which_multiple.size > 0:
         checked_ind = np.zeros((len(which_multiple), np.max(widgets_num)), dtype='int64')
-    img_names_tgt = get_filenames('widgets/')
-    final_size, _ = get_sizes(img_name)
-    widget_size = size_identification(img_name)
+    img_names_tgt = _get_filenames('widgets/')
+    final_size, _ = _get_sizes(img_name)
+    widget_size = _size_identification(img_name)
     tol = round(widget_size/2)
     # first dimension of the matrix will indicate what's the receiving widget and second dimension will be the widget
     # from which the link is coming
     links = np.zeros(([len(img_names_tgt), len(img_names_tgt)]), dtype='int64')
     # image processing to extract connected components
-    tmp_img = screenshot_loading(img_name)
+    tmp_img = _screenshot_loading(img_name)
     indexes = np.where(is_there_widget[:, 0] != 0)[0]
     form = (is_there_widget[indexes[0], 2], is_there_widget[indexes[0], 3])
     coord_y, coord_x = np.unravel_index(is_there_widget[indexes, 1], form) + np.floor(final_size/2).astype(dtype='int64')
@@ -568,7 +568,7 @@ def link_detection(img_name, show_process=False):
                 break
             elif np.sum(which_present) > 1:
                 label_binary_image = np.where(labels_im == in_to_check[k], 255, 0).astype(dtype='uint8')
-                start_points, _, _ = find_circle_intersection(label_binary_image, (coord_x[j]-round(widget_size/3.5),
+                start_points, _, _ = _find_circle_intersection(label_binary_image, (coord_x[j]-round(widget_size/3.5),
                                                                                    coord_y[j]), round(widget_size/2), 0)
                 actual_start = start_points[start_points[:, 0] < coord_x[j]-tol, :]
                 non_adj_index = indexes[j]
@@ -588,7 +588,7 @@ def link_detection(img_name, show_process=False):
                     tmp_link_img = np.zeros_like(tmp_img)
                     same_link = 0
                     while True:
-                        found_points, found_direction, best_fit_index = find_circle_intersection(label_binary_image, center,
+                        found_points, found_direction, best_fit_index = _find_circle_intersection(label_binary_image, center,
                                                                                                  round(widget_size/10), prev_direction, 4)
                         if n_iter > 100 or same_link == 3:
                             break
@@ -641,17 +641,17 @@ def link_detection(img_name, show_process=False):
     return links, link_img
 
 
-def extract_workflow_from_image(img_name, show_process=False):
+def _extract_workflow_from_image(img_name, show_process=False):
     """
     This function returns the list of widget pairs present in the image
     :param img_name: str
     :param show_process: bool
     :return: link_list: Widget
     """
-    links, _ = link_detection(img_name, show_process)
+    links, _ = _link_detection(img_name, show_process)
     if links is None:
         return None
-    img_names_tgt = get_filenames('widgets/')
+    img_names_tgt = _get_filenames('widgets/')
     if np.sum(links) == 0:
         return None
     a, b = np.where(links != 0)
@@ -722,6 +722,12 @@ class Widget:
         self.module = module
         self.name = name
 
+    def __repr__(self):
+        """
+        Custom representation for the Widget object.
+        """
+        return f"Widget({self.module}/{self.name})"
+
     def __str__(self):
         """
         Custom string representation for the Widget object.
@@ -744,7 +750,7 @@ class Widget:
             with open('data/widget-info/widget-descriptions.yaml', 'r') as file:
                 descriptions = yaml.full_load(file)
         except FileNotFoundError:
-            get_widget_description()
+            _get_widget_description()
             with open('data/widget-info/widget-descriptions.yaml', 'r') as file:
                 descriptions = yaml.full_load(file)
         key = self.module + '/' + self.name.split(' #')[0]
@@ -760,11 +766,14 @@ class Widget:
                 return None
 
 
-def augment_widget_list(widget_list, present_widgets, goal=None, n=20, k=4):
+def _augment_widget_list(widget_list, present_widgets, goal=None, n=20, k=4):
     """
     This function augments the widget list given as input by adding widgets that are similar to the ones in the list. The
-    similarity is assessed through the embedding of the widget descriptions performed by the DistilBERT model and saved
-    by the get_embedding function.
+    similarity is assessed through the embedding of the widget descriptions performed by the BERT model and saved by the
+    get_embedding function. n represents the number of widgets to have in the final list, and k represents the number of
+    similar widgets to consider for each widget in the list. If the goal is not None, the function will return the widgets
+    that are similar to the goal widget. Otherwise, the function will return the widgets that are similar to the widgets
+    in the list.
     :param widget_list: list
     :param present_widgets: list
     :param goal: str
@@ -772,19 +781,28 @@ def augment_widget_list(widget_list, present_widgets, goal=None, n=20, k=4):
     :param k: int
     :return: augmented_list: list
     """
-    if len(widget_list) >= n:
-        return widget_list[:n]
     with open('data/widget-info/widget-embeddings.pkl', 'rb') as f:
         embeddings = pickle.load(f)
+    if len(widget_list) > n:
+        if goal is None:
+            return widget_list[:n]
+        else:
+            similarity_matrix = np.zeros((len(widget_list), 1))
+            goal_embedding = _get_embedding('The goal of the widget is ' + goal)
+            for i in range(len(widget_list)):
+                similarity_matrix[i, 0] = cosine_similarity([embeddings[str(widget_list[i])]], [goal_embedding])
+            similar_indices = similarity_matrix[:, 0].argsort(axis=0)[-n:][::-1]
+            return [widget_list[i] for i in similar_indices]
     widget_names = list(embeddings.keys())
     present_widgets = present_widgets + widget_list
     similarity_matrix = np.zeros((len(widget_names), len(present_widgets)))
     if goal is not None:
-        goal_embedding = get_embedding(goal)
+        goal_embedding = _get_embedding('The goal of the widget is ' + goal)
         for i in range(len(widget_names)):
             if Widget(widget_names[i]) in present_widgets:
                 continue
             similarity_matrix[i, 0] = cosine_similarity([embeddings[widget_names[i]]], [goal_embedding])
+            k = 1
     else:
         for i in range(len(widget_names)):
             if Widget(widget_names[i]) in present_widgets:
@@ -800,7 +818,7 @@ def augment_widget_list(widget_list, present_widgets, goal=None, n=20, k=4):
     return augmented_list
 
 
-def get_embedding(text=None):
+def _get_embedding(text=None):
     """
     This function returns the embedding of the given text using the DistilBERT model. If the text is None, the function
     will return the embeddings of the widget descriptions and save them in a pickle file. Otherwise, the function will
@@ -808,16 +826,16 @@ def get_embedding(text=None):
     :param text: str
     :return: embeddings: np.array
     """
-    model_name = "distilbert-base-uncased"
-    tokenizer = AutoTokenizer.from_pretrained(model_name)
-    model = AutoModel.from_pretrained(model_name)
+    model_name = "bert-base-uncased"
+    tokenizer = BertTokenizer.from_pretrained(model_name)
+    model = BertModel.from_pretrained(model_name)
     embeddings = dict({})
     if text is None:
         with open('data/widget-info/widget-descriptions.yaml', 'r') as file:
             widget_descriptions = yaml.safe_load(file)
         progress_bar = tqdm(total=len(widget_descriptions), desc='Progress')
         for widget, info in widget_descriptions.items():
-            inputs = tokenizer(info['description'], return_tensors="pt", truncation=True, padding=True)
+            inputs = tokenizer(info['description'], return_tensors="pt", truncation=True, padding='max_length', max_length=512)
             with torch.no_grad():
                 outputs = model(**inputs)
             embeddings.update({widget: outputs.last_hidden_state.mean(dim=1).squeeze().numpy()})
@@ -826,7 +844,7 @@ def get_embedding(text=None):
         with open('data/widget-info/widget-embeddings.pkl', 'wb') as f:
             pickle.dump(embeddings, f)
     elif isinstance(text, str):
-        inputs = tokenizer(text, return_tensors="pt", truncation=True, padding=True)
+        inputs = tokenizer(text, return_tensors="pt", truncation=True, padding='max_length', max_length=512)
         with torch.no_grad():
             outputs = model(**inputs)
         embeddings = outputs.last_hidden_state.mean(dim=1).squeeze().numpy()
@@ -837,16 +855,21 @@ class Workflow:
     """
     This class represents a collection of workflows as a list of tuples of tuples.
     """
-    def __init__(self, data):
-        workflow_name = data
+    def __init__(self, data, name=None):
         if isinstance(data, str):
-            data = extract_workflow_from_image(data)
+            self.path = data
+            name = data
+            data = _extract_workflow_from_image(data)
         elif not isinstance(data, list):
             raise TypeError("the input must be a list of tuples of tuples or a string, got " + str(type(data)) + " instead")
+        if name is None:
+            self.path = 'unknown'
+        else:
+            self.path = name
         if data is None:
-            if size_identification(workflow_name) is not None:
-                is_there_widget = is_there_widget_creation(workflow_name)
-                img_names_tgt = get_filenames('widgets/')
+            if _size_identification(self.path) is not None:
+                is_there_widget = _is_there_widget_creation(self.path)
+                img_names_tgt = _get_filenames('widgets/')
                 ind_present = np.where(is_there_widget[:, 0] != 0)[0].astype(dtype='int64')
                 adjusted_element_index = ind_present - min(is_there_widget[ind_present, 0], 0)
                 tmp = urllib.parse.unquote(img_names_tgt[adjusted_element_index[0]])
@@ -873,11 +896,17 @@ class Workflow:
             link_list.append((first, second))
         self.data = link_list
 
+    def __repr__(self):
+        """
+        Custom representation for the Workflow object.
+        """
+        return f"Workflow({self.path.split('/')[-1]}, {len(self.get_widgets())} widgets, {len(self.data)} links)"
+
     def __str__(self):
         """
         Custom string representation for the Workflow object.
         """
-        return self.get_order()[0]
+        return self._get_order()[0]
 
     def __len__(self):
         """
@@ -891,7 +920,7 @@ class Workflow:
         """
         return self.data[item]
 
-    def get_order(self):
+    def _get_order(self):
         """
         Returns the order of the widgets in the workflow.
         :return: link_text: str, widget_text_list: list
@@ -954,7 +983,7 @@ class Workflow:
         :return: widget_list: list
         """
         widget_list = []
-        widget_text_list = self.get_order()[1]
+        widget_text_list = self._get_order()[1]
         for i in widget_text_list:
             if i not in widget_list:
                 widget_list.append(Widget(i.split('/')[0], i.split('/')[1].split(' #')[0]))
@@ -991,7 +1020,7 @@ class Workflow:
         self.data = tmp
         return widget
 
-    def get_name(self, model='gpt-3.5-turbo-0125', return_name=False):
+    def get_name(self, model='gpt-3.5-turbo-0125', return_name=True):
         """
         Returns the name of the workflow.
         :param model: str
@@ -999,27 +1028,13 @@ class Workflow:
         :return: name: str
         """
         query = get_workflow_name_prompt(self, return_query=True)
-        api_key = os.getenv('OPENAI_API_KEY')
-        if api_key is None:
-            print('OpenAI API key not found.')
-            return None
-        client = OpenAI(api_key=api_key, organization='org-FvAFSFT8g0844DCWV1T2datD')
-        response = client.chat.completions.create(model=model,
-                                                  messages=[
-                                                      {"role": "system", "content": "You are ChatGPT, a large language model trained by OpenAI. "
-                                                                                    "Answer as concisely as possible.\nKnowledge cutoff: 2021-09-01"
-                                                                                    "\nCurrent date: {CurrentDate}"},
-                                                      {'role': 'user', 'content': query},
-                                                  ],
-                                                  temperature=0.5,
-                                                  top_p=0.5)
-        name = response.choices[0].message.content
+        name = _get_response(query, model)
         if return_name:
             return name
         else:
             print(name)
 
-    def get_description(self, model='gpt-3.5-turbo-0125', return_description=False, concise_description=True):
+    def get_description(self, model='gpt-3.5-turbo-0125', return_description=True, concise_description=True):
         """
         Returns the description of the workflow.
         :param model: str
@@ -1028,27 +1043,13 @@ class Workflow:
         :return: description: str
         """
         query = get_workflow_description_prompt(self, return_query=True, concise_description=concise_description)
-        api_key = os.getenv('OPENAI_API_KEY')
-        if api_key is None:
-            print('OpenAI API key not found.')
-            return None
-        client = OpenAI(api_key=api_key, organization='org-FvAFSFT8g0844DCWV1T2datD')
-        response = client.chat.completions.create(model=model,
-                                                  messages=[
-                                                      {"role": "system", "content": "You are ChatGPT, a large language model trained by OpenAI. "
-                                                                                    "Answer as concisely as possible.\nKnowledge cutoff: 2021-09-01"
-                                                                                    "\nCurrent date: {CurrentDate}"},
-                                                      {'role': 'user', 'content': query},
-                                                  ],
-                                                  temperature=0.5,
-                                                  top_p=0.5)
-        description = response.choices[0].message.content
+        description = _get_response(query, model)
         if return_description:
             return description
         else:
             print(description)
 
-    def get_new_widget(self, model='gpt-3.5-turbo-0125', return_widget=False, goal='Not specified'):
+    def get_new_widget(self, model='gpt-3.5-turbo-0125', return_widget=True, goal='Not specified'):
         """
         Returns three new widgets that should be added to the workflow and provides an explanation for each.
         :param model: str
@@ -1057,35 +1058,41 @@ class Workflow:
         :return: new_widgets: str
         """
         query = get_new_widget_prompt(self, goal=goal, return_query=True)
-        api_key = os.getenv('OPENAI_API_KEY')
-        if api_key is None:
-            print('OpenAI API key not found.')
-            return None
-        client = OpenAI(api_key=api_key, organization='org-FvAFSFT8g0844DCWV1T2datD')
-        response = client.chat.completions.create(model=model,
-                                                  messages=[
-                                                      {"role": "system", "content": "You are ChatGPT, a large language model trained by OpenAI. "
-                                                                                    "Answer as concisely as possible.\nKnowledge cutoff: 2021-09-01"
-                                                                                    "\nCurrent date: {CurrentDate}"},
-                                                      {'role': 'user', 'content': query},
-                                                  ],
-                                                  temperature=0.5,
-                                                  top_p=0.5)
-        new_widgets = response.choices[0].message.content
+        new_widgets = _get_response(query, model)
+        new_widgets = yaml.safe_load(new_widgets.split('yaml\n')[-1].split('`')[0])
         if return_widget:
             return new_widgets
         else:
             print(new_widgets)
 
 
-def update_image_list():
+def _get_response(query, model='gpt-3.5-turbo-0125'):
+    api_key = os.getenv('OPENAI_API_KEY')
+    if api_key is None:
+        print('OpenAI API key not found.')
+        return None
+    client = OpenAI(api_key=api_key, organization='org-FvAFSFT8g0844DCWV1T2datD')
+    response = client.chat.completions.create(model=model,
+                                              messages=[
+                                                  {"role": "system", "content": "You are ChatGPT, a large language model trained by OpenAI. "
+                                                                                "Answer as concisely as possible.\nKnowledge cutoff: 2021-09-01"
+                                                                                "\nCurrent date: {CurrentDate}"},
+                                                  {'role': 'user', 'content': query},
+                                              ],
+                                              temperature=0.5,
+                                              top_p=0.5)
+    response = response.choices[0].message.content
+    return response
+
+
+def _update_image_list():
     """
     This function finds all the subdirectories inside the orange-lecture-notes-web/public/chapters directory and checks
     if the  information about the images inside the subdirectories are updated. The function creates a yaml file with
     the information about the images present in the notebooks. If an image file has not been updated for 30 days it will
     be updated, otherwise it will stay the same.
     """
-    markdown_names = get_filenames('orange-lecture-notes-web/public/chapters', 'index.md')
+    markdown_names = _get_filenames('orange-lecture-notes-web/public/chapters', 'index.md')
     today = date.today()
     yaml_direct = 'image-analysis-results'
     os.makedirs(yaml_direct, exist_ok=True)
@@ -1113,7 +1120,7 @@ def update_image_list():
                 else:
                     title = data
                     break
-        img_names = get_filenames('orange-lecture-notes-web/public/chapters/' + direct)
+        img_names = _get_filenames('orange-lecture-notes-web/public/chapters/' + direct)
         for j in range(len(img_names)):
             img_names[j] = img_names[j].split('/')[-1]
         if len(img_names) > 0:
@@ -1132,7 +1139,7 @@ def update_image_list():
     progress_bar.close()
 
 
-def update_widget_list():
+def _update_widget_list():
     """
     This function finds all the images inside the orange-lecture-notes-web/public/chapters directory and checks if the
     information about the widgets present in the images are updated. The function creates a yaml file with the
@@ -1147,10 +1154,10 @@ def update_widget_list():
             widgets = yaml.full_load(file)
     except FileNotFoundError:
         widgets = dict({})
-    img_names_to_check = get_filenames('orange-lecture-notes-web/public/chapters/')
+    img_names_to_check = _get_filenames('orange-lecture-notes-web/public/chapters/')
     progress_bar = tqdm(total=len(img_names_to_check), desc="Progress")
     for i in range(len(img_names_to_check)):
-        size = size_identification(img_names_to_check[i])
+        size = _size_identification(img_names_to_check[i])
         img_name = img_names_to_check[i].split('/')[-1]
         path = img_names_to_check[i].split('/')[3:-1]
         path = '/'.join(path)
@@ -1162,7 +1169,7 @@ def update_widget_list():
             except KeyError:
                 prev_date = date(2000, 1, 1)
             if key not in widgets or key in widgets and today - prev_date > timedelta(days=30):
-                widget_list = widgets_from_image(img_names_to_check[i])
+                widget_list = _widgets_from_image(img_names_to_check[i])
                 if widget_list is not None:
                     widgets[key] = {'path': path,
                                     'filename': img_name,
@@ -1190,7 +1197,7 @@ def update_widget_list():
     progress_bar.close()
 
 
-def update_image_links():
+def _update_image_links():
     """
     This function finds all the images inside the orange-lecture-notes-web/public/chapters directory and checks if the
     information about the links between the widgets present in the images are updated. The function creates a yaml file
@@ -1205,10 +1212,10 @@ def update_image_links():
             links = yaml.full_load(file)
     except FileNotFoundError:
         links = dict({})
-    img_names_to_check = get_filenames('orange-lecture-notes-web/public/chapters/')
+    img_names_to_check = _get_filenames('orange-lecture-notes-web/public/chapters/')
     progress_bar = tqdm(total=len(img_names_to_check), desc="Progress")
     for i in range(len(img_names_to_check)):
-        size = size_identification(img_names_to_check[i])
+        size = _size_identification(img_names_to_check[i])
         img_name = img_names_to_check[i].split('/')[-1]
         path = img_names_to_check[i].split('/')[3:-1]
         path = '/'.join(path)
@@ -1220,7 +1227,7 @@ def update_image_links():
             except KeyError:
                 prev_date = date(2000, 1, 1)
             if key not in links or key in links and today - prev_date > timedelta(days=30):
-                link_list = extract_workflow_from_image(img_names_to_check[i])
+                link_list = _extract_workflow_from_image(img_names_to_check[i])
                 if link_list is not None:
                     links[key] = {'path': path,
                                   'filename': img_name,
@@ -1248,7 +1255,7 @@ def update_image_links():
     progress_bar.close()
 
 
-def crop_workflows(directory_to_check='orange-lecture-notes-web/public/chapters', img_name=None, no_yaml=False):
+def _crop_workflows(directory_to_check='orange-lecture-notes-web/public/chapters', img_name=None, no_yaml=False):
     """
     This function extracts the workflows from the image. Given the information about the position of the widgets
     contained in the image, the function crops the image to obtain a new image with only the workflow.
@@ -1269,16 +1276,16 @@ def crop_workflows(directory_to_check='orange-lecture-notes-web/public/chapters'
             if widgets[name]['widgets'] is not None:
                 list_to_check.append(directory_to_check + widgets[name]['path'] + '/' + widgets[name]['filename'])
     elif no_yaml:
-        list_to_check = get_filenames(directory_to_check)
+        list_to_check = _get_filenames(directory_to_check)
     else:
         list_to_check = [img_name]
     progress_bar = tqdm(total=len(list_to_check), desc="Progress")
     for i in range(len(list_to_check)):
         path = 'cropped-workflows/'+list_to_check[i].split('chapters/')[-1]
         if not os.path.exists(path):
-            is_there_widget = widgets_from_image(list_to_check[i], False)
+            is_there_widget = _widgets_from_image(list_to_check[i], False)
             img = cv.imread(list_to_check[i])
-            widget_size = size_identification(list_to_check[i])
+            widget_size = _size_identification(list_to_check[i])
             which_present = np.where(is_there_widget[:, 0] != 0)[0]
             y_locs, x_locs = np.unravel_index(is_there_widget[which_present, 1], (is_there_widget[which_present[0], 2],
                                                                                   is_there_widget[which_present[0], 3]))
@@ -1293,7 +1300,7 @@ def crop_workflows(directory_to_check='orange-lecture-notes-web/public/chapters'
     progress_bar.close()
 
 
-def workflow_to_code(workflow, return_labels=False, only_enriched=True, discount_multiple=True):
+def _workflow_to_code(workflow, return_labels=False, only_enriched=True, discount_multiple=True):
     """
     This function returns the code of the widgets present in the image. The code is a binary vector where 1 indicates the
     presence of the widget or link and 0 indicates the absence of the widget.  If the return_labels parameter is set to
@@ -1320,14 +1327,14 @@ def workflow_to_code(workflow, return_labels=False, only_enriched=True, discount
     indexes = []
     found_input = False
     if not only_enriched:
-        list_of_widget = []
-        for key in widgets:
-             if widgets[key]['widgets'] is not None:
-                for i in range(len(widgets[key]['widgets'])):
-                    widget = widgets[key]['widgets'][i]
-                    widget = Widget(widget[0], widget[1])
-                    if str(widget) not in list_of_widget:
-                        list_of_widget.append(str(widget))
+        try:
+            with open('data/widget-info/widget-descriptions.yaml', 'r') as file:
+                descriptions = yaml.full_load(file)
+        except FileNotFoundError:
+            _get_widget_description()
+            with open('data/widget-info/widget-descriptions.yaml', 'r') as file:
+                descriptions = yaml.full_load(file)
+        list_of_widget = list(descriptions.keys())
         code = []
         for i in range(len(list_of_widget)):
             widget = list_of_widget[i]
@@ -1424,7 +1431,7 @@ def workflow_to_code(workflow, return_labels=False, only_enriched=True, discount
         return label_list
 
 
-def create_dataset(orange_dataset=True, min_thresh=3, only_enriched=True):
+def _create_dataset(orange_dataset=True, min_thresh=3):
     """
     This function creates an Excel file with the information about the widgets present in the images. The Excel file
     contains the name of the workflow, the path of the image, and the widgets present in the image. The function also
@@ -1432,10 +1439,9 @@ def create_dataset(orange_dataset=True, min_thresh=3, only_enriched=True):
     set to True, the function will only consider the enriched widgets and links.
     :param orange_dataset: bool
     :param min_thresh: int
-    :param only_enriched: bool
     """
     try:
-        img_names_to_check = get_filenames('cropped-workflows/')
+        img_names_to_check = _get_filenames('cropped-workflows/')
     except FileNotFoundError:
         print('There are no cropped workflows, run the function crop_workflows() first')
         return None
@@ -1454,7 +1460,7 @@ def create_dataset(orange_dataset=True, min_thresh=3, only_enriched=True):
     sheet['C1'] = 'Parent Folder'
     sheet['D1'] = 'Parent Subfolder'
     key = os.path.dirname(img_names_to_check[0].split('cropped-workflows/')[-1]) + '---' + img_names_to_check[0].split('/')[-1]
-    labels = workflow_to_code(Workflow(links[key]['links']), return_labels=True, only_enriched=only_enriched)
+    labels = _workflow_to_code(Workflow(links[key]['links']), return_labels=True, only_enriched=orange_dataset, discount_multiple=orange_dataset)
     for j in range(len(labels)):
         sheet.cell(row=1, column=j+5, value=labels[j])
     for i in range(len(img_names_to_check)):
@@ -1467,7 +1473,7 @@ def create_dataset(orange_dataset=True, min_thresh=3, only_enriched=True):
         sheet['D'+str(i+2)] = os.path.dirname(img_names_to_check[i]).split('/')[-1]
         key = os.path.dirname(img_names_to_check[i].split('cropped-workflows/')[-1]) + '---' + img_names_to_check[i].split('/')[-1]
         workflow = Workflow(links[key]['links'])
-        code = workflow_to_code(workflow, only_enriched=only_enriched, discount_multiple=orange_dataset)
+        code = _workflow_to_code(workflow, only_enriched=orange_dataset, discount_multiple=orange_dataset)
         for j in range(len(code)):
             sheet.cell(row=i+2, column=j+5, value=int(code[j]))
         progress_bar.update(1)
@@ -1491,7 +1497,7 @@ def create_dataset(orange_dataset=True, min_thresh=3, only_enriched=True):
         workbook.save('image-analysis-results/workflows-dataset.xlsx')
 
 
-def get_example_workflows(concise_description):
+def _get_example_workflows(concise_description):
     """
     This function loads the names, descriptions and Workflows of 5 example workflows. If concise_description is set to
     True, the function will return a concise description of the workflow alongside the remaining information, otherwise
@@ -1499,7 +1505,7 @@ def get_example_workflows(concise_description):
     :param concise_description: str
     :return: output_list: list of lists of str, list of tuples of tuples, str
     """
-    folders = get_filenames('data/workflows/samples')
+    folders = _get_filenames('data/workflows/samples')
     output_list = []
     for i in folders:
         image_name = i.split('/')[-1]
@@ -1514,16 +1520,17 @@ def get_example_workflows(concise_description):
     return output_list
 
 
-def find_closest_workflows(workflow, remove_widget=False, k=10):
+def find_similar_workflows(workflow, remove_widget=False, return_workflows=True, k=10):
     """
     This function loads the dataset from the Excel file and finds the k-closest workflows to the input workflow thanks
     to Euclidean distance between the code of the workflows
     :param workflow: Workflow
     :param remove_widget: bool or str
+    :param return_workflows: bool
     :param k: int
     :return: closest_workflows: list
     """
-    label_list = list(workflow_to_code(workflow, return_labels=True, only_enriched=False))
+    label_list = list(_workflow_to_code(workflow, return_labels=True, only_enriched=False))
     for i in range(len(label_list)):
         if '->' in label_list[i]:
             how_many_widgets = i
@@ -1538,7 +1545,7 @@ def find_closest_workflows(workflow, remove_widget=False, k=10):
             return None, None
     else:
         removed_widget = None
-    workflow_code = np.array(workflow_to_code(workflow, only_enriched=False))[:how_many_widgets].astype(int)
+    workflow_code = np.array(_workflow_to_code(workflow, only_enriched=False))[:how_many_widgets].astype(int)
     df = pd.read_excel('image-analysis-results/workflows-dataset.xlsx')
     code = df.iloc[:, 4:].values
     unique_code, idx = np.unique(code[:, :how_many_widgets], axis=0, return_index=True)
@@ -1559,6 +1566,14 @@ def find_closest_workflows(workflow, remove_widget=False, k=10):
                 break
             if widget not in possible_widgets:
                 possible_widgets.append(widget)
+    if return_workflows:
+        similar_workflows = []
+        with open('image-analysis-results/image-links.yaml', 'r') as file:
+            links = yaml.full_load(file)
+        for i in closest_workflows:
+            filename = os.path.dirname(i.split('cropped-workflows/')[1]) + '---' + i.split('/')[-1]
+            similar_workflows.append(Workflow(links[filename]['links'], i))
+        return similar_workflows
     for i in range(len(possible_widgets)):
         possible_widgets[i] = Widget(possible_widgets[i].split('/')[0], possible_widgets[i].split('/')[1])
     return possible_widgets, removed_widget
@@ -1576,7 +1591,7 @@ def get_workflow_name_prompt(img_name, return_query=False):
         query = file.read()
     with open('data/prompts/new-name-prompt.md', 'r') as file:
         query += file.read()
-    examples = get_example_workflows()
+    examples = _get_example_workflows(concise_description=True)
     for example in examples:
         workflow = Workflow(example[1])
         query += '## Workflow:\nLinks in the workflow:\n' + str(workflow) + '\n\nWidget descriptions:\n'
@@ -1614,7 +1629,7 @@ def get_workflow_description_prompt(img_name, return_query=False, concise_descri
         query = file.read()
     with open('data/prompts/new-description-prompt.md', 'r') as file:
         query += file.read()
-    examples = get_example_workflows(concise_description)
+    examples = _get_example_workflows(concise_description)
     for example in examples:
         workflow = Workflow(example[1])
         query += '## Workflow:\nLinks in the workflow:\n' + str(workflow) + '\n\nWidget descriptions:\n'
@@ -1673,8 +1688,11 @@ def get_new_widget_prompt(img_name, goal='Not specified', remove_widget=False, r
         else:
             print('The img_name parameter must be a string or a Workflow object')
             return None
-    possible_widgets, removed_widget = find_closest_workflows(workflow, remove_widget=remove_widget)
-    possible_widgets = augment_widget_list(possible_widgets, present_widgets=workflow.get_widgets())
+    possible_widgets, removed_widget = find_similar_workflows(workflow, remove_widget=remove_widget, return_workflows=False)
+    if goal == 'Not specified':
+        possible_widgets = _augment_widget_list(possible_widgets, present_widgets=workflow.get_widgets())
+    else:
+        possible_widgets = _augment_widget_list(possible_widgets, present_widgets=workflow.get_widgets(), goal=goal)
     query += '## Workflow:\nLinks in the workflow:\n' + str(workflow) + '\n\nWidget descriptions:\n'
     query += workflow.get_context(True)
     query += '## Possible widgets:\n'
@@ -1688,14 +1706,49 @@ def get_new_widget_prompt(img_name, goal='Not specified', remove_widget=False, r
         print(query + '\n')
 
 
-def new_widget_evaluation(check_all=True, model='gpt-3.5-turbo-0125'):
+def _description_evaluation(model='gpt-3.5-turbo-0125', concise_description=True):
     """
-    This function evaluates the performance of the new_widget_prompt function by comparing the output of the function
-    with the actual widget that comes next in the workflow.
+    This function evaluates the performance of the Workflow.get_description function by comparing the output of the
+    function with the actual description of the widget, by comparing the two descriptions using ChatGPT.
+    """
+    filenames = _get_filenames('data/workflows/evaluation/name-and-description')
+    with open('data/prompts/text-comparison-prompt.md', 'r') as file:
+        query_start = file.read()
+    results = 0
+    with open('data/workflows/evaluation/name-and-description/description-evaluation.yaml', 'r') as file:
+        widgets_info = yaml.safe_load(file)
+    for name in filenames:
+        workflow = Workflow(name)
+        description_generated = workflow.get_description(model, concise_description=concise_description)
+        if concise_description:
+            description_actual = widgets_info[name.split('/')[-1]]['concise']
+        else:
+            description_actual = widgets_info[name.split('/')[-1]]['detailed']
+        print('Evaluating the get_description function for the workflow: ' + name)
+        query = query_start
+        query += '\n\nText 1:\n' + description_generated + '\n\nText 2:\n' + description_actual + '\n\nScore:'
+        response = _get_response(query, 'gpt-3.5-turbo-0125')
+        score = [int(i) for i in response if i.isdigit()]
+        if len(score) == 2:
+            score = 10
+        else:
+            score = score[0]
+        print('The score for the get_description function is ' + str(score) + ' out of 10\n\n')
+        results += score
+    print('The get_description function got a score of ' + str(results) + ' %')
+
+
+def _new_widget_evaluation(check_response=True, model='gpt-3.5-turbo-0125'):
+    """
+    This function evaluates the performance of the Workflow.get_new_widget function by comparing the output of the
+    function with the actual widget that comes next in the workflow.
+    check_response: bool
+    model: str
     """
     n_correct = 0
     ignored = 0
-    filenames = get_filenames('data/workflows/evaluation/new-widgets')
+    count = 0
+    filenames = _get_filenames('data/workflows/evaluation/new-widgets')
     with open('data/workflows/evaluation/new-widgets/new-widget-evaluation.yaml', 'r') as file:
         workflows_info = yaml.safe_load(file)
     for name in filenames:
@@ -1704,16 +1757,17 @@ def new_widget_evaluation(check_all=True, model='gpt-3.5-turbo-0125'):
         except ValueError:
             ignored += 1
             continue
-        possible_widgets, _ = find_closest_workflows(workflow)
-        possible_widgets = augment_widget_list(possible_widgets, present_widgets=workflow.get_widgets())
+        possible_widgets, _ = find_similar_workflows(workflow, return_workflows=False)
         if isinstance(workflows_info[name.split('/')[-1]]['goal'], list):
             for goal in workflows_info[name.split('/')[-1]]['goal']:
+                possible_widgets = _augment_widget_list(possible_widgets, present_widgets=workflow.get_widgets(), goal=goal)
                 print('Evaluating the new_widget_prompt function for the workflow: ' + name + ' for goal ' + goal)
                 target_widget = workflows_info[name.split('/')[-1]]['widget'][goal]
-                if check_all:
-                    response = workflow.get_new_widget(return_widget=True, goal=goal, model=model)
+                if check_response:
+                    response = list(workflow.get_new_widget(goal=goal, model=model).keys())
                 else:
                     response = ''
+                count += 1
                 if isinstance(target_widget, list):
                     found = 0
                     present = False
@@ -1728,7 +1782,7 @@ def new_widget_evaluation(check_all=True, model='gpt-3.5-turbo-0125'):
                         print('The response does not contain the removed widget for the workflow: ' + name + ' for goal ' + goal)
                         if not present:
                             print('The widget is not in the possible widgets')
-                            if not check_all:
+                            if not check_response:
                                 for i in possible_widgets:
                                     print(str(i))
                 else:
@@ -1738,17 +1792,19 @@ def new_widget_evaluation(check_all=True, model='gpt-3.5-turbo-0125'):
                         print('The response does not contain the removed widget for the workflow: ' + name + ' for goal ' + goal)
                         if Widget(target_widget) not in possible_widgets:
                             print('The widget is not in the possible widgets')
-                            if not check_all:
+                            if not check_response:
                                 for i in possible_widgets:
                                     print(str(i))
                 print()
         else:
             print('Evaluating the new_widget_prompt function for the workflow: ' + name)
+            possible_widgets = _augment_widget_list(possible_widgets, present_widgets=workflow.get_widgets(), goal=workflows_info[name.split('/')[-1]]['goal'])
             target_widget = workflows_info[name.split('/')[-1]]['widget']
-            if check_all:
-                response = workflow.get_new_widget(return_widget=True, goal=workflows_info[name.split('/')[-1]]['goal'], model=model)
+            if check_response:
+                response = list(workflow.get_new_widget(goal=workflows_info[name.split('/')[-1]]['goal'], model=model).keys())
             else:
                 response = ''
+            count += 1
             if isinstance(target_widget, list):
                 found = 0
                 present = False
@@ -1763,7 +1819,7 @@ def new_widget_evaluation(check_all=True, model='gpt-3.5-turbo-0125'):
                     print('The response does not contain the removed widget for the workflow: ' + name)
                     if not present:
                         print('The widget is not in the possible widgets')
-                        if not check_all:
+                        if not check_response:
                             for i in possible_widgets:
                                 print(str(i))
                 print('\n')
@@ -1772,13 +1828,13 @@ def new_widget_evaluation(check_all=True, model='gpt-3.5-turbo-0125'):
                     print('The response does not contain the removed widget for the workflow: ' + name)
                     if Widget(target_widget) not in possible_widgets:
                         print('The widget is not in the possible widgets')
-                        if not check_all:
+                        if not check_response:
                             for i in possible_widgets:
                                 print(str(i))
                 else:
                     n_correct += 1
                 print('\n')
-    print('The new_widget_prompt function predicts ' + str(n_correct) + ' out of ' + str(len(filenames)-ignored+1) + ' workflows correctly')
-    print('The accuracy of the new_widget_prompt function is ' + str(n_correct/(len(filenames)-ignored+1)*100)[:4] + '%')
+    print('The new_widget_prompt function predicts ' + str(n_correct) + ' out of ' + str(count) + ' workflows correctly')
+    print('The accuracy of the new_widget_prompt function is ' + str(n_correct/count*100)[:4] + '%')
 
 #%%
