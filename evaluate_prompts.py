@@ -32,6 +32,7 @@ for type_of_desc in ['concise', 'detailed']:
             options={'num_ctx': 8192}
         )
         response = response['message']['content']
+        print(response)
         score = [int(i) for i in response if i.isdigit()]
         if len(score) == 2:
             score = 10
