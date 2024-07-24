@@ -15,8 +15,12 @@ polynomial-regression-analysis.png:
   widget: 'Data/Data Table'
   goal: 'Data Visualization'
 survival-feature-ranking.png:
-  widget: 'Survival Analysis/Kaplan-Meier Plot'
-  goal: 'Model Visualization'
+  widget: 
+    Model Visualization: 'Survival Analysis/Kaplan-Meier Plot'
+    Further Analysis: 'Survival Analysis/Rank Survival Features'
+  goal: 
+    - 'Model Visualization'
+    - 'Further Analysis'
 corpus-from-documents.png:
   widget: 'Text Mining/Corpus Viewer'
   goal: 'Data Visualization'
@@ -89,10 +93,54 @@ image-embedding-analysis.png:
   widget: 'Image Analytics/Image Grid'
   goal: 'Further Analysis'
 image-loading.png:
-  widget: 'Image Analytics/Image Embedding'
-  goal: 'Data Transformation'
+  widget: 
+    Data Transformation: 'Image Analytics/Image Embedding'
+    Data Visualization: 'Image Analytics/Image Viewer'
+  goal: 
+    - 'Data Transformation'
+    - 'Data Visualization'
 corpus-loading.png:
   widget:
-    - 'Text Mining/Document Embedding'
-    - 'Text Mining/Preprocess Text'
-  goal: 'Data Transformation'
+    Data Transformation:
+      - 'Text Mining/Document Embedding'
+      - 'Text Mining/Preprocess Text'
+    Further Analysis: 
+      - 'Text Mining/Concordance'
+      - 'Text Mining/Word Cloud'
+  goal: 
+    - 'Data Transformation'
+    - 'Further Analysis'
+data-loading-and-sampler.png:
+  widget:
+    Classification: 
+      - 'Model/Logistic Regression'
+      - 'Model/Tree'
+    Dimensionality reduction:
+      - 'Unsupervised/PCA'
+      - 'Unsupervised/t-SNE'
+  goal: 
+    - 'Classification'
+    - 'Dimensionality reduction'
+sampled-pca-analysis.png:
+  widget:
+    Apply the model to the data: 'Transform/Apply Domain'
+    Data Visualization: 'Visualize/Scatter Plot'
+  goal: 
+    - 'Apply the model to the data'
+    - 'Data Visualization'
+file-loading.png:
+  widget:
+    Data Transformation:
+      - 'Transform/Formula'
+      - 'Transform/Preprocess'
+      - 'Transform/Randomize'
+    Feature Selection:
+      - 'Transform/Select Columns'
+  goal:
+    - 'Data Transformation'
+    - 'Feature Selection'
+geocoding-hierarchical-clustering-analysis.png:
+  widget: 
+    - 'Geo/Choropleth Map'
+    - 'Geo/Geo Map'
+  goal: 'Data visualization on world map'
