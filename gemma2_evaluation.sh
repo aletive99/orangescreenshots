@@ -2,7 +2,7 @@
 
 #SBATCH --job-name=test_gemma2_27b      # Job name
 #SBATCH --partition=dev				    # Partition name, e.g., gpu
-#SBATCH --gres=gpu:1                    # Request 4 GPUs
+#SBATCH --gres=gpu:6                    # Request 6 GPUs
 #SBATCH --ntasks=1                      # Number of tasks
 #SBATCH --cpus-per-task=16              # Number of CPU cores per task
 #SBATCH --mem=64G                       # Memory per node
