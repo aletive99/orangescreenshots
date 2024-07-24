@@ -6,7 +6,7 @@ with open('data/prompts/text-comparison-prompt.md', 'r') as file:
     query_start = file.read()
 results = 0
 with open('data/workflows/evaluation/name-and-description/description-evaluation.yaml', 'r') as file:
-    widgets_info = yaml.safe_load(file)
+    widgets_info = yaml.safe_load(file.read().replace('\t', '  '))
 for type_of_desc in ['concise', 'detailed']:
     for name in filenames:
         workflow = Workflow(name)
@@ -48,7 +48,7 @@ ignored = 0
 count = 0
 filenames = get_filenames('data/workflows/evaluation/new-widgets')
 with open('data/workflows/evaluation/new-widgets/new-widget-evaluation.yaml', 'r') as file:
-    workflows_info = yaml.safe_load(file)
+    workflows_info = yaml.safe_load(file.read().replace('\t', '  '))
 for name in filenames:
     try:
         workflow = Workflow(name)
