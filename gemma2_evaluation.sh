@@ -9,5 +9,7 @@
 #SBATCH --time=2:00:00                	# Time limit
 #SBATCH --output=results_%j.log         # Output log file (%j expands to jobID)
 
+ollama serve > /dev/null 2>&1 &
+
 # Run the Python script
 python3 evaluate_prompts.py
