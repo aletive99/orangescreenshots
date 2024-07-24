@@ -19,7 +19,7 @@ import pickle
 from sklearn.metrics.pairwise import cosine_similarity
 
 
-def _get_filenames(direct, ext='image'):
+def get_filenames(direct, ext='image'):
     """
     This function gets the filenames of the widgets from the folder created by the get_widgets function. By default, the
     extension is set to 'image' meaning that only images of the type '.png' and '.jpg' will be extracted, but it can be
@@ -59,7 +59,7 @@ def _download_widgets():
         i = 0
         remember = -1
         only_check = False
-        if len(_get_filenames(destination_dir)) > 200:
+        if len(get_filenames(destination_dir)) > 200:
             only_check = True
         if not only_check:
             progress_bar = tqdm(total=n_iter, desc="Progress")
@@ -267,7 +267,7 @@ def _is_there_widget_creation(img_name, value_thresh=0.8):
     widget_size = _size_identification(img_name)
     if widget_size is None:
         return None
-    img_names_tgt = _get_filenames('widgets')
+    img_names_tgt = get_filenames('widgets')
     check_img = _widget_loading(img_names_tgt, img_name)
     is_there_widget = np.zeros((len(check_img), 5), dtype='int64')
     image_to_check = _screenshot_loading(img_name)
@@ -365,7 +365,7 @@ def draw_locations(img_name, return_img=False):
         cv.rectangle(image, (coord_x[j]-thickness, coord_y[j]-thickness), (coord_x[j]+thickness, coord_y[j]+thickness),
                      (0, 0, 255), 2)
         adjusted_element_index[j] = indexes[j] - min(is_there_widget[indexes[j], 0], 0) - len(is_there_widget)
-        label = urllib.parse.unquote(_get_filenames('widgets/')[adjusted_element_index[j]])
+        label = urllib.parse.unquote(get_filenames('widgets/')[adjusted_element_index[j]])
         if len(label.split('-')) == 2:
             label = label.split('-')[1]
         else:
@@ -437,7 +437,7 @@ def _widgets_from_image(img_name, return_list=True):
     is_there_widget = _is_there_widget_creation(img_name)
     if is_there_widget is None:
         return None
-    img_names_tgt = _get_filenames('widgets/')
+    img_names_tgt = get_filenames('widgets/')
     ind_present = np.where(is_there_widget[:, 0] != 0)[0].astype(dtype='int64')
     adjusted_element_index = np.zeros_like(ind_present)
     widget_list = list([])
@@ -507,7 +507,7 @@ def _link_detection(img_name, show_process=False):
     which_multiple = widgets_unique[np.where(widgets_num > 1)[0]]
     if which_multiple.size > 0:
         checked_ind = np.zeros((len(which_multiple), np.max(widgets_num)), dtype='int64')
-    img_names_tgt = _get_filenames('widgets/')
+    img_names_tgt = get_filenames('widgets/')
     final_size, _ = _get_sizes(img_name)
     widget_size = _size_identification(img_name)
     tol = round(widget_size/2)
@@ -658,7 +658,7 @@ def _extract_workflow_from_image(img_name, show_process=False):
     links, _ = _link_detection(img_name, show_process)
     if links is None:
         return None
-    img_names_tgt = _get_filenames('widgets/')
+    img_names_tgt = get_filenames('widgets/')
     if np.sum(links) == 0:
         return None
     a, b = np.where(links != 0)
@@ -773,7 +773,7 @@ class Widget:
                 return None
 
 
-def _augment_widget_list(widget_list, present_widgets, goal=None, n=20, k=4):
+def augment_widget_list(widget_list, present_widgets, goal=None, n=20, k=4):
     """
     This function augments the widget list given as input by adding widgets that are similar to the ones in the list. The
     similarity is assessed through the embedding of the widget descriptions performed by the BERT model and saved by the
@@ -876,7 +876,7 @@ class Workflow:
         if data is None:
             if _size_identification(self.path) is not None:
                 is_there_widget = _is_there_widget_creation(self.path)
-                img_names_tgt = _get_filenames('widgets/')
+                img_names_tgt = get_filenames('widgets/')
                 ind_present = np.where(is_there_widget[:, 0] != 0)[0].astype(dtype='int64')
                 adjusted_element_index = ind_present - min(is_there_widget[ind_present, 0], 0)
                 tmp = urllib.parse.unquote(img_names_tgt[adjusted_element_index[0]])
@@ -1099,7 +1099,7 @@ def _update_image_list():
     the information about the images present in the notebooks. If an image file has not been updated for 30 days it will
     be updated, otherwise it will stay the same.
     """
-    markdown_names = _get_filenames('orange-lecture-notes-web/public/chapters', 'index.md')
+    markdown_names = get_filenames('orange-lecture-notes-web/public/chapters', 'index.md')
     today = date.today()
     yaml_direct = 'image-analysis-results'
     os.makedirs(yaml_direct, exist_ok=True)
@@ -1127,7 +1127,7 @@ def _update_image_list():
                 else:
                     title = data
                     break
-        img_names = _get_filenames('orange-lecture-notes-web/public/chapters/' + direct)
+        img_names = get_filenames('orange-lecture-notes-web/public/chapters/' + direct)
         for j in range(len(img_names)):
             img_names[j] = img_names[j].split('/')[-1]
         if len(img_names) > 0:
@@ -1161,7 +1161,7 @@ def _update_widget_list():
             widgets = yaml.full_load(file)
     except FileNotFoundError:
         widgets = dict({})
-    img_names_to_check = _get_filenames('orange-lecture-notes-web/public/chapters/')
+    img_names_to_check = get_filenames('orange-lecture-notes-web/public/chapters/')
     progress_bar = tqdm(total=len(img_names_to_check), desc="Progress")
     for i in range(len(img_names_to_check)):
         size = _size_identification(img_names_to_check[i])
@@ -1219,7 +1219,7 @@ def _update_image_links():
             links = yaml.full_load(file)
     except FileNotFoundError:
         links = dict({})
-    img_names_to_check = _get_filenames('orange-lecture-notes-web/public/chapters/')
+    img_names_to_check = get_filenames('orange-lecture-notes-web/public/chapters/')
     progress_bar = tqdm(total=len(img_names_to_check), desc="Progress")
     for i in range(len(img_names_to_check)):
         size = _size_identification(img_names_to_check[i])
@@ -1283,7 +1283,7 @@ def _crop_workflows(directory_to_check='orange-lecture-notes-web/public/chapters
             if widgets[name]['widgets'] is not None:
                 list_to_check.append(directory_to_check + widgets[name]['path'] + '/' + widgets[name]['filename'])
     elif no_yaml:
-        list_to_check = _get_filenames(directory_to_check)
+        list_to_check = get_filenames(directory_to_check)
     else:
         list_to_check = [img_name]
     progress_bar = tqdm(total=len(list_to_check), desc="Progress")
@@ -1448,7 +1448,7 @@ def _create_dataset(orange_dataset=True, min_thresh=3):
     :param min_thresh: int
     """
     try:
-        img_names_to_check = _get_filenames('cropped-workflows/')
+        img_names_to_check = get_filenames('cropped-workflows/')
     except FileNotFoundError:
         print('There are no cropped workflows, run the function crop_workflows() first')
         return None
@@ -1512,7 +1512,7 @@ def _get_example_workflows(concise_description):
     :param concise_description: str
     :return: output_list: list of lists of str, list of tuples of tuples, str
     """
-    folders = _get_filenames('data/workflows/samples')
+    folders = get_filenames('data/workflows/samples')
     output_list = []
     for i in folders:
         image_name = i.split('/')[-1]
@@ -1697,9 +1697,9 @@ def get_new_widget_prompt(img_name, goal='Not specified', remove_widget=False, r
             return None
     possible_widgets, removed_widget = find_similar_workflows(workflow, remove_widget=remove_widget, return_workflows=False)
     if goal == 'Not specified':
-        possible_widgets = _augment_widget_list(possible_widgets, present_widgets=workflow.get_widgets())
+        possible_widgets = augment_widget_list(possible_widgets, present_widgets=workflow.get_widgets())
     else:
-        possible_widgets = _augment_widget_list(possible_widgets, present_widgets=workflow.get_widgets(), goal=goal)
+        possible_widgets = augment_widget_list(possible_widgets, present_widgets=workflow.get_widgets(), goal=goal)
     query += '## Workflow:\nLinks in the workflow:\n' + str(workflow) + '\n\nWidget descriptions:\n'
     query += workflow.get_context(True)
     query += '## Possible widgets:\n'
@@ -1718,7 +1718,7 @@ def _description_evaluation(model='gpt-3.5-turbo-0125', concise_description=True
     This function evaluates the performance of the Workflow.get_description function by comparing the output of the
     function with the actual description of the widget, by comparing the two descriptions using ChatGPT.
     """
-    filenames = _get_filenames('data/workflows/evaluation/name-and-description')
+    filenames = get_filenames('data/workflows/evaluation/name-and-description')
     with open('data/prompts/text-comparison-prompt.md', 'r') as file:
         query_start = file.read()
     results = 0
@@ -1755,7 +1755,7 @@ def _new_widget_evaluation(check_response=True, model='gpt-3.5-turbo-0125'):
     n_correct = 0
     ignored = 0
     count = 0
-    filenames = _get_filenames('data/workflows/evaluation/new-widgets')
+    filenames = get_filenames('data/workflows/evaluation/new-widgets')
     with open('data/workflows/evaluation/new-widgets/new-widget-evaluation.yaml', 'r') as file:
         workflows_info = yaml.safe_load(file)
     for name in filenames:
@@ -1767,7 +1767,7 @@ def _new_widget_evaluation(check_response=True, model='gpt-3.5-turbo-0125'):
         possible_widgets, _ = find_similar_workflows(workflow, return_workflows=False)
         if isinstance(workflows_info[name.split('/')[-1]]['goal'], list):
             for goal in workflows_info[name.split('/')[-1]]['goal']:
-                possible_widgets = _augment_widget_list(possible_widgets, present_widgets=workflow.get_widgets(), goal=goal)
+                possible_widgets = augment_widget_list(possible_widgets, present_widgets=workflow.get_widgets(), goal=goal)
                 print('Evaluating the new_widget_prompt function for the workflow: ' + name + ' for goal ' + goal)
                 target_widget = workflows_info[name.split('/')[-1]]['widget'][goal]
                 if check_response:
@@ -1805,7 +1805,7 @@ def _new_widget_evaluation(check_response=True, model='gpt-3.5-turbo-0125'):
                 print()
         else:
             print('Evaluating the new_widget_prompt function for the workflow: ' + name)
-            possible_widgets = _augment_widget_list(possible_widgets, present_widgets=workflow.get_widgets(), goal=workflows_info[name.split('/')[-1]]['goal'])
+            possible_widgets = augment_widget_list(possible_widgets, present_widgets=workflow.get_widgets(), goal=workflows_info[name.split('/')[-1]]['goal'])
             target_widget = workflows_info[name.split('/')[-1]]['widget']
             if check_response:
                 response = list(workflow.get_new_widget(goal=workflows_info[name.split('/')[-1]]['goal'], model=model).keys())

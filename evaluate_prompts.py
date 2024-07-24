@@ -7,7 +7,7 @@ with open('data/prompts/text-comparison-prompt.md', 'r') as file:
 results = 0
 with open('data/workflows/evaluation/name-and-description/description-evaluation.yaml', 'r') as file:
     widgets_info = yaml.safe_load(file)
-for type_of_desc in ['concise', detailed]:
+for type_of_desc in ['concise', 'detailed']:
     for name in filenames:
         workflow = Workflow(name)
         prompt = get_workflow_description_prompt(workflow, type_of_desc)
@@ -18,7 +18,7 @@ for type_of_desc in ['concise', detailed]:
             options={'num_ctx': 8192}
         )
         description_generated = response['message']['content']
-        if concise_description:
+        if type_of_desc == 'concise':
             description_actual = widgets_info[name.split('/')[-1]]['concise']
         else:
             description_actual = widgets_info[name.split('/')[-1]]['detailed']
@@ -84,9 +84,6 @@ for name in filenames:
                     print('The response does not contain the removed widget for the workflow: ' + name + ' for goal ' + goal)
                     if not present:
                         print('The widget is not in the possible widgets')
-                        if not check_response:
-                            for i in possible_widgets:
-                                print(str(i))
             else:
                 if target_widget in response:
                     n_correct += 1
@@ -123,9 +120,6 @@ for name in filenames:
                 print('The response does not contain the removed widget for the workflow: ' + name)
                 if not present:
                     print('The widget is not in the possible widgets')
-                    if not check_response:
-                        for i in possible_widgets:
-                            print(str(i))
             print('\n')
         else:
             if target_widget not in response:
