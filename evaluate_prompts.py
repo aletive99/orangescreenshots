@@ -7,7 +7,7 @@ with open('data/prompts/text-comparison-prompt.md', 'r') as file:
 results = 0
 with open('data/workflows/evaluation/name-and-description/description-evaluation.yaml', 'r') as file:
     widgets_info = yaml.safe_load(file)
-for type_of_desc in ['concise', detailed]
+for type_of_desc in ['concise', detailed]:
     for name in filenames:
         workflow = Workflow(name)
         prompt = get_workflow_description_prompt(workflow, type_of_desc)
