@@ -1,4 +1,4 @@
-from orangescreenshots import *
+from .orangescreenshots import *
 import ollama
 
 filenames = _get_filenames('data/workflows/evaluation/name-and-description')
