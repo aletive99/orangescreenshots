@@ -106,7 +106,7 @@ for name in filenames:
         possible_widgets = oss._augment_widget_list(possible_widgets, present_widgets=workflow.get_widgets(), goal=workflows_info[name.split('/')[-1]]['goal'])
         target_widget = workflows_info[name.split('/')[-1]]['widget']
 
-        prompt = oss.get_new_widget_prompt(workflow, workflows_info[name.split('/')[-1]]['goal'], return_query=True)
+        prompt = oss.get_new_widget_prompt(workflow, workflows_info[name.split('/')[-1]]['goal'], True)
         response = ollama.chat(
             model='gemma2:27b',
             messages=[{'role': 'user', 'content': prompt}],
