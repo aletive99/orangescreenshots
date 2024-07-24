@@ -19,6 +19,27 @@ import pickle
 from sklearn.metrics.pairwise import cosine_similarity
 
 
+def _get_filenames(direct, ext='image'):
+    """
+    This function gets the filenames of the widgets from the folder created by the get_widgets function. By default, the
+    extension is set to 'image' meaning that only images of the type '.png' and '.jpg' will be extracted, but it can be
+    changed according to the needs of the user by specifying an actual extension. The function returns a list with the
+    full path of the widgets with the desired extension
+    :param direct: str
+    :param ext: str
+    :return: img_names_tgt: np.array
+    """
+    img_names_tgt = []
+    for root, dirs, filenames in os.walk(direct):
+        for filename in filenames:
+            if ext == 'image':
+                if filename.endswith('.png') or filename.endswith('.jpg') or filename.endswith('.jpeg'):
+                    img_names_tgt.append(os.path.join(root, filename))
+            elif filename.endswith(ext):
+                img_names_tgt.append(os.path.join(root, filename))
+    return img_names_tgt
+
+
 def _download_widgets():
     """
     These operations guarantee that the widgets are downloaded and updated everytime the library is imported.
@@ -123,27 +144,6 @@ def _get_sizes(img_name):
     ratio = target_size/widget_size
     final_size = np.floor(ratio*pixels_to_keep).astype(dtype='int64')
     return final_size, pixels_to_keep
-
-
-def _get_filenames(direct, ext='image'):
-    """
-    This function gets the filenames of the widgets from the folder created by the get_widgets function. By default, the
-    extension is set to 'image' meaning that only images of the type '.png' and '.jpg' will be extracted, but it can be
-    changed according to the needs of the user by specifying an actual extension. The function returns a list with the
-    full path of the widgets with the desired extension
-    :param direct: str
-    :param ext: str
-    :return: img_names_tgt: np.array
-    """
-    img_names_tgt = []
-    for root, dirs, filenames in os.walk(direct):
-        for filename in filenames:
-            if ext == 'image':
-                if filename.endswith('.png') or filename.endswith('.jpg') or filename.endswith('.jpeg'):
-                    img_names_tgt.append(os.path.join(root, filename))
-            elif filename.endswith(ext):
-                img_names_tgt.append(os.path.join(root, filename))
-    return img_names_tgt
 
 
 def _widget_loading(img_names_tgt, img_name, save_sample=False):
