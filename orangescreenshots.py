@@ -38,7 +38,7 @@ def _download_widgets():
         i = 0
         remember = -1
         only_check = False
-        if os.path.exists(destination_dir):
+        if len(_get_filenames(destination_dir)) > 200:
             only_check = True
         if not only_check:
             progress_bar = tqdm(total=n_iter, desc="Progress")
