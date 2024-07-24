@@ -27,12 +27,11 @@ for type_of_desc in ['concise', 'detailed']:
         query += '\n\nText 1:\n' + description_generated + '\n\nText 2:\n' + description_actual + '\n\nScore:'
         response = ollama.chat(
             model='gemma2:27b',
-            messages=[{'role': 'user', 'content': prompt}],
+            messages=[{'role': 'user', 'content': query}],
             stream=False,
             options={'num_ctx': 8192}
         )
         response = response['message']['content']
-        print(response)
         score = [int(i) for i in response if i.isdigit()]
         if len(score) == 2:
             score = 10
