@@ -1,4 +1,5 @@
 from orangescreenshots import *
+import ollama
 
 filenames = _get_filenames('data/workflows/evaluation/name-and-description')
 with open('data/prompts/text-comparison-prompt.md', 'r') as file:
