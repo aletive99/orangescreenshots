@@ -1,7 +1,6 @@
 import orangescreenshots as oss
 import ollama
 import yaml
-from openai import OpenAI
 
 filenames = oss._get_filenames('data/workflows/evaluation/name-and-description')
 with open('data/prompts/text-comparison-prompt.md', 'r') as file:
@@ -28,17 +27,13 @@ for type_of_desc in ['concise', 'detailed']:
         print(print1)
         query = query_start
         query += '\n\nText 1:\n' + description_generated + '\n\nText 2:\n' + description_actual + '\n\nScore:'
-        client = OpenAI(api_key=api_key, organization='org-FvAFSFT8g0844DCWV1T2datD')
-        response = client.chat.completions.create(model='gpt-3.5-turbo-0125',
-                                                  messages=[
-                                                      {"role": "system", "content": "You are ChatGPT, a large language model trained by OpenAI. "
-                                                                                    "Answer as concisely as possible.\nKnowledge cutoff: 2021-09-01"
-                                                                                    "\nCurrent date: {CurrentDate}"},
-                                                      {'role': 'user', 'content': query},
-                                                  ],
-                                                  temperature=0.5,
-                                                  top_p=0.5)
-        response = response.choices[0].message.content
+        response = ollama.chat(
+            model='gemma2:27b',
+            messages=[{'role': 'user', 'content': query}],
+            stream=False,
+            options={'num_ctx': 8192, 'temperature': 0.5, 'top_p': 0.5}
+        )
+        response = response['message']['content']
         score = [int(i) for i in response if i.isdigit()]
         if len(score) == 2:
             score = 10
