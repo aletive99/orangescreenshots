@@ -28,7 +28,6 @@ for type_of_desc in ['concise', 'detailed']:
         print(print1)
         query = query_start
         query += '\n\nText 1:\n' + description_generated + '\n\nText 2:\n' + description_actual + '\n\nScore:'
-        api_key = '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'
         client = OpenAI(api_key=api_key, organization='org-FvAFSFT8g0844DCWV1T2datD')
         response = client.chat.completions.create(model='gpt-3.5-turbo-0125',
                                                   messages=[
