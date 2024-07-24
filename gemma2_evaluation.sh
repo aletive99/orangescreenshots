@@ -6,7 +6,7 @@
 #SBATCH --ntasks=1                      # Number of tasks
 #SBATCH --cpus-per-task=16              # Number of CPU cores per task
 #SBATCH --mem=64G                       # Memory per node
-#SBATCH --time=24:00:00                 # Time limit
+#SBATCH --time=2:00:00                	# Time limit
 #SBATCH --output=results_%j.log         # Output log file (%j expands to jobID)
 
 # Load necessary modules (if any)
