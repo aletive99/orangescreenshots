@@ -105,8 +105,7 @@ for name in filenames:
         print('Evaluating the new_widget_prompt function for the workflow: ' + name)
         possible_widgets = oss._augment_widget_list(possible_widgets, present_widgets=workflow.get_widgets(), goal=workflows_info[name.split('/')[-1]]['goal'])
         target_widget = workflows_info[name.split('/')[-1]]['widget']
-
-        prompt = oss.get_new_widget_prompt(workflow, workflows_info[name.split('/')[-1]]['goal'], True)
+        prompt = oss.get_new_widget_prompt(workflow, workflows_info[name.split('/')[-1]]['goal'], return_query=True)
         response = ollama.chat(
             model='gemma2:27b',
             messages=[{'role': 'user', 'content': prompt}],
@@ -126,7 +125,7 @@ for name in filenames:
                     n_correct += 1
                     break
             if found == 0:
-                print2 = 'The response does not contain the removed widget for the workflow: ' + name + ' for goal ' + goal
+                print2 = 'The response does not contain the removed widget for the workflow: ' + name + ' for goal ' + workflows_info[name.split('/')[-1]]['goal']
                 print(print2)
                 if not present:
                     print3 = 'The widget is not in the possible widgets'
@@ -134,7 +133,7 @@ for name in filenames:
             print('\n')
         else:
             if target_widget not in response:
-                print2 = 'The response does not contain the removed widget for the workflow: ' + name + ' for goal ' + goal
+                print2 = 'The response does not contain the removed widget for the workflow: ' + name + ' for goal ' + workflows_info[name.split('/')[-1]]['goal']
                 print(print2)
                 if oss.Widget(target_widget) not in possible_widgets:
                     print3 = 'The widget is not in the possible widgets'
