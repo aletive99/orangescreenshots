@@ -1,7 +1,7 @@
 from orangescreenshots import *
 import ollama
 
-filenames = _get_filenames('data/workflows/evaluation/name-and-description')
+filenames = get_filenames('data/workflows/evaluation/name-and-description')
 with open('data/prompts/text-comparison-prompt.md', 'r') as file:
     query_start = file.read()
 results = 0
@@ -46,7 +46,7 @@ for type_of_desc in ['concise', 'detailed']:
 n_correct = 0
 ignored = 0
 count = 0
-filenames = _get_filenames('data/workflows/evaluation/new-widgets')
+filenames = get_filenames('data/workflows/evaluation/new-widgets')
 with open('data/workflows/evaluation/new-widgets/new-widget-evaluation.yaml', 'r') as file:
     workflows_info = yaml.safe_load(file)
 for name in filenames:
@@ -58,7 +58,7 @@ for name in filenames:
     possible_widgets, _ = find_similar_workflows(workflow, return_workflows=False)
     if isinstance(workflows_info[name.split('/')[-1]]['goal'], list):
         for goal in workflows_info[name.split('/')[-1]]['goal']:
-            possible_widgets = _augment_widget_list(possible_widgets, present_widgets=workflow.get_widgets(), goal=goal)
+            possible_widgets = augment_widget_list(possible_widgets, present_widgets=workflow.get_widgets(), goal=goal)
             print('Evaluating the new_widget_prompt function for the workflow: ' + name + ' for goal ' + goal)
             target_widget = workflows_info[name.split('/')[-1]]['widget'][goal]
             prompt = get_new_widget_prompt(workflow, goal, True)
@@ -94,7 +94,7 @@ for name in filenames:
             print()
     else:
         print('Evaluating the new_widget_prompt function for the workflow: ' + name)
-        possible_widgets = _augment_widget_list(possible_widgets, present_widgets=workflow.get_widgets(), goal=workflows_info[name.split('/')[-1]]['goal'])
+        possible_widgets = augment_widget_list(possible_widgets, present_widgets=workflow.get_widgets(), goal=workflows_info[name.split('/')[-1]]['goal'])
         target_widget = workflows_info[name.split('/')[-1]]['widget']
 
         prompt = get_new_widget_prompt(workflow, workflows_info[name.split('/')[-1]]['goal'], True)
