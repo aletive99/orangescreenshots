@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #SBATCH --job-name=test_gemma2_27b      # Job name
-#SBATCH --partition=dev				          # Partition name, e.g., gpu
+#SBATCH --partition=dev				    # Partition name, e.g., gpu
 #SBATCH --gres=gpu:4                    # Request 4 GPUs
 #SBATCH --ntasks=1                      # Number of tasks
 #SBATCH --cpus-per-task=16              # Number of CPU cores per task

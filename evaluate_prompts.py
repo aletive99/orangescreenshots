@@ -25,7 +25,13 @@ for type_of_desc in ['concise', detailed]:
         print('Evaluating the get_description function for the workflow: ' + name)
         query = query_start
         query += '\n\nText 1:\n' + description_generated + '\n\nText 2:\n' + description_actual + '\n\nScore:'
-        response = _get_response(query, 'gpt-3.5-turbo-0125')
+        response = ollama.chat(
+            model='gemma2:27b',
+            messages=[{'role': 'user', 'content': prompt}],
+            stream=False,
+            options={'num_ctx': 8192}
+        )
+        response = response['message']['content']
         score = [int(i) for i in response if i.isdigit()]
         if len(score) == 2:
             score = 10
