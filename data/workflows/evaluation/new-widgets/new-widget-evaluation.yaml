@@ -24,18 +24,18 @@ text-preprocessing-workflow.png:
   widget: 
     - 'Text Mining/Word Cloud'
     - 'Text Mining/Bag of Words'
-  goal: 'Further text mining analysis'
+  goal: 'Further analysis'
 painted-data-distances.png:
   widget: 
     - 'Unsupervised/MDS'
     - 'Unsupervised/Hierarchical Clustering'
-  goal: 'Further distance-based analysis'
+  goal: 'Further analysis'
 semantic-document-embedding.png:
   widget: 'Unsupervised/t-SNE'
-  goal: 'Further distance-based analysis'
+  goal: 'Further analysis'
 distance-and-text-analysis.png:
   widget: 'Unsupervised/Hierarchical Clustering'
-  goal: 'Further distance-based analysis'
+  goal: 'Further analysis'
 data-tree-visualization.png:
   widget: 'Visualize/Box Plot'
   goal: 'Data visualization'
@@ -74,19 +74,19 @@ PCA-data-transformation.png:
   goal: 'Data visualization'
 text-document-visualization.png:
   widget: 'Text Mining/Annotated Corpus Map'
-  goal: 'Further text mining analysis'
+  goal: 'Further analysis'
 topic-modeling-with-bag-of-words.png:
   widget: 'Text Mining/LDAvis'
-  goal: 'Further text mining analysis'
+  goal: 'Further analysis'
 bag-of-words-analysis.png:
   widget: 'Text Mining/Word Enrichment'
-  goal: 'Further text mining analysis'
+  goal: 'Further analysis'
 box-plot-visualization.png:
   widget: 'Transform/Purge Domain'
   goal: 'Data transformation'
 image-embedding-analysis.png:
   widget: 'Image Analytics/Image Grid'
-  goal: 'Further distance-based analysis'
+  goal: 'Further analysis'
 image-loading.png:
   widget: 
     Data transformation: 'Image Analytics/Image Embedding'
@@ -99,12 +99,12 @@ corpus-loading.png:
     Data transformation:
       - 'Text Mining/Document Embedding'
       - 'Text Mining/Preprocess Text'
-    Further text mining analysis: 
+    Further analysis: 
       - 'Text Mining/Concordance'
       - 'Text Mining/Word Cloud'
   goal: 
     - 'Data transformation'
-    - 'Further text mining analysis'
+    - 'Further analysis'
 data-loading-and-sampler.png:
   widget:
     Classification: 
