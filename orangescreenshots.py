@@ -879,6 +879,7 @@ class Workflow:
                 img_names_tgt = _get_filenames('widgets/')
                 ind_present = np.where(is_there_widget[:, 0] != 0)[0].astype(dtype='int64')
                 adjusted_element_index = ind_present - min(is_there_widget[ind_present, 0], 0)
+                adjusted_element_index = np.where(adjusted_element_index > len(is_there_widget) - 1, adjusted_element_index - len(is_there_widget), adjusted_element_index)
                 tmp = urllib.parse.unquote(img_names_tgt[adjusted_element_index[0]])
                 _, module_name = os.path.split(tmp)
                 if len(module_name.split('-')) == 2:

@@ -11,4 +11,4 @@
 ollama serve > /dev/null 2>&1 &
 
 # Run the Python script
-python3 -W ignore gemma2_description_evaluation.py
+PYTHONWARNINGS="ignore" python3 gemma2_description_evaluation.py
