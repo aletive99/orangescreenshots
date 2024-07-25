@@ -28,7 +28,7 @@ for name in filenames:
                 stream=False,
                 options={'num_ctx': 8192, 'temperature': 0.3, 'top_p': 0.1}
             )
-            response = response['message']['content'].split('yaml\n')[-1].split('`')[0]
+            response = response['message']['content'].split('yaml\n')[-1].split('`')[0].split('"')[1].split("'")[0]
             print(response)
             response = list(yaml.safe_load(response).keys())
             count += 1
@@ -70,7 +70,7 @@ for name in filenames:
             stream=False,
             options={'num_ctx': 8192, 'temperature': 0.3, 'top_p': 0.1}
         )
-        response = response['message']['content'].split('yaml\n')[-1].split('`')[0]
+        response = response['message']['content'].split('yaml\n')[-1].split('`')[0].split('"')[1].split("'")[0]
         print(response)
         response = list(yaml.safe_load(response).keys())
         count += 1
