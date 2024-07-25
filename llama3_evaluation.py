@@ -3,7 +3,7 @@ import ollama
 import yaml
 from openai import OpenAI
 
-filenames = oss._get_filenames('data/workflows/evaluation/name-and-description')
+"""filenames = oss._get_filenames('data/workflows/evaluation/name-and-description')
 with open('data/prompts/text-comparison-prompt.md', 'r') as file:
     query_start = file.read()
 with open('data/workflows/evaluation/name-and-description/description-evaluation.yaml', 'r') as file:
@@ -49,7 +49,7 @@ for type_of_desc in ['concise', 'detailed']:
         print(print2)
         results += score
     print3 = 'The get_description function got a score of ' + str(results) + ' %' + ' for description type' + type_of_desc + '\n--------------------\n\n'
-    print(print3)
+    print(print3)"""
 
 n_correct = 0
 ignored = 0
@@ -77,8 +77,9 @@ for name in filenames:
                 stream=False,
                 options={'num_ctx': 8192, 'temperature': 0.5, 'top_p': 0.3}
             )
-            response = response['message']['content'].split('yaml\n')[-1].replace('`','').replace('"','').replace("'",'').split('\n\n')[0]
-            response = list(yaml.safe_load(response).keys())
+            response = response['message']['content'].split('yaml\n')[-1].replace('`','').replace('"','').replace("'",'').split('\n\n')[:-1]
+            print('\n\n'.join(response))
+            response = list(yaml.safe_load('\n\n'.join(response)).keys())
             count += 1
             if isinstance(target_widget, list):
                 found = 0
@@ -118,8 +119,9 @@ for name in filenames:
             stream=False,
             options={'num_ctx': 8192, 'temperature': 0.5, 'top_p': 0.3}
         )
-        response = response['message']['content'].split('yaml\n')[-1].replace('`','').replace('"','').replace("'",'').split('\n\n')[0]
-        response = list(yaml.safe_load(response).keys())
+        response = response['message']['content'].split('yaml\n')[-1].replace('`','').replace('"','').replace("'",'').split('\n\n')[:-1]
+        print('\n\n'.join(response))
+        response = list(yaml.safe_load('\n\n'.join(response)).keys())
         count += 1
         if isinstance(target_widget, list):
             found = 0
