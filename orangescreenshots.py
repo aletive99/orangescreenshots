@@ -790,7 +790,7 @@ def _augment_widget_list(widget_list, present_widgets, goal=None, n=20, k=4):
     """
     with open('data/widget-info/widget-embeddings.pkl', 'rb') as f:
         embeddings = pickle.load(f)
-    if len(widget_list) > n:
+    if len(widget_list) >= n:
         if goal is None:
             return widget_list[:n]
         else:
@@ -819,9 +819,10 @@ def _augment_widget_list(widget_list, present_widgets, goal=None, n=20, k=4):
     for i in range(len(widget_names)):
         similarity_matrix[i, 0] = similarity_matrix[i, similarity_matrix[i, :].argsort()[-k:][::-1]].mean()
     similar_indices = similarity_matrix[:, 0].argsort(axis=0)[-(n-len(widget_list)):][::-1]
-    augmented_list = widget_list
+    addition = []
     for i in similar_indices:
-        augmented_list.append(Widget(widget_names[i]))
+        addition.append(Widget(widget_names[i]))
+    augmented_list = widget_list + addition
     return augmented_list
 
 
@@ -1087,8 +1088,8 @@ def _get_response(query, model='gpt-3.5-turbo-0125'):
                                                                                 "\nCurrent date: {CurrentDate}"},
                                                   {'role': 'user', 'content': query},
                                               ],
-                                              temperature=0.3,
-                                              top_p=0.1)
+                                              temperature=0.5,
+                                              top_p=0.3)
     response = response.choices[0].message.content
     return response
 
@@ -1776,6 +1777,7 @@ def _new_widget_evaluation(check_response=True, model='gpt-3.5-turbo-0125', dist
     n_correct = 0
     ignored = 0
     count = 0
+    not_present = 0
     filenames = _get_filenames('data/workflows/evaluation/new-widgets')
     with open('data/workflows/evaluation/new-widgets/new-widget-evaluation.yaml', 'r') as file:
         workflows_info = yaml.safe_load(file)
@@ -1788,7 +1790,7 @@ def _new_widget_evaluation(check_response=True, model='gpt-3.5-turbo-0125', dist
         possible_widgets, _ = find_similar_workflows(workflow, return_workflows=False, dist_type=dist_type, only_widgets=only_widgets)
         if isinstance(workflows_info[name.split('/')[-1]]['goal'], list):
             for goal in workflows_info[name.split('/')[-1]]['goal']:
-                possible_widgets = _augment_widget_list(possible_widgets, present_widgets=workflow.get_widgets(), goal=goal)
+                aug_list = _augment_widget_list(possible_widgets, present_widgets=workflow.get_widgets(), goal=goal)
                 print('Evaluating the new_widget_prompt function for the workflow: ' + name + ' for goal ' + goal)
                 target_widget = workflows_info[name.split('/')[-1]]['widget'][goal]
                 if check_response:
@@ -1800,7 +1802,7 @@ def _new_widget_evaluation(check_response=True, model='gpt-3.5-turbo-0125', dist
                     found = 0
                     present = False
                     for i in target_widget:
-                        if Widget(i) in possible_widgets:
+                        if Widget(i) in aug_list:
                             present = present or True
                         if i in response:
                             found += 1
@@ -1810,23 +1812,25 @@ def _new_widget_evaluation(check_response=True, model='gpt-3.5-turbo-0125', dist
                         print('The response does not contain the removed widget for the workflow: ' + name + ' for goal ' + goal)
                         if not present:
                             print('The widget is not in the possible widgets')
+                            not_present += 1
                             if not check_response:
-                                for i in possible_widgets:
+                                for i in aug_list:
                                     print(str(i))
                 else:
                     if target_widget in response:
                         n_correct += 1
                     else:
                         print('The response does not contain the removed widget for the workflow: ' + name + ' for goal ' + goal)
-                        if Widget(target_widget) not in possible_widgets:
+                        if Widget(target_widget) not in aug_list:
                             print('The widget is not in the possible widgets')
+                            not_present += 1
                             if not check_response:
-                                for i in possible_widgets:
+                                for i in aug_list:
                                     print(str(i))
                 print()
         else:
             print('Evaluating the new_widget_prompt function for the workflow: ' + name)
-            possible_widgets = _augment_widget_list(possible_widgets, present_widgets=workflow.get_widgets(), goal=workflows_info[name.split('/')[-1]]['goal'])
+            aug_list = _augment_widget_list(possible_widgets, present_widgets=workflow.get_widgets(), goal=workflows_info[name.split('/')[-1]]['goal'])
             target_widget = workflows_info[name.split('/')[-1]]['widget']
             if check_response:
                 response = list(workflow.get_new_widget(goal=workflows_info[name.split('/')[-1]]['goal'], model=model).keys())
@@ -1837,7 +1841,7 @@ def _new_widget_evaluation(check_response=True, model='gpt-3.5-turbo-0125', dist
                 found = 0
                 present = False
                 for i in target_widget:
-                    if Widget(i) in possible_widgets:
+                    if Widget(i) in aug_list:
                         present = present or True
                     if i in response:
                         found += 1
@@ -1847,22 +1851,25 @@ def _new_widget_evaluation(check_response=True, model='gpt-3.5-turbo-0125', dist
                     print('The response does not contain the removed widget for the workflow: ' + name)
                     if not present:
                         print('The widget is not in the possible widgets')
+                        not_present += 1
                         if not check_response:
-                            for i in possible_widgets:
+                            for i in aug_list:
                                 print(str(i))
                 print('\n')
             else:
                 if target_widget not in response:
                     print('The response does not contain the removed widget for the workflow: ' + name)
-                    if Widget(target_widget) not in possible_widgets:
+                    if Widget(target_widget) not in aug_list:
                         print('The widget is not in the possible widgets')
+                        not_present += 1
                         if not check_response:
-                            for i in possible_widgets:
+                            for i in aug_list:
                                 print(str(i))
                 else:
                     n_correct += 1
                 print('\n')
     print('The new_widget_prompt function predicts ' + str(n_correct) + ' out of ' + str(count) + ' workflows correctly')
     print('The accuracy of the new_widget_prompt function is ' + str(n_correct/count*100)[:4] + '%')
+    print('The number of workflows that do not have the target widget suggested is ' + str(not_present))
 
 #%%

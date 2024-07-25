@@ -3,7 +3,7 @@ import ollama
 import yaml
 from openai import OpenAI
 
-filenames = oss._get_filenames('data/workflows/evaluation/name-and-description')
+"""filenames = oss._get_filenames('data/workflows/evaluation/name-and-description')
 with open('data/prompts/text-comparison-prompt.md', 'r') as file:
     query_start = file.read()
 with open('data/workflows/evaluation/name-and-description/description-evaluation.yaml', 'r') as file:
@@ -37,8 +37,8 @@ for type_of_desc in ['concise', 'detailed']:
                                                                                     "\nCurrent date: {CurrentDate}"},
                                                       {'role': 'user', 'content': query},
                                                   ],
-                                                  temperature=0.3,
-                                                  top_p=0.1)
+                                                  temperature=0.5,
+                                                  top_p=0.3)
         response = response.choices[0].message.content
         score = [int(i) for i in response if i.isdigit()]
         if len(score) == 2:
@@ -49,7 +49,7 @@ for type_of_desc in ['concise', 'detailed']:
         print(print2)
         results += score
     print3 = 'The get_description function got a score of ' + str(results) + ' %' + ' for description type' + type_of_desc + '\n--------------------\n\n'
-    print(print3)
+    print(print3)"""
 
 n_correct = 0
 ignored = 0

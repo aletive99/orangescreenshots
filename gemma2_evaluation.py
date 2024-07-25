@@ -37,8 +37,8 @@ for type_of_desc in ['concise', 'detailed']:
                                                                                     "\nCurrent date: {CurrentDate}"},
                                                       {'role': 'user', 'content': query},
                                                   ],
-                                                  temperature=0.3,
-                                                  top_p=0.1)
+                                                  temperature=0.5,
+                                                  top_p=0.3)
         response = response.choices[0].message.content
         score = [int(i) for i in response if i.isdigit()]
         if len(score) == 2:
