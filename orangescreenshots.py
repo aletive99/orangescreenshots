@@ -996,7 +996,7 @@ class Workflow:
                 widget_list.append(Widget(i.split('/')[0], i.split('/')[1].split(' #')[0]))
         return widget_list
 
-    def _get_context(self, short_description=False):
+    def get_context(self, short_description=False):
         """
         Returns the context of the workflow.
         :param short_description: bool
@@ -1086,8 +1086,8 @@ def _get_response(query, model='gpt-3.5-turbo-0125'):
                                                                                 "\nCurrent date: {CurrentDate}"},
                                                   {'role': 'user', 'content': query},
                                               ],
-                                              temperature=0.5,
-                                              top_p=0.5)
+                                              temperature=0.3,
+                                              top_p=0.1)
     response = response.choices[0].message.content
     return response
 
@@ -1527,7 +1527,7 @@ def _get_example_workflows(concise_description):
     return output_list
 
 
-def find_similar_workflows(workflow, return_workflows=True, k=10, dist_type='euclidean adjusted', remove_widget=False):
+def find_similar_workflows(workflow, return_workflows=True, k=10, dist_type='euclidean adjusted', only_widgets=True, remove_widget=False):
     """
     This function loads the dataset from the Excel file and finds the k-closest workflows to the input workflow thanks
     to Euclidean distance between the code of the workflows
@@ -1535,6 +1535,8 @@ def find_similar_workflows(workflow, return_workflows=True, k=10, dist_type='euc
     :param remove_widget: bool or str
     :param return_workflows: bool
     :param k: int
+    :param dist_type: str
+    :param only_widgets: bool
     :return: closest_workflows: list
     """
     label_list = list(_workflow_to_code(workflow, return_labels=True, only_enriched=False))
@@ -1542,6 +1544,8 @@ def find_similar_workflows(workflow, return_workflows=True, k=10, dist_type='euc
         if '->' in label_list[i]:
             how_many_widgets = i
             break
+    if not only_widgets:
+        how_many_widgets = len(label_list)
     if remove_widget:
         if isinstance(remove_widget, bool):
             removed_widget = workflow.remove_widget()
@@ -1616,7 +1620,7 @@ def get_workflow_name_prompt(img_name, return_query=False):
     for example in examples:
         workflow = Workflow(example[1])
         query += '## Workflow:\nLinks in the workflow:\n' + str(workflow) + '\n\nWidget descriptions:\n'
-        query += workflow._get_context(True)
+        query += workflow.get_context(True)
         query += '## Image name:\n' + example[0] + '\n-------------------------------\n\n'
     try:
         workflow = Workflow(img_name)
@@ -1630,7 +1634,7 @@ def get_workflow_name_prompt(img_name, return_query=False):
             print('The img_name parameter must be a string or a Workflow object')
             return None
     query += '## Workflow:\nLinks in the workflow:\n' + str(workflow) + '\n\nWidget descriptions:\n'
-    query += workflow._get_context(True)
+    query += workflow.get_context(True)
     query += '## Image name:\n'
     if return_query:
         return query
@@ -1696,8 +1700,6 @@ def get_new_widget_prompt(img_name, goal='Not specified', remove_widget=False, r
     """
     with open('data/prompts/prompt-intro.md', 'r') as file:
         query = file.read()
-    with open('data/prompts/new-widget-prompt.md', 'r') as file:
-        query += file.read()
     try:
         workflow = Workflow(img_name)
     except ValueError:
@@ -1715,12 +1717,14 @@ def get_new_widget_prompt(img_name, goal='Not specified', remove_widget=False, r
     else:
         possible_widgets = _augment_widget_list(possible_widgets, present_widgets=workflow.get_widgets(), goal=goal)
     query += '## Workflow:\nLinks in the workflow:\n' + str(workflow) + '\n\nWidget descriptions:\n'
-    query += workflow._get_context(True)
+    query += workflow.get_context(True)
     query += '## Possible widgets:\n'
     for widget in possible_widgets:
         descr, inputs, outputs = widget.get_description(True)
         query += str(widget) + ':\n' + 'Description:\n' + descr + '\n' + 'Inputs:\n' + inputs + '\n\n' + 'Outputs:\n' + outputs + '\n\n\n'
-    query += '## Goal of the new widget:\n' + goal + '.\n\nNow report the chosen widgets following the reported outline without asking for clarification.\n\n'
+    query += '## Goal of the new widget:\n' + goal + '.\n\n'
+    with open('data/prompts/new-widget-prompt.md', 'r') as file:
+        query += file.read()
     if return_query:
         return query
     else:
@@ -1759,12 +1763,14 @@ def _description_evaluation(model='gpt-3.5-turbo-0125', concise_description=True
     print('The get_description function got a score of ' + str(results) + ' %')
 
 
-def _new_widget_evaluation(check_response=True, model='gpt-3.5-turbo-0125', dist_type='euclidean adjusted'):
+def _new_widget_evaluation(check_response=True, model='gpt-3.5-turbo-0125', dist_type='euclidean adjusted', only_widgets=True):
     """
     This function evaluates the performance of the Workflow.get_new_widget function by comparing the output of the
     function with the actual widget that comes next in the workflow.
     check_response: bool
     model: str
+    dist_type: str
+    only_widgets: bool
     """
     n_correct = 0
     ignored = 0
@@ -1778,7 +1784,7 @@ def _new_widget_evaluation(check_response=True, model='gpt-3.5-turbo-0125', dist
         except ValueError:
             ignored += 1
             continue
-        possible_widgets, _ = find_similar_workflows(workflow, return_workflows=False, dist_type=dist_type)
+        possible_widgets, _ = find_similar_workflows(workflow, return_workflows=False, dist_type=dist_type, only_widgets=only_widgets)
         if isinstance(workflows_info[name.split('/')[-1]]['goal'], list):
             for goal in workflows_info[name.split('/')[-1]]['goal']:
                 possible_widgets = _augment_widget_list(possible_widgets, present_widgets=workflow.get_widgets(), goal=goal)

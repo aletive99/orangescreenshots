@@ -17,7 +17,7 @@ for type_of_desc in ['concise', 'detailed']:
             model='gemma2:27b',
             messages=[{'role': 'user', 'content': prompt}],
             stream=False,
-            options={'num_ctx': 8192, 'temperature': 0.5, 'top_p': 0.5}
+            options={'num_ctx': 8192, 'temperature': 0.3, 'top_p': 0.1}
         )
         description_generated = response['message']['content']
         if type_of_desc == 'concise':
@@ -37,8 +37,8 @@ for type_of_desc in ['concise', 'detailed']:
                                                                                     "\nCurrent date: {CurrentDate}"},
                                                       {'role': 'user', 'content': query},
                                                   ],
-                                                  temperature=0.5,
-                                                  top_p=0.5)
+                                                  temperature=0.3,
+                                                  top_p=0.1)
         response = response.choices[0].message.content
         score = [int(i) for i in response if i.isdigit()]
         if len(score) == 2:
