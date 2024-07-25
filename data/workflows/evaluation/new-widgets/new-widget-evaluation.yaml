@@ -10,106 +10,101 @@ data-sampling-and-tree-modeling.png:
   goal: 'Evaluation'
 image-clustering-analysis.png:
   widget: 'Image Analytics/Image Viewer'
-  goal: 'Data Visualization'
+  goal: 'Data visualization'
 polynomial-regression-analysis.png:
   widget: 'Data/Data Table'
-  goal: 'Data Visualization'
+  goal: 'Data visualization'
 survival-feature-ranking.png:
-  widget: 
-    Model Visualization: 'Survival Analysis/Kaplan-Meier Plot'
-    Further Analysis: 'Survival Analysis/Rank Survival Features'
-  goal: 
-    - 'Model Visualization'
-    - 'Further Analysis'
+  widget: 'Survival Analysis/Kaplan-Meier Plot'
+  goal: 'Model visualization'
 corpus-from-documents.png:
   widget: 'Text Mining/Corpus Viewer'
-  goal: 'Data Visualization'
+  goal: 'Data visualization'
 text-preprocessing-workflow.png:
   widget: 
     - 'Text Mining/Word Cloud'
     - 'Text Mining/Bag of Words'
-  goal: 'Further Analysis'
+  goal: 'Further text mining analysis'
 painted-data-distances.png:
   widget: 
     - 'Unsupervised/MDS'
-    - 'Unsupervised/Distance Matrix'
     - 'Unsupervised/Hierarchical Clustering'
-  goal: 'Further Analysis'
+  goal: 'Further distance-based analysis'
 semantic-document-embedding.png:
   widget: 'Unsupervised/t-SNE'
-  goal: 'Further Analysis'
+  goal: 'Further distance-based analysis'
 distance-and-text-analysis.png:
   widget: 'Unsupervised/Hierarchical Clustering'
-  goal: 'Further Analysis'
+  goal: 'Further distance-based analysis'
 data-tree-visualization.png:
   widget: 'Visualize/Box Plot'
-  goal: 'Data Visualization'
+  goal: 'Data visualization'
 decision-tree-prediction-analysis.png:
   widget: 'Evaluate/Confusion Matrix'
-  goal: 'Further Analysis'
+  goal: 'Evaluation'
 decision-tree-data-sampling.png:
   widget: 'Visualize/Tree Viewer'
-  goal: 'Model Visualization'
+  goal: 'Model visualization'
 random-forest-visualization.png:
   widget: 'Visualize/Tree Viewer'
-  goal: 'Model Visualization'
+  goal: 'Model visualization'
 attribute-imputation-and-ranking.png:
   widget: 'Visualize/Scatter Plot'
-  goal: 'Data Visualization'
+  goal: 'Data visualization'
 k-means-clustering-analysis.png:
   widget: 'Visualize/Silhouette Plot'
-  goal: 'Model Visualization'
+  goal: 'Model visualization'
 logistic-regression-model-fitting.png:
   widget: 'Visualize/Nomogram'
-  goal: 'Model Visualization'
+  goal: 'Model visualization'
 naive-bayes-classification-model.png:
   widget: 'Visualize/Nomogram'
-  goal: 'Model Visualization'
+  goal: 'Model visualization'
 text-sentiment-prediction.png:
   widget: 'Visualize/Heat Map'
-  goal: 'Model Visualization'
+  goal: 'Model visualization'
 pairwise-attribute-correlations-analysis.png:
   widget: 'Visualize/Scatter Plot'
-  goal: 'Data Visualization'
+  goal: 'Data visualization'
 image-embedding-and-neighbor-analysis.png:
   widget: 'Image Analytics/Image Viewer'
-  goal: 'Data Visualization'
+  goal: 'Data visualization'
 PCA-data-transformation.png:
   widget: 'Visualize/Scatter Plot'
-  goal: 'Data Visualization'
+  goal: 'Data visualization'
 text-document-visualization.png:
   widget: 'Text Mining/Annotated Corpus Map'
-  goal: 'Further Analysis'
+  goal: 'Further text mining analysis'
 topic-modeling-with-bag-of-words.png:
   widget: 'Text Mining/LDAvis'
-  goal: 'Further Analysis'
+  goal: 'Further text mining analysis'
 bag-of-words-analysis.png:
   widget: 'Text Mining/Word Enrichment'
-  goal: 'Further Analysis'
+  goal: 'Further text mining analysis'
 box-plot-visualization.png:
   widget: 'Transform/Purge Domain'
-  goal: 'Data Transformation'
+  goal: 'Data transformation'
 image-embedding-analysis.png:
   widget: 'Image Analytics/Image Grid'
-  goal: 'Further Analysis'
+  goal: 'Further distance-based analysis'
 image-loading.png:
   widget: 
-    Data Transformation: 'Image Analytics/Image Embedding'
-    Data Visualization: 'Image Analytics/Image Viewer'
+    Data transformation: 'Image Analytics/Image Embedding'
+    Data visualization: 'Image Analytics/Image Viewer'
   goal: 
-    - 'Data Transformation'
-    - 'Data Visualization'
+    - 'Data transformation'
+    - 'Data visualization'
 corpus-loading.png:
   widget:
-    Data Transformation:
+    Data transformation:
       - 'Text Mining/Document Embedding'
       - 'Text Mining/Preprocess Text'
-    Further Analysis: 
+    Further text mining analysis: 
       - 'Text Mining/Concordance'
       - 'Text Mining/Word Cloud'
   goal: 
-    - 'Data Transformation'
-    - 'Further Analysis'
+    - 'Data transformation'
+    - 'Further text mining analysis'
 data-loading-and-sampler.png:
   widget:
     Classification: 
@@ -124,21 +119,24 @@ data-loading-and-sampler.png:
 sampled-pca-analysis.png:
   widget:
     Apply the model to the data: 'Transform/Apply Domain'
-    Data Visualization: 'Visualize/Scatter Plot'
+    Data visualization: 'Visualize/Scatter Plot'
   goal: 
     - 'Apply the model to the data'
-    - 'Data Visualization'
+    - 'Data visualization'
 file-loading.png:
   widget:
-    Data Transformation:
+    Data transformation:
       - 'Transform/Formula'
       - 'Transform/Preprocess'
       - 'Transform/Randomize'
-    Feature Selection:
+    Feature selection:
       - 'Transform/Select Columns'
+    Data visualization:
+      - 'Visualize/Box Plot'
   goal:
-    - 'Data Transformation'
-    - 'Feature Selection'
+    - 'Data transformation'
+    - 'Feature selection'
+    - 'Data visualization'
 geocoding-hierarchical-clustering-analysis.png:
   widget: 
     - 'Geo/Choropleth Map'
