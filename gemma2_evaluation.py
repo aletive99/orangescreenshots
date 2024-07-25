@@ -17,7 +17,7 @@ for type_of_desc in ['concise', 'detailed']:
             model='gemma2:27b',
             messages=[{'role': 'user', 'content': prompt}],
             stream=False,
-            options={'num_ctx': 8192, 'temperature': 0.3, 'top_p': 0.1}
+            options={'num_ctx': 8192, 'temperature': 0.5, 'top_p': 0.3}
         )
         description_generated = response['message']['content']
         if type_of_desc == 'concise':

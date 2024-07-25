@@ -1564,7 +1564,7 @@ def find_similar_workflows(workflow, return_workflows=True, k=10, dist_type='euc
     unique_code, idx = np.unique(code[:, :how_many_widgets], axis=0, return_index=True)
     if dist_type == 'euclidean adjusted':
         difference = np.where(unique_code - workflow_code < 0, 1, 0)
-        difference[np.where(unique_code - workflow_code > 0)[0], np.where(unique_code - workflow_code > 0)[1]] = 0.5
+        difference[np.where(unique_code - workflow_code > 0)[0], np.where(unique_code - workflow_code > 0)[1]] = 0.3
         distances = difference.sum(axis=1)
     elif dist_type == 'euclidean':
         distances = np.linalg.norm(unique_code - workflow_code, axis=1)
