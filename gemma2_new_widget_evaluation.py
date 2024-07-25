@@ -22,20 +22,15 @@ for name in filenames:
             print(print1)
             target_widget = workflows_info[name.split('/')[-1]]['widget'][goal]
             prompt = oss.get_new_widget_prompt(workflow, goal, return_query=True)
-            while True:
-                try:
-                    response = ollama.chat(
-                        model='gemma2:27b',
-                        messages=[{'role': 'user', 'content': prompt}],
-                        stream=False,
-                        options={'num_ctx': 8192, 'temperature': 0.5, 'top_p': 0.5}
-                    )
-                    response = response['message']['content'].split('yaml\n')[-1].split('`')[0]
-                    print(response)
-                    response = list(yaml.safe_load(response).keys())
-                    break
-                except yaml.scanner.ScannerError:
-                    print('Retrying...\n')
+            response = ollama.chat(
+                model='gemma2:27b',
+                messages=[{'role': 'user', 'content': prompt}],
+                stream=False,
+                options={'num_ctx': 8192, 'temperature': 0.5, 'top_p': 0.5}
+            )
+            response = response['message']['content'].split('yaml\n')[-1].split('`')[0]
+            print(response)
+            response = list(yaml.safe_load(response).keys())
             count += 1
             if isinstance(target_widget, list):
                 found = 0
@@ -69,20 +64,15 @@ for name in filenames:
         possible_widgets = oss._augment_widget_list(possible_widgets, present_widgets=workflow.get_widgets(), goal=goal)
         target_widget = workflows_info[name.split('/')[-1]]['widget']
         prompt = oss.get_new_widget_prompt(workflow, goal, return_query=True)
-        while True:
-            try:
-                response = ollama.chat(
-                    model='gemma2:27b',
-                    messages=[{'role': 'user', 'content': prompt}],
-                    stream=False,
-                    options={'num_ctx': 8192, 'temperature': 0.5, 'top_p': 0.5}
-                )
-                response = response['message']['content'].split('yaml\n')[-1].split('`')[0]
-                print(response)
-                response = list(yaml.safe_load(response).keys())
-                break
-            except yaml.scanner.ScannerError:
-                print('Retrying...\n')
+        response = ollama.chat(
+            model='gemma2:27b',
+            messages=[{'role': 'user', 'content': prompt}],
+            stream=False,
+            options={'num_ctx': 8192, 'temperature': 0.5, 'top_p': 0.5}
+        )
+        response = response['message']['content'].split('yaml\n')[-1].split('`')[0]
+        print(response)
+        response = list(yaml.safe_load(response).keys())
         count += 1
         if isinstance(target_widget, list):
             found = 0
