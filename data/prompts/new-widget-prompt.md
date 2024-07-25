@@ -3,15 +3,15 @@ I will now give you a list of possible widgets that might come next by using the
 
 Your output type has to be that of a yaml file to be read in Python and use the following scheme (replace the PLACEHOLDERS with your output):
 
-"WIDGET1:
+"WIDGET NAME:
 - PERCENTAGE PROBABILITY OF BEING RIGHT
 - This widget would suit the workflow because REASON
 
-WIDGET2:
+WIDGET NAME:
 - PERCENTAGE PROBABILITY OF BEING RIGHT
 - This widget would suit the workflow because REASON
 
-WIDGET3:
+WIDGET NAME:
 - PERCENTAGE PROBABILITY OF BEING RIGHT
 - This widget would suit the workflow because REASON"
 
