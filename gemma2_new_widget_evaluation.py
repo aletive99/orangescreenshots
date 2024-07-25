@@ -29,7 +29,6 @@ for name in filenames:
                 options={'num_ctx': 8192, 'temperature': 0.3, 'top_p': 0.1}
             )
             response = response['message']['content'].split('yaml\n')[-1].replace('`','').replace('"','').replace("'",'')
-            print(response)
             response = list(yaml.safe_load(response).keys())
             count += 1
             if isinstance(target_widget, list):
@@ -71,7 +70,6 @@ for name in filenames:
             options={'num_ctx': 8192, 'temperature': 0.3, 'top_p': 0.1}
         )
         response = response['message']['content'].split('yaml\n')[-1].replace('`','').replace('"','').replace("'",'')
-        print(response)
         response = list(yaml.safe_load(response).keys())
         count += 1
         if isinstance(target_widget, list):
