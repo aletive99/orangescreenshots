@@ -26,7 +26,7 @@ for name in filenames:
                 model='gemma2:27b',
                 messages=[{'role': 'user', 'content': prompt}],
                 stream=False,
-                options={'num_ctx': 8192, 'temperature': 0.3, 'top_p': 0.1}
+                options={'num_ctx': 8192, 'temperature': 0.5, 'top_p': 0.3}
             )
             response = response['message']['content'].split('yaml\n')[-1].replace('`','').replace('"','').replace("'",'')
             response = list(yaml.safe_load(response).keys())
@@ -67,7 +67,7 @@ for name in filenames:
             model='gemma2:27b',
             messages=[{'role': 'user', 'content': prompt}],
             stream=False,
-            options={'num_ctx': 8192, 'temperature': 0.3, 'top_p': 0.1}
+            options={'num_ctx': 8192, 'temperature': 0.5, 'top_p': 0.3}
         )
         response = response['message']['content'].split('yaml\n')[-1].replace('`','').replace('"','').replace("'",'')
         response = list(yaml.safe_load(response).keys())
