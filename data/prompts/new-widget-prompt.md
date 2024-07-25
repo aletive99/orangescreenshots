@@ -15,3 +15,5 @@ WIDGET NAME:
 - PERCENTAGE PROBABILITY OF BEING RIGHT
 - This widget would suit the workflow because REASON"
 
+Never ask for clarifications, always answer to the best of your ability using the provided information.
+
