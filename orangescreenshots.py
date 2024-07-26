@@ -489,7 +489,7 @@ def _find_circle_intersection(label_binary_image, center, radius_size, prev_dire
     return found_points, found_direction, best_fit_index
 
 
-def _link_detection(img_name, show_process=False):
+def _link_detection(img_name, show_process=False, show_conn_comp=False):
     """
     This function detects the links between the widgets in the image. The function returns a matrix with the number of
     links between the widgets. The function also returns an image with the links highlighted. If the show_process
@@ -525,6 +525,16 @@ def _link_detection(img_name, show_process=False):
         binary_image = cv.dilate(binary_image, struct_elem, iterations=1)
     # identifying connected components location and potential links
     num_lab, labels_im = cv.connectedComponents(binary_image)
+    if show_conn_comp:
+        im2show = np.zeros((binary_image.shape[0], binary_image.shape[1], 3), dtype=np.uint8)
+        colors = [np.random.randint(0, 255, size=3).tolist() for i in range(num_lab)]
+        for label in range(1, num_lab):  # label 0 is the background
+            im2show[labels_im == label] = colors[label]
+        cv.imshow('connected components', im2show)
+        cv.waitKey(0)
+        cv.destroyAllWindows()
+        cv.waitKey(1)
+        cv.imwrite('output-images/connected-components.png', im2show)
     labels_in = np.zeros((len(indexes), num_lab))
     labels_out = np.zeros((len(indexes), num_lab))
     iterate = len(coord_x)
@@ -1564,7 +1574,7 @@ def find_similar_workflows(workflow, return_workflows=True, k=10, dist_type='euc
     unique_code, idx = np.unique(code[:, :how_many_widgets], axis=0, return_index=True)
     if dist_type == 'euclidean adjusted':
         difference = np.where(unique_code - workflow_code < 0, 1, 0)
-        difference[np.where(unique_code - workflow_code > 0)[0], np.where(unique_code - workflow_code > 0)[1]] = 0.3
+        difference[np.where(unique_code - workflow_code > 0)[0], np.where(unique_code - workflow_code > 0)[1]] = 0.2
         distances = difference.sum(axis=1)
     elif dist_type == 'euclidean':
         distances = np.linalg.norm(unique_code - workflow_code, axis=1)
@@ -1733,6 +1743,33 @@ def get_new_widget_prompt(img_name, goal='Not specified', remove_widget=False, r
         print(query + '\n')
 
 
+def _name_evaluation(model='gpt-3.5-turbo-0125'):
+    """
+    This function evaluates the performance of the Workflow.get_name function by comparing the output of the function with
+    the reference name of the workflow, by comparing the two names using ChatGPT.
+    """
+    filenames = _get_filenames('data/workflows/evaluation/name-and-description')
+    with open('data/prompts/text-comparison-prompt.md', 'r') as file:
+        query_start = file.read()
+    results = 0
+    for name in filenames:
+        workflow = Workflow(name)
+        name_generated = workflow.get_name(model).replace('-', ' ')
+        name_actual = name.split('/')[-1].replace('.png', '').replace('-', ' ')
+        print('Evaluating the get_name function for the workflow: ' + name)
+        query = query_start
+        query += '\n\nText 1:\n' + name_generated + '\n\nText 2:\n' + name_actual + '\n\nScore:'
+        response = _get_response(query, 'gpt-3.5-turbo-0125')
+        score = [int(i) for i in response if i.isdigit()]
+        if len(score) == 2:
+            score = 10
+        else:
+            score = score[0]
+        print('The score for the get_name function is ' + str(score) + ' out of 10\n\n')
+        results += score
+    print('The get_name function got a score of ' + str(results) + '%')
+
+
 def _description_evaluation(model='gpt-3.5-turbo-0125', concise_description=True):
     """
     This function evaluates the performance of the Workflow.get_description function by comparing the output of the
@@ -1762,7 +1799,7 @@ def _description_evaluation(model='gpt-3.5-turbo-0125', concise_description=True
             score = score[0]
         print('The score for the get_description function is ' + str(score) + ' out of 10\n\n')
         results += score
-    print('The get_description function got a score of ' + str(results) + ' %')
+    print('The get_description function got a score of ' + str(results) + '%')
 
 
 def _new_widget_evaluation(check_response=True, model='gpt-3.5-turbo-0125', dist_type='euclidean adjusted', only_widgets=True):

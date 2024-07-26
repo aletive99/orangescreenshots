@@ -3,6 +3,51 @@ import ollama
 import yaml
 from openai import OpenAI
 
+
+def get_response(question):
+    api_key = ''
+    client = OpenAI(api_key=api_key, organization='org-FvAFSFT8g0844DCWV1T2datD')
+    answer = client.chat.completions.create(model='gpt-3.5-turbo-0125',
+                                            messages=[
+                                                {"role": "system", "content": "You are ChatGPT, a large language model trained by OpenAI. "
+                                                                              "Answer as concisely as possible.\nKnowledge cutoff: 2021-09-01"
+                                                                              "\nCurrent date: {CurrentDate}"},
+                                                {'role': 'user', 'content': question},
+                                            ],
+                                            temperature=0.5,
+                                            top_p=0.3)
+    answer = answer.choices[0].message.content
+    return answer
+
+
+filenames = oss._get_filenames('data/workflows/evaluation/name-and-description')
+with open('data/prompts/text-comparison-prompt.md', 'r') as file:
+    query_start = file.read()
+results = 0
+for name in filenames:
+    workflow = oss.Workflow(name)
+    prompt = oss.get_workflow_name_prompt(workflow, return_query=True)
+    response = ollama.chat(
+        model='gemma2:27b',
+        messages=[{'role': 'user', 'content': prompt}],
+        stream=False,
+        options={'num_ctx': 8192, 'temperature': 0.5, 'top_p': 0.3}
+    )
+    name_generated = response['message']['content'].split('Here is my output:\n')[-1]
+    name_actual = name.split('/')[-1].replace('.png', '').replace('-', ' ')
+    print('Evaluating the get_name function for the workflow: ' + name)
+    query = query_start
+    query += '\n\nText 1:\n' + name_generated + '\n\nText 2:\n' + name_actual + '\n\nScore:'
+    response = get_response(query)
+    score = [int(i) for i in response if i.isdigit()]
+    if len(score) == 2:
+        score = 10
+    else:
+        score = score[0]
+    print('The score for the get_name function is ' + str(score) + ' out of 10\n\n')
+    results += score
+print('The get_name function got a score of ' + str(results) + '%\n--------------------\n\n')
+
 filenames = oss._get_filenames('data/workflows/evaluation/name-and-description')
 with open('data/prompts/text-comparison-prompt.md', 'r') as file:
     query_start = file.read()
@@ -28,18 +73,7 @@ for type_of_desc in ['concise', 'detailed']:
         print(print1)
         query = query_start
         query += '\n\nText 1:\n' + description_generated + '\n\nText 2:\n' + description_actual + '\n\nScore:'
-        api_key = ''
-        client = OpenAI(api_key=api_key, organization='org-FvAFSFT8g0844DCWV1T2datD')
-        response = client.chat.completions.create(model='gpt-3.5-turbo-0125',
-                                                  messages=[
-                                                      {"role": "system", "content": "You are ChatGPT, a large language model trained by OpenAI. "
-                                                                                    "Answer as concisely as possible.\nKnowledge cutoff: 2021-09-01"
-                                                                                    "\nCurrent date: {CurrentDate}"},
-                                                      {'role': 'user', 'content': query},
-                                                  ],
-                                                  temperature=0.5,
-                                                  top_p=0.3)
-        response = response.choices[0].message.content
+        response = get_response(query)
         score = [int(i) for i in response if i.isdigit()]
         if len(score) == 2:
             score = 10
