@@ -1,0 +1,1030 @@
+gpt-3.5-turbo-0125:
+  name_evaluation: 'Evaluating the get_name function for the workflow: data/workflows/evaluation/name-and-description/k-means-analysis-and-visualization.png
+                    The score for the get_name function is 8 out of 10
+
+
+                    Evaluating the get_name function for the workflow: data/workflows/evaluation/name-and-description/create-instance-logistic-regression-analysis.png
+                    The score for the get_name function is 3 out of 10
+
+
+                    Evaluating the get_name function for the workflow: data/workflows/evaluation/name-and-description/image-embedding-visualization.png
+                    The score for the get_name function is 3 out of 10
+
+
+                    Evaluating the get_name function for the workflow: data/workflows/evaluation/name-and-description/impute-rank-scatter-analysis.png
+                    The score for the get_name function is 9 out of 10
+
+
+                    Evaluating the get_name function for the workflow: data/workflows/evaluation/name-and-description/comparative-model-evaluation.png
+                    The score for the get_name function is 3 out of 10
+
+
+                    Evaluating the get_name function for the workflow: data/workflows/evaluation/name-and-description/image-clustering-analysis.png
+                    The score for the get_name function is 3 out of 10
+
+
+                    Evaluating the get_name function for the workflow: data/workflows/evaluation/name-and-description/preprocessed-text-word-cloud-analysis.png
+                    The score for the get_name function is 1 out of 10
+
+
+                    Evaluating the get_name function for the workflow: data/workflows/evaluation/name-and-description/decision-tree-data-visualization.png
+                    The score for the get_name function is 8 out of 10
+
+
+                    Evaluating the get_name function for the workflow: data/workflows/evaluation/name-and-description/hierarchical-clustering-analysis.png
+                    The score for the get_name function is 10 out of 10
+
+
+                    Evaluating the get_name function for the workflow: data/workflows/evaluation/name-and-description/survival-data-analysis.png
+                    The score for the get_name function is 3 out of 10
+
+
+                    The get_name function got a score of 51%'
+  description_evaluation:
+    concise: 'Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/k-means-analysis-and-visualization.png
+              The score for the get_description function is 3 out of 10
+
+
+              Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/create-instance-logistic-regression-analysis.png
+              The score for the get_description function is 4 out of 10
+
+
+              Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/image-embedding-visualization.png
+              The score for the get_description function is 8 out of 10
+
+
+              Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/impute-rank-scatter-analysis.png
+              The score for the get_description function is 3 out of 10
+
+
+              Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/comparative-model-evaluation.png
+              The score for the get_description function is 8 out of 10
+
+
+              Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/image-clustering-analysis.png
+              The score for the get_description function is 8 out of 10
+
+
+              Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/preprocessed-text-word-cloud-analysis.png
+              The score for the get_description function is 6 out of 10
+
+
+              Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/decision-tree-data-visualization.png
+              The score for the get_description function is 8 out of 10
+
+
+              Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/hierarchical-clustering-analysis.png
+              The score for the get_description function is 8 out of 10
+
+
+              Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/survival-data-analysis.png
+              The score for the get_description function is 4 out of 10
+
+
+              The get_description function got a score of 60%'
+    detailed:  'Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/k-means-analysis-and-visualization.png
+                The score for the get_description function is 9 out of 10
+
+
+                Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/create-instance-logistic-regression-analysis.png
+                The score for the get_description function is 8 out of 10
+
+
+                Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/image-embedding-visualization.png
+                The score for the get_description function is 9 out of 10
+
+
+                Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/impute-rank-scatter-analysis.png
+                The score for the get_description function is 10 out of 10
+
+
+                Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/comparative-model-evaluation.png
+                The score for the get_description function is 9 out of 10
+
+
+                Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/image-clustering-analysis.png
+                The score for the get_description function is 9 out of 10
+
+
+                Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/preprocessed-text-word-cloud-analysis.png
+                The score for the get_description function is 8 out of 10
+
+
+                Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/decision-tree-data-visualization.png
+                The score for the get_description function is 10 out of 10
+
+
+                Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/hierarchical-clustering-analysis.png
+                The score for the get_description function is 10 out of 10
+
+
+                Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/survival-data-analysis.png
+                The score for the get_description function is 9 out of 10
+
+
+                The get_description function got a score of 91%'
+  new_widget_evaluation: 'Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/data-sampling-and-tree-modeling.png
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/painted-data-distances.png
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/geocoding-hierarchical-clustering-analysis.png
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/data-tree-visualization.png
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/naive-bayes-classification-model.png
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/polynomial-regression-analysis.png
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/decision-tree-data-sampling.png
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/random-forest-visualization.png
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/image-loading.png for goal Data transformation
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/image-loading.png for goal Data transformation
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/image-loading.png for goal Data visualization
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/corpus-from-documents.png
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/corpus-from-documents.png
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/survival-feature-ranking.png
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/survival-feature-ranking.png
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/logistic-regression-model-fitting.png
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/logistic-regression-model-fitting.png
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/topic-modeling-with-bag-of-words.png
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/bag-of-words-analysis.png
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/bag-of-words-analysis.png
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/attribute-imputation-and-ranking.png
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/PCA-data-transformation.png
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/image-clustering-analysis.png
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/image-clustering-analysis.png
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/decision-tree-prediction-analysis.png
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/distance-and-text-analysis.png
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/pairwise-attribute-correlations-analysis.png
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/text-preprocessing-workflow.png
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/text-sentiment-prediction.png
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/text-sentiment-prediction.png
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/k-means-clustering-analysis.png
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/k-means-clustering-analysis.png
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/image-embedding-and-neighbor-analysis.png
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/image-embedding-and-neighbor-analysis.png
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/file-loading.png for goal Data transformation
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/file-loading.png for goal Data transformation
+                          The widget is not in the possible widgets
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/file-loading.png for goal Feature selection
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/file-loading.png for goal Feature selection
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/file-loading.png for goal Data visualization
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/image-embedding-analysis.png
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/image-embedding-analysis.png
+                          The widget is not in the possible widgets
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/logistic-regression-classification-evaluation.png for goal Evaluation
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/logistic-regression-classification-evaluation.png for goal Evaluation
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/logistic-regression-classification-evaluation.png for goal New model implementation
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/logistic-regression-classification-evaluation.png for goal New model implementation
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/box-plot-visualization.png
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/box-plot-visualization.png
+                          The widget is not in the possible widgets
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/data-loading-and-sampler.png for goal Classification
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/data-loading-and-sampler.png for goal Dimensionality reduction
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/data-loading-and-sampler.png for goal Dimensionality reduction
+                          The widget is not in the possible widgets
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/sampled-pca-analysis.png for goal Apply the model to the data
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/sampled-pca-analysis.png for goal Apply the model to the data
+                          The widget is not in the possible widgets
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/sampled-pca-analysis.png for goal Data visualization
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/semantic-document-embedding.png
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/semantic-document-embedding.png
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/corpus-loading.png for goal Data transformation
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/corpus-loading.png for goal Data transformation
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/corpus-loading.png for goal Further analysis
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/text-document-visualization.png
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/text-document-visualization.png
+
+
+                          The new_widget_prompt function predicts 20 out of 40 workflows correctly
+                          The accuracy of the new_widget_prompt function is 50.0%'
+
+
+gpt-4o:
+  name_evaluation: 'Evaluating the get_name function for the workflow: data/workflows/evaluation/name-and-description/k-means-analysis-and-visualization.png
+                    The score for the get_name function is 1 out of 10
+
+
+                    Evaluating the get_name function for the workflow: data/workflows/evaluation/name-and-description/create-instance-logistic-regression-analysis.png
+                    The score for the get_name function is 1 out of 10
+
+
+                    Evaluating the get_name function for the workflow: data/workflows/evaluation/name-and-description/image-embedding-visualization.png
+                    The score for the get_name function is 10 out of 10
+
+
+                    Evaluating the get_name function for the workflow: data/workflows/evaluation/name-and-description/impute-rank-scatter-analysis.png
+                    The score for the get_name function is 1 out of 10
+
+
+                    Evaluating the get_name function for the workflow: data/workflows/evaluation/name-and-description/comparative-model-evaluation.png
+                    The score for the get_name function is 8 out of 10
+
+
+                    Evaluating the get_name function for the workflow: data/workflows/evaluation/name-and-description/image-clustering-analysis.png
+                    The score for the get_name function is 8 out of 10
+
+
+                    Evaluating the get_name function for the workflow: data/workflows/evaluation/name-and-description/preprocessed-text-word-cloud-analysis.png
+                    The score for the get_name function is 1 out of 10
+
+
+                    Evaluating the get_name function for the workflow: data/workflows/evaluation/name-and-description/decision-tree-data-visualization.png
+                    The score for the get_name function is 9 out of 10
+
+
+                    Evaluating the get_name function for the workflow: data/workflows/evaluation/name-and-description/hierarchical-clustering-analysis.png
+                    The score for the get_name function is 8 out of 10
+
+
+                    Evaluating the get_name function for the workflow: data/workflows/evaluation/name-and-description/survival-data-analysis.png
+                    The score for the get_name function is 3 out of 10
+
+
+                    The get_name function got a score of 50%'
+  description_evaluation:
+    concise: 'Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/k-means-analysis-and-visualization.png
+              The score for the get_description function is 8 out of 10
+
+
+              Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/create-instance-logistic-regression-analysis.png
+              The score for the get_description function is 3 out of 10
+
+
+              Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/image-embedding-visualization.png
+              The score for the get_description function is 8 out of 10
+
+
+              Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/impute-rank-scatter-analysis.png
+              The score for the get_description function is 3 out of 10
+
+
+              Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/comparative-model-evaluation.png
+              The score for the get_description function is 8 out of 10
+
+
+              Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/image-clustering-analysis.png
+              The score for the get_description function is 7 out of 10
+
+
+              Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/preprocessed-text-word-cloud-analysis.png
+              The score for the get_description function is 7 out of 10
+
+
+              Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/decision-tree-data-visualization.png
+              The score for the get_description function is 8 out of 10
+
+
+              Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/hierarchical-clustering-analysis.png
+              The score for the get_description function is 7 out of 10
+
+
+              Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/survival-data-analysis.png
+              The score for the get_description function is 8 out of 10
+
+
+              The get_description function got a score of 67%'
+    detailed:  'Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/k-means-analysis-and-visualization.png
+                The score for the get_description function is 10 out of 10
+
+
+                Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/create-instance-logistic-regression-analysis.png
+                The score for the get_description function is 9 out of 10
+
+
+                Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/image-embedding-visualization.png
+                The score for the get_description function is 10 out of 10
+
+
+                Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/impute-rank-scatter-analysis.png
+                The score for the get_description function is 10 out of 10
+
+
+                Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/comparative-model-evaluation.png
+                The score for the get_description function is 10 out of 10
+
+
+                Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/image-clustering-analysis.png
+                The score for the get_description function is 9 out of 10
+
+
+                Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/preprocessed-text-word-cloud-analysis.png
+                The score for the get_description function is 10 out of 10
+
+
+                Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/decision-tree-data-visualization.png
+                The score for the get_description function is 10 out of 10
+
+
+                Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/hierarchical-clustering-analysis.png
+                The score for the get_description function is 10 out of 10
+
+
+                Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/survival-data-analysis.png
+                The score for the get_description function is 9 out of 10
+
+
+                The get_description function got a score of 97%'
+  new_widget_evaluation: 'Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/data-sampling-and-tree-modeling.png
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/data-sampling-and-tree-modeling.png
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/painted-data-distances.png
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/geocoding-hierarchical-clustering-analysis.png
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/data-tree-visualization.png
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/naive-bayes-classification-model.png
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/polynomial-regression-analysis.png
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/decision-tree-data-sampling.png
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/random-forest-visualization.png
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/image-loading.png for goal Data transformation
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/image-loading.png for goal Data visualization
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/corpus-from-documents.png
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/corpus-from-documents.png
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/survival-feature-ranking.png
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/survival-feature-ranking.png
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/logistic-regression-model-fitting.png
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/topic-modeling-with-bag-of-words.png
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/topic-modeling-with-bag-of-words.png
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/bag-of-words-analysis.png
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/attribute-imputation-and-ranking.png
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/PCA-data-transformation.png
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/image-clustering-analysis.png
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/image-clustering-analysis.png
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/decision-tree-prediction-analysis.png
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/distance-and-text-analysis.png
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/pairwise-attribute-correlations-analysis.png
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/text-preprocessing-workflow.png
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/text-sentiment-prediction.png
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/text-sentiment-prediction.png
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/k-means-clustering-analysis.png
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/image-embedding-and-neighbor-analysis.png
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/file-loading.png for goal Data transformation
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/file-loading.png for goal Data transformation
+                          The widget is not in the possible widgets
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/file-loading.png for goal Feature selection
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/file-loading.png for goal Data visualization
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/image-embedding-analysis.png
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/image-embedding-analysis.png
+                          The widget is not in the possible widgets
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/logistic-regression-classification-evaluation.png for goal Evaluation
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/logistic-regression-classification-evaluation.png for goal New model implementation
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/box-plot-visualization.png
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/box-plot-visualization.png
+                          The widget is not in the possible widgets
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/data-loading-and-sampler.png for goal Classification
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/data-loading-and-sampler.png for goal Dimensionality reduction
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/data-loading-and-sampler.png for goal Dimensionality reduction
+                          The widget is not in the possible widgets
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/sampled-pca-analysis.png for goal Apply the model to the data
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/sampled-pca-analysis.png for goal Apply the model to the data
+                          The widget is not in the possible widgets
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/sampled-pca-analysis.png for goal Data visualization
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/semantic-document-embedding.png
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/semantic-document-embedding.png
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/corpus-loading.png for goal Data transformation
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/corpus-loading.png for goal Further analysis
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/text-document-visualization.png
+
+
+                          The new_widget_prompt function predicts 28 out of 40 workflows correctly
+                          The accuracy of the new_widget_prompt function is 70.0%'
+
+
+gemma2-27b:
+  name_evaluation: 'Evaluating the get_name function for the workflow: data/workflows/evaluation/name-and-description/comparative-model-evaluation.png
+                    The score for the get_name function is 1 out of 10
+
+
+                    Evaluating the get_name function for the workflow: data/workflows/evaluation/name-and-description/create-instance-logistic-regression-analysis.png
+                    The score for the get_name function is 1 out of 10
+
+
+                    Evaluating the get_name function for the workflow: data/workflows/evaluation/name-and-description/decision-tree-data-visualization.png
+                    The score for the get_name function is 7 out of 10
+
+
+                    Evaluating the get_name function for the workflow: data/workflows/evaluation/name-and-description/impute-rank-scatter-analysis.png
+                    The score for the get_name function is 1 out of 10
+
+
+                    Evaluating the get_name function for the workflow: data/workflows/evaluation/name-and-description/preprocessed-text-word-cloud-analysis.png
+                    The score for the get_name function is 1 out of 10
+
+
+                    Evaluating the get_name function for the workflow: data/workflows/evaluation/name-and-description/survival-data-analysis.png
+                    The score for the get_name function is 7 out of 10
+
+
+                    Evaluating the get_name function for the workflow: data/workflows/evaluation/name-and-description/hierarchical-clustering-analysis.png
+                    The score for the get_name function is 1 out of 10
+
+
+                    Evaluating the get_name function for the workflow: data/workflows/evaluation/name-and-description/image-clustering-analysis.png
+                    The score for the get_name function is 7 out of 10
+
+
+                    Evaluating the get_name function for the workflow: data/workflows/evaluation/name-and-description/image-embedding-visualization.png
+                    The score for the get_name function is 8 out of 10
+
+
+                    Evaluating the get_name function for the workflow: data/workflows/evaluation/name-and-description/k-means-analysis-and-visualization.png
+                    The score for the get_name function is 1 out of 10
+
+
+                    The get_name function got a score of 35%'
+  description_evaluation:
+    concise: 'Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/comparative-model-evaluation.png
+              The score for the get_description function is 6 out of 10
+
+
+              Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/create-instance-logistic-regression-analysis.png
+              The score for the get_description function is 3 out of 10
+
+
+              Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/decision-tree-data-visualization.png
+              The score for the get_description function is 9 out of 10
+
+
+              Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/impute-rank-scatter-analysis.png
+              The score for the get_description function is 3 out of 10
+
+
+              Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/preprocessed-text-word-cloud-analysis.png
+              The score for the get_description function is 7 out of 10
+
+
+              Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/survival-data-analysis.png
+              The score for the get_description function is 7 out of 10
+
+
+              Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/hierarchical-clustering-analysis.png
+              The score for the get_description function is 8 out of 10
+
+
+              Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/image-clustering-analysis.png
+              The score for the get_description function is 8 out of 10
+
+
+              Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/image-embedding-visualization.png
+              The score for the get_description function is 8 out of 10
+
+
+              Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/k-means-analysis-and-visualization.png
+              The score for the get_description function is 8 out of 10
+
+
+              The get_description function got a score of 67 % for description type concise'
+    detailed:  'Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/comparative-model-evaluation.png
+                The score for the get_description function is 9 out of 10
+
+
+                Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/create-instance-logistic-regression-analysis.png
+                The score for the get_description function is 8 out of 10
+
+
+                Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/decision-tree-data-visualization.png
+                The score for the get_description function is 8 out of 10
+
+
+                Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/impute-rank-scatter-analysis.png
+                The score for the get_description function is 9 out of 10
+
+
+                Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/preprocessed-text-word-cloud-analysis.png
+                The score for the get_description function is 8 out of 10
+
+
+                Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/survival-data-analysis.png
+                The score for the get_description function is 8 out of 10
+
+
+                Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/hierarchical-clustering-analysis.png
+                The score for the get_description function is 9 out of 10
+
+
+                Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/image-clustering-analysis.png
+                The score for the get_description function is 8 out of 10
+
+
+                Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/image-embedding-visualization.png
+                The score for the get_description function is 8 out of 10
+
+
+                Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/k-means-analysis-and-visualization.png
+                The score for the get_description function is 10 out of 10
+
+
+                The get_description function got a score of 85 % for description type detailed'
+  new_widget_evaluation: 'Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/PCA-data-transformation.png for goal Data visualization
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/attribute-imputation-and-ranking.png for goal Data visualization
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/bag-of-words-analysis.png for goal Further analysis
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/bag-of-words-analysis.png for goal Further analysis
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/box-plot-visualization.png for goal Data transformation
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/box-plot-visualization.png for goal Data transformation
+                          The widget is not in the possible widgets
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/corpus-from-documents.png for goal Data visualization
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/corpus-from-documents.png for goal Data visualization
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/corpus-loading.png for goal Data transformation
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/corpus-loading.png for goal Further analysis
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/corpus-loading.png for goal Further analysis
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/data-sampling-and-tree-modeling.png for goal Evaluation
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/data-tree-visualization.png for goal Data visualization
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/decision-tree-data-sampling.png for goal Model visualization
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/decision-tree-prediction-analysis.png for goal Evaluation
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/distance-and-text-analysis.png for goal Further analysis
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/image-clustering-analysis.png for goal Data visualization
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/image-clustering-analysis.png for goal Data visualization
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/image-embedding-analysis.png for goal Further analysis
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/image-embedding-analysis.png for goal Further analysis
+                          The widget is not in the possible widgets
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/image-embedding-and-neighbor-analysis.png for goal Data visualization
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/image-loading.png for goal Data transformation
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/image-loading.png for goal Data visualization
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/k-means-clustering-analysis.png for goal Model visualization
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/k-means-clustering-analysis.png for goal Model visualization
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/logistic-regression-classification-evaluation.png for goal Evaluation
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/logistic-regression-classification-evaluation.png for goal Evaluation
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/logistic-regression-classification-evaluation.png for goal New model implementation
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/logistic-regression-classification-evaluation.png for goal New model implementation
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/logistic-regression-model-fitting.png for goal Model visualization
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/naive-bayes-classification-model.png for goal Model visualization
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/painted-data-distances.png for goal Further analysis
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/pairwise-attribute-correlations-analysis.png for goal Data visualization
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/polynomial-regression-analysis.png for goal Data visualization
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/random-forest-visualization.png for goal Model visualization
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/semantic-document-embedding.png for goal Further analysis
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/semantic-document-embedding.png for goal Further analysis
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/survival-feature-ranking.png for goal Model visualization
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/survival-feature-ranking.png for goal Model visualization
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/text-document-visualization.png for goal Further analysis
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/text-document-visualization.png for goal Further analysis
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/text-preprocessing-workflow.png for goal Further analysis
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/text-sentiment-prediction.png for goal Model visualization
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/topic-modeling-with-bag-of-words.png for goal Further analysis
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/topic-modeling-with-bag-of-words.png for goal Further analysis
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/data-loading-and-sampler.png for goal Classification
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/data-loading-and-sampler.png for goal Dimensionality reduction
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/data-loading-and-sampler.png for goal Dimensionality reduction
+                          The widget is not in the possible widgets
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/file-loading.png for goal Data transformation
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/file-loading.png for goal Data transformation
+                          The widget is not in the possible widgets
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/file-loading.png for goal Feature selection
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/file-loading.png for goal Data visualization
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/geocoding-hierarchical-clustering-analysis.png for goal Data visualization on world map
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/sampled-pca-analysis.png for goal Apply the model to the data
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/sampled-pca-analysis.png for goal Apply the model to the data
+                          The widget is not in the possible widgets
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/sampled-pca-analysis.png for goal Data visualization
+
+                          The new_widget_prompt function predicts 24 out of 40 workflows correctly
+                          The accuracy of the new_widget_prompt function is 60.0%'
+
+
+llama3-70b:
+  name_evaluation: 'Evaluating the get_name function for the workflow: data/workflows/evaluation/name-and-description/comparative-model-evaluation.png
+                    The score for the get_name function is 1 out of 10
+
+
+                    Evaluating the get_name function for the workflow: data/workflows/evaluation/name-and-description/create-instance-logistic-regression-analysis.png
+                    The score for the get_name function is 1 out of 10
+
+
+                    Evaluating the get_name function for the workflow: data/workflows/evaluation/name-and-description/decision-tree-data-visualization.png
+                    The score for the get_name function is 1 out of 10
+
+
+                    Evaluating the get_name function for the workflow: data/workflows/evaluation/name-and-description/impute-rank-scatter-analysis.png
+                    The score for the get_name function is 1 out of 10
+
+
+                    Evaluating the get_name function for the workflow: data/workflows/evaluation/name-and-description/preprocessed-text-word-cloud-analysis.png
+                    The score for the get_name function is 1 out of 10
+
+
+                    Evaluating the get_name function for the workflow: data/workflows/evaluation/name-and-description/survival-data-analysis.png
+                    The score for the get_name function is 1 out of 10
+
+
+                    Evaluating the get_name function for the workflow: data/workflows/evaluation/name-and-description/hierarchical-clustering-analysis.png
+                    The score for the get_name function is 1 out of 10
+
+
+                    Evaluating the get_name function for the workflow: data/workflows/evaluation/name-and-description/image-clustering-analysis.png
+                    The score for the get_name function is 1 out of 10
+
+
+                    Evaluating the get_name function for the workflow: data/workflows/evaluation/name-and-description/image-embedding-visualization.png
+                    The score for the get_name function is 1 out of 10
+
+
+                    Evaluating the get_name function for the workflow: data/workflows/evaluation/name-and-description/k-means-analysis-and-visualization.png
+                    The score for the get_name function is 1 out of 10
+
+
+                    The get_name function got a score of 10%'
+  description_evaluation:
+    concise: 'Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/comparative-model-evaluation.png
+              The score for the get_description function is 3 out of 10
+
+
+              Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/create-instance-logistic-regression-analysis.png
+              The score for the get_description function is 3 out of 10
+
+
+              Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/decision-tree-data-visualization.png
+              The score for the get_description function is 3 out of 10
+
+
+              Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/impute-rank-scatter-analysis.png
+              The score for the get_description function is 5 out of 10
+
+
+              Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/preprocessed-text-word-cloud-analysis.png
+              The score for the get_description function is 3 out of 10
+
+
+              Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/survival-data-analysis.png
+              The score for the get_description function is 3 out of 10
+
+
+              Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/hierarchical-clustering-analysis.png
+              The score for the get_description function is 6 out of 10
+
+
+              Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/image-clustering-analysis.png
+              The score for the get_description function is 3 out of 10
+
+
+              Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/image-embedding-visualization.png
+              The score for the get_description function is 3 out of 10
+
+
+              Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/k-means-analysis-and-visualization.png
+              The score for the get_description function is 3 out of 10
+
+
+              The get_description function got a score of 35 % for description type concise'
+    detailed:  'Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/comparative-model-evaluation.png
+                The score for the get_description function is 8 out of 10
+
+
+                Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/create-instance-logistic-regression-analysis.png
+                The score for the get_description function is 8 out of 10
+
+
+                Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/decision-tree-data-visualization.png
+                The score for the get_description function is 9 out of 10
+
+
+                Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/impute-rank-scatter-analysis.png
+                The score for the get_description function is 8 out of 10
+
+
+                Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/preprocessed-text-word-cloud-analysis.png
+                The score for the get_description function is 9 out of 10
+
+
+                Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/survival-data-analysis.png
+                The score for the get_description function is 8 out of 10
+
+
+                Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/hierarchical-clustering-analysis.png
+                The score for the get_description function is 10 out of 10
+
+
+                Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/image-clustering-analysis.png
+                The score for the get_description function is 10 out of 10
+
+
+                Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/image-embedding-visualization.png
+                The score for the get_description function is 9 out of 10
+
+
+                Evaluating the get_description function for the workflow: data/workflows/evaluation/name-and-description/k-means-analysis-and-visualization.png
+                The score for the get_description function is 10 out of 10
+
+
+                The get_description function got a score of 89 % for description type detailed'
+  new_widget_evaluation: 'Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/PCA-data-transformation.png for goal Data visualization
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/attribute-imputation-and-ranking.png for goal Data visualization
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/bag-of-words-analysis.png for goal Further analysis
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/bag-of-words-analysis.png for goal Further analysis
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/box-plot-visualization.png for goal Data transformation
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/box-plot-visualization.png for goal Data transformation
+                          The widget is not in the possible widgets
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/corpus-from-documents.png for goal Data visualization
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/corpus-from-documents.png for goal Data visualization
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/corpus-loading.png for goal Data transformation
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/corpus-loading.png for goal Data transformation
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/corpus-loading.png for goal Further analysis
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/data-sampling-and-tree-modeling.png for goal Evaluation
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/data-tree-visualization.png for goal Data visualization
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/decision-tree-data-sampling.png for goal Model visualization
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/decision-tree-prediction-analysis.png for goal Evaluation
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/distance-and-text-analysis.png for goal Further analysis
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/image-clustering-analysis.png for goal Data visualization
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/image-embedding-analysis.png for goal Further analysis
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/image-embedding-analysis.png for goal Further analysis
+                          The widget is not in the possible widgets
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/image-embedding-and-neighbor-analysis.png for goal Data visualization
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/image-loading.png for goal Data transformation
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/image-loading.png for goal Data visualization
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/k-means-clustering-analysis.png for goal Model visualization
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/logistic-regression-classification-evaluation.png for goal Evaluation
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/logistic-regression-classification-evaluation.png for goal New model implementation
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/logistic-regression-classification-evaluation.png for goal New model implementation
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/logistic-regression-model-fitting.png for goal Model visualization
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/naive-bayes-classification-model.png for goal Model visualization
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/painted-data-distances.png for goal Further analysis
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/pairwise-attribute-correlations-analysis.png for goal Data visualization
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/polynomial-regression-analysis.png for goal Data visualization
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/random-forest-visualization.png for goal Model visualization
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/semantic-document-embedding.png for goal Further analysis
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/semantic-document-embedding.png for goal Further analysis
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/survival-feature-ranking.png for goal Model visualization
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/survival-feature-ranking.png for goal Model visualization
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/text-document-visualization.png for goal Further analysis
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/text-document-visualization.png for goal Further analysis
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/text-preprocessing-workflow.png for goal Further analysis
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/text-preprocessing-workflow.png for goal Further analysis
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/text-sentiment-prediction.png for goal Model visualization
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/text-sentiment-prediction.png for goal Model visualization
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/topic-modeling-with-bag-of-words.png for goal Further analysis
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/topic-modeling-with-bag-of-words.png for goal Further analysis
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/data-loading-and-sampler.png for goal Classification
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/data-loading-and-sampler.png for goal Dimensionality reduction
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/data-loading-and-sampler.png for goal Dimensionality reduction
+                          The widget is not in the possible widgets
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/file-loading.png for goal Data transformation
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/file-loading.png for goal Data transformation
+                          The widget is not in the possible widgets
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/file-loading.png for goal Feature selection
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/file-loading.png for goal Data visualization
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/file-loading.png for goal Data visualization
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/geocoding-hierarchical-clustering-analysis.png for goal Data visualization on world map
+
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/sampled-pca-analysis.png for goal Apply the model to the data
+                          The response does not contain the removed widget for the workflow: data/workflows/evaluation/new-widgets/sampled-pca-analysis.png for goal Apply the model to the data
+                          The widget is not in the possible widgets
+
+                          Evaluating the new_widget_prompt function for the workflow: data/workflows/evaluation/new-widgets/sampled-pca-analysis.png for goal Data visualization
+
+                          The new_widget_prompt function predicts 24 out of 40 workflows correctly
+                          The accuracy of the new_widget_prompt function is 60.0%'
+
+
+
+

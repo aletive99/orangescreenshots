@@ -1319,7 +1319,7 @@ def _crop_workflows(directory_to_check='orange-lecture-notes-web/public/chapters
     progress_bar.close()
 
 
-def _workflow_to_code(workflow, return_labels=False, only_enriched=True, discount_multiple=True):
+def _workflow_to_code(workflow, return_labels=False, orange_dataset=True):
     """
     This function returns the code of the widgets present in the image. The code is a binary vector where 1 indicates the
     presence of the widget or link and 0 indicates the absence of the widget.  If the return_labels parameter is set to
@@ -1332,20 +1332,10 @@ def _workflow_to_code(workflow, return_labels=False, only_enriched=True, discoun
     :return: code: np.array, label_list: np.array
     """
     yaml_direct = 'image-analysis-results'
-
-    try:
-        with open(yaml_direct+'/image-widgets.yaml', 'r') as file:
-            widgets = yaml.full_load(file)
-    except FileNotFoundError:
-        print('There is no information about the widget presence, the function will stop. Please run the function '
-              'update_widget_list first or download the yaml file from the repository')
-        return None
     widget_list = []
     for widget in workflow.get_widgets():
         widget_list.append(str(widget).split(' #')[0])
-    indexes = []
-    found_input = False
-    if not only_enriched:
+    if not orange_dataset:
         try:
             with open('data/widget-info/widget-descriptions.yaml', 'r') as file:
                 descriptions = yaml.full_load(file)
@@ -1354,21 +1344,18 @@ def _workflow_to_code(workflow, return_labels=False, only_enriched=True, discoun
             with open('data/widget-info/widget-descriptions.yaml', 'r') as file:
                 descriptions = yaml.full_load(file)
         list_of_widget = list(descriptions.keys())
+        list_of_widget.remove('Data/File')
+        list_of_widget.remove('Data/Paint Data')
+        list_of_widget.remove('Data/Datasets')
         code = []
         for i in range(len(list_of_widget)):
             widget = list_of_widget[i]
-            if widget == 'Data/File' or widget == 'Data/Paint Data' or widget == 'Data/Datasets':
-                indexes.append(i)
             if widget in widget_list:
-                if widget == 'Data/File' or widget == 'Data/Paint Data' or widget == 'Data/Datasets':
-                    found_input = True
-                if discount_multiple:
-                    code.append(1)
-                else:
-                    code.append(widget_list.count(widget))
+                code.append(widget_list.count(widget))
             else:
                 code.append(0)
-        label_list = list_of_widget
+        code.append(widget_list.count('Data/File')+widget_list.count('Data/Paint Data')+widget_list.count('Data/Datasets'))
+        label_list = list_of_widget + ['Data/File']
     else:
         try:
             with open(yaml_direct+'/widgets-analysis.yaml', 'r') as file:
@@ -1377,32 +1364,31 @@ def _workflow_to_code(workflow, return_labels=False, only_enriched=True, discoun
             print('There is no image-analysis-results/widgets-analysis.yaml file to read, please run the data_analysis '
                   'program first or download the file from the repository')
             return None
+        widgets_enriched.remove('Data/File')
+        widgets_enriched.remove('Data/Paint Data')
+        widgets_enriched.remove('Data/Datasets')
         code = []
         for i in range(len(widgets_enriched)):
             widget = widgets_enriched[i]
-            if widget == 'Data/File' or widget == 'Data/Paint Data' or widget == 'Data/Datasets':
-                indexes.append(i)
             if widget in widget_list:
-                if widget == 'Data/File' or widget == 'Data/Paint Data' or widget == 'Data/Datasets':
-                    found_input = True
-                if discount_multiple:
-                    code.append(1)
-                else:
-                    code.append(widget_list.count(widget))
+                code.append(1)
             else:
                 code.append(0)
-        label_list = widgets_enriched
-    if found_input:
-        for i in indexes:
-            code[i] = 1
+        if 'Data/File' in widget_list or 'Data/Paint Data' in widget_list or 'Data/Datasets' in widget_list:
+            code.append(1)
+        else:
+            code.append(0)
+        label_list = widgets_enriched + ['Data/File']
 
+    link_to_memorize = []
+    which = []
     try:
         with open(yaml_direct+'/image-links.yaml', 'r') as file:
             links = yaml.full_load(file)
     except FileNotFoundError:
         print('There is no yaml file to read, please run the update_widget_list function first')
         return None
-    if not only_enriched:
+    if not orange_dataset:
         list_of_links = []
         for key in links:
             if links[key]['links'] is not None:
@@ -1414,9 +1400,24 @@ def _workflow_to_code(workflow, return_labels=False, only_enriched=True, discoun
                         link = (link[0], (link[1][0], link[1][1].split(' #')[0]))
                     link_str = link[0][0] + '/' + link[0][1] + ' -> ' + link[1][0] + '/' + link[1][1]
                     if link_str not in list_of_links:
-                        list_of_links.append(link_str)
+                        if 'Data/File' in link_str or 'Data/Paint Data' in link_str or 'Data/Datasets' in link_str:
+                            link_to_memorize.append(link_str.split('Data/File')[-1].split('Data/Paint Data')[-1].split('Data/Datasets')[-1])
+                        else:
+                            list_of_links.append(link_str)
+        link_to_memorize = np.unique(link_to_memorize)
         for i in list_of_links:
             if i in str(workflow):
+                code.append(1)
+            else:
+                code.append(0)
+        for i in ['Data/File', 'Data/Paint Data', 'Data/Datasets']:
+            for j in range(len(link_to_memorize)):
+                if i + link_to_memorize[j] in str(workflow):
+                    which.append(j)
+        which = np.unique(which)
+        for i in range(len(link_to_memorize)):
+            list_of_links.append('Data/File' + link_to_memorize[i])
+            if i in which:
                 code.append(1)
             else:
                 code.append(0)
@@ -1430,6 +1431,10 @@ def _workflow_to_code(workflow, return_labels=False, only_enriched=True, discoun
                   'program first or download the file from the repository')
             return None
         link_list = []
+        for i in links_enriched:
+            if 'Data/File' in i or 'Data/Paint Data' in i or 'Data/Datasets' in i:
+                links_enriched.remove(i)
+                link_to_memorize.append(i.split('Data/File')[-1].split('Data/Paint Data')[-1].split('Data/Datasets')[-1])
         for link in workflow.data:
             if '#' in link[0][1]:
                 link = ((link[0][0], link[0][1].split(' #')[0]), link[1])
@@ -1442,6 +1447,17 @@ def _workflow_to_code(workflow, return_labels=False, only_enriched=True, discoun
                 code.append(1)
             else:
                 code.append(0)
+        for i in ['Data/File', 'Data/Paint Data', 'Data/Datasets']:
+            for j in range(len(link_to_memorize)):
+                if i + link_to_memorize[j] in str(workflow):
+                    which.append(j)
+        which = np.unique(which)
+        for i in range(len(link_to_memorize)):
+            links_enriched.append('Data/File' + link_to_memorize[i])
+            if i in which:
+                code.append(1)
+            else:
+                code.append(0)
         label_list = np.append(label_list, links_enriched)
 
     if not return_labels:
@@ -1450,7 +1466,7 @@ def _workflow_to_code(workflow, return_labels=False, only_enriched=True, discoun
         return label_list
 
 
-def _create_dataset(orange_dataset=True, min_thresh=3):
+def _create_dataset(orange_dataset=True):
     """
     This function creates an Excel file with the information about the widgets present in the images. The Excel file
     contains the name of the workflow, the path of the image, and the widgets present in the image. The function also
@@ -1479,7 +1495,7 @@ def _create_dataset(orange_dataset=True, min_thresh=3):
     sheet['C1'] = 'Parent Folder'
     sheet['D1'] = 'Parent Subfolder'
     key = os.path.dirname(img_names_to_check[0].split('cropped-workflows/')[-1]) + '---' + img_names_to_check[0].split('/')[-1]
-    labels = _workflow_to_code(Workflow(links[key]['links']), return_labels=True, only_enriched=orange_dataset, discount_multiple=orange_dataset)
+    labels = _workflow_to_code(Workflow(links[key]['links']), return_labels=True, orange_dataset=orange_dataset)
     for j in range(len(labels)):
         sheet.cell(row=1, column=j+5, value=labels[j])
     for i in range(len(img_names_to_check)):
@@ -1492,25 +1508,12 @@ def _create_dataset(orange_dataset=True, min_thresh=3):
         sheet['D'+str(i+2)] = os.path.dirname(img_names_to_check[i]).split('/')[-1]
         key = os.path.dirname(img_names_to_check[i].split('cropped-workflows/')[-1]) + '---' + img_names_to_check[i].split('/')[-1]
         workflow = Workflow(links[key]['links'])
-        code = _workflow_to_code(workflow, only_enriched=orange_dataset, discount_multiple=orange_dataset)
+        code = _workflow_to_code(workflow, orange_dataset=orange_dataset)
         for j in range(len(code)):
             sheet.cell(row=i+2, column=j+5, value=int(code[j]))
         progress_bar.update(1)
     progress_bar.close()
     if orange_dataset:
-        count_matrix = np.zeros((sheet.max_column-4, 1))
-        for i in range(5, sheet.max_column+1):
-            count = 0
-            for j in range(2, sheet.max_row+1):
-                if sheet.cell(row=j, column=i).value == 1:
-                    count += 1
-            count_matrix[i-5] = count
-        to_delete = np.where(count_matrix < min_thresh)[0] + 5
-        progress_bar = tqdm(total=len(to_delete), desc='Progress')
-        for i in to_delete:
-            sheet.delete_cols(i)
-            progress_bar.update(1)
-        progress_bar.close()
         workbook.save('image-analysis-results/orange-dataset.xlsx')
     else:
         workbook.save('image-analysis-results/workflows-dataset.xlsx')
@@ -1551,7 +1554,7 @@ def find_similar_workflows(workflow, return_workflows=True, k=10, dist_type='euc
     :param only_widgets: bool
     :return: closest_workflows: list
     """
-    label_list = list(_workflow_to_code(workflow, return_labels=True, only_enriched=False))
+    label_list = list(_workflow_to_code(workflow, return_labels=True, orange_dataset=False))
     for i in range(len(label_list)):
         if '->' in label_list[i]:
             how_many_widgets = i
@@ -1568,7 +1571,7 @@ def find_similar_workflows(workflow, return_workflows=True, k=10, dist_type='euc
             return None, None
     else:
         removed_widget = None
-    workflow_code = np.array(_workflow_to_code(workflow, only_enriched=False))[:how_many_widgets].astype(int)
+    workflow_code = np.array(_workflow_to_code(workflow, orange_dataset=False))[:how_many_widgets].astype(int)
     df = pd.read_excel('image-analysis-results/workflows-dataset.xlsx')
     code = df.iloc[:, 4:].values
     unique_code, idx = np.unique(code[:, :how_many_widgets], axis=0, return_index=True)
