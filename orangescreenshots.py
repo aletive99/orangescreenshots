@@ -1636,7 +1636,7 @@ def get_workflow_name_prompt(img_name, return_query=False):
         workflow = Workflow(example[1])
         query += '## Workflow:\nLinks in the workflow:\n' + str(workflow) + '\n\nWidget descriptions:\n'
         query += workflow.get_context(True)
-        query += '## Image name:\n' + example[0] + '\n-------------------------------\n\n'
+        query += '## Name:\n' + example[0] + '\n-------------------------------\n\n'
     try:
         workflow = Workflow(img_name)
     except ValueError:
@@ -1650,7 +1650,7 @@ def get_workflow_name_prompt(img_name, return_query=False):
             return None
     query += '## Workflow:\nLinks in the workflow:\n' + str(workflow) + '\n\nWidget descriptions:\n'
     query += workflow.get_context(True)
-    query += '## Image name:\n'
+    query += '## Name:\n'
     if return_query:
         return query
     else:
