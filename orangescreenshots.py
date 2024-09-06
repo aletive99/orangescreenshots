@@ -344,6 +344,7 @@ def draw_locations(img_name, return_img=False):
     the widgets highlighted
     :param img_name: str
     :param return_img: bool
+    :return: image: np.array
     """
     widget_size = _size_identification(img_name)
     if widget_size is None:
@@ -660,7 +661,7 @@ def _link_detection(img_name, show_process=False, show_conn_comp=False):
 
 def _extract_workflow_from_image(img_name, show_process=False):
     """
-    This function returns the list of widget pairs present in the image
+    This function returns the list of links present in the image
     :param img_name: str
     :param show_process: bool
     :return: link_list: Widget
@@ -752,6 +753,11 @@ class Widget:
         return self.module + '/' + self.name
 
     def __eq__(self, other):
+        """
+        Custom equality comparison for the Widget object.
+        :param other: any
+        :return: bool
+        """
         if isinstance(other, Widget):
             return self.module == other.module and self.name == other.name
         return False
@@ -762,6 +768,8 @@ class Widget:
     def get_description(self, short_description=False):
         """
         Returns the description of the widget.
+        :param short_description: bool
+        :return: description: str
         """
         try:
             with open('data/widget-info/widget-descriptions.yaml', 'r') as file:
@@ -1086,6 +1094,12 @@ class Workflow:
 
 
 def _get_response(query, model='gpt-3.5-turbo-0125'):
+    """
+    This function sends a query to the OpenAI API and returns the response.
+    :param query: str
+    :param model: str
+    :return: response: str
+    """
     api_key = os.getenv('OPENAI_API_KEY')
     if api_key is None:
         print('OpenAI API key not found.')
@@ -1323,12 +1337,11 @@ def _workflow_to_code(workflow, return_labels=False, orange_dataset=True):
     """
     This function returns the code of the widgets present in the image. The code is a binary vector where 1 indicates the
     presence of the widget or link and 0 indicates the absence of the widget.  If the return_labels parameter is set to
-    True, the function will return the labels of the widgets present in the image. If the only_enriched parameter is set
+    True, the function will return the labels of the widgets present in the image. If the orange_dataset parameter is set
     to True, the function will return the code of only the enriched widgets and links.
     :param workflow: Workflow
     :param return_labels: bool
-    :param only_enriched: bool
-    :param discount_multiple: bool
+    :param orange_dataset: bool
     :return: code: np.array, label_list: np.array
     """
     yaml_direct = 'image-analysis-results'
@@ -1469,11 +1482,9 @@ def _workflow_to_code(workflow, return_labels=False, orange_dataset=True):
 def _create_dataset(orange_dataset=True):
     """
     This function creates an Excel file with the information about the widgets present in the images. The Excel file
-    contains the name of the workflow, the path of the image, and the widgets present in the image. The function also
-    filters the widgets that are present in less than the min_thresh number of images. If the only_enriched parameter is
-    set to True, the function will only consider the enriched widgets and links.
+    contains the name of the workflow, the path of the image, and the widgets present in the image. If the orange_dataset
+    parameter is set to True, the function will create a dataset with only the enriched widgets and links.
     :param orange_dataset: bool
-    :param min_thresh: int
     """
     try:
         img_names_to_check = _get_filenames('cropped-workflows/')
@@ -1552,6 +1563,7 @@ def find_similar_workflows(workflow, return_workflows=True, k=10, dist_type='euc
     :param k: int
     :param dist_type: str
     :param only_widgets: bool
+    :param remove_widget: bool
     :return: closest_workflows: list
     """
     label_list = list(_workflow_to_code(workflow, return_labels=True, orange_dataset=False))
@@ -1867,6 +1879,8 @@ def _description_evaluation(model='gpt-3.5-turbo-0125', concise_description=True
     """
     This function evaluates the performance of the Workflow.get_description function by comparing the output of the
     function with the actual description of the widget, by comparing the two descriptions using ChatGPT.
+    :param model: str
+    :param concise_description: bool
     """
     filenames = _get_filenames('data/workflows/evaluation/name-and-description')
     with open('data/prompts/text-comparison-prompt.md', 'r') as file:
