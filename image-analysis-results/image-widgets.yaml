@@ -1,17 +1,17 @@
 '---example.png':
   path: ''
   filename: example.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 teme-blaz/poenostavitve-dendrogramov---dendrogram.png:
   path: teme-blaz/poenostavitve-dendrogramov
   filename: dendrogram.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 teme-blaz/klepetalniki-in-delotoki---delotok.png:
   path: teme-blaz/klepetalniki-in-delotoki
   filename: delotok.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Evaluate
@@ -34,32 +34,32 @@ teme-blaz/klepetalniki-in-delotoki---delotok.png:
 teme-blaz/supervised-pca---freeviz.png:
   path: teme-blaz/supervised-pca
   filename: freeviz.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 teme-blaz/zaupanje---primeri-razlag.png:
   path: teme-blaz/zaupanje
   filename: primeri-razlag.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 single-cell-tutorial-notes/sc-notes-01-datasets---sc-notes-01-05_80.jpg:
   path: single-cell-tutorial-notes/sc-notes-01-datasets
   filename: sc-notes-01-05_80.jpg
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 single-cell-tutorial-notes/sc-notes-01-datasets---Screenshot 2023-08-22 at 15.33.30_80.jpg:
   path: single-cell-tutorial-notes/sc-notes-01-datasets
   filename: Screenshot 2023-08-22 at 15.33.30_80.jpg
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 single-cell-tutorial-notes/sc-notes-01-datasets---Screenshot 2023-08-22 at 15.28.15_80.jpg:
   path: single-cell-tutorial-notes/sc-notes-01-datasets
   filename: Screenshot 2023-08-22 at 15.28.15_80.jpg
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 single-cell-tutorial-notes/sc-notes-01-datasets---Screenshot 2023-08-22 at 15.12.22_80.jpg:
   path: single-cell-tutorial-notes/sc-notes-01-datasets
   filename: Screenshot 2023-08-22 at 15.12.22_80.jpg
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Transform
@@ -82,27 +82,27 @@ single-cell-tutorial-notes/sc-notes-01-datasets---Screenshot 2023-08-22 at 15.12
 single-cell-tutorial-notes/sc-notes-01-datasets---Screenshot 2023-08-22 at 15.13.45_80.jpg:
   path: single-cell-tutorial-notes/sc-notes-01-datasets
   filename: Screenshot 2023-08-22 at 15.13.45_80.jpg
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 single-cell-tutorial-notes/sc-notes-01-datasets---Screenshot 2023-08-22 at 15.27.16_80.jpg:
   path: single-cell-tutorial-notes/sc-notes-01-datasets
   filename: Screenshot 2023-08-22 at 15.27.16_80.jpg
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 single-cell-tutorial-notes/sc-notes-01-datasets---Screenshot 2023-08-22 at 15.32.14_80.jpg:
   path: single-cell-tutorial-notes/sc-notes-01-datasets
   filename: Screenshot 2023-08-22 at 15.32.14_80.jpg
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 single-cell-tutorial-notes/sc-notes-01-datasets---Screenshot 2023-08-22 at 15.50.47_80.jpg:
   path: single-cell-tutorial-notes/sc-notes-01-datasets
   filename: Screenshot 2023-08-22 at 15.50.47_80.jpg
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 single-cell-tutorial-notes/sc-notes-01-datasets---sc-notes-01-03_80.jpg:
   path: single-cell-tutorial-notes/sc-notes-01-datasets
   filename: sc-notes-01-03_80.jpg
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Transform
@@ -119,7 +119,7 @@ single-cell-tutorial-notes/sc-notes-01-datasets---sc-notes-01-03_80.jpg:
 single-cell-tutorial-notes/sc-notes-01-datasets---Screenshot 2023-08-22 at 15.34.30_80.jpg:
   path: single-cell-tutorial-notes/sc-notes-01-datasets
   filename: Screenshot 2023-08-22 at 15.34.30_80.jpg
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -130,12 +130,12 @@ single-cell-tutorial-notes/sc-notes-01-datasets---Screenshot 2023-08-22 at 15.34
 single-cell-tutorial-notes/sc-notes-01-datasets---Screenshot 2023-08-17 at 12.01.55_80.jpg:
   path: single-cell-tutorial-notes/sc-notes-01-datasets
   filename: Screenshot 2023-08-17 at 12.01.55_80.jpg
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 single-cell-tutorial-notes/sc-notes-01-datasets---sc-notes-01-01_80.jpg:
   path: single-cell-tutorial-notes/sc-notes-01-datasets
   filename: sc-notes-01-01_80.jpg
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Transform
@@ -152,42 +152,42 @@ single-cell-tutorial-notes/sc-notes-01-datasets---sc-notes-01-01_80.jpg:
 single-cell-tutorial-notes/sc-notes-01-datasets---Screenshot 2023-08-22 at 15.17.07_80.jpg:
   path: single-cell-tutorial-notes/sc-notes-01-datasets
   filename: Screenshot 2023-08-22 at 15.17.07_80.jpg
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 single-cell-tutorial-notes/sc-notes-01-datasets---Screenshot 2023-08-22 at 15.57.48_80.jpg:
   path: single-cell-tutorial-notes/sc-notes-01-datasets
   filename: Screenshot 2023-08-22 at 15.57.48_80.jpg
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 single-cell-tutorial-notes/sc-notes-01-datasets---sc-notes-01-04_80.jpg:
   path: single-cell-tutorial-notes/sc-notes-01-datasets
   filename: sc-notes-01-04_80.jpg
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 single-cell-tutorial-notes/sc-notes-01-datasets---Screenshot 2023-08-22 at 15.49.09_80.jpg:
   path: single-cell-tutorial-notes/sc-notes-01-datasets
   filename: Screenshot 2023-08-22 at 15.49.09_80.jpg
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 single-cell-tutorial-notes/sc-notes-01-datasets---Screenshot 2023-08-22 at 15.26.39_80.jpg:
   path: single-cell-tutorial-notes/sc-notes-01-datasets
   filename: Screenshot 2023-08-22 at 15.26.39_80.jpg
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 single-cell-tutorial-notes/sc-notes-01-datasets---sc-notes-01-02_80.jpg:
   path: single-cell-tutorial-notes/sc-notes-01-datasets
   filename: sc-notes-01-02_80.jpg
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 single-cell-tutorial-notes/sc-notes-01-datasets---Screenshot 2023-08-22 at 15.58.18_80.jpg:
   path: single-cell-tutorial-notes/sc-notes-01-datasets
   filename: Screenshot 2023-08-22 at 15.58.18_80.jpg
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 single-cell-tutorial-notes/sc-notes-01-datasets---Screenshot 2023-08-22 at 15.15.19_80.jpg:
   path: single-cell-tutorial-notes/sc-notes-01-datasets
   filename: Screenshot 2023-08-22 at 15.15.19_80.jpg
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Transform
@@ -210,7 +210,7 @@ single-cell-tutorial-notes/sc-notes-01-datasets---Screenshot 2023-08-22 at 15.15
 ds-intro/030-correlations---connection.png:
   path: ds-intro/030-correlations
   filename: connection.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Unsupervised
@@ -224,7 +224,7 @@ ds-intro/030-correlations---connection.png:
 ds-intro/030-correlations---features.png:
   path: ds-intro/030-correlations
   filename: features.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Unsupervised
@@ -238,12 +238,12 @@ ds-intro/030-correlations---features.png:
 ds-intro/030-correlations---correlations-scatterplot.png:
   path: ds-intro/030-correlations
   filename: correlations-scatterplot.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-intro/030-correlations---data-signal.png:
   path: ds-intro/030-correlations
   filename: data-signal.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -257,7 +257,7 @@ ds-intro/030-correlations---data-signal.png:
 ds-intro/030-correlations---correlations.png:
   path: ds-intro/030-correlations
   filename: correlations.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Unsupervised
@@ -271,12 +271,12 @@ ds-intro/030-correlations---correlations.png:
 ds-intro/020-saving-your-work---remove.png:
   path: ds-intro/020-saving-your-work
   filename: remove.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-intro/020-saving-your-work---scatterplot-highlighted.png:
   path: ds-intro/020-saving-your-work
   filename: scatterplot-highlighted.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -290,7 +290,7 @@ ds-intro/020-saving-your-work---scatterplot-highlighted.png:
 ds-intro/020-saving-your-work---slovenia-spain.png:
   path: ds-intro/020-saving-your-work
   filename: slovenia-spain.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -307,7 +307,7 @@ ds-intro/020-saving-your-work---slovenia-spain.png:
 ds-intro/020-saving-your-work---scatter-plot.png:
   path: ds-intro/020-saving-your-work
   filename: scatter-plot.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -318,17 +318,17 @@ ds-intro/020-saving-your-work---scatter-plot.png:
 ds-intro/020-saving-your-work---add-datasets-widget.png:
   path: ds-intro/020-saving-your-work
   filename: add-datasets-widget.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-intro/020-saving-your-work---save.png:
   path: ds-intro/020-saving-your-work
   filename: save.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-intro/050-data-construction---save-data-workflow.png:
   path: ds-intro/050-data-construction
   filename: save-data-workflow.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Transform
@@ -342,32 +342,32 @@ ds-intro/050-data-construction---save-data-workflow.png:
 ds-intro/050-data-construction---file.png:
   path: ds-intro/050-data-construction
   filename: file.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-intro/050-data-construction---select-columns.png:
   path: ds-intro/050-data-construction
   filename: select-columns.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-intro/050-data-construction---excel.png:
   path: ds-intro/050-data-construction
   filename: excel.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-intro/050-data-construction---excel-no-eyes.png:
   path: ds-intro/050-data-construction
   filename: excel-no-eyes.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-intro/010-workflows---data-table-hdi.png:
   path: ds-intro/010-workflows
   filename: data-table-hdi.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-intro/010-workflows---scatterplot-show-subset-wf.png:
   path: ds-intro/010-workflows
   filename: scatterplot-show-subset-wf.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -381,27 +381,27 @@ ds-intro/010-workflows---scatterplot-show-subset-wf.png:
 ds-intro/010-workflows---scatterplot-with-subset.png:
   path: ds-intro/010-workflows
   filename: scatterplot-with-subset.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-intro/010-workflows---datasets-hdi.png:
   path: ds-intro/010-workflows
   filename: datasets-hdi.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-intro/010-workflows---table-to-scatter-link.png:
   path: ds-intro/010-workflows
   filename: table-to-scatter-link.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-intro/010-workflows---scatterplot-brown.png:
   path: ds-intro/010-workflows
   filename: scatterplot-brown.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-intro/010-workflows---scatterplot-hdi.png:
   path: ds-intro/010-workflows
   filename: scatterplot-hdi.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -415,17 +415,17 @@ ds-intro/010-workflows---scatterplot-hdi.png:
 ds-intro/010-workflows---widget-dropdown.png:
   path: ds-intro/010-workflows
   filename: widget-dropdown.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-intro/010-workflows---score-plots.png:
   path: ds-intro/010-workflows
   filename: score-plots.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-intro/010-workflows---datasets-table.png:
   path: ds-intro/010-workflows
   filename: datasets-table.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -436,7 +436,7 @@ ds-intro/010-workflows---datasets-table.png:
 ds-intro/010-workflows---datatable-datatable-workflow.png:
   path: ds-intro/010-workflows
   filename: datatable-datatable-workflow.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -450,7 +450,7 @@ ds-intro/010-workflows---datatable-datatable-workflow.png:
 ds-intro/010-workflows---explore-scatterplot.png:
   path: ds-intro/010-workflows
   filename: explore-scatterplot.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -467,17 +467,17 @@ ds-intro/010-workflows---explore-scatterplot.png:
 ds-intro/010-workflows---scatterplot.png:
   path: ds-intro/010-workflows
   filename: scatterplot.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-intro/010-workflows---two-data-tables.png:
   path: ds-intro/010-workflows
   filename: two-data-tables.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-intro/010-workflows---datasets-table-empty.png:
   path: ds-intro/010-workflows
   filename: datasets-table-empty.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -488,7 +488,7 @@ ds-intro/010-workflows---datasets-table-empty.png:
 ds-intro/010-workflows---scatterplot-selection-workflow.png:
   path: ds-intro/010-workflows
   filename: scatterplot-selection-workflow.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -505,7 +505,7 @@ ds-intro/010-workflows---scatterplot-selection-workflow.png:
 ds-intro/010-workflows---scatterplot-add-widget.png:
   path: ds-intro/010-workflows
   filename: scatterplot-add-widget.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -519,7 +519,7 @@ ds-intro/010-workflows---scatterplot-add-widget.png:
 ds-intro/040-data-distributions---sieve-wf.png:
   path: ds-intro/040-data-distributions
   filename: sieve-wf.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Visualize
@@ -533,7 +533,7 @@ ds-intro/040-data-distributions---sieve-wf.png:
 ds-intro/040-data-distributions---dataset-dist-wf.png:
   path: ds-intro/040-data-distributions
   filename: dataset-dist-wf.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Visualize
@@ -544,17 +544,17 @@ ds-intro/040-data-distributions---dataset-dist-wf.png:
 ds-intro/040-data-distributions---data-table-with-selection.png:
   path: ds-intro/040-data-distributions
   filename: data-table-with-selection.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-intro/040-data-distributions---distributions-scatter-animated.png:
   path: ds-intro/040-data-distributions
   filename: distributions-scatter-animated.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-intro/040-data-distributions---distributions-scatter.png:
   path: ds-intro/040-data-distributions
   filename: distributions-scatter.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Visualize
@@ -568,7 +568,7 @@ ds-intro/040-data-distributions---distributions-scatter.png:
 ds-intro/040-data-distributions---distributions-hdi.png:
   path: ds-intro/040-data-distributions
   filename: distributions-hdi.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Visualize
@@ -582,7 +582,7 @@ ds-intro/040-data-distributions---distributions-hdi.png:
 ds-intro/040-data-distributions---rewiring.png:
   path: ds-intro/040-data-distributions
   filename: rewiring.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Visualize
@@ -599,27 +599,27 @@ ds-intro/040-data-distributions---rewiring.png:
 ds-intro/040-data-distributions---sieve.png:
   path: ds-intro/040-data-distributions
   filename: sieve.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-intro/040-data-distributions---distributions-life-conditioned.png:
   path: ds-intro/040-data-distributions
   filename: distributions-life-conditioned.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-intro/040-data-distributions---distributions-life-expect.png:
   path: ds-intro/040-data-distributions
   filename: distributions-life-expect.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-intro/040-data-distributions---relevance.png:
   path: ds-intro/040-data-distributions
   filename: relevance.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-intro/040-data-distributions---two-distributions.png:
   path: ds-intro/040-data-distributions
   filename: two-distributions.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Visualize
@@ -636,7 +636,7 @@ ds-intro/040-data-distributions---two-distributions.png:
 ds-intro/040-data-distributions---box-plot-wf.png:
   path: ds-intro/040-data-distributions
   filename: box-plot-wf.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Visualize
@@ -656,32 +656,32 @@ ds-intro/040-data-distributions---box-plot-wf.png:
 ds-intro/040-data-distributions---high-hdi-in-scatter.png:
   path: ds-intro/040-data-distributions
   filename: high-hdi-in-scatter.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-intro/040-data-distributions---box-plot-conditioned.png:
   path: ds-intro/040-data-distributions
   filename: box-plot-conditioned.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 dali4us/1-trees/1-box-plot---data-table.png:
   path: dali4us/1-trees/1-box-plot
   filename: data-table.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 dali4us/1-trees/1-box-plot---box-plot.png:
   path: dali4us/1-trees/1-box-plot
   filename: box-plot.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 dali4us/1-trees/1-box-plot---box-plot-mammals.png:
   path: dali4us/1-trees/1-box-plot
   filename: box-plot-mammals.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 dali4us/1-trees/1-box-plot---box-plot-table.png:
   path: dali4us/1-trees/1-box-plot
   filename: box-plot-table.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -698,22 +698,22 @@ dali4us/1-trees/1-box-plot---box-plot-table.png:
 dali4us/1-trees/1-box-plot---box-plot-insects.png:
   path: dali4us/1-trees/1-box-plot
   filename: box-plot-insects.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 dali4us/1-trees/1-box-plot---orange-start.png:
   path: dali4us/1-trees/1-box-plot
   filename: orange-start.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 dali4us/1-trees/4-quadrilaterals---pivot.png:
   path: dali4us/1-trees/4-quadrilaterals
   filename: pivot.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 dali4us/1-trees/4-quadrilaterals---workflow-image-viewer.png:
   path: dali4us/1-trees/4-quadrilaterals
   filename: workflow-image-viewer.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Image Analytics
@@ -733,7 +733,7 @@ dali4us/1-trees/4-quadrilaterals---workflow-image-viewer.png:
 dali4us/1-trees/4-quadrilaterals---pivot-trapezoid.png:
   path: dali4us/1-trees/4-quadrilaterals
   filename: pivot-trapezoid.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Image Analytics
@@ -753,12 +753,12 @@ dali4us/1-trees/4-quadrilaterals---pivot-trapezoid.png:
 dali4us/1-trees/4-quadrilaterals---connect-pivot.png:
   path: dali4us/1-trees/4-quadrilaterals
   filename: connect-pivot.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 dali4us/1-trees/4-quadrilaterals---kite.png:
   path: dali4us/1-trees/4-quadrilaterals
   filename: kite.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Image Analytics
@@ -778,22 +778,22 @@ dali4us/1-trees/4-quadrilaterals---kite.png:
 dali4us/1-trees/2-classification-trees-manually---boxplot-backbone.png:
   path: dali4us/1-trees/2-classification-trees-manually
   filename: boxplot-backbone.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 dali4us/1-trees/2-classification-trees-manually---boxplot-airborne.png:
   path: dali4us/1-trees/2-classification-trees-manually
   filename: boxplot-airborne.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 dali4us/1-trees/3-classification-trees---tree.png:
   path: dali4us/1-trees/3-classification-trees
   filename: tree.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 dali4us/2-logreg/2-bicycle-2d---scatterplot-line.png:
   path: dali4us/2-logreg/2-bicycle-2d
   filename: scatterplot-line.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -804,7 +804,7 @@ dali4us/2-logreg/2-bicycle-2d---scatterplot-line.png:
 dali4us/2-logreg/2-bicycle-2d---data-table.png:
   path: dali4us/2-logreg/2-bicycle-2d
   filename: data-table.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -815,17 +815,17 @@ dali4us/2-logreg/2-bicycle-2d---data-table.png:
 dali4us/2-logreg/2-bicycle-2d---three-rides-scatter.png:
   path: dali4us/2-logreg/2-bicycle-2d
   filename: three-rides-scatter.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 dali4us/2-logreg/2-bicycle-2d---three-predictions-prob.png:
   path: dali4us/2-logreg/2-bicycle-2d
   filename: three-predictions-prob.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 dali4us/2-logreg/2-bicycle-2d---predictions-workflow.png:
   path: dali4us/2-logreg/2-bicycle-2d
   filename: predictions-workflow.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Model
@@ -845,7 +845,7 @@ dali4us/2-logreg/2-bicycle-2d---predictions-workflow.png:
 dali4us/2-logreg/2-bicycle-2d---file.png:
   path: dali4us/2-logreg/2-bicycle-2d
   filename: file.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Model
@@ -865,7 +865,7 @@ dali4us/2-logreg/2-bicycle-2d---file.png:
 dali4us/2-logreg/2-bicycle-2d---datasets-table.png:
   path: dali4us/2-logreg/2-bicycle-2d
   filename: datasets-table.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -876,7 +876,7 @@ dali4us/2-logreg/2-bicycle-2d---datasets-table.png:
 dali4us/2-logreg/2-bicycle-2d---scatterplot-worflow.png:
   path: dali4us/2-logreg/2-bicycle-2d
   filename: scatterplot-worflow.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -890,37 +890,37 @@ dali4us/2-logreg/2-bicycle-2d---scatterplot-worflow.png:
 dali4us/2-logreg/2-bicycle-2d---three-predictions.png:
   path: dali4us/2-logreg/2-bicycle-2d
   filename: three-predictions.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 dali4us/2-logreg/2-bicycle-2d---three-rides.png:
   path: dali4us/2-logreg/2-bicycle-2d
   filename: three-rides.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 dali4us/2-logreg/2-bicycle-2d---5-60.png:
   path: dali4us/2-logreg/2-bicycle-2d
   filename: 5-60.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 dali4us/2-logreg/2-bicycle-2d---datasets.png:
   path: dali4us/2-logreg/2-bicycle-2d
   filename: datasets.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 dali4us/2-logreg/2-bicycle-2d---bikes.png:
   path: dali4us/2-logreg/2-bicycle-2d
   filename: bikes.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 dali4us/2-logreg/3-accuracy---tree-no-prunning-parameters.png:
   path: dali4us/2-logreg/3-accuracy
   filename: tree-no-prunning-parameters.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 dali4us/2-logreg/3-accuracy---tree-accuracy.png:
   path: dali4us/2-logreg/3-accuracy
   filename: tree-accuracy.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Evaluate
@@ -940,7 +940,7 @@ dali4us/2-logreg/3-accuracy---tree-accuracy.png:
 dali4us/2-logreg/3-accuracy---cv-results.png:
   path: dali4us/2-logreg/3-accuracy
   filename: cv-results.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Evaluate
@@ -957,12 +957,12 @@ dali4us/2-logreg/3-accuracy---cv-results.png:
 dali4us/2-logreg/3-accuracy---confusion-on-train.png:
   path: dali4us/2-logreg/3-accuracy
   filename: confusion-on-train.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 dali4us/2-logreg/3-accuracy---rewire.png:
   path: dali4us/2-logreg/3-accuracy
   filename: rewire.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Model
@@ -982,12 +982,12 @@ dali4us/2-logreg/3-accuracy---rewire.png:
 dali4us/2-logreg/3-accuracy---tree-widget.png:
   path: dali4us/2-logreg/3-accuracy
   filename: tree-widget.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 dali4us/2-logreg/3-accuracy---test-on-train.png:
   path: dali4us/2-logreg/3-accuracy
   filename: test-on-train.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Model
@@ -1001,7 +1001,7 @@ dali4us/2-logreg/3-accuracy---test-on-train.png:
 dali4us/2-logreg/3-accuracy---lr-vs-tree-on-test.png:
   path: dali4us/2-logreg/3-accuracy
   filename: lr-vs-tree-on-test.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Model
@@ -1021,7 +1021,7 @@ dali4us/2-logreg/3-accuracy---lr-vs-tree-on-test.png:
 dali4us/2-logreg/3-accuracy---tree-viewer-workflow.png:
   path: dali4us/2-logreg/3-accuracy
   filename: tree-viewer-workflow.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Evaluate
@@ -1044,7 +1044,7 @@ dali4us/2-logreg/3-accuracy---tree-viewer-workflow.png:
 dali4us/2-logreg/3-accuracy---data-sampler-workflow.png:
   path: dali4us/2-logreg/3-accuracy
   filename: data-sampler-workflow.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Model
@@ -1064,12 +1064,12 @@ dali4us/2-logreg/3-accuracy---data-sampler-workflow.png:
 dali4us/2-logreg/3-accuracy---tree-vis-default.png:
   path: dali4us/2-logreg/3-accuracy
   filename: tree-vis-default.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 dali4us/2-logreg/3-accuracy---accuracy-sampling.png:
   path: dali4us/2-logreg/3-accuracy
   filename: accuracy-sampling.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Model
@@ -1086,12 +1086,12 @@ dali4us/2-logreg/3-accuracy---accuracy-sampling.png:
 dali4us/2-logreg/3-accuracy---predictions-on-train.png:
   path: dali4us/2-logreg/3-accuracy
   filename: predictions-on-train.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 dali4us/2-logreg/3-accuracy---confusion-on-train-workflow.png:
   path: dali4us/2-logreg/3-accuracy
   filename: confusion-on-train-workflow.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Evaluate
@@ -1108,7 +1108,7 @@ dali4us/2-logreg/3-accuracy---confusion-on-train-workflow.png:
 dali4us/2-logreg/3-accuracy---tree-accuracy-unprunned.png:
   path: dali4us/2-logreg/3-accuracy
   filename: tree-accuracy-unprunned.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Model
@@ -1128,12 +1128,12 @@ dali4us/2-logreg/3-accuracy---tree-accuracy-unprunned.png:
 dali4us/2-logreg/3-accuracy---tree-vis-unprunned.png:
   path: dali4us/2-logreg/3-accuracy
   filename: tree-vis-unprunned.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 dali4us/2-logreg/3-accuracy---tree-vs-tree.png:
   path: dali4us/2-logreg/3-accuracy
   filename: tree-vs-tree.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Transform
@@ -1153,7 +1153,7 @@ dali4us/2-logreg/3-accuracy---tree-vs-tree.png:
 dali4us/2-logreg/3-accuracy---data-sampler.png:
   path: dali4us/2-logreg/3-accuracy
   filename: data-sampler.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Transform
@@ -1164,7 +1164,7 @@ dali4us/2-logreg/3-accuracy---data-sampler.png:
 dali4us/2-logreg/3-accuracy---cv.png:
   path: dali4us/2-logreg/3-accuracy
   filename: cv.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Evaluate
@@ -1181,32 +1181,32 @@ dali4us/2-logreg/3-accuracy---cv.png:
 dali4us/2-logreg/1-dec-boundary---line-2.png:
   path: dali4us/2-logreg/1-dec-boundary
   filename: line-2.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 dali4us/2-logreg/1-dec-boundary---line-1.png:
   path: dali4us/2-logreg/1-dec-boundary
   filename: line-1.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 dali4us/2-logreg/1-dec-boundary---circles-and-crosses-2.png:
   path: dali4us/2-logreg/1-dec-boundary
   filename: circles-and-crosses-2.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 dali4us/2-logreg/1-dec-boundary---four-squares.png:
   path: dali4us/2-logreg/1-dec-boundary
   filename: four-squares.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 dali4us/2-logreg/1-dec-boundary---square.png:
   path: dali4us/2-logreg/1-dec-boundary
   filename: square.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 dali4us/2-logreg/4-multivariate---nomogram-guess.png:
   path: dali4us/2-logreg/4-multivariate
   filename: nomogram-guess.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Model
@@ -1220,7 +1220,7 @@ dali4us/2-logreg/4-multivariate---nomogram-guess.png:
 dali4us/2-logreg/4-multivariate---dataset.png:
   path: dali4us/2-logreg/4-multivariate
   filename: dataset.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -1231,7 +1231,7 @@ dali4us/2-logreg/4-multivariate---dataset.png:
 dali4us/2-logreg/4-multivariate---select-columns.png:
   path: dali4us/2-logreg/4-multivariate
   filename: select-columns.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Evaluate
@@ -1248,7 +1248,7 @@ dali4us/2-logreg/4-multivariate---select-columns.png:
 dali4us/2-logreg/4-multivariate---triplet.png:
   path: dali4us/2-logreg/4-multivariate
   filename: triplet.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Evaluate
@@ -1265,7 +1265,7 @@ dali4us/2-logreg/4-multivariate---triplet.png:
 dali4us/2-logreg/4-multivariate---data.png:
   path: dali4us/2-logreg/4-multivariate
   filename: data.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -1276,7 +1276,7 @@ dali4us/2-logreg/4-multivariate---data.png:
 dali4us/2-logreg/4-multivariate---nomogram.png:
   path: dali4us/2-logreg/4-multivariate
   filename: nomogram.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Model
@@ -1290,7 +1290,7 @@ dali4us/2-logreg/4-multivariate---nomogram.png:
 dali4us/2-logreg/4-multivariate---cv-on-lr.png:
   path: dali4us/2-logreg/4-multivariate
   filename: cv-on-lr.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Evaluate
@@ -1304,7 +1304,7 @@ dali4us/2-logreg/4-multivariate---cv-on-lr.png:
 dali4us/5-houses---confusion-matrix.png:
   path: dali4us/5-houses
   filename: confusion-matrix.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Evaluate
@@ -1321,17 +1321,17 @@ dali4us/5-houses---confusion-matrix.png:
 dali4us/5-houses---image-divaca.png:
   path: dali4us/5-houses
   filename: image-divaca.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 dali4us/5-houses---dendrogram.png:
   path: dali4us/5-houses
   filename: dendrogram.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 dali4us/5-houses---confusion-viewer.png:
   path: dali4us/5-houses
   filename: confusion-viewer.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Evaluate
@@ -1354,7 +1354,7 @@ dali4us/5-houses---confusion-viewer.png:
 dali4us/5-houses---divaca.png:
   path: dali4us/5-houses
   filename: divaca.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Geo
@@ -1383,7 +1383,7 @@ dali4us/5-houses---divaca.png:
 dali4us/5-houses---geo.png:
   path: dali4us/5-houses
   filename: geo.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Geo
@@ -1394,32 +1394,32 @@ dali4us/5-houses---geo.png:
 dali4us/5-houses---test-and-score.png:
   path: dali4us/5-houses
   filename: test-and-score.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/priimkoslovje/02-koprcani---razdalje-razlaga.png:
   path: pumice/priimkoslovje/02-koprcani
   filename: razdalje-razlaga.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/priimkoslovje/02-koprcani---kos-dendrograma.png:
   path: pumice/priimkoslovje/02-koprcani
   filename: kos-dendrograma.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/priimkoslovje/02-koprcani---razdalje.png:
   path: pumice/priimkoslovje/02-koprcani
   filename: razdalje.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/priimkoslovje/02-koprcani---barvni-zemljevid.png:
   path: pumice/priimkoslovje/02-koprcani
   filename: barvni-zemljevid.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/priimkoslovje/02-koprcani---cel-delotok.png:
   path: pumice/priimkoslovje/02-koprcani
   filename: cel-delotok.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -1442,12 +1442,12 @@ pumice/priimkoslovje/02-koprcani---cel-delotok.png:
 pumice/priimkoslovje/02-koprcani---grucenje.png:
   path: pumice/priimkoslovje/02-koprcani
   filename: grucenje.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/priimkoslovje/02-koprcani---izbor-v-grucenju.png:
   path: pumice/priimkoslovje/02-koprcani
   filename: izbor-v-grucenju.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -1467,12 +1467,12 @@ pumice/priimkoslovje/02-koprcani---izbor-v-grucenju.png:
 pumice/priimkoslovje/02-koprcani---matrika-razdalj.png:
   path: pumice/priimkoslovje/02-koprcani
   filename: matrika-razdalj.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/priimkoslovje/02-koprcani---resitev.png:
   path: pumice/priimkoslovje/02-koprcani
   filename: resitev.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -1486,7 +1486,7 @@ pumice/priimkoslovje/02-koprcani---resitev.png:
 pumice/priimkoslovje/02-koprcani---zbirke-razdalje-matrika.png:
   path: pumice/priimkoslovje/02-koprcani
   filename: zbirke-razdalje-matrika.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Unsupervised
@@ -1500,7 +1500,7 @@ pumice/priimkoslovje/02-koprcani---zbirke-razdalje-matrika.png:
 pumice/priimkoslovje/01-zajci-in-medvedi---box-box.png:
   path: pumice/priimkoslovje/01-zajci-in-medvedi
   filename: box-box.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -1514,7 +1514,7 @@ pumice/priimkoslovje/01-zajci-in-medvedi---box-box.png:
 pumice/priimkoslovje/01-zajci-in-medvedi---workflow-hozjan.png:
   path: pumice/priimkoslovje/01-zajci-in-medvedi
   filename: workflow-hozjan.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Geo
@@ -1528,57 +1528,57 @@ pumice/priimkoslovje/01-zajci-in-medvedi---workflow-hozjan.png:
 pumice/priimkoslovje/01-zajci-in-medvedi---tooltip.png:
   path: pumice/priimkoslovje/01-zajci-in-medvedi
   filename: tooltip.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/priimkoslovje/01-zajci-in-medvedi---zajci-medvedi.png:
   path: pumice/priimkoslovje/01-zajci-in-medvedi
   filename: zajci-medvedi.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/priimkoslovje/01-zajci-in-medvedi---box-celje.png:
   path: pumice/priimkoslovje/01-zajci-in-medvedi
   filename: box-celje.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/priimkoslovje/01-zajci-in-medvedi---zemljevid-hozjan.png:
   path: pumice/priimkoslovje/01-zajci-in-medvedi
   filename: zemljevid-hozjan.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/priimkoslovje/01-zajci-in-medvedi---w-zemljevid.png:
   path: pumice/priimkoslovje/01-zajci-in-medvedi
   filename: w-zemljevid.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/priimkoslovje/01-zajci-in-medvedi---tabela.png:
   path: pumice/priimkoslovje/01-zajci-in-medvedi
   filename: tabela.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/priimkoslovje/01-zajci-in-medvedi---w-zbirke-podatkov.png:
   path: pumice/priimkoslovje/01-zajci-in-medvedi
   filename: w-zbirke-podatkov.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/priimkoslovje/01-zajci-in-medvedi---box-izbor-celja.png:
   path: pumice/priimkoslovje/01-zajci-in-medvedi
   filename: box-izbor-celja.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/priimkoslovje/01-zajci-in-medvedi---zbirke-podatkov.png:
   path: pumice/priimkoslovje/01-zajci-in-medvedi
   filename: zbirke-podatkov.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/priimkoslovje/01-zajci-in-medvedi---w-tabela.png:
   path: pumice/priimkoslovje/01-zajci-in-medvedi
   filename: w-tabela.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/priimkoslovje/04-najvecji-v-dezeli---delotok-resitev.png:
   path: pumice/priimkoslovje/04-najvecji-v-dezeli
   filename: delotok-resitev.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -1595,17 +1595,17 @@ pumice/priimkoslovje/04-najvecji-v-dezeli---delotok-resitev.png:
 pumice/priimkoslovje/04-najvecji-v-dezeli---tabela.png:
   path: pumice/priimkoslovje/04-najvecji-v-dezeli
   filename: tabela.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/priimkoslovje/04-najvecji-v-dezeli---gruca.png:
   path: pumice/priimkoslovje/04-najvecji-v-dezeli
   filename: gruca.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/priimkoslovje/03-prleki-in-prekmurci---delotok-resitev.png:
   path: pumice/priimkoslovje/03-prleki-in-prekmurci
   filename: delotok-resitev.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -1622,62 +1622,62 @@ pumice/priimkoslovje/03-prleki-in-prekmurci---delotok-resitev.png:
 pumice/priimkoslovje/03-prleki-in-prekmurci---prerezan-dendrogram.png:
   path: pumice/priimkoslovje/03-prleki-in-prekmurci
   filename: prerezan-dendrogram.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/priimkoslovje/03-prleki-in-prekmurci---zemljevid-6.png:
   path: pumice/priimkoslovje/03-prleki-in-prekmurci
   filename: zemljevid-6.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/priimkoslovje/03-prleki-in-prekmurci---zemljevid-4.png:
   path: pumice/priimkoslovje/03-prleki-in-prekmurci
   filename: zemljevid-4.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/38-je-to-res-grucenje---dendrogram.png:
   path: pumice/ui-za-ucitelje/38-je-to-res-grucenje
   filename: dendrogram.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/38-je-to-res-grucenje---gruce-na-zemljevidu.png:
   path: pumice/ui-za-ucitelje/38-je-to-res-grucenje
   filename: gruce-na-zemljevidu.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/38-je-to-res-grucenje---osem-gruc.png:
   path: pumice/ui-za-ucitelje/38-je-to-res-grucenje
   filename: osem-gruc.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/38-je-to-res-grucenje---stevilo-gruc.png:
   path: pumice/ui-za-ucitelje/38-je-to-res-grucenje
   filename: stevilo-gruc.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/38-je-to-res-grucenje---linkage.png:
   path: pumice/ui-za-ucitelje/38-je-to-res-grucenje
   filename: linkage.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/37-kje-smo-in-zakaj---porazdelitve.png:
   path: pumice/ui-za-ucitelje/37-kje-smo-in-zakaj
   filename: porazdelitve.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/37-kje-smo-in-zakaj---afrika-in-razviti.png:
   path: pumice/ui-za-ucitelje/37-kje-smo-in-zakaj
   filename: afrika-in-razviti.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/37-kje-smo-in-zakaj---dve-gruci.png:
   path: pumice/ui-za-ucitelje/37-kje-smo-in-zakaj
   filename: dve-gruci.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/37-kje-smo-in-zakaj---izbor-drzav.png:
   path: pumice/ui-za-ucitelje/37-kje-smo-in-zakaj
   filename: izbor-drzav.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Unsupervised
@@ -1697,7 +1697,7 @@ pumice/ui-za-ucitelje/37-kje-smo-in-zakaj---izbor-drzav.png:
 pumice/ui-za-ucitelje/37-kje-smo-in-zakaj---najvecja-razlika.png:
   path: pumice/ui-za-ucitelje/37-kje-smo-in-zakaj
   filename: najvecja-razlika.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Unsupervised
@@ -1720,17 +1720,17 @@ pumice/ui-za-ucitelje/37-kje-smo-in-zakaj---najvecja-razlika.png:
 pumice/ui-za-ucitelje/37-kje-smo-in-zakaj---afrika-in-razviti-porazdelitev.png:
   path: pumice/ui-za-ucitelje/37-kje-smo-in-zakaj
   filename: afrika-in-razviti-porazdelitev.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/01-ugrizni-v-pomaranco---izhod.png:
   path: pumice/ui-za-ucitelje/01-ugrizni-v-pomaranco
   filename: izhod.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/01-ugrizni-v-pomaranco---tabela.png:
   path: pumice/ui-za-ucitelje/01-ugrizni-v-pomaranco
   filename: tabela.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -1741,52 +1741,52 @@ pumice/ui-za-ucitelje/01-ugrizni-v-pomaranco---tabela.png:
 pumice/ui-za-ucitelje/01-ugrizni-v-pomaranco---zacetek.png:
   path: pumice/ui-za-ucitelje/01-ugrizni-v-pomaranco
   filename: zacetek.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/01-ugrizni-v-pomaranco---datoteka.png:
   path: pumice/ui-za-ucitelje/01-ugrizni-v-pomaranco
   filename: datoteka.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/01-ugrizni-v-pomaranco---povezava-gradnikov.png:
   path: pumice/ui-za-ucitelje/01-ugrizni-v-pomaranco
   filename: povezava-gradnikov.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/01-ugrizni-v-pomaranco---zbirke-podatkov.png:
   path: pumice/ui-za-ucitelje/01-ugrizni-v-pomaranco
   filename: zbirke-podatkov.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/10-skatle-z-brki---zenske-afrika.png:
   path: pumice/ui-za-ucitelje/10-skatle-z-brki
   filename: zenske-afrika.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/10-skatle-z-brki---razsevni-delez-zensk.png:
   path: pumice/ui-za-ucitelje/10-skatle-z-brki
   filename: razsevni-delez-zensk.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/10-skatle-z-brki---zenske-celine.png:
   path: pumice/ui-za-ucitelje/10-skatle-z-brki
   filename: zenske-celine.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/10-skatle-z-brki---box1.png:
   path: pumice/ui-za-ucitelje/10-skatle-z-brki
   filename: box1.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/10-skatle-z-brki---brki-vere.png:
   path: pumice/ui-za-ucitelje/10-skatle-z-brki
   filename: brki-vere.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/50-zivalsko-drevo---zuzelke-vretencarji.png:
   path: pumice/ui-za-ucitelje/50-zivalsko-drevo
   filename: zuzelke-vretencarji.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Visualize
@@ -1803,22 +1803,22 @@ pumice/ui-za-ucitelje/50-zivalsko-drevo---zuzelke-vretencarji.png:
 pumice/ui-za-ucitelje/50-zivalsko-drevo---drevo.png:
   path: pumice/ui-za-ucitelje/50-zivalsko-drevo
   filename: drevo.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/50-zivalsko-drevo---tabela.png:
   path: pumice/ui-za-ucitelje/50-zivalsko-drevo
   filename: tabela.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/50-zivalsko-drevo---ni-hrbtenice.png:
   path: pumice/ui-za-ucitelje/50-zivalsko-drevo
   filename: ni-hrbtenice.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/50-zivalsko-drevo---delotok.png:
   path: pumice/ui-za-ucitelje/50-zivalsko-drevo
   filename: delotok.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -1832,22 +1832,22 @@ pumice/ui-za-ucitelje/50-zivalsko-drevo---delotok.png:
 pumice/ui-za-ucitelje/05-bolj-ali-manj-modri---dva-izhoda.png:
   path: pumice/ui-za-ucitelje/05-bolj-ali-manj-modri
   filename: dva-izhoda.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/05-bolj-ali-manj-modri---velikost-kosev.png:
   path: pumice/ui-za-ucitelje/05-bolj-ali-manj-modri
   filename: velikost-kosev.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/05-bolj-ali-manj-modri---statusna.png:
   path: pumice/ui-za-ucitelje/05-bolj-ali-manj-modri
   filename: statusna.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/05-bolj-ali-manj-modri---kanali.png:
   path: pumice/ui-za-ucitelje/05-bolj-ali-manj-modri
   filename: kanali.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Visualize
@@ -1870,22 +1870,22 @@ pumice/ui-za-ucitelje/05-bolj-ali-manj-modri---kanali.png:
 pumice/ui-za-ucitelje/05-bolj-ali-manj-modri---trije-izhodi.png:
   path: pumice/ui-za-ucitelje/05-bolj-ali-manj-modri
   filename: trije-izhodi.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/05-bolj-ali-manj-modri---pet-barv.png:
   path: pumice/ui-za-ucitelje/05-bolj-ali-manj-modri
   filename: pet-barv.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/05-bolj-ali-manj-modri---kos.png:
   path: pumice/ui-za-ucitelje/05-bolj-ali-manj-modri
   filename: kos.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/02-igra-tabel---dve-tabeli.png:
   path: pumice/ui-za-ucitelje/02-igra-tabel
   filename: dve-tabeli.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -1899,7 +1899,7 @@ pumice/ui-za-ucitelje/02-igra-tabel---dve-tabeli.png:
 pumice/ui-za-ucitelje/02-igra-tabel---preurejanje.png:
   path: pumice/ui-za-ucitelje/02-igra-tabel
   filename: preurejanje.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -1913,32 +1913,32 @@ pumice/ui-za-ucitelje/02-igra-tabel---preurejanje.png:
 pumice/ui-za-ucitelje/02-igra-tabel---najdolgozivejsi.png:
   path: pumice/ui-za-ucitelje/02-igra-tabel
   filename: najdolgozivejsi.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/02-igra-tabel---po-abecedi.png:
   path: pumice/ui-za-ucitelje/02-igra-tabel
   filename: po-abecedi.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/06-pametni-zivijo-dlje---regresija.png:
   path: pumice/ui-za-ucitelje/06-pametni-zivijo-dlje
   filename: regresija.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/06-pametni-zivijo-dlje---funkcija.png:
   path: pumice/ui-za-ucitelje/06-pametni-zivijo-dlje
   filename: funkcija.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/06-pametni-zivijo-dlje---razsevni-diagram-prav.png:
   path: pumice/ui-za-ucitelje/06-pametni-zivijo-dlje
   filename: razsevni-diagram-prav.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/06-pametni-zivijo-dlje---brisanje.png:
   path: pumice/ui-za-ucitelje/06-pametni-zivijo-dlje
   filename: brisanje.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Visualize
@@ -1961,12 +1961,12 @@ pumice/ui-za-ucitelje/06-pametni-zivijo-dlje---brisanje.png:
 pumice/ui-za-ucitelje/06-pametni-zivijo-dlje---razsevni-diagram.png:
   path: pumice/ui-za-ucitelje/06-pametni-zivijo-dlje
   filename: razsevni-diagram.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/06-pametni-zivijo-dlje---delotok.png:
   path: pumice/ui-za-ucitelje/06-pametni-zivijo-dlje
   filename: delotok.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -1977,42 +1977,42 @@ pumice/ui-za-ucitelje/06-pametni-zivijo-dlje---delotok.png:
 pumice/ui-za-ucitelje/13-brkate-skatle-brez-brkov---vecinska-vera-z-brki.png:
   path: pumice/ui-za-ucitelje/13-brkate-skatle-brez-brkov
   filename: vecinska-vera-z-brki.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/13-brkate-skatle-brez-brkov---celine-porazdelitev.png:
   path: pumice/ui-za-ucitelje/13-brkate-skatle-brez-brkov
   filename: celine-porazdelitev.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/13-brkate-skatle-brez-brkov---celine-religije.png:
   path: pumice/ui-za-ucitelje/13-brkate-skatle-brez-brkov
   filename: celine-religije.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/13-brkate-skatle-brez-brkov---izbiranje-drzav-delezi.png:
   path: pumice/ui-za-ucitelje/13-brkate-skatle-brez-brkov
   filename: izbiranje-drzav-delezi.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/13-brkate-skatle-brez-brkov---izbiranje-drzav.png:
   path: pumice/ui-za-ucitelje/13-brkate-skatle-brez-brkov
   filename: izbiranje-drzav.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/13-brkate-skatle-brez-brkov---religije-po-celinah.png:
   path: pumice/ui-za-ucitelje/13-brkate-skatle-brez-brkov
   filename: religije-po-celinah.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/13-brkate-skatle-brez-brkov---celine.png:
   path: pumice/ui-za-ucitelje/13-brkate-skatle-brez-brkov
   filename: celine.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/08-vsaka-riba-ni-slanik---dodajanje-tabele.png:
   path: pumice/ui-za-ucitelje/08-vsaka-riba-ni-slanik
   filename: dodajanje-tabele.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -2032,22 +2032,37 @@ pumice/ui-za-ucitelje/08-vsaka-riba-ni-slanik---dodajanje-tabele.png:
 pumice/ui-za-ucitelje/08-vsaka-riba-ni-slanik---povecava.png:
   path: pumice/ui-za-ucitelje/08-vsaka-riba-ni-slanik
   filename: povecava.png
-  date: '2024-05-23'
-  widgets: null
+  date: '2024-08-31'
+  widgets:
+  - !!python/tuple
+    - Fairness
+    - Reweighing
+  - !!python/tuple
+    - Transform
+    - Python Script
 pumice/ui-za-ucitelje/08-vsaka-riba-ni-slanik---izbor-evrope.png:
   path: pumice/ui-za-ucitelje/08-vsaka-riba-ni-slanik
   filename: izbor-evrope.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/08-vsaka-riba-ni-slanik---kje-je-evropa.png:
   path: pumice/ui-za-ucitelje/08-vsaka-riba-ni-slanik
   filename: kje-je-evropa.png
-  date: '2024-05-23'
-  widgets: null
+  date: '2024-08-31'
+  widgets:
+  - !!python/tuple
+    - Fairness
+    - Reweighing
+  - !!python/tuple
+    - Fairness
+    - Reweighing
+  - !!python/tuple
+    - Transform
+    - Python Script
 pumice/ui-za-ucitelje/08-vsaka-riba-ni-slanik---druga-povezava.png:
   path: pumice/ui-za-ucitelje/08-vsaka-riba-ni-slanik
   filename: druga-povezava.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -2067,17 +2082,17 @@ pumice/ui-za-ucitelje/08-vsaka-riba-ni-slanik---druga-povezava.png:
 pumice/ui-za-ucitelje/08-vsaka-riba-ni-slanik---urejanje-povezav.png:
   path: pumice/ui-za-ucitelje/08-vsaka-riba-ni-slanik
   filename: urejanje-povezav.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/09-isto-z-manj-slamparije---zdruzi-vrstice.png:
   path: pumice/ui-za-ucitelje/09-isto-z-manj-slamparije
   filename: zdruzi-vrstice.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/09-isto-z-manj-slamparije---zdruzi-vrstice-povezovanje.png:
   path: pumice/ui-za-ucitelje/09-isto-z-manj-slamparije
   filename: zdruzi-vrstice-povezovanje.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -2091,7 +2106,7 @@ pumice/ui-za-ucitelje/09-isto-z-manj-slamparije---zdruzi-vrstice-povezovanje.png
 pumice/ui-za-ucitelje/09-isto-z-manj-slamparije---zdruzi-zdruzi.png:
   path: pumice/ui-za-ucitelje/09-isto-z-manj-slamparije
   filename: zdruzi-zdruzi.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Transform
@@ -2117,37 +2132,115 @@ pumice/ui-za-ucitelje/09-isto-z-manj-slamparije---zdruzi-zdruzi.png:
 pumice/ui-za-ucitelje/09-isto-z-manj-slamparije---razsevni-celine.png:
   path: pumice/ui-za-ucitelje/09-isto-z-manj-slamparije
   filename: razsevni-celine.png
-  date: '2024-05-23'
-  widgets: null
+  date: '2024-08-31'
+  widgets:
+  - !!python/tuple
+    - Fairness
+    - Reweighing
+  - !!python/tuple
+    - Fairness
+    - Reweighing
+  - !!python/tuple
+    - Fairness
+    - Reweighing
+  - !!python/tuple
+    - Fairness
+    - Reweighing
+  - !!python/tuple
+    - Fairness
+    - Reweighing
+  - !!python/tuple
+    - Fairness
+    - Reweighing
+  - !!python/tuple
+    - Text Mining
+    - Tweet Profiler
 pumice/ui-za-ucitelje/09-isto-z-manj-slamparije---datoteka.png:
   path: pumice/ui-za-ucitelje/09-isto-z-manj-slamparije
   filename: datoteka.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/07-kdo-je-nasrkal---izbiranje-gledanje.png:
   path: pumice/ui-za-ucitelje/07-kdo-je-nasrkal
   filename: izbiranje-gledanje.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/07-kdo-je-nasrkal---zemljevid.png:
   path: pumice/ui-za-ucitelje/07-kdo-je-nasrkal
   filename: zemljevid.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/07-kdo-je-nasrkal---razsevni-diagram.png:
   path: pumice/ui-za-ucitelje/07-kdo-je-nasrkal
   filename: razsevni-diagram.png
-  date: '2024-05-23'
-  widgets: null
+  date: '2024-08-31'
+  widgets:
+  - !!python/tuple
+    - Fairness
+    - Reweighing
+  - !!python/tuple
+    - Fairness
+    - Reweighing
+  - !!python/tuple
+    - Fairness
+    - Reweighing
+  - !!python/tuple
+    - Fairness
+    - Reweighing
+  - !!python/tuple
+    - Fairness
+    - Reweighing
+  - !!python/tuple
+    - Fairness
+    - Reweighing
+  - !!python/tuple
+    - Fairness
+    - Reweighing
+  - !!python/tuple
+    - Fairness
+    - Reweighing
+  - !!python/tuple
+    - Fairness
+    - Reweighing
+  - !!python/tuple
+    - Transform
+    - Python Script
 pumice/ui-za-ucitelje/07-kdo-je-nasrkal---zgoraj-desno.png:
   path: pumice/ui-za-ucitelje/07-kdo-je-nasrkal
   filename: zgoraj-desno.png
-  date: '2024-05-23'
-  widgets: null
+  date: '2024-08-31'
+  widgets:
+  - !!python/tuple
+    - Fairness
+    - Reweighing
+  - !!python/tuple
+    - Fairness
+    - Reweighing
+  - !!python/tuple
+    - Fairness
+    - Reweighing
+  - !!python/tuple
+    - Fairness
+    - Reweighing
+  - !!python/tuple
+    - Fairness
+    - Reweighing
+  - !!python/tuple
+    - Fairness
+    - Reweighing
+  - !!python/tuple
+    - Fairness
+    - Reweighing
+  - !!python/tuple
+    - Fairness
+    - Reweighing
+  - !!python/tuple
+    - Transform
+    - Python Script
 pumice/ui-za-ucitelje/07-kdo-je-nasrkal---delotok.png:
   path: pumice/ui-za-ucitelje/07-kdo-je-nasrkal
   filename: delotok.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -2167,12 +2260,12 @@ pumice/ui-za-ucitelje/07-kdo-je-nasrkal---delotok.png:
 pumice/ui-za-ucitelje/03-nocem-v-solo---porazdelitve-intervali.png:
   path: pumice/ui-za-ucitelje/03-nocem-v-solo
   filename: porazdelitve-intervali.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/03-nocem-v-solo---porazdelitve.png:
   path: pumice/ui-za-ucitelje/03-nocem-v-solo
   filename: porazdelitve.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Visualize
@@ -2195,7 +2288,7 @@ pumice/ui-za-ucitelje/03-nocem-v-solo---porazdelitve.png:
 pumice/ui-za-ucitelje/03-nocem-v-solo---povezava.png:
   path: pumice/ui-za-ucitelje/03-nocem-v-solo
   filename: povezava.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -2209,17 +2302,17 @@ pumice/ui-za-ucitelje/03-nocem-v-solo---povezava.png:
 pumice/ui-za-ucitelje/03-nocem-v-solo---porazdelitve-tooltip.png:
   path: pumice/ui-za-ucitelje/03-nocem-v-solo
   filename: porazdelitve-tooltip.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/36-gruce-drzav---grucenje.png:
   path: pumice/ui-za-ucitelje/36-gruce-drzav
   filename: grucenje.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/36-gruce-drzav---delotok-grucenje.png:
   path: pumice/ui-za-ucitelje/36-gruce-drzav
   filename: delotok-grucenje.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Unsupervised
@@ -2236,32 +2329,32 @@ pumice/ui-za-ucitelje/36-gruce-drzav---delotok-grucenje.png:
 pumice/ui-za-ucitelje/36-gruce-drzav---grucenje-slovenija.png:
   path: pumice/ui-za-ucitelje/36-gruce-drzav
   filename: grucenje-slovenija.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/36-gruce-drzav---linkage.png:
   path: pumice/ui-za-ucitelje/36-gruce-drzav
   filename: linkage.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/39-poimenovanje---porazdelitve.png:
   path: pumice/ui-za-ucitelje/39-poimenovanje
   filename: porazdelitve.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/39-poimenovanje---uredi-domeno.png:
   path: pumice/ui-za-ucitelje/39-poimenovanje
   filename: uredi-domeno.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/39-poimenovanje---gruce.png:
   path: pumice/ui-za-ucitelje/39-poimenovanje
   filename: gruce.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/39-poimenovanje---delotok.png:
   path: pumice/ui-za-ucitelje/39-poimenovanje
   filename: delotok.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Visualize
@@ -2287,12 +2380,12 @@ pumice/ui-za-ucitelje/39-poimenovanje---delotok.png:
 pumice/ui-za-ucitelje/35-kako-dalec-smo-od-kanade---evklid-manhattan.png:
   path: pumice/ui-za-ucitelje/35-kako-dalec-smo-od-kanade
   filename: evklid-manhattan.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/35-kako-dalec-smo-od-kanade---matrika-razdalj.png:
   path: pumice/ui-za-ucitelje/35-kako-dalec-smo-od-kanade
   filename: matrika-razdalj.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Unsupervised
@@ -2306,42 +2399,42 @@ pumice/ui-za-ucitelje/35-kako-dalec-smo-od-kanade---matrika-razdalj.png:
 pumice/ui-za-ucitelje/51-racunalnik-sestavi-drevo---drevo.png:
   path: pumice/ui-za-ucitelje/51-racunalnik-sestavi-drevo
   filename: drevo.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/51-racunalnik-sestavi-drevo---entropija.png:
   path: pumice/ui-za-ucitelje/51-racunalnik-sestavi-drevo
   filename: entropija.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/12-teksaski-ostrostrelec---TexasSharpShooter.png:
   path: pumice/ui-za-ucitelje/12-teksaski-ostrostrelec
   filename: TexasSharpShooter.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/40-ce-bi-bil-svet-ploscat---mds-evropa.png:
   path: pumice/ui-za-ucitelje/40-ce-bi-bil-svet-ploscat
   filename: mds-evropa.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/40-ce-bi-bil-svet-ploscat---kuba.png:
   path: pumice/ui-za-ucitelje/40-ce-bi-bil-svet-ploscat
   filename: kuba.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/40-ce-bi-bil-svet-ploscat---irska.png:
   path: pumice/ui-za-ucitelje/40-ce-bi-bil-svet-ploscat
   filename: irska.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/40-ce-bi-bil-svet-ploscat---mds-svet.png:
   path: pumice/ui-za-ucitelje/40-ce-bi-bil-svet-ploscat
   filename: mds-svet.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/40-ce-bi-bil-svet-ploscat---matrika-razdalj.png:
   path: pumice/ui-za-ucitelje/40-ce-bi-bil-svet-ploscat
   filename: matrika-razdalj.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Unsupervised
@@ -2355,7 +2448,7 @@ pumice/ui-za-ucitelje/40-ce-bi-bil-svet-ploscat---matrika-razdalj.png:
 pumice/ui-za-ucitelje/40-ce-bi-bil-svet-ploscat---delotok.png:
   path: pumice/ui-za-ucitelje/40-ce-bi-bil-svet-ploscat
   filename: delotok.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Transform
@@ -2378,42 +2471,42 @@ pumice/ui-za-ucitelje/40-ce-bi-bil-svet-ploscat---delotok.png:
 pumice/ui-za-ucitelje/04-kje-je-burkina-faso---choropleth.png:
   path: pumice/ui-za-ucitelje/04-kje-je-burkina-faso
   filename: choropleth.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/11-mi-in-oni---evropa-stara.png:
   path: pumice/ui-za-ucitelje/11-mi-in-oni
   filename: evropa-stara.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/11-mi-in-oni---zivljenje-afrika-evropa.png:
   path: pumice/ui-za-ucitelje/11-mi-in-oni
   filename: zivljenje-afrika-evropa.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/11-mi-in-oni---rodnost-svet.png:
   path: pumice/ui-za-ucitelje/11-mi-in-oni
   filename: rodnost-svet.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/11-mi-in-oni---izbiranje-spremenljivk.png:
   path: pumice/ui-za-ucitelje/11-mi-in-oni
   filename: izbiranje-spremenljivk.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/11-mi-in-oni---rodnost-evropa.png:
   path: pumice/ui-za-ucitelje/11-mi-in-oni
   filename: rodnost-evropa.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/11-mi-in-oni---rodnost.png:
   path: pumice/ui-za-ucitelje/11-mi-in-oni
   filename: rodnost.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 pumice/ui-za-ucitelje/11-mi-in-oni---izberi-vrstice.png:
   path: pumice/ui-za-ucitelje/11-mi-in-oni
   filename: izberi-vrstice.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Transform
@@ -2430,57 +2523,57 @@ pumice/ui-za-ucitelje/11-mi-in-oni---izberi-vrstice.png:
 pumice/ui-za-ucitelje/11-mi-in-oni---starost-in-rodnost.png:
   path: pumice/ui-za-ucitelje/11-mi-in-oni
   filename: starost-in-rodnost.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 bcm-quiz/01-intro-and-clustering---distributions-gdp.png:
   path: bcm-quiz/01-intro-and-clustering
   filename: distributions-gdp.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 bcm-quiz/01-intro-and-clustering---scatterplot-age-fertility.png:
   path: bcm-quiz/01-intro-and-clustering
   filename: scatterplot-age-fertility.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 bcm-quiz/01-intro-and-clustering---table-ireland.png:
   path: bcm-quiz/01-intro-and-clustering
   filename: table-ireland.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 bcm-quiz/01-intro-and-clustering---boxplot-3-clusters.png:
   path: bcm-quiz/01-intro-and-clustering
   filename: boxplot-3-clusters.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 bcm-quiz/01-intro-and-clustering---boxplot-hdi-05.png:
   path: bcm-quiz/01-intro-and-clustering
   filename: boxplot-hdi-05.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 bcm-quiz/01-intro-and-clustering---rewire-to-boxplot.png:
   path: bcm-quiz/01-intro-and-clustering
   filename: rewire-to-boxplot.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 bcm-quiz/01-intro-and-clustering---boxplot-gdp.png:
   path: bcm-quiz/01-intro-and-clustering
   filename: boxplot-gdp.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 bcm-quiz/03-dim-reduction---sales.png:
   path: bcm-quiz/03-dim-reduction
   filename: sales.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 bcm-quiz/03-dim-reduction---painted-lin.png:
   path: bcm-quiz/03-dim-reduction
   filename: painted-lin.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 bcm-quiz/03-dim-reduction---jobrole.png:
   path: bcm-quiz/03-dim-reduction
   filename: jobrole.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -2494,12 +2587,12 @@ bcm-quiz/03-dim-reduction---jobrole.png:
 bcm-quiz/03-dim-reduction---bigcluster.png:
   path: bcm-quiz/03-dim-reduction
   filename: bigcluster.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 bcm-quiz/03-dim-reduction---scree-lin.png:
   path: bcm-quiz/03-dim-reduction
   filename: scree-lin.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -2510,32 +2603,32 @@ bcm-quiz/03-dim-reduction---scree-lin.png:
 bcm-quiz/03-dim-reduction---attrition-dataset.png:
   path: bcm-quiz/03-dim-reduction
   filename: attrition-dataset.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 bcm-quiz/03-dim-reduction---painted-snake.png:
   path: bcm-quiz/03-dim-reduction
   filename: painted-snake.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 bcm-quiz/03-dim-reduction---attrition-small-cluster.png:
   path: bcm-quiz/03-dim-reduction
   filename: attrition-small-cluster.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 bcm-quiz/03-dim-reduction---painted-cloud.png:
   path: bcm-quiz/03-dim-reduction
   filename: painted-cloud.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 bcm-quiz/03-dim-reduction---sales-executives.png:
   path: bcm-quiz/03-dim-reduction
   filename: sales-executives.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 bcm-quiz/02-k-means---three-workflows.png:
   path: bcm-quiz/02-k-means
   filename: three-workflows.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Unsupervised
@@ -2588,7 +2681,7 @@ bcm-quiz/02-k-means---three-workflows.png:
 bcm-quiz/02-k-means---leukemia.png:
   path: bcm-quiz/02-k-means
   filename: leukemia.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Unsupervised
@@ -2602,7 +2695,7 @@ bcm-quiz/02-k-means---leukemia.png:
 bcm-quiz/02-k-means---zoo-box.png:
   path: bcm-quiz/02-k-means
   filename: zoo-box.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -2619,7 +2712,7 @@ bcm-quiz/02-k-means---zoo-box.png:
 bcm-quiz/02-k-means---comparison.png:
   path: bcm-quiz/02-k-means
   filename: comparison.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Unsupervised
@@ -2636,7 +2729,7 @@ bcm-quiz/02-k-means---comparison.png:
 bcm-quiz/02-k-means---kmeans-silh.png:
   path: bcm-quiz/02-k-means
   filename: kmeans-silh.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Unsupervised
@@ -2647,7 +2740,7 @@ bcm-quiz/02-k-means---kmeans-silh.png:
 bcm-quiz/02-k-means---silhouette-zoo.png:
   path: bcm-quiz/02-k-means
   filename: silhouette-zoo.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -2658,7 +2751,7 @@ bcm-quiz/02-k-means---silhouette-zoo.png:
 bcm-quiz/02-k-means---single-linkage.png:
   path: bcm-quiz/02-k-means
   filename: single-linkage.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Unsupervised
@@ -2672,7 +2765,7 @@ bcm-quiz/02-k-means---single-linkage.png:
 bcm-quiz/02-k-means---amphibians.png:
   path: bcm-quiz/02-k-means
   filename: amphibians.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Unsupervised
@@ -2686,7 +2779,7 @@ bcm-quiz/02-k-means---amphibians.png:
 bcm-quiz/02-k-means---gdsk.png:
   path: bcm-quiz/02-k-means
   filename: gdsk.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Unsupervised
@@ -2697,17 +2790,17 @@ bcm-quiz/02-k-means---gdsk.png:
 bcm-quiz/02-k-means---zoo-categorical.png:
   path: bcm-quiz/02-k-means
   filename: zoo-categorical.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 bcm-quiz/02-k-means---smile.png:
   path: bcm-quiz/02-k-means
   filename: smile.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 bcm-quiz/04-classification---paint1-ca.png:
   path: bcm-quiz/04-classification
   filename: paint1-ca.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Evaluate
@@ -2727,7 +2820,7 @@ bcm-quiz/04-classification---paint1-ca.png:
 bcm-quiz/04-classification---paint1-scatter.png:
   path: bcm-quiz/04-classification
   filename: paint1-scatter.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Text Mining
@@ -2747,12 +2840,12 @@ bcm-quiz/04-classification---paint1-scatter.png:
 bcm-quiz/04-classification---paint2.png:
   path: bcm-quiz/04-classification
   filename: paint2.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 bcm-quiz/04-classification---testscore-pima.png:
   path: bcm-quiz/04-classification
   filename: testscore-pima.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Evaluate
@@ -2775,12 +2868,12 @@ bcm-quiz/04-classification---testscore-pima.png:
 bcm-quiz/04-classification---paint1.png:
   path: bcm-quiz/04-classification
   filename: paint1.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 bcm-quiz/04-classification---paint2-ca.png:
   path: bcm-quiz/04-classification
   filename: paint2-ca.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Evaluate
@@ -2803,12 +2896,12 @@ bcm-quiz/04-classification---paint2-ca.png:
 bcm-quiz/04-classification---create-instance.png:
   path: bcm-quiz/04-classification
   filename: create-instance.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 bcm-quiz/04-classification---create-instance-workflow.png:
   path: bcm-quiz/04-classification
   filename: create-instance-workflow.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Model
@@ -2828,12 +2921,12 @@ bcm-quiz/04-classification---create-instance-workflow.png:
 bcm-quiz/05-regression---preprocess.png:
   path: bcm-quiz/05-regression
   filename: preprocess.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 bcm-quiz/05-regression---fss-house.png:
   path: bcm-quiz/05-regression
   filename: fss-house.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -2847,7 +2940,7 @@ bcm-quiz/05-regression---fss-house.png:
 bcm-quiz/05-regression---poly-workflow.png:
   path: bcm-quiz/05-regression
   filename: poly-workflow.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Educational
@@ -2861,7 +2954,7 @@ bcm-quiz/05-regression---poly-workflow.png:
 bcm-quiz/05-regression---lrr2.png:
   path: bcm-quiz/05-regression
   filename: lrr2.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Evaluate
@@ -2875,7 +2968,7 @@ bcm-quiz/05-regression---lrr2.png:
 bcm-quiz/05-regression---comparison.png:
   path: bcm-quiz/05-regression
   filename: comparison.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Evaluate
@@ -2898,7 +2991,7 @@ bcm-quiz/05-regression---comparison.png:
 bcm-quiz/05-regression---lrpreprocessedr2.png:
   path: bcm-quiz/05-regression
   filename: lrpreprocessedr2.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -2915,12 +3008,12 @@ bcm-quiz/05-regression---lrpreprocessedr2.png:
 bcm-quiz/05-regression---rf-param.png:
   path: bcm-quiz/05-regression
   filename: rf-param.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 bcm-quiz/05-regression---tree-r2.png:
   path: bcm-quiz/05-regression
   filename: tree-r2.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Evaluate
@@ -2934,17 +3027,17 @@ bcm-quiz/05-regression---tree-r2.png:
 bcm-quiz/05-regression---bodyfatdata.png:
   path: bcm-quiz/05-regression
   filename: bodyfatdata.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 bcm-quiz/05-regression---poly.png:
   path: bcm-quiz/05-regression
   filename: poly.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 bcm-quiz/05-regression---wrist.png:
   path: bcm-quiz/05-regression
   filename: wrist.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -2958,7 +3051,7 @@ bcm-quiz/05-regression---wrist.png:
 bcm-quiz/05-regression---forest-r2.png:
   path: bcm-quiz/05-regression
   filename: forest-r2.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Evaluate
@@ -2975,12 +3068,12 @@ bcm-quiz/05-regression---forest-r2.png:
 bcm-quiz/05-regression---tree-param.png:
   path: bcm-quiz/05-regression
   filename: tree-param.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 bcm-quiz/05-regression---bodyfatfss.png:
   path: bcm-quiz/05-regression
   filename: bodyfatfss.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -2997,12 +3090,12 @@ bcm-quiz/05-regression---bodyfatfss.png:
 bcm-quiz/05-regression---housing.png:
   path: bcm-quiz/05-regression
   filename: housing.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 bcm-quiz/05-regression---regtrain.png:
   path: bcm-quiz/05-regression
   filename: regtrain.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -3016,7 +3109,7 @@ bcm-quiz/05-regression---regtrain.png:
 survival-analysis-tutorial/sa-notes-01-the-data-and-survival-curve---02-workflow.png:
   path: survival-analysis-tutorial/sa-notes-01-the-data-and-survival-curve
   filename: 02-workflow.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -3033,32 +3126,32 @@ survival-analysis-tutorial/sa-notes-01-the-data-and-survival-curve---02-workflow
 survival-analysis-tutorial/sa-notes-01-the-data-and-survival-curve---01-datatable-excel.png:
   path: survival-analysis-tutorial/sa-notes-01-the-data-and-survival-curve
   filename: 01-datatable-excel.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 survival-analysis-tutorial/sa-notes-01-the-data-and-survival-curve---01-diagram-2.png:
   path: survival-analysis-tutorial/sa-notes-01-the-data-and-survival-curve
   filename: 01-diagram-2.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 survival-analysis-tutorial/sa-notes-01-the-data-and-survival-curve---01-diagram-1.png:
   path: survival-analysis-tutorial/sa-notes-01-the-data-and-survival-curve
   filename: 01-diagram-1.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 survival-analysis-tutorial/sa-notes-01-the-data-and-survival-curve---02-KMplot-1.png:
   path: survival-analysis-tutorial/sa-notes-01-the-data-and-survival-curve
   filename: 02-KMplot-1.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 survival-analysis-tutorial/sa-notes-01-the-data-and-survival-curve---02-km-plot-orange.png:
   path: survival-analysis-tutorial/sa-notes-01-the-data-and-survival-curve
   filename: 02-km-plot-orange.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 survival-analysis-tutorial/sa-quiz-01-the-data-and-survival-curve---explanation_2.png:
   path: survival-analysis-tutorial/sa-quiz-01-the-data-and-survival-curve
   filename: explanation_2.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Survival Analysis
@@ -3072,7 +3165,7 @@ survival-analysis-tutorial/sa-quiz-01-the-data-and-survival-curve---explanation_
 survival-analysis-tutorial/sa-quiz-01-the-data-and-survival-curve---explanation_3.png:
   path: survival-analysis-tutorial/sa-quiz-01-the-data-and-survival-curve
   filename: explanation_3.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Survival Analysis
@@ -3086,17 +3179,17 @@ survival-analysis-tutorial/sa-quiz-01-the-data-and-survival-curve---explanation_
 survival-analysis-tutorial/sa-quiz-01-the-data-and-survival-curve---explanation_1.png:
   path: survival-analysis-tutorial/sa-quiz-01-the-data-and-survival-curve
   filename: explanation_1.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 survival-analysis-tutorial/sa-quiz-01-the-data-and-survival-curve---e1-t1-graph.png:
   path: survival-analysis-tutorial/sa-quiz-01-the-data-and-survival-curve
   filename: e1-t1-graph.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 survival-analysis-tutorial/sa-quiz-01-the-data-and-survival-curve---explanation_4.png:
   path: survival-analysis-tutorial/sa-quiz-01-the-data-and-survival-curve
   filename: explanation_4.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Survival Analysis
@@ -3116,12 +3209,12 @@ survival-analysis-tutorial/sa-quiz-01-the-data-and-survival-curve---explanation_
 survival-analysis-tutorial/sa-quiz-01-the-data-and-survival-curve---explanation_1_old.png:
   path: survival-analysis-tutorial/sa-quiz-01-the-data-and-survival-curve
   filename: explanation_1_old.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 survival-analysis-tutorial/sa-quiz-03-ranking-genes---explanation_2.png:
   path: survival-analysis-tutorial/sa-quiz-03-ranking-genes
   filename: explanation_2.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Bioinformatics
@@ -3141,17 +3234,17 @@ survival-analysis-tutorial/sa-quiz-03-ranking-genes---explanation_2.png:
 survival-analysis-tutorial/sa-quiz-03-ranking-genes---explanation_1.png:
   path: survival-analysis-tutorial/sa-quiz-03-ranking-genes
   filename: explanation_1.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 survival-analysis-tutorial/sa-quiz-03-ranking-genes---datasets-tcga-cesc.png:
   path: survival-analysis-tutorial/sa-quiz-03-ranking-genes
   filename: datasets-tcga-cesc.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 survival-analysis-tutorial/sa-quiz-03-ranking-genes---explanation_3.1.png:
   path: survival-analysis-tutorial/sa-quiz-03-ranking-genes
   filename: explanation_3.1.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Bioinformatics
@@ -3177,22 +3270,22 @@ survival-analysis-tutorial/sa-quiz-03-ranking-genes---explanation_3.1.png:
 survival-analysis-tutorial/sa-quiz-03-ranking-genes---explanation_3.2.png:
   path: survival-analysis-tutorial/sa-quiz-03-ranking-genes
   filename: explanation_3.2.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 survival-analysis-tutorial/sa-quiz-03-ranking-genes---explanation_3.3.png:
   path: survival-analysis-tutorial/sa-quiz-03-ranking-genes
   filename: explanation_3.3.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 survival-analysis-tutorial/sa-quiz-03-ranking-genes---explanation_1.1.png:
   path: survival-analysis-tutorial/sa-quiz-03-ranking-genes
   filename: explanation_1.1.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 survival-analysis-tutorial/sa-quiz-03-ranking-genes---uv_geneset.png:
   path: survival-analysis-tutorial/sa-quiz-03-ranking-genes
   filename: uv_geneset.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Bioinformatics
@@ -3206,12 +3299,12 @@ survival-analysis-tutorial/sa-quiz-03-ranking-genes---uv_geneset.png:
 survival-analysis-tutorial/sa-quiz-05-questionnaire---t-shirt.png:
   path: survival-analysis-tutorial/sa-quiz-05-questionnaire
   filename: t-shirt.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 survival-analysis-tutorial/sa-notes-04-ranking-gene-sets---load-custom-genesets.png:
   path: survival-analysis-tutorial/sa-notes-04-ranking-gene-sets
   filename: load-custom-genesets.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Bioinformatics
@@ -3225,7 +3318,7 @@ survival-analysis-tutorial/sa-notes-04-ranking-gene-sets---load-custom-genesets.
 survival-analysis-tutorial/sa-notes-04-ranking-gene-sets---068-kmhypoxia.png:
   path: survival-analysis-tutorial/sa-notes-04-ranking-gene-sets
   filename: 068-kmhypoxia.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Bioinformatics
@@ -3251,12 +3344,12 @@ survival-analysis-tutorial/sa-notes-04-ranking-gene-sets---068-kmhypoxia.png:
 survival-analysis-tutorial/sa-notes-04-ranking-gene-sets---067-discretizehypoxia.png:
   path: survival-analysis-tutorial/sa-notes-04-ranking-gene-sets
   filename: 067-discretizehypoxia.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 survival-analysis-tutorial/sa-notes-04-ranking-gene-sets---070-selectcolumns.png:
   path: survival-analysis-tutorial/sa-notes-04-ranking-gene-sets
   filename: 070-selectcolumns.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Bioinformatics
@@ -3276,12 +3369,12 @@ survival-analysis-tutorial/sa-notes-04-ranking-gene-sets---070-selectcolumns.png
 survival-analysis-tutorial/sa-notes-04-ranking-gene-sets---063-twoinputs.png:
   path: survival-analysis-tutorial/sa-notes-04-ranking-gene-sets
   filename: 063-twoinputs.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 survival-analysis-tutorial/sa-notes-04-ranking-gene-sets---065-scorehypoxia.png:
   path: survival-analysis-tutorial/sa-notes-04-ranking-gene-sets
   filename: 065-scorehypoxia.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Bioinformatics
@@ -3301,7 +3394,7 @@ survival-analysis-tutorial/sa-notes-04-ranking-gene-sets---065-scorehypoxia.png:
 survival-analysis-tutorial/sa-notes-04-ranking-gene-sets---062-genes.png:
   path: survival-analysis-tutorial/sa-notes-04-ranking-gene-sets
   filename: 062-genes.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Bioinformatics
@@ -3312,7 +3405,7 @@ survival-analysis-tutorial/sa-notes-04-ranking-gene-sets---062-genes.png:
 survival-analysis-tutorial/sa-notes-04-ranking-gene-sets---064-genesets.png:
   path: survival-analysis-tutorial/sa-notes-04-ranking-gene-sets
   filename: 064-genesets.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Bioinformatics
@@ -3329,7 +3422,7 @@ survival-analysis-tutorial/sa-notes-04-ranking-gene-sets---064-genesets.png:
 survival-analysis-tutorial/sa-notes-04-ranking-gene-sets---073-kmgenesets.png:
   path: survival-analysis-tutorial/sa-notes-04-ranking-gene-sets
   filename: 073-kmgenesets.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Bioinformatics
@@ -3358,12 +3451,12 @@ survival-analysis-tutorial/sa-notes-04-ranking-gene-sets---073-kmgenesets.png:
 survival-analysis-tutorial/sa-notes-04-ranking-gene-sets---072-discretizegenesets.png:
   path: survival-analysis-tutorial/sa-notes-04-ranking-gene-sets
   filename: 072-discretizegenesets.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 survival-analysis-tutorial/sa-notes-04-ranking-gene-sets---071-rank.png:
   path: survival-analysis-tutorial/sa-notes-04-ranking-gene-sets
   filename: 071-rank.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Bioinformatics
@@ -3386,7 +3479,7 @@ survival-analysis-tutorial/sa-notes-04-ranking-gene-sets---071-rank.png:
 survival-analysis-tutorial/sa-notes-04-ranking-gene-sets---066-selectcolumns.png:
   path: survival-analysis-tutorial/sa-notes-04-ranking-gene-sets
   filename: 066-selectcolumns.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Bioinformatics
@@ -3406,7 +3499,7 @@ survival-analysis-tutorial/sa-notes-04-ranking-gene-sets---066-selectcolumns.png
 survival-analysis-tutorial/sa-notes-04-ranking-gene-sets---069-scoresall.png:
   path: survival-analysis-tutorial/sa-notes-04-ranking-gene-sets
   filename: 069-scoresall.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Bioinformatics
@@ -3426,7 +3519,7 @@ survival-analysis-tutorial/sa-notes-04-ranking-gene-sets---069-scoresall.png:
 survival-analysis-tutorial/sa-notes-04-ranking-gene-sets---061-data.png:
   path: survival-analysis-tutorial/sa-notes-04-ranking-gene-sets
   filename: 061-data.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -3437,12 +3530,12 @@ survival-analysis-tutorial/sa-notes-04-ranking-gene-sets---061-data.png:
 survival-analysis-tutorial/sa-quiz-02-exploring-survival-features---explanation_4.2.png:
   path: survival-analysis-tutorial/sa-quiz-02-exploring-survival-features
   filename: explanation_4.2.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 survival-analysis-tutorial/sa-quiz-02-exploring-survival-features---explanation_2.png:
   path: survival-analysis-tutorial/sa-quiz-02-exploring-survival-features
   filename: explanation_2.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -3453,12 +3546,12 @@ survival-analysis-tutorial/sa-quiz-02-exploring-survival-features---explanation_
 survival-analysis-tutorial/sa-quiz-02-exploring-survival-features---explanation_4.1.png:
   path: survival-analysis-tutorial/sa-quiz-02-exploring-survival-features
   filename: explanation_4.1.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 survival-analysis-tutorial/sa-quiz-02-exploring-survival-features---explanation_1.png:
   path: survival-analysis-tutorial/sa-quiz-02-exploring-survival-features
   filename: explanation_1.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -3469,12 +3562,12 @@ survival-analysis-tutorial/sa-quiz-02-exploring-survival-features---explanation_
 survival-analysis-tutorial/sa-quiz-02-exploring-survival-features---lung-cancer-data.png:
   path: survival-analysis-tutorial/sa-quiz-02-exploring-survival-features
   filename: lung-cancer-data.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 survival-analysis-tutorial/sa-quiz-02-exploring-survival-features---discretize.png:
   path: survival-analysis-tutorial/sa-quiz-02-exploring-survival-features
   filename: discretize.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -3488,7 +3581,7 @@ survival-analysis-tutorial/sa-quiz-02-exploring-survival-features---discretize.p
 survival-analysis-tutorial/sa-quiz-02-exploring-survival-features---explanation_3.1.png:
   path: survival-analysis-tutorial/sa-quiz-02-exploring-survival-features
   filename: explanation_3.1.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -3502,7 +3595,7 @@ survival-analysis-tutorial/sa-quiz-02-exploring-survival-features---explanation_
 survival-analysis-tutorial/sa-quiz-02-exploring-survival-features---explanation_3.2.png:
   path: survival-analysis-tutorial/sa-quiz-02-exploring-survival-features
   filename: explanation_3.2.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -3516,7 +3609,7 @@ survival-analysis-tutorial/sa-quiz-02-exploring-survival-features---explanation_
 survival-analysis-tutorial/sa-notes-02-exploring-survival-features---04-rewire-connection.png:
   path: survival-analysis-tutorial/sa-notes-02-exploring-survival-features
   filename: 04-rewire-connection.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Visualize
@@ -3530,7 +3623,7 @@ survival-analysis-tutorial/sa-notes-02-exploring-survival-features---04-rewire-c
 survival-analysis-tutorial/sa-notes-02-exploring-survival-features---03-workflow.png:
   path: survival-analysis-tutorial/sa-notes-02-exploring-survival-features
   filename: 03-workflow.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -3541,27 +3634,27 @@ survival-analysis-tutorial/sa-notes-02-exploring-survival-features---03-workflow
 survival-analysis-tutorial/sa-notes-02-exploring-survival-features---04-distributions-kmplot-prog-receptor.png:
   path: survival-analysis-tutorial/sa-notes-02-exploring-survival-features
   filename: 04-distributions-kmplot-prog-receptor.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 survival-analysis-tutorial/sa-notes-02-exploring-survival-features---03-km-material-type.png:
   path: survival-analysis-tutorial/sa-notes-02-exploring-survival-features
   filename: 03-km-material-type.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 survival-analysis-tutorial/sa-notes-02-exploring-survival-features---03-km-brushing-time.png:
   path: survival-analysis-tutorial/sa-notes-02-exploring-survival-features
   filename: 03-km-brushing-time.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 survival-analysis-tutorial/sa-notes-02-exploring-survival-features---03-data.png:
   path: survival-analysis-tutorial/sa-notes-02-exploring-survival-features
   filename: 03-data.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 survival-analysis-tutorial/sa-notes-02-exploring-survival-features---04-km-categorical-variables.png:
   path: survival-analysis-tutorial/sa-notes-02-exploring-survival-features
   filename: 04-km-categorical-variables.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -3572,7 +3665,7 @@ survival-analysis-tutorial/sa-notes-02-exploring-survival-features---04-km-categ
 survival-analysis-tutorial/sa-notes-02-exploring-survival-features---04-distributions-kmplot.png:
   path: survival-analysis-tutorial/sa-notes-02-exploring-survival-features
   filename: 04-distributions-kmplot.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Visualize
@@ -3589,7 +3682,7 @@ survival-analysis-tutorial/sa-notes-02-exploring-survival-features---04-distribu
 survival-analysis-tutorial/sa-notes-02-exploring-survival-features---04-ranking-reduced.png:
   path: survival-analysis-tutorial/sa-notes-02-exploring-survival-features
   filename: 04-ranking-reduced.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -3606,17 +3699,17 @@ survival-analysis-tutorial/sa-notes-02-exploring-survival-features---04-ranking-
 survival-analysis-tutorial/sa-notes-02-exploring-survival-features---04-km-plots.png:
   path: survival-analysis-tutorial/sa-notes-02-exploring-survival-features
   filename: 04-km-plots.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 survival-analysis-tutorial/sa-notes-02-exploring-survival-features---03-km-dog-person.png:
   path: survival-analysis-tutorial/sa-notes-02-exploring-survival-features
   filename: 03-km-dog-person.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 survival-analysis-tutorial/sa-notes-02-exploring-survival-features---04-load-dataset.png:
   path: survival-analysis-tutorial/sa-notes-02-exploring-survival-features
   filename: 04-load-dataset.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -3627,7 +3720,7 @@ survival-analysis-tutorial/sa-notes-02-exploring-survival-features---04-load-dat
 survival-analysis-tutorial/sa-notes-02-exploring-survival-features---04-distributions-table.png:
   path: survival-analysis-tutorial/sa-notes-02-exploring-survival-features
   filename: 04-distributions-table.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Visualize
@@ -3641,7 +3734,7 @@ survival-analysis-tutorial/sa-notes-02-exploring-survival-features---04-distribu
 survival-analysis-tutorial/sa-notes-02-exploring-survival-features---04-ranking.png:
   path: survival-analysis-tutorial/sa-notes-02-exploring-survival-features
   filename: 04-ranking.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -3652,7 +3745,7 @@ survival-analysis-tutorial/sa-notes-02-exploring-survival-features---04-ranking.
 survival-analysis-tutorial/sa-notes-02-exploring-survival-features---03-workflow3.png:
   path: survival-analysis-tutorial/sa-notes-02-exploring-survival-features
   filename: 03-workflow3.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Transform
@@ -3675,7 +3768,7 @@ survival-analysis-tutorial/sa-notes-02-exploring-survival-features---03-workflow
 survival-analysis-tutorial/sa-notes-02-exploring-survival-features---03-workflow2.png:
   path: survival-analysis-tutorial/sa-notes-02-exploring-survival-features
   filename: 03-workflow2.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -3692,12 +3785,12 @@ survival-analysis-tutorial/sa-notes-02-exploring-survival-features---03-workflow
 survival-analysis-tutorial/sa-notes-02-exploring-survival-features---04-distributions-kmplot-over40.png:
   path: survival-analysis-tutorial/sa-notes-02-exploring-survival-features
   filename: 04-distributions-kmplot-over40.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 survival-analysis-tutorial/sa-notes-02-exploring-survival-features---04-distributions.png:
   path: survival-analysis-tutorial/sa-notes-02-exploring-survival-features
   filename: 04-distributions.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Visualize
@@ -3708,7 +3801,7 @@ survival-analysis-tutorial/sa-notes-02-exploring-survival-features---04-distribu
 survival-analysis-tutorial/sa-notes-03-ranking-genes---057-discretize.png:
   path: survival-analysis-tutorial/sa-notes-03-ranking-genes
   filename: 057-discretize.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Transform
@@ -3719,7 +3812,7 @@ survival-analysis-tutorial/sa-notes-03-ranking-genes---057-discretize.png:
 survival-analysis-tutorial/sa-notes-03-ranking-genes---055-geneset.png:
   path: survival-analysis-tutorial/sa-notes-03-ranking-genes
   filename: 055-geneset.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Bioinformatics
@@ -3736,7 +3829,7 @@ survival-analysis-tutorial/sa-notes-03-ranking-genes---055-geneset.png:
 survival-analysis-tutorial/sa-notes-03-ranking-genes---054-rewire.png:
   path: survival-analysis-tutorial/sa-notes-03-ranking-genes
   filename: 054-rewire.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Visualize
@@ -3747,7 +3840,7 @@ survival-analysis-tutorial/sa-notes-03-ranking-genes---054-rewire.png:
 survival-analysis-tutorial/sa-notes-03-ranking-genes---056-rank.png:
   path: survival-analysis-tutorial/sa-notes-03-ranking-genes
   filename: 056-rank.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Bioinformatics
@@ -3770,7 +3863,7 @@ survival-analysis-tutorial/sa-notes-03-ranking-genes---056-rank.png:
 survival-analysis-tutorial/sa-notes-03-ranking-genes---051-dataset.png:
   path: survival-analysis-tutorial/sa-notes-03-ranking-genes
   filename: 051-dataset.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -3784,7 +3877,7 @@ survival-analysis-tutorial/sa-notes-03-ranking-genes---051-dataset.png:
 survival-analysis-tutorial/sa-notes-03-ranking-genes---052-genes.png:
   path: survival-analysis-tutorial/sa-notes-03-ranking-genes
   filename: 052-genes.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Bioinformatics
@@ -3798,7 +3891,7 @@ survival-analysis-tutorial/sa-notes-03-ranking-genes---052-genes.png:
 survival-analysis-tutorial/sa-notes-03-ranking-genes---058-kmplot.png:
   path: survival-analysis-tutorial/sa-notes-03-ranking-genes
   filename: 058-kmplot.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Bioinformatics
@@ -3815,7 +3908,7 @@ survival-analysis-tutorial/sa-notes-03-ranking-genes---058-kmplot.png:
 survival-analysis-tutorial/sa-notes-03-ranking-genes---053-kras.png:
   path: survival-analysis-tutorial/sa-notes-03-ranking-genes
   filename: 053-kras.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Visualize
@@ -3835,7 +3928,7 @@ survival-analysis-tutorial/sa-notes-03-ranking-genes---053-kras.png:
 survival-analysis-tutorial/sa-quiz-04-ranking-gene-sets---load-custom-genesets.png:
   path: survival-analysis-tutorial/sa-quiz-04-ranking-gene-sets
   filename: load-custom-genesets.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Bioinformatics
@@ -3849,7 +3942,7 @@ survival-analysis-tutorial/sa-quiz-04-ranking-gene-sets---load-custom-genesets.p
 survival-analysis-tutorial/sa-quiz-04-ranking-gene-sets---explanation_2.png:
   path: survival-analysis-tutorial/sa-quiz-04-ranking-gene-sets
   filename: explanation_2.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Bioinformatics
@@ -3875,7 +3968,7 @@ survival-analysis-tutorial/sa-quiz-04-ranking-gene-sets---explanation_2.png:
 survival-analysis-tutorial/sa-quiz-04-ranking-gene-sets---explanation_1.png:
   path: survival-analysis-tutorial/sa-quiz-04-ranking-gene-sets
   filename: explanation_1.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Bioinformatics
@@ -3910,32 +4003,32 @@ survival-analysis-tutorial/sa-quiz-04-ranking-gene-sets---explanation_1.png:
 survival-analysis-tutorial/sa-quiz-04-ranking-gene-sets---tcga-brca.png:
   path: survival-analysis-tutorial/sa-quiz-04-ranking-gene-sets
   filename: tcga-brca.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 survival-analysis-tutorial/sa-quiz-04-ranking-gene-sets---explanation_3.1.png:
   path: survival-analysis-tutorial/sa-quiz-04-ranking-gene-sets
   filename: explanation_3.1.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 survival-analysis-tutorial/sa-quiz-04-ranking-gene-sets---explanation_3.2.png:
   path: survival-analysis-tutorial/sa-quiz-04-ranking-gene-sets
   filename: explanation_3.2.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 mlai/quiz1a---boxplot-hdi-05.png:
   path: mlai/quiz1a
   filename: boxplot-hdi-05.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 mlai/quiz1a---rewire-to-boxplot.png:
   path: mlai/quiz1a
   filename: rewire-to-boxplot.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 mlai/quiz2-lr---weights-standardized.png:
   path: mlai/quiz2-lr
   filename: weights-standardized.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -3955,7 +4048,7 @@ mlai/quiz2-lr---weights-standardized.png:
 mlai/quiz2-lr---cv-unregularized.png:
   path: mlai/quiz2-lr
   filename: cv-unregularized.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Evaluate
@@ -3969,7 +4062,7 @@ mlai/quiz2-lr---cv-unregularized.png:
 mlai/quiz2-lr---weights-raw.png:
   path: mlai/quiz2-lr
   filename: weights-raw.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -3986,7 +4079,7 @@ mlai/quiz2-lr---weights-raw.png:
 mlai/quiz2-lr---target-variable.png:
   path: mlai/quiz2-lr
   filename: target-variable.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -3997,7 +4090,7 @@ mlai/quiz2-lr---target-variable.png:
 mlai/quiz2-lr---features-after-l1.png:
   path: mlai/quiz2-lr
   filename: features-after-l1.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -4017,7 +4110,7 @@ mlai/quiz2-lr---features-after-l1.png:
 mlai/quiz2-lr---correlations.png:
   path: mlai/quiz2-lr
   filename: correlations.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -4031,7 +4124,7 @@ mlai/quiz2-lr---correlations.png:
 mlai/quiz2-lr---r2-after-reg.png:
   path: mlai/quiz2-lr
   filename: r2-after-reg.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Evaluate
@@ -4054,12 +4147,12 @@ mlai/quiz2-lr---r2-after-reg.png:
 mlai/quiz5---roc.png:
   path: mlai/quiz5
   filename: roc.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 mlai/quiz3---bayes-workflow.png:
   path: mlai/quiz3
   filename: bayes-workflow.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Model
@@ -4082,17 +4175,17 @@ mlai/quiz3---bayes-workflow.png:
 mlai/quiz3---bayes-nomogram.png:
   path: mlai/quiz3
   filename: bayes-nomogram.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 mlai/quiz3---create-instance.png:
   path: mlai/quiz3
   filename: create-instance.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 mlai/quiz3---create-instance-workflow.png:
   path: mlai/quiz3
   filename: create-instance-workflow.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Model
@@ -4112,7 +4205,7 @@ mlai/quiz3---create-instance-workflow.png:
 mlai/quiz4---tree-default-nodes.png:
   path: mlai/quiz4
   filename: tree-default-nodes.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -4126,7 +4219,7 @@ mlai/quiz4---tree-default-nodes.png:
 mlai/quiz4---tree-unprunned-ca.png:
   path: mlai/quiz4
   filename: tree-unprunned-ca.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -4143,12 +4236,12 @@ mlai/quiz4---tree-unprunned-ca.png:
 mlai/quiz4---rf-params.png:
   path: mlai/quiz4
   filename: rf-params.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 mlai/quiz4---tree-small-ca.png:
   path: mlai/quiz4
   filename: tree-small-ca.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -4165,7 +4258,7 @@ mlai/quiz4---tree-small-ca.png:
 mlai/quiz4---tree-default-ca.png:
   path: mlai/quiz4
   filename: tree-default-ca.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -4182,7 +4275,7 @@ mlai/quiz4---tree-default-ca.png:
 mlai/quiz4---tree-fully-pruned-nodes.png:
   path: mlai/quiz4
   filename: tree-fully-pruned-nodes.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -4196,7 +4289,7 @@ mlai/quiz4---tree-fully-pruned-nodes.png:
 mlai/quiz4---pp-ca.png:
   path: mlai/quiz4
   filename: pp-ca.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Evaluate
@@ -4213,22 +4306,22 @@ mlai/quiz4---pp-ca.png:
 mlai/quiz4---tree-defaults.png:
   path: mlai/quiz4
   filename: tree-defaults.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 mlai/quiz4---full-prunned-params.png:
   path: mlai/quiz4
   filename: full-prunned-params.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 mlai/quiz4---breast-cancer-data.png:
   path: mlai/quiz4
   filename: breast-cancer-data.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 mlai/quiz4---pp.png:
   path: mlai/quiz4
   filename: pp.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Evaluate
@@ -4245,7 +4338,7 @@ mlai/quiz4---pp.png:
 mlai/quiz4---cv-results-tree.png:
   path: mlai/quiz4
   filename: cv-results-tree.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Evaluate
@@ -4259,7 +4352,7 @@ mlai/quiz4---cv-results-tree.png:
 mlai/quiz4---cv-lr.png:
   path: mlai/quiz4
   filename: cv-lr.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Evaluate
@@ -4276,12 +4369,12 @@ mlai/quiz4---cv-lr.png:
 mlai/quiz4---credit.png:
   path: mlai/quiz4
   filename: credit.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 mlai/quiz4---breast-cancer-fss-overfit.png:
   path: mlai/quiz4
   filename: breast-cancer-fss-overfit.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Evaluate
@@ -4298,12 +4391,12 @@ mlai/quiz4---breast-cancer-fss-overfit.png:
 mlai/quiz4---tree-full-params.png:
   path: mlai/quiz4
   filename: tree-full-params.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 mlai/quiz4---distribution.png:
   path: mlai/quiz4
   filename: distribution.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -4314,7 +4407,7 @@ mlai/quiz4---distribution.png:
 mlai/quiz4---breast-cancer-lr-ca.png:
   path: mlai/quiz4
   filename: breast-cancer-lr-ca.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Evaluate
@@ -4331,7 +4424,7 @@ mlai/quiz4---breast-cancer-lr-ca.png:
 mlai/quiz4---rf-ca.png:
   path: mlai/quiz4
   filename: rf-ca.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Evaluate
@@ -4345,7 +4438,7 @@ mlai/quiz4---rf-ca.png:
 mlai/quiz4---tree-fully-pruned-ca.png:
   path: mlai/quiz4
   filename: tree-fully-pruned-ca.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -4362,37 +4455,37 @@ mlai/quiz4---tree-fully-pruned-ca.png:
 mlai/quiz1b---distributions-gdp.png:
   path: mlai/quiz1b
   filename: distributions-gdp.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 mlai/quiz1b---scatterplot-age-fertility.png:
   path: mlai/quiz1b
   filename: scatterplot-age-fertility.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 mlai/quiz1b---table-ireland.png:
   path: mlai/quiz1b
   filename: table-ireland.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 mlai/quiz1b---boxplot-3-clusters.png:
   path: mlai/quiz1b
   filename: boxplot-3-clusters.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 mlai/quiz1b---boxplot-gdp.png:
   path: mlai/quiz1b
   filename: boxplot-gdp.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-regression/020-regularization---settings.png:
   path: ds-regression/020-regularization
   filename: settings.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-regression/020-regularization---workflow-coefficients.png:
   path: ds-regression/020-regularization
   filename: workflow-coefficients.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -4409,12 +4502,12 @@ ds-regression/020-regularization---workflow-coefficients.png:
 ds-regression/020-regularization---coefficients.png:
   path: ds-regression/020-regularization
   filename: coefficients.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-regression/020-regularization---workflow-ridge.png:
   path: ds-regression/020-regularization
   filename: workflow-ridge.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -4434,7 +4527,7 @@ ds-regression/020-regularization---workflow-ridge.png:
 ds-regression/060-l1-l2---experiment.png:
   path: ds-regression/060-l1-l2
   filename: experiment.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -4457,52 +4550,52 @@ ds-regression/060-l1-l2---experiment.png:
 ds-regression/060-l1-l2---l1-and-l2.png:
   path: ds-regression/060-l1-l2
   filename: l1-and-l2.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-regression/040-live-long---weights.png:
   path: ds-regression/040-live-long
   filename: weights.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-regression/040-live-long---feature-constructor.png:
   path: ds-regression/040-live-long
   filename: feature-constructor.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-regression/040-live-long---preprocess.png:
   path: ds-regression/040-live-long
   filename: preprocess.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-regression/040-live-long---raw-coefficients.png:
   path: ds-regression/040-live-long
   filename: raw-coefficients.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-regression/040-live-long---select-columns.png:
   path: ds-regression/040-live-long
   filename: select-columns.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-regression/040-live-long---data.png:
   path: ds-regression/040-live-long
   filename: data.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-regression/040-live-long---fss.png:
   path: ds-regression/040-live-long
   filename: fss.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-regression/040-live-long---test-and-score.png:
   path: ds-regression/040-live-long
   filename: test-and-score.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-regression/040-live-long---workflow.png:
   path: ds-regression/040-live-long
   filename: workflow.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Evaluate
@@ -4528,12 +4621,12 @@ ds-regression/040-live-long---workflow.png:
 ds-regression/010-linear-regression---overfitting.png:
   path: ds-regression/010-linear-regression
   filename: overfitting.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-regression/010-linear-regression---paint.png:
   path: ds-regression/010-linear-regression
   filename: paint.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -4550,7 +4643,7 @@ ds-regression/010-linear-regression---paint.png:
 ds-regression/010-linear-regression---line.png:
   path: ds-regression/010-linear-regression
   filename: line.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Transform
@@ -4564,12 +4657,12 @@ ds-regression/010-linear-regression---line.png:
 ds-regression/050-analysis---scatterplot-errors.png:
   path: ds-regression/050-analysis
   filename: scatterplot-errors.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-regression/050-analysis---error-workflow.png:
   path: ds-regression/050-analysis
   filename: error-workflow.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Evaluate
@@ -4592,17 +4685,17 @@ ds-regression/050-analysis---error-workflow.png:
 ds-regression/050-analysis---scatterplot.png:
   path: ds-regression/050-analysis
   filename: scatterplot.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-regression/050-analysis---options.png:
   path: ds-regression/050-analysis
   filename: options.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-regression/050-analysis---workflow.png:
   path: ds-regression/050-analysis
   filename: workflow.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Evaluate
@@ -4622,12 +4715,12 @@ ds-regression/050-analysis---workflow.png:
 ds-regression/030-reg-and-accuracy---train-test.png:
   path: ds-regression/030-reg-and-accuracy
   filename: train-test.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-regression/030-reg-and-accuracy---workflow.png:
   path: ds-regression/030-reg-and-accuracy
   filename: workflow.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Evaluate
@@ -4650,257 +4743,257 @@ ds-regression/030-reg-and-accuracy---workflow.png:
 biomedvis/fundamentals---iphone-barchart-orig.jpg:
   path: biomedvis/fundamentals
   filename: iphone-barchart-orig.jpg
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 biomedvis/fundamentals---iphone-barchart.jpg:
   path: biomedvis/fundamentals
   filename: iphone-barchart.jpg
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 biomedvis/fundamentals---nightingale-mortality.jpg:
   path: biomedvis/fundamentals
   filename: nightingale-mortality.jpg
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 biomedvis/fundamentals---crick-watson.jpg:
   path: biomedvis/fundamentals
   filename: crick-watson.jpg
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 biomedvis/bio---pangenome.png:
   path: biomedvis/bio
   filename: pangenome.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 biomedvis/bio---heatmap.png:
   path: biomedvis/bio
   filename: heatmap.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 embedding-explanations/quiz-1-penguins---penguins.png:
   path: embedding-explanations/quiz-1-penguins
   filename: penguins.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 embedding-explanations/quiz-1-penguins---penguin-schematic.png:
   path: embedding-explanations/quiz-1-penguins
   filename: penguin-schematic.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 embedding-explanations/quiz-1-penguins---penguins-sm.png:
   path: embedding-explanations/quiz-1-penguins
   filename: penguins-sm.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 embedding-explanations/quiz-1-penguins---penguins-sm-q1.png:
   path: embedding-explanations/quiz-1-penguins
   filename: penguins-sm-q1.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 embedding-explanations/quiz-1-penguins---penguins-sm-q2.png:
   path: embedding-explanations/quiz-1-penguins
   filename: penguins-sm-q2.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 embedding-explanations/quiz-1-penguins---penguins-sm-q3.png:
   path: embedding-explanations/quiz-1-penguins
   filename: penguins-sm-q3.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 embedding-explanations/quiz-2-attrition---employee-attrition-sm-q1.png:
   path: embedding-explanations/quiz-2-attrition
   filename: employee-attrition-sm-q1.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 embedding-explanations/quiz-2-attrition---employee-attrition-sm-q2.png:
   path: embedding-explanations/quiz-2-attrition
   filename: employee-attrition-sm-q2.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 embedding-explanations/quiz-2-attrition---employee-attrition-sm-q3.png:
   path: embedding-explanations/quiz-2-attrition
   filename: employee-attrition-sm-q3.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 embedding-explanations/quiz-2-attrition---employee-attrition-sm-q4.png:
   path: embedding-explanations/quiz-2-attrition
   filename: employee-attrition-sm-q4.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 embedding-explanations/quiz-2-attrition---employee-attrition-sm-q5.png:
   path: embedding-explanations/quiz-2-attrition
   filename: employee-attrition-sm-q5.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 embedding-explanations/quiz-2-attrition---employee-attrition-sm.png:
   path: embedding-explanations/quiz-2-attrition
   filename: employee-attrition-sm.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 embedding-explanations/quiz-2-attrition---employee-attrition.png:
   path: embedding-explanations/quiz-2-attrition
   filename: employee-attrition.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 embedding-explanations/quiz-3-wine-quality---wine-quality-sm-q4.png:
   path: embedding-explanations/quiz-3-wine-quality
   filename: wine-quality-sm-q4.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 embedding-explanations/quiz-3-wine-quality---wine-quality-sm-q1.png:
   path: embedding-explanations/quiz-3-wine-quality
   filename: wine-quality-sm-q1.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 embedding-explanations/quiz-3-wine-quality---wine-quality-sm-q2.png:
   path: embedding-explanations/quiz-3-wine-quality
   filename: wine-quality-sm-q2.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 embedding-explanations/quiz-3-wine-quality---wine-quality-sm-q3.png:
   path: embedding-explanations/quiz-3-wine-quality
   filename: wine-quality-sm-q3.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 embedding-explanations/quiz-3-wine-quality---wine-quality-sm.png:
   path: embedding-explanations/quiz-3-wine-quality
   filename: wine-quality-sm.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 embedding-explanations/quiz-3-wine-quality---wine-quality.png:
   path: embedding-explanations/quiz-3-wine-quality
   filename: wine-quality.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 embedding-explanations/quiz-1-iris---iris.png:
   path: embedding-explanations/quiz-1-iris
   filename: iris.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 embedding-explanations/quiz-1-iris---iris-sm.png:
   path: embedding-explanations/quiz-1-iris
   filename: iris-sm.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 embedding-explanations/quiz-1-iris---iris-sm-q1.png:
   path: embedding-explanations/quiz-1-iris
   filename: iris-sm-q1.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 embedding-explanations/quiz-1-iris---iris-sm-q2.png:
   path: embedding-explanations/quiz-1-iris
   filename: iris-sm-q2.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 embedding-explanations/quiz-1-iris---flower-schematic.png:
   path: embedding-explanations/quiz-1-iris
   filename: flower-schematic.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 embedding-explanations/quiz-2-titanic---titanic-sm-q4.png:
   path: embedding-explanations/quiz-2-titanic
   filename: titanic-sm-q4.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 embedding-explanations/quiz-2-titanic---titanic.png:
   path: embedding-explanations/quiz-2-titanic
   filename: titanic.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 embedding-explanations/quiz-2-titanic---titanic-sm-q2.png:
   path: embedding-explanations/quiz-2-titanic
   filename: titanic-sm-q2.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 embedding-explanations/quiz-2-titanic---titanic-sm-q3.png:
   path: embedding-explanations/quiz-2-titanic
   filename: titanic-sm-q3.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 embedding-explanations/quiz-2-titanic---titanic-sm-q1.png:
   path: embedding-explanations/quiz-2-titanic
   filename: titanic-sm-q1.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 embedding-explanations/quiz-2-titanic---titanic-sm.png:
   path: embedding-explanations/quiz-2-titanic
   filename: titanic-sm.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 embedding-explanations/quiz-3-boston-housing---housing-prices-sm-q4.png:
   path: embedding-explanations/quiz-3-boston-housing
   filename: housing-prices-sm-q4.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 embedding-explanations/quiz-3-boston-housing---housing-prices-sm-q1.png:
   path: embedding-explanations/quiz-3-boston-housing
   filename: housing-prices-sm-q1.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 embedding-explanations/quiz-3-boston-housing---housing-prices-sm-q3.png:
   path: embedding-explanations/quiz-3-boston-housing
   filename: housing-prices-sm-q3.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 embedding-explanations/quiz-3-boston-housing---housing-prices-sm-q2.png:
   path: embedding-explanations/quiz-3-boston-housing
   filename: housing-prices-sm-q2.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 embedding-explanations/quiz-3-boston-housing---housing-prices-sm.png:
   path: embedding-explanations/quiz-3-boston-housing
   filename: housing-prices-sm.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 embedding-explanations/quiz-3-boston-housing---housing-prices.png:
   path: embedding-explanations/quiz-3-boston-housing
   filename: housing-prices.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 embedding-explanations/quiz-3-raisin---raisin-sm.png:
   path: embedding-explanations/quiz-3-raisin
   filename: raisin-sm.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 embedding-explanations/quiz-3-raisin---raisin-sm-q1.png:
   path: embedding-explanations/quiz-3-raisin
   filename: raisin-sm-q1.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 embedding-explanations/quiz-3-raisin---raisin-sm-q3.png:
   path: embedding-explanations/quiz-3-raisin
   filename: raisin-sm-q3.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 embedding-explanations/quiz-3-raisin---raisin-sm-q2.png:
   path: embedding-explanations/quiz-3-raisin
   filename: raisin-sm-q2.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 embedding-explanations/quiz-3-raisin---raisin.png:
   path: embedding-explanations/quiz-3-raisin
   filename: raisin.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-unsupervised/085-kmeans-zoo---animal-types.png:
   path: ds-unsupervised/085-kmeans-zoo
   filename: animal-types.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-unsupervised/085-kmeans-zoo---cluster-selection.png:
   path: ds-unsupervised/085-kmeans-zoo
   filename: cluster-selection.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-unsupervised/085-kmeans-zoo---zoo-data.png:
   path: ds-unsupervised/085-kmeans-zoo
   filename: zoo-data.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-unsupervised/085-kmeans-zoo---select-columns.png:
   path: ds-unsupervised/085-kmeans-zoo
   filename: select-columns.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -4911,12 +5004,12 @@ ds-unsupervised/085-kmeans-zoo---select-columns.png:
 ds-unsupervised/085-kmeans-zoo---analysis.png:
   path: ds-unsupervised/085-kmeans-zoo
   filename: analysis.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-unsupervised/085-kmeans-zoo---workflow.png:
   path: ds-unsupervised/085-kmeans-zoo
   filename: workflow.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Unsupervised
@@ -4936,22 +5029,22 @@ ds-unsupervised/085-kmeans-zoo---workflow.png:
 ds-unsupervised/085-kmeans-zoo---edit-links.png:
   path: ds-unsupervised/085-kmeans-zoo
   filename: edit-links.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-unsupervised/030-dendrograms---four-clusters.png:
   path: ds-unsupervised/030-dendrograms
   filename: four-clusters.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-unsupervised/030-dendrograms---scatterplot-dendrogram-by-hand.png:
   path: ds-unsupervised/030-dendrograms
   filename: scatterplot-dendrogram-by-hand.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-unsupervised/030-dendrograms---dendrogram.png:
   path: ds-unsupervised/030-dendrograms
   filename: dendrogram.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -4968,7 +5061,7 @@ ds-unsupervised/030-dendrograms---dendrogram.png:
 ds-unsupervised/030-dendrograms---dendrogram-scatterplot.png:
   path: ds-unsupervised/030-dendrograms
   filename: dendrogram-scatterplot.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -4988,7 +5081,7 @@ ds-unsupervised/030-dendrograms---dendrogram-scatterplot.png:
 ds-unsupervised/050-clustering-geo-maps---geocoding.png:
   path: ds-unsupervised/050-clustering-geo-maps
   filename: geocoding.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Geo
@@ -5008,12 +5101,12 @@ ds-unsupervised/050-clustering-geo-maps---geocoding.png:
 ds-unsupervised/050-clustering-geo-maps---four-groups.png:
   path: ds-unsupervised/050-clustering-geo-maps
   filename: four-groups.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-unsupervised/050-clustering-geo-maps---clustering.png:
   path: ds-unsupervised/050-clustering-geo-maps
   filename: clustering.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -5030,7 +5123,7 @@ ds-unsupervised/050-clustering-geo-maps---clustering.png:
 ds-unsupervised/050-clustering-geo-maps---choropleth.png:
   path: ds-unsupervised/050-clustering-geo-maps
   filename: choropleth.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Geo
@@ -5053,12 +5146,12 @@ ds-unsupervised/050-clustering-geo-maps---choropleth.png:
 ds-unsupervised/050-clustering-geo-maps---geo-add-on.png:
   path: ds-unsupervised/050-clustering-geo-maps
   filename: geo-add-on.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-unsupervised/050-clustering-geo-maps---hdi-data.png:
   path: ds-unsupervised/050-clustering-geo-maps
   filename: hdi-data.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -5069,12 +5162,12 @@ ds-unsupervised/050-clustering-geo-maps---hdi-data.png:
 ds-unsupervised/050-clustering-geo-maps---geo-toolbox.png:
   path: ds-unsupervised/050-clustering-geo-maps
   filename: geo-toolbox.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-unsupervised/050-clustering-geo-maps---distances.png:
   path: ds-unsupervised/050-clustering-geo-maps
   filename: distances.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -5088,7 +5181,7 @@ ds-unsupervised/050-clustering-geo-maps---distances.png:
 ds-unsupervised/050-clustering-geo-maps---a.png:
   path: ds-unsupervised/050-clustering-geo-maps
   filename: a.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -5099,7 +5192,7 @@ ds-unsupervised/050-clustering-geo-maps---a.png:
 ds-unsupervised/080-kmeans---silhouette-scoring.png:
   path: ds-unsupervised/080-kmeans
   filename: silhouette-scoring.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Unsupervised
@@ -5110,7 +5203,7 @@ ds-unsupervised/080-kmeans---silhouette-scoring.png:
 ds-unsupervised/080-kmeans---interactive-k-means.png:
   path: ds-unsupervised/080-kmeans
   filename: interactive-k-means.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Educational
@@ -5121,12 +5214,12 @@ ds-unsupervised/080-kmeans---interactive-k-means.png:
 ds-unsupervised/080-kmeans---clustering.png:
   path: ds-unsupervised/080-kmeans
   filename: clustering.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-unsupervised/080-kmeans---blob.png:
   path: ds-unsupervised/080-kmeans
   filename: blob.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Unsupervised
@@ -5140,12 +5233,12 @@ ds-unsupervised/080-kmeans---blob.png:
 ds-unsupervised/010-euclidean-distances-2d---distance-matrix.png:
   path: ds-unsupervised/010-euclidean-distances-2d
   filename: distance-matrix.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-unsupervised/010-euclidean-distances-2d---select-columns.png:
   path: ds-unsupervised/010-euclidean-distances-2d
   filename: select-columns.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -5159,12 +5252,12 @@ ds-unsupervised/010-euclidean-distances-2d---select-columns.png:
 ds-unsupervised/010-euclidean-distances-2d---scatterplot.png:
   path: ds-unsupervised/010-euclidean-distances-2d
   filename: scatterplot.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-unsupervised/010-euclidean-distances-2d---distances.png:
   path: ds-unsupervised/010-euclidean-distances-2d
   filename: distances.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Unsupervised
@@ -5181,7 +5274,7 @@ ds-unsupervised/010-euclidean-distances-2d---distances.png:
 ds-unsupervised/010-euclidean-distances-2d---grades-dataset.png:
   path: ds-unsupervised/010-euclidean-distances-2d
   filename: grades-dataset.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -5192,12 +5285,12 @@ ds-unsupervised/010-euclidean-distances-2d---grades-dataset.png:
 ds-unsupervised/140-tsne---smiley.png:
   path: ds-unsupervised/140-tsne
   filename: smiley.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-unsupervised/140-tsne---tsne-zoo.png:
   path: ds-unsupervised/140-tsne
   filename: tsne-zoo.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -5208,7 +5301,7 @@ ds-unsupervised/140-tsne---tsne-zoo.png:
 ds-unsupervised/140-tsne---tsne.png:
   path: ds-unsupervised/140-tsne
   filename: tsne.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Unsupervised
@@ -5225,7 +5318,7 @@ ds-unsupervised/140-tsne---tsne.png:
 ds-unsupervised/140-tsne---mds.png:
   path: ds-unsupervised/140-tsne
   filename: mds.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Unsupervised
@@ -5239,7 +5332,7 @@ ds-unsupervised/140-tsne---mds.png:
 ds-unsupervised/040-clustering-higher-dim---clustering.png:
   path: ds-unsupervised/040-clustering-higher-dim
   filename: clustering.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -5253,7 +5346,7 @@ ds-unsupervised/040-clustering-higher-dim---clustering.png:
 ds-unsupervised/040-clustering-higher-dim---scatterplot.png:
   path: ds-unsupervised/040-clustering-higher-dim
   filename: scatterplot.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -5270,7 +5363,7 @@ ds-unsupervised/040-clustering-higher-dim---scatterplot.png:
 ds-unsupervised/150-tsne-mds-pca---pca-sc.png:
   path: ds-unsupervised/150-tsne-mds-pca
   filename: pca-sc.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -5284,8 +5377,11 @@ ds-unsupervised/150-tsne-mds-pca---pca-sc.png:
 ds-unsupervised/150-tsne-mds-pca---tsne-pca.png:
   path: ds-unsupervised/150-tsne-mds-pca
   filename: tsne-pca.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
+  - !!python/tuple
+    - Fairness
+    - Reweighing
   - !!python/tuple
     - Data
     - Datasets
@@ -5301,7 +5397,7 @@ ds-unsupervised/150-tsne-mds-pca---tsne-pca.png:
 ds-unsupervised/150-tsne-mds-pca---tsne-sc.png:
   path: ds-unsupervised/150-tsne-mds-pca
   filename: tsne-sc.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -5318,27 +5414,27 @@ ds-unsupervised/150-tsne-mds-pca---tsne-sc.png:
 ds-unsupervised/150-tsne-mds-pca---mds-formulation.png:
   path: ds-unsupervised/150-tsne-mds-pca
   filename: mds-formulation.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-unsupervised/110-pca-details---side-points.png:
   path: ds-unsupervised/110-pca-details
   filename: side-points.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-unsupervised/110-pca-details---side-points-pca.png:
   path: ds-unsupervised/110-pca-details
   filename: side-points-pca.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-unsupervised/110-pca-details---mikly-way.jpg:
   path: ds-unsupervised/110-pca-details
   filename: mikly-way.jpg
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-unsupervised/110-pca-details---zoo-data.png:
   path: ds-unsupervised/110-pca-details
   filename: zoo-data.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -5349,12 +5445,12 @@ ds-unsupervised/110-pca-details---zoo-data.png:
 ds-unsupervised/110-pca-details---night-sky.jpg:
   path: ds-unsupervised/110-pca-details
   filename: night-sky.jpg
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-unsupervised/110-pca-details---scree.png:
   path: ds-unsupervised/110-pca-details
   filename: scree.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -5365,7 +5461,7 @@ ds-unsupervised/110-pca-details---scree.png:
 ds-unsupervised/110-pca-details---projection.png:
   path: ds-unsupervised/110-pca-details
   filename: projection.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Visualize
@@ -5379,7 +5475,7 @@ ds-unsupervised/110-pca-details---projection.png:
 ds-unsupervised/110-pca-details---scree-lin.png:
   path: ds-unsupervised/110-pca-details
   filename: scree-lin.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -5390,7 +5486,7 @@ ds-unsupervised/110-pca-details---scree-lin.png:
 ds-unsupervised/110-pca-details---scatterplot.png:
   path: ds-unsupervised/110-pca-details
   filename: scatterplot.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -5404,7 +5500,7 @@ ds-unsupervised/110-pca-details---scatterplot.png:
 ds-unsupervised/110-pca-details---match.png:
   path: ds-unsupervised/110-pca-details
   filename: match.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Visualize
@@ -5421,7 +5517,7 @@ ds-unsupervised/110-pca-details---match.png:
 ds-unsupervised/110-pca-details---explore.png:
   path: ds-unsupervised/110-pca-details
   filename: explore.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -5438,7 +5534,7 @@ ds-unsupervised/110-pca-details---explore.png:
 ds-unsupervised/060-explaining-clusters---box-plot.png:
   path: ds-unsupervised/060-explaining-clusters
   filename: box-plot.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -5455,12 +5551,12 @@ ds-unsupervised/060-explaining-clusters---box-plot.png:
 ds-unsupervised/060-explaining-clusters---rewiring.png:
   path: ds-unsupervised/060-explaining-clusters
   filename: rewiring.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-unsupervised/060-explaining-clusters---selected-data.png:
   path: ds-unsupervised/060-explaining-clusters
   filename: selected-data.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -5477,17 +5573,17 @@ ds-unsupervised/060-explaining-clusters---selected-data.png:
 ds-unsupervised/060-explaining-clusters---sports.png:
   path: ds-unsupervised/060-explaining-clusters
   filename: sports.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-unsupervised/060-explaining-clusters---algebra-fred.png:
   path: ds-unsupervised/060-explaining-clusters
   filename: algebra-fred.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-unsupervised/060-explaining-clusters---grades-clustering.png:
   path: ds-unsupervised/060-explaining-clusters
   filename: grades-clustering.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -5501,22 +5597,22 @@ ds-unsupervised/060-explaining-clusters---grades-clustering.png:
 ds-unsupervised/060-explaining-clusters---english.png:
   path: ds-unsupervised/060-explaining-clusters
   filename: english.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-unsupervised/130-mds---website.png:
   path: ds-unsupervised/130-mds
   filename: website.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-unsupervised/130-mds---europe.jpg:
   path: ds-unsupervised/130-mds
   filename: europe.jpg
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-unsupervised/130-mds---mds-inverted.png:
   path: ds-unsupervised/130-mds
   filename: mds-inverted.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Unsupervised
@@ -5536,12 +5632,12 @@ ds-unsupervised/130-mds---mds-inverted.png:
 ds-unsupervised/130-mds---excel.png:
   path: ds-unsupervised/130-mds
   filename: excel.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-unsupervised/130-mds---zoo.png:
   path: ds-unsupervised/130-mds
   filename: zoo.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -5561,7 +5657,7 @@ ds-unsupervised/130-mds---zoo.png:
 ds-unsupervised/130-mds---distances.png:
   path: ds-unsupervised/130-mds
   filename: distances.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Unsupervised
@@ -5572,7 +5668,7 @@ ds-unsupervised/130-mds---distances.png:
 ds-unsupervised/130-mds---mds.png:
   path: ds-unsupervised/130-mds
   filename: mds.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Unsupervised
@@ -5586,12 +5682,12 @@ ds-unsupervised/130-mds---mds.png:
 ds-unsupervised/120-explaining-pca---weights.png:
   path: ds-unsupervised/120-explaining-pca
   filename: weights.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-unsupervised/120-explaining-pca---feature-constructor.png:
   path: ds-unsupervised/120-explaining-pca
   filename: feature-constructor.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -5614,7 +5710,7 @@ ds-unsupervised/120-explaining-pca---feature-constructor.png:
 ds-unsupervised/120-explaining-pca---edit-domain.png:
   path: ds-unsupervised/120-explaining-pca
   filename: edit-domain.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -5625,7 +5721,7 @@ ds-unsupervised/120-explaining-pca---edit-domain.png:
 ds-unsupervised/120-explaining-pca---scree.png:
   path: ds-unsupervised/120-explaining-pca
   filename: scree.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -5639,7 +5735,7 @@ ds-unsupervised/120-explaining-pca---scree.png:
 ds-unsupervised/120-explaining-pca---continuize.png:
   path: ds-unsupervised/120-explaining-pca
   filename: continuize.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -5653,7 +5749,7 @@ ds-unsupervised/120-explaining-pca---continuize.png:
 ds-unsupervised/120-explaining-pca---horizontal.png:
   path: ds-unsupervised/120-explaining-pca
   filename: horizontal.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -5670,7 +5766,7 @@ ds-unsupervised/120-explaining-pca---horizontal.png:
 ds-unsupervised/120-explaining-pca---components.png:
   path: ds-unsupervised/120-explaining-pca
   filename: components.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -5687,17 +5783,17 @@ ds-unsupervised/120-explaining-pca---components.png:
 ds-unsupervised/120-explaining-pca---paint-data.png:
   path: ds-unsupervised/120-explaining-pca
   filename: paint-data.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-unsupervised/100-pca---mikly-way.jpg:
   path: ds-unsupervised/100-pca
   filename: mikly-way.jpg
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-unsupervised/100-pca---zoo-data.png:
   path: ds-unsupervised/100-pca
   filename: zoo-data.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -5708,12 +5804,12 @@ ds-unsupervised/100-pca---zoo-data.png:
 ds-unsupervised/100-pca---night-sky.jpg:
   path: ds-unsupervised/100-pca
   filename: night-sky.jpg
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-unsupervised/100-pca---scree.png:
   path: ds-unsupervised/100-pca
   filename: scree.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -5724,7 +5820,7 @@ ds-unsupervised/100-pca---scree.png:
 ds-unsupervised/100-pca---scatterplot.png:
   path: ds-unsupervised/100-pca
   filename: scatterplot.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -5738,7 +5834,7 @@ ds-unsupervised/100-pca---scatterplot.png:
 ds-unsupervised/100-pca---explore.png:
   path: ds-unsupervised/100-pca
   filename: explore.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -5755,27 +5851,27 @@ ds-unsupervised/100-pca---explore.png:
 ds-unsupervised/020-cluster-distances---scatterplot-circles.png:
   path: ds-unsupervised/020-cluster-distances
   filename: scatterplot-circles.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-unsupervised/020-cluster-distances---scatterplot-circles2.png:
   path: ds-unsupervised/020-cluster-distances
   filename: scatterplot-circles2.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-unsupervised/020-cluster-distances---linkage-complete.png:
   path: ds-unsupervised/020-cluster-distances
   filename: linkage-complete.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-unsupervised/020-cluster-distances---linkage-single.png:
   path: ds-unsupervised/020-cluster-distances
   filename: linkage-single.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-unsupervised/020-cluster-distances---workflow-scatterplot.png:
   path: ds-unsupervised/020-cluster-distances
   filename: workflow-scatterplot.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -5789,12 +5885,12 @@ ds-unsupervised/020-cluster-distances---workflow-scatterplot.png:
 ds-unsupervised/020-cluster-distances---linkage-average.png:
   path: ds-unsupervised/020-cluster-distances
   filename: linkage-average.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-unsupervised/070-silhouette---three-outliers.png:
   path: ds-unsupervised/070-silhouette
   filename: three-outliers.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Visualize
@@ -5808,7 +5904,7 @@ ds-unsupervised/070-silhouette---three-outliers.png:
 ds-unsupervised/070-silhouette---silhouette-plot.png:
   path: ds-unsupervised/070-silhouette
   filename: silhouette-plot.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Visualize
@@ -5819,52 +5915,52 @@ ds-unsupervised/070-silhouette---silhouette-plot.png:
 ds-unsupervised/070-silhouette---b.png:
   path: ds-unsupervised/070-silhouette
   filename: b.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-unsupervised/070-silhouette---paint-data.png:
   path: ds-unsupervised/070-silhouette
   filename: paint-data.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-unsupervised/070-silhouette---a.png:
   path: ds-unsupervised/070-silhouette
   filename: a.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 uozp/01-grucenje-kviz---smile.png:
   path: uozp/01-grucenje-kviz
   filename: smile.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 single-cell-tutorial-quiz/sc-03-batch-correction---batch_tile_annot.jpg:
   path: single-cell-tutorial-quiz/sc-03-batch-correction
   filename: batch_tile_annot.jpg
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 single-cell-tutorial-quiz/sc-04-exploring-clusters---tsne-clusters.png:
   path: single-cell-tutorial-quiz/sc-04-exploring-clusters
   filename: tsne-clusters.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 single-cell-tutorial-quiz/sc-02-data-and-preprocessing---2abc_tile_annot.jpg:
   path: single-cell-tutorial-quiz/sc-02-data-and-preprocessing
   filename: 2abc_tile_annot.jpg
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 single-cell-tutorial-quiz/sc-02-data-and-preprocessing---3abc_tile_annot.jpg:
   path: single-cell-tutorial-quiz/sc-02-data-and-preprocessing
   filename: 3abc_tile_annot.jpg
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 single-cell-tutorial-quiz/sc-02-data-and-preprocessing---1abc_tile_annot.jpg:
   path: single-cell-tutorial-quiz/sc-02-data-and-preprocessing
   filename: 1abc_tile_annot.jpg
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 single-cell-tutorial-quiz/sc-01-introduction---Screenshot 2023-08-22 at 15.11.50.png:
   path: single-cell-tutorial-quiz/sc-01-introduction
   filename: Screenshot 2023-08-22 at 15.11.50.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Transform
@@ -5887,12 +5983,12 @@ single-cell-tutorial-quiz/sc-01-introduction---Screenshot 2023-08-22 at 15.11.50
 single-cell-tutorial-quiz/sc-01-introduction---01-sc-workflow.jpeg:
   path: single-cell-tutorial-quiz/sc-01-introduction
   filename: 01-sc-workflow.jpeg
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-images/010-embedding---clustering.png:
   path: ds-images/010-embedding
   filename: clustering.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Image Analytics
@@ -5906,7 +6002,7 @@ ds-images/010-embedding---clustering.png:
 ds-images/010-embedding---workflow-embedding.png:
   path: ds-images/010-embedding
   filename: workflow-embedding.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Image Analytics
@@ -5926,32 +6022,32 @@ ds-images/010-embedding---workflow-embedding.png:
 ds-images/010-embedding---data.png:
   path: ds-images/010-embedding
   filename: data.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-images/010-embedding---blog_deeplearning.jpg:
   path: ds-images/010-embedding
   filename: blog_deeplearning.jpg
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-performance/020-thresholds---predictions-above-50.png:
   path: ds-performance/020-thresholds
   filename: predictions-above-50.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-performance/020-thresholds---distributions.png:
   path: ds-performance/020-thresholds
   filename: distributions.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-performance/020-thresholds---threshold-40.png:
   path: ds-performance/020-thresholds
   filename: threshold-40.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-performance/020-thresholds---poor-mens-confusion.png:
   path: ds-performance/020-thresholds
   filename: poor-mens-confusion.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Evaluate
@@ -5977,22 +6073,22 @@ ds-performance/020-thresholds---poor-mens-confusion.png:
 ds-performance/060-precision-recall---calibration-plot-pr.png:
   path: ds-performance/060-precision-recall
   filename: calibration-plot-pr.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-performance/060-precision-recall---distribution-fraud.png:
   path: ds-performance/060-precision-recall
   filename: distribution-fraud.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-performance/060-precision-recall---cumulative-gains.png:
   path: ds-performance/060-precision-recall
   filename: cumulative-gains.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-performance/060-precision-recall---workflow.png:
   path: ds-performance/060-precision-recall
   filename: workflow.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Model
@@ -6018,22 +6114,22 @@ ds-performance/060-precision-recall---workflow.png:
 ds-performance/060-precision-recall---precision-recall.png:
   path: ds-performance/060-precision-recall
   filename: precision-recall.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-performance/030-operating-conditions---confusion-matrix.png:
   path: ds-performance/030-operating-conditions
   filename: confusion-matrix.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-performance/030-operating-conditions---calibration-sens-spec.png:
   path: ds-performance/030-operating-conditions
   filename: calibration-sens-spec.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-performance/030-operating-conditions---workflow-2nd-predictions.png:
   path: ds-performance/030-operating-conditions
   filename: workflow-2nd-predictions.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Evaluate
@@ -6068,27 +6164,27 @@ ds-performance/030-operating-conditions---workflow-2nd-predictions.png:
 ds-performance/030-operating-conditions---calibrate-thresholds.png:
   path: ds-performance/030-operating-conditions
   filename: calibrate-thresholds.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-performance/040-roc---confusion-matrix.png:
   path: ds-performance/040-roc
   filename: confusion-matrix.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-performance/040-roc---roc.png:
   path: ds-performance/040-roc
   filename: roc.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-performance/040-roc---roc-4.png:
   path: ds-performance/040-roc
   filename: roc-4.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-performance/040-roc---roc-workflow.png:
   path: ds-performance/040-roc
   filename: roc-workflow.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Evaluate
@@ -6114,17 +6210,17 @@ ds-performance/040-roc---roc-workflow.png:
 ds-performance/050-auc---ca-threshold.png:
   path: ds-performance/050-auc
   filename: ca-threshold.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-performance/010-ca---confusion-matrix.png:
   path: ds-performance/010-ca
   filename: confusion-matrix.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-performance/010-ca---workflow.png:
   path: ds-performance/010-ca
   filename: workflow.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Model
@@ -6141,7 +6237,7 @@ ds-performance/010-ca---workflow.png:
 ds-classification/130-knn---knn-orange.png:
   path: ds-classification/130-knn
   filename: knn-orange.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Model
@@ -6158,12 +6254,12 @@ ds-classification/130-knn---knn-orange.png:
 ds-classification/130-knn---knn.png:
   path: ds-classification/130-knn
   filename: knn.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-classification/220-fss-random---randomize.png:
   path: ds-classification/220-fss-random
   filename: randomize.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -6180,7 +6276,7 @@ ds-classification/220-fss-random---randomize.png:
 ds-classification/220-fss-random---cv-on-fss.png:
   path: ds-classification/220-fss-random
   filename: cv-on-fss.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Evaluate
@@ -6203,7 +6299,7 @@ ds-classification/220-fss-random---cv-on-fss.png:
 ds-classification/220-fss-random---cv-on-randomized.png:
   path: ds-classification/220-fss-random
   filename: cv-on-randomized.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Evaluate
@@ -6220,11 +6316,8 @@ ds-classification/220-fss-random---cv-on-randomized.png:
 ds-classification/200-fss---cv-after-fss.png:
   path: ds-classification/200-fss
   filename: cv-after-fss.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
-  - !!python/tuple
-    - Visualize
-    - CN2 Rule Viewer
   - !!python/tuple
     - Evaluate
     - Test and Score
@@ -6240,7 +6333,7 @@ ds-classification/200-fss---cv-after-fss.png:
 ds-classification/200-fss---rank.png:
   path: ds-classification/200-fss
   filename: rank.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -6251,7 +6344,7 @@ ds-classification/200-fss---rank.png:
 ds-classification/110-random-forest---instability.png:
   path: ds-classification/110-random-forest
   filename: instability.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Transform
@@ -6268,7 +6361,7 @@ ds-classification/110-random-forest---instability.png:
 ds-classification/110-random-forest---accuracy.png:
   path: ds-classification/110-random-forest
   filename: accuracy.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Evaluate
@@ -6285,7 +6378,7 @@ ds-classification/110-random-forest---accuracy.png:
 ds-classification/110-random-forest---forest.png:
   path: ds-classification/110-random-forest
   filename: forest.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Visualize
@@ -6302,7 +6395,7 @@ ds-classification/110-random-forest---forest.png:
 ds-classification/110-random-forest---rank.png:
   path: ds-classification/110-random-forest
   filename: rank.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -6313,17 +6406,17 @@ ds-classification/110-random-forest---rank.png:
 ds-classification/120-svm---logistic-regression.png:
   path: ds-classification/120-svm
   filename: logistic-regression.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-classification/120-svm---svm.png:
   path: ds-classification/120-svm
   filename: svm.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-classification/120-svm---orange-svm.png:
   path: ds-classification/120-svm
   filename: orange-svm.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Model
@@ -6340,7 +6433,7 @@ ds-classification/120-svm---orange-svm.png:
 ds-classification/300-scoring---cv-with-constant.png:
   path: ds-classification/300-scoring
   filename: cv-with-constant.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Evaluate
@@ -6357,17 +6450,17 @@ ds-classification/300-scoring---cv-with-constant.png:
 ds-classification/300-scoring---gds4182.png:
   path: ds-classification/300-scoring
   filename: gds4182.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-classification/300-scoring---gds3713.png:
   path: ds-classification/300-scoring
   filename: gds3713.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-classification/300-scoring---confusion.png:
   path: ds-classification/300-scoring
   filename: confusion.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Evaluate
@@ -6384,22 +6477,22 @@ ds-classification/300-scoring---confusion.png:
 ds-classification/300-scoring---test-and-score.png:
   path: ds-classification/300-scoring
   filename: test-and-score.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-classification/300-scoring---scatter.png:
   path: ds-classification/300-scoring
   filename: scatter.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-classification/300-scoring---a.png:
   path: ds-classification/300-scoring
   filename: a.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-classification/140-naive-bayes---data.png:
   path: ds-classification/140-naive-bayes
   filename: data.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -6410,7 +6503,7 @@ ds-classification/140-naive-bayes---data.png:
 ds-classification/140-naive-bayes---nomogram.png:
   path: ds-classification/140-naive-bayes
   filename: nomogram.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Visualize
@@ -6424,7 +6517,7 @@ ds-classification/140-naive-bayes---nomogram.png:
 ds-classification/050-cross-validation---cross-validation.png:
   path: ds-classification/050-cross-validation
   filename: cross-validation.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Evaluate
@@ -6441,12 +6534,12 @@ ds-classification/050-cross-validation---cross-validation.png:
 ds-classification/050-cross-validation---resample.png:
   path: ds-classification/050-cross-validation
   filename: resample.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-classification/050-cross-validation---split-workflow.png:
   path: ds-classification/050-cross-validation
   filename: split-workflow.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Evaluate
@@ -6469,7 +6562,7 @@ ds-classification/050-cross-validation---split-workflow.png:
 ds-classification/050-cross-validation---test-and-score.png:
   path: ds-classification/050-cross-validation
   filename: test-and-score.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Evaluate
@@ -6483,12 +6576,12 @@ ds-classification/050-cross-validation---test-and-score.png:
 ds-classification/030-accuracy---predictions.png:
   path: ds-classification/030-accuracy
   filename: predictions.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-classification/030-accuracy---workflow.png:
   path: ds-classification/030-accuracy
   filename: workflow.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Evaluate
@@ -6511,22 +6604,22 @@ ds-classification/030-accuracy---workflow.png:
 ds-classification/100-logreg---logistic-regression.png:
   path: ds-classification/100-logreg
   filename: logistic-regression.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-classification/100-logreg---nomogram.png:
   path: ds-classification/100-logreg
   filename: nomogram.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-classification/100-logreg---a.png:
   path: ds-classification/100-logreg
   filename: a.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-classification/100-logreg---workflow.png:
   path: ds-classification/100-logreg
   filename: workflow.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Model
@@ -6540,7 +6633,7 @@ ds-classification/100-logreg---workflow.png:
 ds-classification/020-trees---inspection.png:
   path: ds-classification/020-trees
   filename: inspection.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -6557,7 +6650,7 @@ ds-classification/020-trees---inspection.png:
 ds-classification/020-trees---box-plot.png:
   path: ds-classification/020-trees
   filename: box-plot.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -6574,7 +6667,7 @@ ds-classification/020-trees---box-plot.png:
 ds-classification/020-trees---rank-sailing.png:
   path: ds-classification/020-trees
   filename: rank-sailing.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -6600,7 +6693,7 @@ ds-classification/020-trees---rank-sailing.png:
 ds-classification/020-trees---tree.png:
   path: ds-classification/020-trees
   filename: tree.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -6614,17 +6707,17 @@ ds-classification/020-trees---tree.png:
 ds-classification/210-fss-cheating---preprocess.png:
   path: ds-classification/210-fss-cheating
   filename: preprocess.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-classification/210-fss-cheating---results.png:
   path: ds-classification/210-fss-cheating
   filename: results.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-classification/210-fss-cheating---overfitting-workflow.png:
   path: ds-classification/210-fss-cheating
   filename: overfitting-workflow.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Evaluate
@@ -6644,7 +6737,7 @@ ds-classification/210-fss-cheating---overfitting-workflow.png:
 ds-classification/040-cheating---randomize.png:
   path: ds-classification/040-cheating
   filename: randomize.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Transform
@@ -6661,12 +6754,12 @@ ds-classification/040-cheating---randomize.png:
 ds-classification/040-cheating---split-distributions.png:
   path: ds-classification/040-cheating
   filename: split-distributions.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-classification/040-cheating---overfit.png:
   path: ds-classification/040-cheating
   filename: overfit.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Evaluate
@@ -6692,17 +6785,17 @@ ds-classification/040-cheating---overfit.png:
 ds-classification/040-cheating---early-stopping.png:
   path: ds-classification/040-cheating
   filename: early-stopping.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-classification/040-cheating---overfitted-tree.png:
   path: ds-classification/040-cheating
   filename: overfitted-tree.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-classification/040-cheating---split.png:
   path: ds-classification/040-cheating
   filename: split.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Evaluate
@@ -6728,17 +6821,17 @@ ds-classification/040-cheating---split.png:
 ds-classification/040-cheating---overfit-distributions.png:
   path: ds-classification/040-cheating
   filename: overfit-distributions.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-classification/010-classification---two-scatterplots.png:
   path: ds-classification/010-classification
   filename: two-scatterplots.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 ds-classification/010-classification---predictions.png:
   path: ds-classification/010-classification
   filename: predictions.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -6752,7 +6845,7 @@ ds-classification/010-classification---predictions.png:
 ds-classification/010-classification---iris-data-sample.png:
   path: ds-classification/010-classification
   filename: iris-data-sample.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Transform
@@ -6766,7 +6859,7 @@ ds-classification/010-classification---iris-data-sample.png:
 ds-classification/230-fss-evaluation---fss-to-learner.png:
   path: ds-classification/230-fss-evaluation
   filename: fss-to-learner.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Evaluate
@@ -6783,7 +6876,7 @@ ds-classification/230-fss-evaluation---fss-to-learner.png:
 ds-classification/230-fss-evaluation---fss-to-cv.png:
   path: ds-classification/230-fss-evaluation
   filename: fss-to-cv.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Evaluate
@@ -6800,22 +6893,22 @@ ds-classification/230-fss-evaluation---fss-to-cv.png:
 x01-silhouette---silhouette-a.png:
   path: x01-silhouette
   filename: silhouette-a.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 x01-silhouette---silhouette-b.png:
   path: x01-silhouette
   filename: silhouette-b.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 x01-silhouette---paint.png:
   path: x01-silhouette
   filename: paint.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 x01-silhouette---silhouette-workflow.png:
   path: x01-silhouette
   filename: silhouette-workflow.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Unsupervised
@@ -6832,7 +6925,7 @@ x01-silhouette---silhouette-workflow.png:
 x01-silhouette---paint-and-kmeans.png:
   path: x01-silhouette
   filename: paint-and-kmeans.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Unsupervised
@@ -6846,112 +6939,112 @@ x01-silhouette---paint-and-kmeans.png:
 x01-silhouette---silhouette-chest-pain.png:
   path: x01-silhouette
   filename: silhouette-chest-pain.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 x01-silhouette---silhouettes-by-clusters.png:
   path: x01-silhouette
   filename: silhouettes-by-clusters.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 x01-silhouette---scatterplot.png:
   path: x01-silhouette
   filename: scatterplot.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 x01-silhouette---kmeans-silhouette-scores.png:
   path: x01-silhouette
   filename: kmeans-silhouette-scores.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 xaim-help/xaim-adding-material---Step 1.png:
   path: xaim-help/xaim-adding-material
   filename: Step 1.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 xaim-help/xaim-adding-material---Step 2.png:
   path: xaim-help/xaim-adding-material
   filename: Step 2.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 xaim-help/xaim-adding-material---Step 3.png:
   path: xaim-help/xaim-adding-material
   filename: Step 3.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 xaim-help/xaim-adding-material---activities.png:
   path: xaim-help/xaim-adding-material
   filename: activities.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 xaim-help/xaim-adding-files---Screenshot 2023-01-11 at 10.12.10.png:
   path: xaim-help/xaim-adding-files
   filename: Screenshot 2023-01-11 at 10.12.10.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 xaim-help/xaim-adding-files---template-course.png:
   path: xaim-help/xaim-adding-files
   filename: template-course.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 xaim-help/xaim-adding-files---add-activity-or.jpg:
   path: xaim-help/xaim-adding-files
   filename: add-activity-or.jpg
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 xaim-help/xaim-adding-files---pick-edit.jpg:
   path: xaim-help/xaim-adding-files
   filename: pick-edit.jpg
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 xaim-help/xaim-adding-files---Overview-arrow.png:
   path: xaim-help/xaim-adding-files
   filename: Overview-arrow.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 xaim-help/xaim-adding-files---test-couse.png:
   path: xaim-help/xaim-adding-files
   filename: test-couse.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 xaim-help/xaim-adding-files---activities.png:
   path: xaim-help/xaim-adding-files
   filename: activities.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 xaim-help/xaim-adding-files---pick-file.jpg:
   path: xaim-help/xaim-adding-files
   filename: pick-file.jpg
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 xaim-help/xaim-adding-files---image-name.png:
   path: xaim-help/xaim-adding-files
   filename: image-name.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 xaim-help/xaim-login-xaim---demo-sign-in.png:
   path: xaim-help/xaim-login-xaim
   filename: demo-sign-in.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 xaim-help/xaim-login-xaim---password-change.png:
   path: xaim-help/xaim-login-xaim
   filename: password-change.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 xaim-help/xaim-login-xaim---new-user-account.png:
   path: xaim-help/xaim-login-xaim
   filename: new-user-account.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 bcm-homeworks/roc---roc.png:
   path: bcm-homeworks/roc
   filename: roc.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 arisa/data-exploration/02-distances---workflow-nn.png:
   path: arisa/data-exploration/02-distances
   filename: workflow-nn.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -6968,7 +7061,7 @@ arisa/data-exploration/02-distances---workflow-nn.png:
 arisa/data-exploration/01-data---workflow-datasets.png:
   path: arisa/data-exploration/01-data
   filename: workflow-datasets.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -6979,22 +7072,22 @@ arisa/data-exploration/01-data---workflow-datasets.png:
 arisa/data-exploration/01-data---datasets-attrition.png:
   path: arisa/data-exploration/01-data
   filename: datasets-attrition.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 arisa/data-exploration/01-data---boxplot.png:
   path: arisa/data-exploration/01-data
   filename: boxplot.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 arisa/data-exploration/04-explanation---dendrogram-boxplot.png:
   path: arisa/data-exploration/04-explanation
   filename: dendrogram-boxplot.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 arisa/data-exploration/04-explanation---explain-workflow.png:
   path: arisa/data-exploration/04-explanation
   filename: explain-workflow.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -7011,7 +7104,7 @@ arisa/data-exploration/04-explanation---explain-workflow.png:
 text-mining/070-semantic-analysis---semantic-analysis-workflow.png:
   path: text-mining/070-semantic-analysis
   filename: semantic-analysis-workflow.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Text Mining
@@ -7037,22 +7130,22 @@ text-mining/070-semantic-analysis---semantic-analysis-workflow.png:
 text-mining/070-semantic-analysis---annotated-corpus-map.png:
   path: text-mining/070-semantic-analysis
   filename: annotated-corpus-map.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 text-mining/070-semantic-analysis---word-cloud-semantic.png:
   path: text-mining/070-semantic-analysis
   filename: word-cloud-semantic.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 text-mining/041-word-enrichment---word-enrichment.png:
   path: text-mining/041-word-enrichment
   filename: word-enrichment.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 text-mining/041-word-enrichment---workflow.png:
   path: text-mining/041-word-enrichment
   filename: workflow.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Text Mining
@@ -7075,12 +7168,12 @@ text-mining/041-word-enrichment---workflow.png:
 text-mining/032-model-evaluation---test-and-score.png:
   path: text-mining/032-model-evaluation
   filename: test-and-score.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 text-mining/032-model-evaluation---workflow.png:
   path: text-mining/032-model-evaluation
   filename: workflow.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Evaluate
@@ -7094,18 +7187,15 @@ text-mining/032-model-evaluation---workflow.png:
   - !!python/tuple
     - Text Mining
     - Preprocess Text
-  - !!python/tuple
-    - Text Mining
-    - Bag of Words
 text-mining/071-semantic-search---semantic-viewer.png:
   path: text-mining/071-semantic-search
   filename: semantic-viewer.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 text-mining/071-semantic-search---semantic-search-workflow.png:
   path: text-mining/071-semantic-search
   filename: semantic-search-workflow.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -7125,22 +7215,22 @@ text-mining/071-semantic-search---semantic-search-workflow.png:
 text-mining/071-semantic-search---preprocess-text.png:
   path: text-mining/071-semantic-search
   filename: preprocess-text.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 text-mining/071-semantic-search---word-list.png:
   path: text-mining/071-semantic-search
   filename: word-list.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 text-mining/033-predictions---predictions.png:
   path: text-mining/033-predictions
   filename: predictions.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 text-mining/033-predictions---workflow.png:
   path: text-mining/033-predictions
   filename: workflow.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Model
@@ -7160,41 +7250,35 @@ text-mining/033-predictions---workflow.png:
   - !!python/tuple
     - Text Mining
     - Preprocess Text
-  - !!python/tuple
-    - Text Mining
-    - Bag of Words
-  - !!python/tuple
-    - Text Mining
-    - Bag of Words
 text-mining/010-text-preprocessing---filtering.png:
   path: text-mining/010-text-preprocessing
   filename: filtering.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 text-mining/010-text-preprocessing---preprocessed-word-cloud.png:
   path: text-mining/010-text-preprocessing
   filename: preprocessed-word-cloud.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 text-mining/010-text-preprocessing---editor.png:
   path: text-mining/010-text-preprocessing
   filename: editor.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 text-mining/010-text-preprocessing---preprocess-text.png:
   path: text-mining/010-text-preprocessing
   filename: preprocess-text.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 text-mining/010-text-preprocessing---corpus-viewer.png:
   path: text-mining/010-text-preprocessing
   filename: corpus-viewer.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 text-mining/010-text-preprocessing---workflow.png:
   path: text-mining/010-text-preprocessing
   filename: workflow.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Text Mining
@@ -7208,22 +7292,22 @@ text-mining/010-text-preprocessing---workflow.png:
 text-mining/010-text-preprocessing---word-cloud.png:
   path: text-mining/010-text-preprocessing
   filename: word-cloud.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 text-mining/020-bag-of-words---data-table.png:
   path: text-mining/020-bag-of-words
   filename: data-table.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 text-mining/020-bag-of-words---bag-of-words.png:
   path: text-mining/020-bag-of-words
   filename: bag-of-words.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 text-mining/020-bag-of-words---workflow.png:
   path: text-mining/020-bag-of-words
   filename: workflow.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Data
@@ -7234,18 +7318,15 @@ text-mining/020-bag-of-words---workflow.png:
   - !!python/tuple
     - Text Mining
     - Preprocess Text
-  - !!python/tuple
-    - Text Mining
-    - Bag of Words
 text-mining/040-document-clustering---hier-clust-clusters.png:
   path: text-mining/040-document-clustering
   filename: hier-clust-clusters.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 text-mining/040-document-clustering---workflow2.png:
   path: text-mining/040-document-clustering
   filename: workflow2.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Unsupervised
@@ -7262,23 +7343,20 @@ text-mining/040-document-clustering---workflow2.png:
   - !!python/tuple
     - Text Mining
     - Preprocess Text
-  - !!python/tuple
-    - Text Mining
-    - Bag of Words
 text-mining/040-document-clustering---cviewer-hierclust.png:
   path: text-mining/040-document-clustering
   filename: cviewer-hierclust.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 text-mining/040-document-clustering---cosine-distance-eng.png:
   path: text-mining/040-document-clustering
   filename: cosine-distance-eng.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 text-mining/040-document-clustering---workflow.png:
   path: text-mining/040-document-clustering
   filename: workflow.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Text Mining
@@ -7295,38 +7373,35 @@ text-mining/040-document-clustering---workflow.png:
   - !!python/tuple
     - Text Mining
     - Preprocess Text
-  - !!python/tuple
-    - Text Mining
-    - Bag of Words
 text-mining/040-document-clustering---mds.png:
   path: text-mining/040-document-clustering
   filename: mds.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 text-mining/060-sentiment-analysis---sentiment-analysis.png:
   path: text-mining/060-sentiment-analysis
   filename: sentiment-analysis.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 text-mining/060-sentiment-analysis---heat-map.png:
   path: text-mining/060-sentiment-analysis
   filename: heat-map.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 text-mining/060-sentiment-analysis---select-columns.png:
   path: text-mining/060-sentiment-analysis
   filename: select-columns.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 text-mining/060-sentiment-analysis---corpus-viewer.png:
   path: text-mining/060-sentiment-analysis
   filename: corpus-viewer.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 text-mining/060-sentiment-analysis---workflow.png:
   path: text-mining/060-sentiment-analysis
   filename: workflow.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Text Mining
@@ -7346,27 +7421,27 @@ text-mining/060-sentiment-analysis---workflow.png:
 text-mining/001-introduction---corpus.png:
   path: text-mining/001-introduction
   filename: corpus.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 text-mining/001-introduction---add-on-installation.png:
   path: text-mining/001-introduction
   filename: add-on-installation.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 text-mining/001-introduction---workflow.png:
   path: text-mining/001-introduction
   filename: workflow.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 text-mining/031-logistic-regression---nomogram.png:
   path: text-mining/031-logistic-regression
   filename: nomogram.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 text-mining/031-logistic-regression---workflow.png:
   path: text-mining/031-logistic-regression
   filename: workflow.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Model
@@ -7380,18 +7455,15 @@ text-mining/031-logistic-regression---workflow.png:
   - !!python/tuple
     - Text Mining
     - Preprocess Text
-  - !!python/tuple
-    - Text Mining
-    - Bag of Words
 text-mining/011-concordances---concordance.png:
   path: text-mining/011-concordances
   filename: concordance.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 text-mining/011-concordances---workflow.png:
   path: text-mining/011-concordances
   filename: workflow.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Text Mining
@@ -7408,12 +7480,12 @@ text-mining/011-concordances---workflow.png:
 text-mining/030-document-classification---predictions.png:
   path: text-mining/030-document-classification
   filename: predictions.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 text-mining/030-document-classification---workflow.png:
   path: text-mining/030-document-classification
   filename: workflow.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Model
@@ -7427,28 +7499,25 @@ text-mining/030-document-classification---workflow.png:
   - !!python/tuple
     - Text Mining
     - Preprocess Text
-  - !!python/tuple
-    - Text Mining
-    - Bag of Words
 text-mining/021-document-embedding---word-embeddings.png:
   path: text-mining/021-document-embedding
   filename: word-embeddings.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 text-mining/050-topic-modeling---LDA.png:
   path: text-mining/050-topic-modeling
   filename: LDA.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 text-mining/050-topic-modeling---schema.png:
   path: text-mining/050-topic-modeling
   filename: schema.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 text-mining/050-topic-modeling---workflow.png:
   path: text-mining/050-topic-modeling
   filename: workflow.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets:
   - !!python/tuple
     - Text Mining
@@ -7471,10 +7540,10 @@ text-mining/050-topic-modeling---workflow.png:
 text-mining/050-topic-modeling---LDAvis.png:
   path: text-mining/050-topic-modeling
   filename: LDAvis.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null
 text-mining/050-topic-modeling---MDS.png:
   path: text-mining/050-topic-modeling
   filename: MDS.png
-  date: '2024-05-23'
+  date: '2024-08-31'
   widgets: null

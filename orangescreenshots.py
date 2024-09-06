@@ -1284,7 +1284,7 @@ def _crop_workflows(directory_to_check='orange-lecture-notes-web/public/chapters
     """
     if img_name is None:
         try:
-            with open('image-analysis-results/image-widgets.yaml', 'r') as file:
+            with open('image-analysis-results/reference/correct-image-widgets.yaml', 'r') as file:
                 widgets = yaml.full_load(file)
         except FileNotFoundError:
             print('The image-widgets.yaml file is missing, please run the update_widget_list function first, set the '
@@ -1383,7 +1383,7 @@ def _workflow_to_code(workflow, return_labels=False, orange_dataset=True):
     link_to_memorize = []
     which = []
     try:
-        with open(yaml_direct+'/image-links.yaml', 'r') as file:
+        with open(yaml_direct+'/reference/correct-image-links.yaml', 'r') as file:
             links = yaml.full_load(file)
     except FileNotFoundError:
         print('There is no yaml file to read, please run the update_widget_list function first')
@@ -1481,7 +1481,7 @@ def _create_dataset(orange_dataset=True):
         print('There are no cropped workflows, run the function crop_workflows() first')
         return None
     try:
-        with open('image-analysis-results/image-links.yaml', 'r') as file:
+        with open('image-analysis-results/reference/correct-image-links.yaml', 'r') as file:
             links = yaml.full_load(file)
     except FileNotFoundError:
         print('There is no information about the links, please run the update_image_links function first or '
@@ -1608,7 +1608,7 @@ def find_similar_workflows(workflow, return_workflows=True, k=10, dist_type='euc
                 possible_widgets.append(widget)
     if return_workflows:
         similar_workflows = []
-        with open('image-analysis-results/image-links.yaml', 'r') as file:
+        with open('image-analysis-results/reference/correct-image-links.yaml', 'r') as file:
             links = yaml.full_load(file)
         for i in closest_workflows:
             filename = os.path.dirname(i.split('cropped-workflows/')[1]) + '---' + i.split('/')[-1]
@@ -1744,6 +1744,96 @@ def get_new_widget_prompt(img_name, goal='Not specified', remove_widget=False, r
         return query
     else:
         print(query + '\n')
+
+
+def _workflow_detection_evaluation():
+    """
+    This function evaluates the performance of the workflow detection by comparing the detected workflows, widgets and
+    links with the actual workflows, widgets and links.
+    """
+    with open('image-analysis-results/image-links.yaml', 'r') as file:
+        links = yaml.full_load(file)
+    with open('image-analysis-results/image-widgets.yaml', 'r') as file:
+        widgets = yaml.full_load(file)
+    with open('image-analysis-results/reference/correct-image-links.yaml') as file:
+        actual_links = yaml.full_load(file)
+    with open('image-analysis-results/reference/correct-image-widgets.yaml') as file:
+        actual_widgets = yaml.full_load(file)
+
+    correct_screenshots = 0
+    correct_workflows = 0
+    n_workflows = 0
+    n_screenshots = 0
+    correct_widgets = 0
+    extra_widgets = 0
+    n_widgets = 0
+    correct_links = 0
+    extra_links = 0
+    n_links = 0
+    for key in actual_links:
+        correct = True
+        n_screenshots += 1
+        if actual_widgets[key]['widgets'] is None and widgets[key]['widgets'] is None:
+            correct_screenshots += 1
+            continue
+        elif actual_widgets[key]['widgets'] is None:
+            continue
+        elif widgets[key]['widgets'] is None:
+            n_workflows += 1
+            continue
+        n_workflows += 1
+        for widget in actual_widgets[key]['widgets']:
+            n_widgets += 1
+            if widget in widgets[key]['widgets']:
+                correct_widgets += 1
+            else:
+                correct = False
+        for widget in widgets[key]['widgets']:
+            if widget not in actual_widgets[key]['widgets']:
+                extra_widgets += 1
+                correct = False
+        for link in actual_links[key]['links']:
+            found = False
+            n_links += 1
+            if link in links[key]['links'] and '#' not in link[0][1] and '#' not in link[1][1]:
+                correct_links += 1
+            elif '#' in link[0][1] or '#' in link[1][1]:
+                link = link[0][0] + '/'+ link[0][1].split(' #')[0] + ' -> ' + link[0][0] + '/'+ link[0][1].split(' #')[0]
+                for link_to_check in links[key]['links']:
+                    link_to_check = link_to_check[0][0] + '/'+ link_to_check[0][1].split(' #')[0] + ' -> ' + link_to_check[0][0] + '/'+ link_to_check[0][1].split(' #')[0]
+                    if link in link_to_check:
+                        correct_links += 1
+                        found = True
+                        break
+                if not found:
+                    correct = False
+            else:
+                correct = False
+        for link in links[key]['links']:
+            found_extra = False
+            if link not in actual_links[key]['links'] and '#' not in link[0][1] and '#' not in link[1][1]:
+                extra_links += 1
+                correct = False
+            elif '#' in link[0][1] or '#' in link[1][1]:
+                link = link[0][0] + '/' + link[0][1].split(' #')[0] + ' -> ' + link[0][0] + '/' + link[0][1].split(' #')[0]
+                for link_to_check in actual_links[key]['links']:
+                    link_to_check = link_to_check[0][0] + '/' + link_to_check[0][1].split(' #')[0] + ' -> ' + link_to_check[0][0] + '/' + link_to_check[0][1].split(' #')[0]
+                    if link in link_to_check:
+                        found_extra = True
+                        break
+                if not found_extra:
+                    extra_links += 1
+                    correct = False
+        if correct:
+            correct_screenshots += 1
+            correct_workflows += 1
+
+    print('The workflow detection got ' + str(correct_screenshots/n_screenshots) + '% of screenshots correct')
+    print('The workflow detection got ' + str(correct_workflows/n_workflows) + '% of workflows correct')
+    print('The workflow detection got ' + str(correct_widgets/n_widgets) + '% of widgets correct with ' +
+          str(extra_widgets) + ' extra widgets detected')
+    print('The workflow detection got ' + str(correct_links/n_links) + '% of links correct with ' + str(extra_links) +
+          ' extra links detected')
 
 
 def _name_evaluation(model='gpt-3.5-turbo-0125'):

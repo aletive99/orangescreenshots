@@ -106,7 +106,7 @@ Chapter: Igra tabel (path: pumice/ui-za-ucitelje/02-igra-tabel, images: 4, widge
     - Data/Data Table (0.001, k=4)
 
 Chapter: Pametni živijo dlje (path: pumice/ui-za-ucitelje/06-pametni-zivijo-dlje, images: 6, widgets: 8)
-    - Data/Data Table (0.046, k=3)
+    - Data/Data Table (0.047, k=3)
     - Geo/Choropleth Map (0.004, k=2)
 
 Chapter: Škatle z brki brez brkov (path: pumice/ui-za-ucitelje/13-brkate-skatle-brez-brkov, images: 7, widgets: 0)
@@ -141,7 +141,7 @@ Chapter: Teksaški ostrostrelec (path: pumice/ui-za-ucitelje/12-teksaski-ostrost
 Chapter: Če bi bil svet ploščat (path: pumice/ui-za-ucitelje/40-ce-bi-bil-svet-ploscat, images: 6, widgets: 9)
     - Unsupervised/Distances (0.032, k=2)
     - Transform/Select Rows (0.021, k=1)
-    - Transform/Merge Data (0.028, k=1)
+    - Transform/Merge Data (0.029, k=1)
 
 Chapter: Kje na svetu je Burkina Faso?! (path: pumice/ui-za-ucitelje/04-kje-je-burkina-faso, images: 1, widgets: 0)
 
@@ -159,11 +159,10 @@ Chapter: Quiz (path: bcm-quiz/02-k-means, images: 11, widgets: 39)
     - Visualize/Box Plot (<0.001, k=6)
     - Unsupervised/Distances (0.001, k=6)
 
-Chapter: Quiz (path: bcm-quiz/04-classification, images: 8, widgets: 27)
-    - Model/Logistic Regression (0.021, k=4)
+Chapter: Quiz (path: bcm-quiz/04-classification, images: 8, widgets: 26)
+    - Model/Logistic Regression (0.018, k=4)
     - Model/Tree (<0.001, k=8)
-    - Data/Paint Data (0.023, k=3)
-    - Text Mining/Twitter (0.021, k=1)
+    - Data/Paint Data (0.021, k=3)
 
 Chapter: Quiz (path: bcm-quiz/05-regression, images: 16, widgets: 36)
     - Model/Linear Regression (<0.001, k=9)
@@ -233,7 +232,7 @@ Chapter: Quiz (path: mlai/quiz3, images: 4, widgets: 11)
     - Model/Naive Bayes (0.017, k=1)
 
 Chapter: Quiz: Overfitting (path: mlai/quiz4, images: 20, widgets: 50)
-    - Data/Datasets (0.037, k=14)
+    - Data/Datasets (0.038, k=14)
     - Visualize/Tree Viewer (<0.001, k=6)
     - Model/Tree (<0.001, k=8)
     - Evaluate/Test and Score (<0.001, k=7)
@@ -394,14 +393,13 @@ Chapter: Random Data (path: ds-classification/220-fss-random, images: 3, widgets
     - Transform/Randomize (<0.001, k=3)
     - Data/File (0.014, k=3)
 
-Chapter: Feature Subset Selection (path: ds-classification/200-fss, images: 2, widgets: 7)
-    - Visualize/CN2 Rule Viewer (0.005, k=1)
+Chapter: Feature Subset Selection (path: ds-classification/200-fss, images: 2, widgets: 6)
     - Data/Rank (<0.001, k=2)
 
-Chapter: Random Forest (path: ds-classification/110-random-forest, images: 4, widgets: 14)
-    - Visualize/Pythagorean Tree (0.011, k=1)
-    - Model/Random Forest (0.001, k=2)
-    - Visualize/Pythagorean Forest (0.011, k=1)
+Chapter: Random Forest (path: ds-classification/110-random-forest, images: 4, widgets: 15)
+    - Visualize/Pythagorean Tree (0.012, k=1)
+    - Model/Random Forest (<0.001, k=3)
+    - Visualize/Pythagorean Forest (0.012, k=1)
 
 Chapter: SVM (path: ds-classification/120-svm, images: 3, widgets: 4)
     - Model/SVM (0.003, k=1)
@@ -467,13 +465,13 @@ Chapter: Explanations (path: arisa/data-exploration/04-explanation, images: 2, w
 
 Chapter: Semantic Analysis (path: text-mining/070-semantic-analysis, images: 3, widgets: 7)
     - Text Mining/Annotated Corpus Map (0.005, k=1)
-    - Text Mining/Word Cloud (0.016, k=1)
+    - Text Mining/Word Cloud (0.017, k=1)
 
 Chapter: Word Enrichment (path: text-mining/041-word-enrichment, images: 2, widgets: 6)
     - Text Mining/Word Enrichment (0.004, k=1)
 
 Chapter: Model Evaluation (path: text-mining/032-model-evaluation, images: 2, widgets: 5)
-    - Text Mining/Bag of Words (0.043, k=1)
+    - Text Mining/Bag of Words (0.044, k=1)
 
 Chapter: Semantic Search (path: text-mining/071-semantic-search, images: 4, widgets: 5)
     - Text Mining/Word List (0.004, k=1)
@@ -510,7 +508,7 @@ Chapter: Introduction to Text Mining (path: text-mining/001-introduction, images
 
 Chapter: Logistic Regression (path: text-mining/031-logistic-regression, images: 2, widgets: 5)
     - Visualize/Nomogram (0.036, k=1)
-    - Text Mining/Bag of Words (0.043, k=1)
+    - Text Mining/Bag of Words (0.044, k=1)
 
 Chapter: Concordances (path: text-mining/011-concordances, images: 2, widgets: 4)
     - Text Mining/Concordance (0.003, k=1)
@@ -519,7 +517,7 @@ Chapter: Concordances (path: text-mining/011-concordances, images: 2, widgets: 4
     - Text Mining/Preprocess Text (0.044, k=1)
 
 Chapter: Document Classification (path: text-mining/030-document-classification, images: 2, widgets: 5)
-    - Text Mining/Bag of Words (0.043, k=1)
+    - Text Mining/Bag of Words (0.044, k=1)
 
 Chapter: Document Embedding (path: text-mining/021-document-embedding, images: 1, widgets: 0)
 
@@ -540,12 +538,12 @@ Chapter: Nadzorovan PCA (path: teme-blaz/supervised-pca, images: 1, links: 0)
 
 Chapter: Pristranost in razložljivost (path: teme-blaz/zaupanje, images: 1, links: 0)
 
-Chapter: Single Cell Datasets (path: single-cell-tutorial-notes/sc-notes-01-datasets, images: 20, links: 16)
+Chapter: Single Cell Datasets (path: single-cell-tutorial-notes/sc-notes-01-datasets, images: 20, links: 17)
     - Single Cell/Single Cell Datasets -> Transform/Data Sampler (<0.001, k=4)
     - Transform/Data Sampler -> Data/Data Table (<0.001, k=4)
     - Single Cell/Single Cell Datasets -> Data/Data Table (<0.001, k=4)
     - Transform/Data Sampler -> Unsupervised/t-SNE (<0.001, k=2)
-    - Unsupervised/t-SNE -> Data/Data Table (0.032, k=1)
+    - Unsupervised/t-SNE -> Data/Data Table (<0.001, k=2)
 
 Chapter: Correlations (path: ds-intro/030-correlations, images: 5, links: 9)
     - Data/Datasets -> Unsupervised/Correlations (<0.001, k=3)
@@ -553,7 +551,7 @@ Chapter: Correlations (path: ds-intro/030-correlations, images: 5, links: 9)
     - Unsupervised/Correlations -> Visualize/Scatter Plot (0.009, k=1)
 
 Chapter: Saving your Work (path: ds-intro/020-saving-your-work, images: 6, links: 7)
-    - Data/Datasets -> Data/Data Table (0.035, k=2)
+    - Data/Datasets -> Data/Data Table (0.034, k=2)
     - Data/Data Table -> Visualize/Scatter Plot (0.014, k=1)
     - Data/Datasets -> Visualize/Scatter Plot (<0.001, k=3)
 
@@ -655,7 +653,7 @@ Chapter: Je to res gručenje?! (path: pumice/ui-za-ucitelje/38-je-to-res-grucenj
 Chapter: Kje smo - in zakaj (path: pumice/ui-za-ucitelje/37-kje-smo-in-zakaj, images: 6, links: 9)
     - Unsupervised/Distances -> Unsupervised/Distance Matrix (0.003, k=2)
     - Unsupervised/Hierarchical Clustering -> Geo/Choropleth Map (<0.001, k=2)
-    - Unsupervised/Distances -> Unsupervised/Hierarchical Clustering (0.031, k=2)
+    - Unsupervised/Distances -> Unsupervised/Hierarchical Clustering (0.030, k=2)
     - Data/Datasets -> Unsupervised/Distances (0.022, k=2)
     - Unsupervised/Hierarchical Clustering -> Visualize/Box Plot (0.045, k=1)
 
@@ -699,7 +697,7 @@ Chapter: Kdo je nasrkal? (path: pumice/ui-za-ucitelje/07-kdo-je-nasrkal, images:
 
 Chapter: Mami, jest nočem v šolo! (path: pumice/ui-za-ucitelje/03-nocem-v-solo, images: 4, links: 7)
     - Data/Data Table -> Data/Data Table (0.001, k=2)
-    - Data/Datasets -> Data/Data Table (0.035, k=2)
+    - Data/Datasets -> Data/Data Table (0.034, k=2)
     - Visualize/Distributions -> Geo/Choropleth Map (0.021, k=1)
 
 Chapter: Gruče držav (path: pumice/ui-za-ucitelje/36-gruce-drzav, images: 4, links: 3)
@@ -831,8 +829,8 @@ Chapter: Ranking gene sets (path: survival-analysis-tutorial/sa-quiz-04-ranking-
     - Transform/Select Columns -> Survival Analysis/As Survival Data (<0.001, k=2)
     - Bioinformatics/Single sample scoring -> Transform/Select Columns (0.005, k=2)
     - Survival Analysis/As Survival Data -> Survival Analysis/Rank Survival Features (0.001, k=2)
-    - Bioinformatics/Gene Sets -> Bioinformatics/Single sample scoring (0.012, k=2)
-    - Bioinformatics/Genes -> Bioinformatics/Single sample scoring (0.012, k=2)
+    - Bioinformatics/Gene Sets -> Bioinformatics/Single sample scoring (0.011, k=2)
+    - Bioinformatics/Genes -> Bioinformatics/Single sample scoring (0.011, k=2)
 
 Chapter: Quiz 1 (path: mlai/quiz1a, images: 2, links: 0)
 
@@ -1026,7 +1024,7 @@ Chapter: Single Cell Data (path: single-cell-tutorial-quiz/sc-02-data-and-prepro
 Chapter: Introduction (path: single-cell-tutorial-quiz/sc-01-introduction, images: 2, links: 5)
     - Single Cell/Single Cell Datasets -> Transform/Data Sampler (0.025, k=1)
     - Transform/Data Sampler -> Data/Data Table (0.030, k=1)
-    - Unsupervised/t-SNE -> Data/Data Table (0.010, k=1)
+    - Unsupervised/t-SNE -> Data/Data Table (0.015, k=1)
     - Single Cell/Single Cell Datasets -> Data/Data Table (0.025, k=1)
     - Transform/Data Sampler -> Unsupervised/t-SNE (0.015, k=1)
 
@@ -1079,12 +1077,13 @@ Chapter: Feature Subset Selection (path: ds-classification/200-fss, images: 2, l
     - Data/Rank -> Evaluate/Test and Score (0.008, k=1)
     - Data/Datasets -> Data/Rank (<0.001, k=2)
 
-Chapter: Random Forest (path: ds-classification/110-random-forest, images: 4, links: 10)
-    - Model/Tree -> Visualize/Pythagorean Tree (0.010, k=1)
-    - Model/Random Forest -> Evaluate/Test and Score (0.040, k=1)
-    - Model/Random Forest -> Visualize/Pythagorean Forest (0.010, k=1)
-    - Data/Datasets -> Model/Random Forest (0.010, k=1)
-    - Visualize/Pythagorean Forest -> Visualize/Tree Viewer (0.010, k=1)
+Chapter: Random Forest (path: ds-classification/110-random-forest, images: 4, links: 11)
+    - Model/Tree -> Visualize/Pythagorean Tree (0.011, k=1)
+    - Model/Random Forest -> Evaluate/Test and Score (0.044, k=1)
+    - Model/Random Forest -> Visualize/Pythagorean Forest (0.011, k=1)
+    - Data/Datasets -> Model/Random Forest (0.011, k=1)
+    - Visualize/Pythagorean Forest -> Visualize/Tree Viewer (0.011, k=1)
+    - Model/Random Forest -> Data/Rank (0.011, k=1)
 
 Chapter: SVM (path: ds-classification/120-svm, images: 3, links: 4)
     - Data/Paint Data -> Model/SVM (0.004, k=1)
@@ -1093,7 +1092,7 @@ Chapter: SVM (path: ds-classification/120-svm, images: 3, links: 4)
     - Data/Paint Data -> Evaluate/Predictions (0.012, k=1)
 
 Chapter: Classification Model Scoring (path: ds-classification/300-scoring, images: 7, links: 6)
-    - Model/Logistic Regression -> Evaluate/Test and Score (0.009, k=2)
+    - Model/Logistic Regression -> Evaluate/Test and Score (0.008, k=2)
     - Model/Constant -> Evaluate/Test and Score (0.012, k=1)
     - Data/File -> Evaluate/Test and Score (0.030, k=1)
     - Evaluate/Test and Score -> Evaluate/Confusion Matrix (0.030, k=1)
@@ -1141,7 +1140,7 @@ Chapter: Classification (path: ds-classification/010-classification, images: 3, 
     - Transform/Data Sampler -> Data/Data Table (0.030, k=1)
 
 Chapter: Doing it Right (path: ds-classification/230-fss-evaluation, images: 2, links: 6)
-    - Model/Logistic Regression -> Evaluate/Test and Score (0.009, k=2)
+    - Model/Logistic Regression -> Evaluate/Test and Score (0.008, k=2)
     - Data/File -> Evaluate/Test and Score (<0.001, k=2)
     - Transform/Preprocess -> Model/Logistic Regression (0.006, k=1)
     - Transform/Preprocess -> Evaluate/Test and Score (0.048, k=1)
@@ -1207,7 +1206,7 @@ Chapter: Bag of Words (path: text-mining/020-bag-of-words, images: 3, links: 3)
     - Text Mining/Bag of Words -> Data/Data Table (0.003, k=1)
 
 Chapter: Document Clustering (path: text-mining/040-document-clustering, images: 6, links: 10)
-    - Unsupervised/Distances -> Unsupervised/Hierarchical Clustering (0.038, k=2)
+    - Unsupervised/Distances -> Unsupervised/Hierarchical Clustering (0.037, k=2)
     - Text Mining/Corpus -> Text Mining/Preprocess Text (0.008, k=2)
     - Text Mining/Preprocess Text -> Text Mining/Bag of Words (0.005, k=2)
     - Text Mining/Bag of Words -> Unsupervised/Distances (<0.001, k=2)

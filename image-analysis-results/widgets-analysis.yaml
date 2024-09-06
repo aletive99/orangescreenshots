@@ -1,85 +1,83 @@
-- Evaluate/Test and Score
-- Transform/Select Rows
-- Model/Constant
-- Survival Analysis/Rank Survival Features
-- Model/Random Forest
-- Text Mining/Concordance
-- Evaluate/Calibration Plot
-- Transform/Transpose
-- Survival Analysis/Kaplan-Meier Plot
-- Image Analytics/Image Viewer
-- Model/kNN
-- Unsupervised/Neighbors
-- Data/Save Data
-- Visualize/Heat Map
-- Transform/Discretize
-- Text Mining/Word Enrichment
-- Model/Naive Bayes
-- Visualize/Distributions
-- Unsupervised/PCA
-- Text Mining/Sentiment Analysis
-- Text Mining/Topic Modelling
-- Visualize/Scatter Plot
-- Data/Edit Domain
-- Visualize/Tree Viewer
-- Model/Linear Regression
-- Evaluate/Confusion Matrix
-- Single Cell/Single Cell Datasets
-- Text Mining/Word Cloud
-- Data/File
-- Visualize/CN2 Rule Viewer
-- Visualize/Pythagorean Tree
-- Transform/Select Columns
-- Text Mining/LDAvis
-- Educational/Interactive k-Means
-- Geo/Geo Map
-- Text Mining/Bag of Words
-- Survival Analysis/As Survival Data
-- Transform/Create Instance
-- Transform/Formula
-- Model/Tree
-- Visualize/Pythagorean Forest
-- Bioinformatics/Single sample scoring
-- Text Mining/Corpus Viewer
-- Text Mining/Corpus
-- Unsupervised/k-Means
-- Unsupervised/Distance Matrix
-- Unsupervised/Correlations
-- Image Analytics/Import Images
-- Evaluate/Predictions
-- Evaluate/ROC Analysis
-- Bioinformatics/Genes
-- Text Mining/Annotated Corpus Map
-- Unsupervised/Hierarchical Clustering
-- Model/Logistic Regression
-- Model/Gradient Boosting
-- Text Mining/Twitter
-- Data/Rank
-- Unsupervised/MDS
-- Transform/Pivot Table
-- Educational/Polynomial Regression
-- Visualize/Sieve Diagram
-- Transform/Data Sampler
-- Transform/Preprocess
-- Unsupervised/Distance File
-- Visualize/Box Plot
-- Text Mining/Word List
-- Data/Data Table
-- Text Mining/Preprocess Text
-- Data/Datasets
-- Image Analytics/Image Embedding
-- Data/Paint Data
-- Geo/Choropleth Map
-- Unsupervised/Distances
-- Bioinformatics/Gene Sets
-- Evaluate/Performance Curve
-- Transform/Continuize
-- Visualize/Silhouette Plot
-- Unsupervised/t-SNE
-- Model/SVM
-- Geo/Geocoding
 - Visualize/Nomogram
-- Transform/Merge Data
-- Text Mining/Semantic Viewer
+- Data/Datasets
+- Model/Tree
+- Data/Data Table
+- Transform/Create Instance
+- Evaluate/Performance Curve
+- Unsupervised/t-SNE
+- Visualize/Scatter Plot
+- Text Mining/LDAvis
+- Survival Analysis/Kaplan-Meier Plot
+- Bioinformatics/Single sample scoring
+- Visualize/Heat Map
+- Model/Logistic Regression
+- Transform/Select Rows
+- Unsupervised/k-Means
+- Geo/Choropleth Map
+- Unsupervised/Correlations
+- Unsupervised/Hierarchical Clustering
+- Text Mining/Annotated Corpus Map
+- Transform/Transpose
+- Visualize/Sieve Diagram
+- Educational/Interactive k-Means
+- Visualize/Pythagorean Forest
+- Visualize/Pythagorean Tree
 - Transform/Randomize
+- Image Analytics/Image Embedding
+- Transform/Select Columns
+- Unsupervised/MDS
+- Educational/Polynomial Regression
+- Bioinformatics/Gene Sets
+- Model/Constant
+- Visualize/Silhouette Plot
+- Image Analytics/Import Images
+- Model/Gradient Boosting
+- Transform/Discretize
+- Image Analytics/Image Viewer
+- Evaluate/Predictions
+- Transform/Preprocess
+- Model/kNN
+- Text Mining/Corpus
+- Unsupervised/Neighbors
+- Visualize/Box Plot
+- Text Mining/Topic Modelling
+- Data/Save Data
+- Text Mining/Word Cloud
+- Geo/Geo Map
+- Text Mining/Sentiment Analysis
+- Model/SVM
+- Unsupervised/PCA
+- Model/Linear Regression
+- Text Mining/Corpus Viewer
+- Transform/Continuize
+- Text Mining/Concordance
+- Data/Paint Data
+- Unsupervised/Distance File
+- Evaluate/Calibration Plot
+- Evaluate/Test and Score
+- Visualize/Tree Viewer
+- Model/Naive Bayes
+- Transform/Merge Data
+- Transform/Pivot Table
+- Text Mining/Semantic Viewer
+- Survival Analysis/Rank Survival Features
+- Survival Analysis/As Survival Data
+- Text Mining/Preprocess Text
+- Unsupervised/Distance Matrix
+- Text Mining/Word Enrichment
+- Bioinformatics/Genes
+- Visualize/Distributions
+- Transform/Formula
+- Evaluate/ROC Analysis
+- Evaluate/Confusion Matrix
+- Data/File
 - Visualize/Mosaic Display
+- Unsupervised/Distances
+- Text Mining/Bag of Words
+- Data/Rank
+- Text Mining/Word List
+- Transform/Data Sampler
+- Single Cell/Single Cell Datasets
+- Model/Random Forest
+- Data/Edit Domain
+- Geo/Geocoding

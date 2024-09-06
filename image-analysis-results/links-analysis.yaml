@@ -1,260 +1,261 @@
-- Transform/Randomize -> Evaluate/Test and Score
-- Transform/Transpose -> Transform/Formula
-- Unsupervised/PCA -> Transform/Transpose
-- Data/Edit Domain -> Geo/Choropleth Map
-- Data/Paint Data -> Educational/Polynomial Regression
-- Evaluate/Predictions -> Visualize/Distributions
-- Data/Datasets -> Unsupervised/t-SNE
-- Data/File -> Image Analytics/Image Embedding
-- Unsupervised/Hierarchical Clustering -> Visualize/Box Plot
-- Unsupervised/Neighbors -> Data/Data Table
-- Data/File -> Visualize/Distributions
-- Evaluate/Test and Score -> Visualize/Scatter Plot
-- Unsupervised/k-Means -> Transform/Merge Data
-- Visualize/Tree Viewer -> Visualize/Scatter Plot
-- Data/Datasets -> Model/Naive Bayes
-- Transform/Preprocess -> Model/Logistic Regression
-- Bioinformatics/Genes -> Bioinformatics/Single sample scoring
-- Data/Datasets -> Model/Tree
-- Data/File -> Transform/Preprocess
-- Visualize/Distributions -> Visualize/Scatter Plot
-- Data/File -> Model/Logistic Regression
-- Data/Paint Data -> Model/SVM
-- Unsupervised/Hierarchical Clustering -> Text Mining/Word Enrichment
+- Text Mining/Bag of Words -> Text Mining/Topic Modelling
+- Data/File -> Model/Naive Bayes
+- Transform/Data Sampler -> Transform/Randomize
+- Single Cell/Single Cell Datasets -> Transform/Data Sampler
+- Data/File -> Model/Tree
 - Visualize/Scatter Plot -> Visualize/Scatter Plot
+- Data/File -> Transform/Preprocess
+- Unsupervised/Hierarchical Clustering -> Geo/Geo Map
+- Text Mining/Bag of Words -> Text Mining/Word Enrichment
+- Transform/Randomize -> Model/Tree
+- Text Mining/Preprocess Text -> Text Mining/Semantic Viewer
+- Data/Datasets -> Transform/Data Sampler
+- Bioinformatics/Gene Sets -> Survival Analysis/As Survival Data
+- Evaluate/Predictions -> Visualize/Distributions
+- Transform/Formula -> Visualize/Scatter Plot
+- Image Analytics/Import Images -> Image Analytics/Image Viewer
+- Data/Paint Data -> Unsupervised/Distances
+- Model/Naive Bayes -> Visualize/Nomogram
+- Unsupervised/MDS -> Transform/Formula
+- Image Analytics/Image Embedding -> Data/Data Table
+- Data/Datasets -> Survival Analysis/As Survival Data
+- Transform/Discretize -> Survival Analysis/Kaplan-Meier Plot
+- Transform/Preprocess -> Evaluate/Test and Score
+- Data/Paint Data -> Visualize/Silhouette Plot
+- Unsupervised/Neighbors -> Data/Data Table
+- Text Mining/Topic Modelling -> Unsupervised/MDS
+- Bioinformatics/Single sample scoring -> Data/Data Table
+- Evaluate/Test and Score -> Evaluate/Confusion Matrix
+- Data/File -> Visualize/Distributions
+- Text Mining/Corpus -> Text Mining/Preprocess Text
+- Transform/Merge Data -> Data/Data Table
+- Unsupervised/Hierarchical Clustering -> Unsupervised/k-Means
+- Unsupervised/k-Means -> Unsupervised/Distances
+- Data/Datasets -> Text Mining/Corpus
+- Transform/Select Columns -> Evaluate/Test and Score
+- Transform/Select Columns -> Visualize/Heat Map
+- Data/Datasets -> Transform/Continuize
+- Unsupervised/PCA -> Transform/Transpose
+- Unsupervised/k-Means -> Visualize/Box Plot
+- Data/Datasets -> Unsupervised/Distances
+- Unsupervised/Distances -> Unsupervised/Hierarchical Clustering
+- Visualize/Distributions -> Data/Data Table
+- Data/Datasets -> Model/Random Forest
+- Data/Datasets -> Model/Naive Bayes
+- Transform/Select Columns -> Visualize/Scatter Plot
+- Unsupervised/t-SNE -> Visualize/Scatter Plot
+- Visualize/Tree Viewer -> Data/Rank
+- Text Mining/Word Cloud -> Text Mining/Concordance
+- Transform/Merge Data -> Transform/Merge Data
+- Data/Edit Domain -> Visualize/Distributions
+- Data/Datasets -> Unsupervised/t-SNE
+- Image Analytics/Image Embedding -> Unsupervised/Distances
+- Unsupervised/k-Means -> Visualize/Silhouette Plot
+- Transform/Merge Data -> Transform/Select Rows
+- Evaluate/Predictions -> Evaluate/Predictions
+- Data/File -> Geo/Geo Map
+- Data/Datasets -> Model/Linear Regression
+- Geo/Geocoding -> Geo/Choropleth Map
+- Data/Datasets -> Model/Tree
+- Model/Logistic Regression -> Evaluate/Predictions
+- Evaluate/Predictions -> Evaluate/Performance Curve
+- Bioinformatics/Genes -> Bioinformatics/Single sample scoring
+- Image Analytics/Image Viewer -> Data/Data Table
+- Single Cell/Single Cell Datasets -> Data/Data Table
+- Bioinformatics/Gene Sets -> Bioinformatics/Single sample scoring
+- Evaluate/Confusion Matrix -> Data/Data Table
+- Unsupervised/Hierarchical Clustering -> Geo/Geocoding
+- Model/Random Forest -> Data/Rank
+- Data/Datasets -> Model/Logistic Regression
+- Data/Datasets -> Data/Rank
+- Data/File -> Unsupervised/Correlations
+- Transform/Select Columns -> Educational/Polynomial Regression
+- Transform/Select Columns -> Unsupervised/Distances
+- Text Mining/Bag of Words -> Model/Logistic Regression
+- Image Analytics/Import Images -> Data/Data Table
+- Model/Linear Regression -> Educational/Polynomial Regression
+- Survival Analysis/As Survival Data -> Bioinformatics/Genes
+- Unsupervised/Distances -> Unsupervised/MDS
+- Model/Logistic Regression -> Visualize/Nomogram
+- Survival Analysis/As Survival Data -> Survival Analysis/Rank Survival Features
+- Data/Datasets -> Visualize/Sieve Diagram
+- Evaluate/Confusion Matrix -> Unsupervised/t-SNE
+- Text Mining/Preprocess Text -> Text Mining/Word Cloud
+- Transform/Select Rows -> Geo/Choropleth Map
+- Visualize/Tree Viewer -> Image Analytics/Image Viewer
+- Transform/Randomize -> Data/Data Table
+- Data/Datasets -> Unsupervised/k-Means
+- Data/File -> Unsupervised/k-Means
+- Data/File -> Transform/Create Instance
+- Transform/Select Columns -> Transform/Preprocess
+- Survival Analysis/Rank Survival Features -> Bioinformatics/Genes
+- Data/File -> Image Analytics/Image Embedding
+- Geo/Geo Map -> Image Analytics/Image Viewer
+- Geo/Geocoding -> Data/Data Table
+- Bioinformatics/Genes -> Bioinformatics/Gene Sets
+- Visualize/Box Plot -> Geo/Geo Map
+- Text Mining/Corpus -> Text Mining/Sentiment Analysis
+- Educational/Polynomial Regression -> Evaluate/Test and Score
+- Text Mining/Topic Modelling -> Text Mining/LDAvis
+- Transform/Randomize -> Transform/Preprocess
+- Data/File -> Transform/Data Sampler
+- Bioinformatics/Single sample scoring -> Transform/Select Columns
+- Transform/Select Columns -> Transform/Data Sampler
+- Model/kNN -> Evaluate/Predictions
+- Transform/Data Sampler -> Data/Data Table
+- Transform/Select Rows -> Survival Analysis/Kaplan-Meier Plot
+- Data/Datasets -> Transform/Preprocess
+- Data/Datasets -> Data/Data Table
+- Transform/Randomize -> Visualize/Scatter Plot
+- Data/Datasets -> Unsupervised/Correlations
+- Data/Datasets -> Survival Analysis/Rank Survival Features
+- Transform/Select Rows -> Unsupervised/Distances
+- Data/Paint Data -> Educational/Polynomial Regression
+- Visualize/Pythagorean Forest -> Visualize/Tree Viewer
+- Data/Datasets -> Transform/Merge Data
+- Visualize/Silhouette Plot -> Visualize/Scatter Plot
+- Transform/Data Sampler -> Model/Logistic Regression
+- Transform/Select Columns -> Survival Analysis/As Survival Data
 - Transform/Select Columns -> Transform/Discretize
 - Model/Gradient Boosting -> Evaluate/Test and Score
-- Data/Datasets -> Geo/Choropleth Map
-- Bioinformatics/Single sample scoring -> Transform/Select Columns
-- Text Mining/Corpus -> Text Mining/Concordance
-- Evaluate/Predictions -> Evaluate/Performance Curve
-- Data/Paint Data -> Unsupervised/PCA
-- Image Analytics/Import Images -> Data/Data Table
-- Text Mining/Bag of Words -> Unsupervised/t-SNE
-- Data/Edit Domain -> Visualize/Distributions
-- Data/File -> Evaluate/Predictions
-- Bioinformatics/Gene Sets -> Survival Analysis/Rank Survival Features
-- Image Analytics/Image Embedding -> Unsupervised/Distances
-- Data/Datasets -> Unsupervised/PCA
-- Evaluate/Confusion Matrix -> Image Analytics/Image Viewer
-- Data/Datasets -> Model/Linear Regression
-- Transform/Select Columns -> Educational/Polynomial Regression
-- Unsupervised/Distances -> Unsupervised/Distance Matrix
-- Model/Logistic Regression -> Evaluate/Test and Score
-- Survival Analysis/As Survival Data -> Survival Analysis/Rank Survival Features
-- Transform/Merge Data -> Visualize/Box Plot
-- Transform/Select Columns -> Data/Data Table
-- Text Mining/Bag of Words -> Unsupervised/Distances
-- Text Mining/Word List -> Text Mining/Semantic Viewer
-- Bioinformatics/Genes -> Bioinformatics/Gene Sets
-- Evaluate/Predictions -> Evaluate/Predictions
-- Transform/Formula -> Visualize/Scatter Plot
-- Survival Analysis/As Survival Data -> Bioinformatics/Genes
-- Unsupervised/Correlations -> Visualize/Scatter Plot
 - Data/File -> Bioinformatics/Genes
-- Text Mining/Bag of Words -> Data/Data Table
-- Model/Tree -> Evaluate/Predictions
-- Transform/Select Columns -> Visualize/Heat Map
-- Visualize/Box Plot -> Visualize/Box Plot
-- Transform/Data Sampler -> Evaluate/Predictions
-- Unsupervised/Hierarchical Clustering -> Geo/Choropleth Map
-- Visualize/Box Plot -> Geo/Geo Map
-- Geo/Choropleth Map -> Visualize/Scatter Plot
-- Survival Analysis/As Survival Data -> Transform/Select Rows
-- Data/Paint Data -> Visualize/Scatter Plot
-- Data/Datasets -> Data/Data Table
-- Transform/Select Columns -> Survival Analysis/As Survival Data
-- Data/File -> Transform/Select Rows
-- Transform/Create Instance -> Visualize/Nomogram
-- Transform/Select Columns -> Data/Save Data
-- Transform/Pivot Table -> Image Analytics/Image Viewer
-- Transform/Select Columns -> Evaluate/Test and Score
-- Transform/Select Columns -> Transform/Data Sampler
-- Visualize/Distributions -> Visualize/Box Plot
-- Evaluate/Confusion Matrix -> Unsupervised/t-SNE
-- Transform/Continuize -> Data/Data Table
-- Data/File -> Evaluate/Test and Score
-- Data/Datasets -> Evaluate/Predictions
-- Unsupervised/k-Means -> Visualize/Silhouette Plot
-- Data/Datasets -> Evaluate/Test and Score
-- Visualize/Scatter Plot -> Geo/Choropleth Map
-- Text Mining/Bag of Words -> Evaluate/Predictions
-- Model/Logistic Regression -> Evaluate/Predictions
-- Evaluate/Predictions -> Evaluate/Confusion Matrix
-- Data/Paint Data -> Unsupervised/t-SNE
-- Data/Paint Data -> Educational/Interactive k-Means
-- Data/Datasets -> Unsupervised/Correlations
-- Transform/Create Instance -> Evaluate/Predictions
 - Data/Datasets -> Bioinformatics/Genes
-- Data/Datasets -> Text Mining/Corpus
-- Survival Analysis/Rank Survival Features -> Transform/Discretize
-- Transform/Randomize -> Data/Data Table
-- Data/Datasets -> Transform/Discretize
-- Transform/Select Columns -> Survival Analysis/Rank Survival Features
-- Unsupervised/k-Means -> Unsupervised/Distances
-- Model/Tree -> Visualize/Pythagorean Tree
-- Model/Tree -> Evaluate/Test and Score
-- Data/File -> Survival Analysis/As Survival Data
-- Model/Linear Regression -> Evaluate/Test and Score
-- Text Mining/Topic Modelling -> Unsupervised/MDS
-- Data/Datasets -> Data/Rank
-- Text Mining/Sentiment Analysis -> Transform/Select Columns
-- Data/Datasets -> Survival Analysis/As Survival Data
-- Text Mining/Preprocess Text -> Text Mining/Semantic Viewer
-- Data/Paint Data -> Unsupervised/Distances
-- Data/Datasets -> Visualize/Box Plot
-- Data/Paint Data -> Evaluate/Predictions
-- Visualize/Tree Viewer -> Data/Rank
-- Data/Datasets -> Transform/Continuize
-- Educational/Polynomial Regression -> Data/Data Table
-- Data/File -> Transform/Create Instance
-- Bioinformatics/Genes -> Visualize/Distributions
-- Unsupervised/Hierarchical Clustering -> Data/Edit Domain
-- Transform/Randomize -> Transform/Preprocess
-- Model/Constant -> Evaluate/Test and Score
-- Survival Analysis/Rank Survival Features -> Bioinformatics/Genes
-- Visualize/Distributions -> Survival Analysis/Kaplan-Meier Plot
-- Visualize/Distributions -> Data/Data Table
-- Data/File -> Transform/Pivot Table
-- Data/Datasets -> Model/Random Forest
-- Data/Datasets -> Unsupervised/Neighbors
-- Data/File -> Unsupervised/Correlations
-- Unsupervised/k-Means -> Visualize/Scatter Plot
-- Model/SVM -> Evaluate/Predictions
-- Visualize/Pythagorean Forest -> Visualize/Tree Viewer
-- Unsupervised/k-Means -> Visualize/Box Plot
-- Visualize/Distributions -> Visualize/Distributions
-- Data/Data Table -> Unsupervised/Hierarchical Clustering
-- Data/Datasets -> Unsupervised/k-Means
-- Data/Datasets -> Transform/Data Sampler
-- Model/Naive Bayes -> Visualize/Nomogram
-- Visualize/Scatter Plot -> Data/Data Table
-- Transform/Preprocess -> Evaluate/Test and Score
-- Transform/Merge Data -> Transform/Merge Data
-- Transform/Data Sampler -> Model/Logistic Regression
-- Data/Paint Data -> Model/Tree
-- Data/File -> Model/Naive Bayes
-- Text Mining/Bag of Words -> Text Mining/Word Enrichment
-- Unsupervised/t-SNE -> Text Mining/Annotated Corpus Map
-- Data/Datasets -> Transform/Select Columns
-- Visualize/Tree Viewer -> Image Analytics/Image Viewer
-- Transform/Continuize -> Unsupervised/PCA
-- Unsupervised/Distances -> Unsupervised/MDS
-- Unsupervised/PCA -> Visualize/Scatter Plot
-- Evaluate/Predictions -> Evaluate/Calibration Plot
-- Data/Datasets -> Transform/Preprocess
-- Text Mining/Bag of Words -> Evaluate/Test and Score
-- Model/Random Forest -> Visualize/Pythagorean Forest
-- Text Mining/Word Cloud -> Text Mining/Concordance
-- Unsupervised/t-SNE -> Visualize/Box Plot
-- Geo/Geo Map -> Data/Data Table
-- Model/Tree -> Visualize/Tree Viewer
-- Data/Data Table -> Data/Data Table
-- Geo/Geocoding -> Data/Data Table
-- Data/Rank -> Evaluate/Test and Score
-- Transform/Discretize -> Survival Analysis/Kaplan-Meier Plot
-- Text Mining/Bag of Words -> Text Mining/Topic Modelling
-- Unsupervised/Hierarchical Clustering -> Geo/Geo Map
-- Unsupervised/Distances -> Unsupervised/Hierarchical Clustering
-- Data/File -> Unsupervised/k-Means
-- Bioinformatics/Single sample scoring -> Data/Data Table
-- Survival Analysis/As Survival Data -> Survival Analysis/Kaplan-Meier Plot
-- Unsupervised/Hierarchical Clustering -> Data/Data Table
-- Data/File -> Model/Linear Regression
-- Data/File -> Transform/Select Columns
-- Unsupervised/Hierarchical Clustering -> Text Mining/Corpus Viewer
-- Data/Datasets -> Transform/Merge Data
-- Text Mining/Corpus -> Text Mining/Preprocess Text
-- Data/File -> Model/Tree
-- Data/File -> Transform/Randomize
-- Visualize/Tree Viewer -> Visualize/Box Plot
-- Model/kNN -> Evaluate/Predictions
-- Unsupervised/MDS -> Transform/Formula
-- Transform/Data Sampler -> Unsupervised/t-SNE
-- Data/Datasets -> Visualize/Distributions
-- Geo/Geocoding -> Geo/Choropleth Map
-- Image Analytics/Import Images -> Image Analytics/Image Embedding
-- Transform/Randomize -> Model/Tree
-- Text Mining/Topic Modelling -> Text Mining/LDAvis
-- Transform/Formula -> Data/Data Table
-- Data/Datasets -> Model/Logistic Regression
-- Data/Datasets -> Transform/Randomize
-- Unsupervised/Distance File -> Unsupervised/MDS
-- Transform/Data Sampler -> Data/Data Table
-- Unsupervised/MDS -> Data/Data Table
-- Evaluate/Predictions -> Evaluate/ROC Analysis
-- Transform/Randomize -> Visualize/Scatter Plot
-- Data/Edit Domain -> Visualize/Box Plot
-- Transform/Select Rows -> Geo/Choropleth Map
-- Transform/Data Sampler -> Educational/Polynomial Regression
-- Text Mining/Corpus -> Text Mining/Sentiment Analysis
-- Data/Datasets -> Unsupervised/Distances
-- Text Mining/Preprocess Text -> Text Mining/Word Cloud
-- Model/Linear Regression -> Data/Data Table
-- Evaluate/Confusion Matrix -> Data/Data Table
-- Data/Paint Data -> Unsupervised/k-Means
-- Transform/Select Columns -> Visualize/Scatter Plot
-- Data/Paint Data -> Evaluate/Test and Score
-- Unsupervised/t-SNE -> Visualize/Scatter Plot
-- Unsupervised/Hierarchical Clustering -> Geo/Geocoding
-- Data/Datasets -> Visualize/Silhouette Plot
-- Model/Linear Regression -> Evaluate/Predictions
-- Data/Data Table -> Unsupervised/Neighbors
-- Data/Edit Domain -> Unsupervised/PCA
-- Text Mining/Bag of Words -> Model/Logistic Regression
-- Data/Data Table -> Visualize/Scatter Plot
-- Transform/Select Columns -> Unsupervised/k-Means
-- Visualize/Heat Map -> Text Mining/Corpus Viewer
-- Data/Paint Data -> Model/kNN
-- Visualize/Silhouette Plot -> Visualize/Scatter Plot
-- Data/Datasets -> Survival Analysis/Rank Survival Features
-- Transform/Data Sampler -> Transform/Randomize
-- Data/File -> Text Mining/Corpus
-- Transform/Merge Data -> Transform/Select Rows
-- Data/Paint Data -> Transform/Select Columns
-- Model/Linear Regression -> Educational/Polynomial Regression
-- Geo/Geo Map -> Image Analytics/Image Viewer
-- Bioinformatics/Gene Sets -> Survival Analysis/As Survival Data
-- Evaluate/Predictions -> Visualize/Scatter Plot
-- Unsupervised/Hierarchical Clustering -> Transform/Merge Data
-- Transform/Select Rows -> Survival Analysis/Kaplan-Meier Plot
-- Data/File -> Transform/Merge Data
-- Bioinformatics/Gene Sets -> Bioinformatics/Single sample scoring
-- Model/Random Forest -> Evaluate/Test and Score
-- Model/Logistic Regression -> Visualize/Nomogram
-- Visualize/Distributions -> Geo/Choropleth Map
-- Data/Datasets -> Visualize/Sieve Diagram
-- Image Analytics/Image Viewer -> Data/Data Table
-- Transform/Preprocess -> Model/Linear Regression
-- Unsupervised/Distance File -> Unsupervised/Distance Matrix
-- Data/File -> Data/Data Table
-- Image Analytics/Image Embedding -> Data/Data Table
-- Evaluate/Test and Score -> Transform/Formula
-- Unsupervised/t-SNE -> Data/Data Table
-- Transform/Select Rows -> Unsupervised/Distances
-- Evaluate/Predictions -> Data/Data Table
-- Unsupervised/PCA -> Data/Data Table
 - Data/Paint Data -> Data/Edit Domain
-- Data/Datasets -> Visualize/Mosaic Display
-- Data/File -> Transform/Data Sampler
-- Transform/Data Sampler -> Model/Tree
-- Data/File -> Geo/Geo Map
-- Unsupervised/Hierarchical Clustering -> Visualize/Scatter Plot
-- Evaluate/Calibration Plot -> Evaluate/Predictions
-- Visualize/Tree Viewer -> Data/Data Table
-- Data/File -> Visualize/Box Plot
-- Evaluate/Test and Score -> Evaluate/Confusion Matrix
-- Transform/Merge Data -> Data/Data Table
-- Single Cell/Single Cell Datasets -> Data/Data Table
-- Educational/Polynomial Regression -> Evaluate/Test and Score
-- Model/Linear Regression -> Transform/Formula
-- Single Cell/Single Cell Datasets -> Transform/Data Sampler
-- Transform/Select Columns -> Transform/Preprocess
-- Transform/Randomize -> Evaluate/Predictions
-- Data/Datasets -> Survival Analysis/Kaplan-Meier Plot
-- Data/Paint Data -> Visualize/Silhouette Plot
-- Transform/Select Columns -> Unsupervised/Distances
-- Image Analytics/Import Images -> Image Analytics/Image Viewer
-- Unsupervised/Hierarchical Clustering -> Unsupervised/k-Means
-- Data/Datasets -> Visualize/Scatter Plot
+- Data/Datasets -> Visualize/Box Plot
+- Transform/Merge Data -> Visualize/Box Plot
 - Text Mining/Preprocess Text -> Text Mining/Bag of Words
+- Visualize/Box Plot -> Visualize/Box Plot
+- Unsupervised/PCA -> Visualize/Scatter Plot
+- Data/File -> Evaluate/Predictions
+- Evaluate/Predictions -> Evaluate/ROC Analysis
+- Data/Paint Data -> Unsupervised/PCA
+- Evaluate/Predictions -> Evaluate/Calibration Plot
+- Transform/Pivot Table -> Image Analytics/Image Viewer
+- Data/Datasets -> Visualize/Scatter Plot
+- Transform/Data Sampler -> Unsupervised/t-SNE
+- Data/Data Table -> Unsupervised/Hierarchical Clustering
+- Model/Linear Regression -> Transform/Formula
+- Transform/Randomize -> Evaluate/Test and Score
+- Text Mining/Bag of Words -> Evaluate/Predictions
+- Data/Paint Data -> Model/kNN
+- Unsupervised/k-Means -> Visualize/Scatter Plot
+- Unsupervised/Hierarchical Clustering -> Data/Data Table
+- Survival Analysis/Rank Survival Features -> Transform/Discretize
+- Transform/Data Sampler -> Model/Tree
+- Transform/Select Columns -> Survival Analysis/Rank Survival Features
+- Model/SVM -> Evaluate/Predictions
+- Visualize/Tree Viewer -> Visualize/Scatter Plot
+- Transform/Preprocess -> Model/Logistic Regression
+- Transform/Select Columns -> Data/Save Data
+- Visualize/Distributions -> Visualize/Scatter Plot
+- Transform/Continuize -> Unsupervised/PCA
+- Unsupervised/Correlations -> Visualize/Scatter Plot
+- Data/Data Table -> Data/Data Table
+- Visualize/Scatter Plot -> Data/Data Table
+- Data/Edit Domain -> Unsupervised/PCA
+- Unsupervised/Hierarchical Clustering -> Text Mining/Corpus Viewer
+- Data/File -> Model/Logistic Regression
+- Model/Random Forest -> Visualize/Pythagorean Forest
+- Text Mining/Word List -> Text Mining/Semantic Viewer
+- Text Mining/Corpus -> Text Mining/Concordance
+- Transform/Create Instance -> Evaluate/Predictions
+- Data/Datasets -> Transform/Select Columns
+- Geo/Choropleth Map -> Visualize/Scatter Plot
+- Model/Linear Regression -> Evaluate/Test and Score
+- Data/Data Table -> Unsupervised/Neighbors
+- Visualize/Tree Viewer -> Data/Data Table
+- Visualize/Tree Viewer -> Visualize/Box Plot
+- Transform/Transpose -> Transform/Formula
+- Unsupervised/k-Means -> Transform/Merge Data
+- Data/Datasets -> Visualize/Silhouette Plot
+- Transform/Select Columns -> Unsupervised/k-Means
+- Unsupervised/Hierarchical Clustering -> Visualize/Scatter Plot
+- Data/File -> Transform/Merge Data
+- Text Mining/Bag of Words -> Unsupervised/Distances
+- Model/Linear Regression -> Evaluate/Predictions
+- Evaluate/Test and Score -> Transform/Formula
+- Educational/Polynomial Regression -> Data/Data Table
+- Unsupervised/Distance File -> Unsupervised/MDS
+- Unsupervised/Hierarchical Clustering -> Visualize/Box Plot
+- Data/Datasets -> Unsupervised/Neighbors
+- Data/Paint Data -> Visualize/Scatter Plot
+- Visualize/Heat Map -> Text Mining/Corpus Viewer
+- Survival Analysis/As Survival Data -> Transform/Select Rows
+- Unsupervised/PCA -> Data/Data Table
+- Data/Rank -> Evaluate/Test and Score
+- Data/File -> Data/Data Table
+- Evaluate/Calibration Plot -> Evaluate/Predictions
+- Visualize/Distributions -> Visualize/Distributions
+- Model/Tree -> Visualize/Tree Viewer
+- Data/File -> Transform/Pivot Table
+- Visualize/Distributions -> Survival Analysis/Kaplan-Meier Plot
+- Text Mining/Bag of Words -> Evaluate/Test and Score
+- Visualize/Scatter Plot -> Geo/Choropleth Map
+- Text Mining/Bag of Words -> Data/Data Table
+- Image Analytics/Import Images -> Image Analytics/Image Embedding
+- Model/Constant -> Evaluate/Test and Score
+- Model/Tree -> Evaluate/Test and Score
+- Unsupervised/Hierarchical Clustering -> Data/Edit Domain
+- Data/File -> Model/Linear Regression
+- Evaluate/Confusion Matrix -> Image Analytics/Image Viewer
+- Data/File -> Evaluate/Test and Score
+- Unsupervised/Hierarchical Clustering -> Transform/Merge Data
+- Survival Analysis/As Survival Data -> Survival Analysis/Kaplan-Meier Plot
+- Visualize/Distributions -> Visualize/Box Plot
+- Unsupervised/Hierarchical Clustering -> Geo/Choropleth Map
+- Evaluate/Test and Score -> Visualize/Scatter Plot
+- Unsupervised/Distances -> Unsupervised/Distance Matrix
+- Unsupervised/t-SNE -> Text Mining/Annotated Corpus Map
+- Data/Paint Data -> Evaluate/Predictions
+- Data/File -> Transform/Select Columns
+- Data/Paint Data -> Model/Tree
+- Evaluate/Predictions -> Evaluate/Confusion Matrix
+- Transform/Continuize -> Data/Data Table
+- Unsupervised/Hierarchical Clustering -> Text Mining/Word Enrichment
+- Data/Edit Domain -> Visualize/Box Plot
+- Unsupervised/Distance File -> Unsupervised/Distance Matrix
+- Data/File -> Text Mining/Corpus
+- Data/File -> Transform/Randomize
+- Data/File -> Visualize/Box Plot
+- Data/File -> Transform/Select Rows
+- Data/Datasets -> Transform/Randomize
+- Data/Datasets -> Survival Analysis/Kaplan-Meier Plot
+- Transform/Select Columns -> Data/Data Table
+- Geo/Geo Map -> Data/Data Table
+- Data/Datasets -> Unsupervised/PCA
+- Text Mining/Sentiment Analysis -> Transform/Select Columns
+- Unsupervised/MDS -> Data/Data Table
+- Transform/Data Sampler -> Evaluate/Predictions
+- Data/Data Table -> Visualize/Scatter Plot
+- Visualize/Distributions -> Geo/Choropleth Map
+- Bioinformatics/Gene Sets -> Survival Analysis/Rank Survival Features
+- Data/Datasets -> Evaluate/Test and Score
+- Transform/Formula -> Data/Data Table
+- Data/Paint Data -> Model/SVM
+- Evaluate/Predictions -> Data/Data Table
+- Data/Datasets -> Visualize/Mosaic Display
+- Bioinformatics/Genes -> Visualize/Distributions
+- Evaluate/Predictions -> Visualize/Scatter Plot
+- Text Mining/Bag of Words -> Unsupervised/t-SNE
+- Transform/Data Sampler -> Educational/Polynomial Regression
+- Model/Tree -> Evaluate/Predictions
+- Data/Datasets -> Transform/Discretize
+- Data/Paint Data -> Unsupervised/k-Means
+- Unsupervised/t-SNE -> Data/Data Table
+- Data/Datasets -> Evaluate/Predictions
+- Data/Edit Domain -> Geo/Choropleth Map
+- Unsupervised/t-SNE -> Visualize/Box Plot
+- Data/Paint Data -> Unsupervised/t-SNE
+- Transform/Randomize -> Evaluate/Predictions
+- Model/Tree -> Visualize/Pythagorean Tree
+- Transform/Preprocess -> Model/Linear Regression
+- Data/File -> Survival Analysis/As Survival Data
+- Data/Datasets -> Geo/Choropleth Map
+- Transform/Create Instance -> Visualize/Nomogram
+- Data/Datasets -> Visualize/Distributions
+- Data/Paint Data -> Evaluate/Test and Score
+- Data/Paint Data -> Transform/Select Columns
+- Data/Paint Data -> Educational/Interactive k-Means
+- Model/Random Forest -> Evaluate/Test and Score
+- Model/Logistic Regression -> Evaluate/Test and Score
+- Model/Linear Regression -> Data/Data Table
