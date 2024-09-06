@@ -28,72 +28,62 @@ Following are the functions callable by the user:
 - Inputs: img_name: string with the path to the screenshot
 (Internal input variable: return_img=False: bool)
 - Example run: `draw_locations('data/screenshots/workflow.png')` will create:
-![image](https://github.com/aletive99/orangescreenshots/blob/main/data/screenshots/example-function-usages/draw_locations.png)
+![image](https://github.com/aletive99/orangescreenshots/blob/main/data/worklfows/example-function-usages/draw_locations.png)
 
 #### draw_links: 
 - Description: Plots the screenshot with the identified links highlighted in red. Then press any button to close the image.
 - Inputs: img_name: string with the path to the screenshot
 - Example run: `draw_links('data/screenshots/workflow.png')` will create:
-![image](https://github.com/aletive99/orangescreenshots/blob/main/data/screenshots/example-function-usages/draw_links.png)
+![image](https://github.com/aletive99/orangescreenshots/blob/main/data/worklfows/example-function-usages/draw_links.png)
 
 #### draw_links_and_locations: 
 - Description: Plots the screenshot with both links and names and locations of the widgets highlighted in red. Then press any button to close the image.
 - Inputs: img_name: string with the path to the screenshot
 - Example run: `draw_links_and_locations('data/screenshots/workflow.png')` will create:
-![image](https://github.com/aletive99/orangescreenshots/blob/main/data/screenshots/example-function-usages/draw_links_and_locations.png)
+![image](https://github.com/aletive99/orangescreenshots/blob/main/data/worklfows/example-function-usages/draw_links_and_locations.png)
 
-#### widgets_from_image: 
-- Description: Returns a list of the widgets contained in the screenshot
-- Inputs: img_name: string with the path to the screenshot
-(Internal input variable: return_list=True: bool)
-- Example run:<br>
-`widgets_from_image('data/screenshots/workflow.png')` will output
-`[('Text Mining', 'Concordance'),
- ('Text Mining', 'Word Cloud'),
- ('Text Mining', 'Corpus'),
- ('Text Mining', 'Preprocess Text')]`
+#### find_similar_workflows:
+- Description: Returns the k-th most similar workflows to the input workflow
+- Inputs: workflow: Workflow object (see Classes)<br>
+return_workflows=True: bool<br>
+k=10: int<br>
+dist_type='euclidean adjusted': str<br>
+only_widgets=True: bool<br>
+remove_widget=False:bool
+- Example run: `find_similar_workflows(Workflow('data/orangescreenshots/workflow.png'))` will output a list of 10 Workflow objects
 
-#### extract_workflow_from_image
-- Description: Returns a list of the links contained in the screenshot written as tuple of tuples: tuple(outputting widget, receiving widget) where both widgets are of the type tuple(module, name). If show_process is set to True the function will also plot the `link_detection` algorithm process when the links are multiple.
+#### get_workflow_description_prompt:
+- Description: Will create and print a ChatGPT prompt to use to generate a description of the given workflow.
 - Inputs: img_name: string with the path to the screenshot
-show_process=False: bool
-- Example run:`extract_workflow_from_image('data/screenshots/workflow.png')` will output
-`[(('Text Mining', 'Word Cloud'), ('Text Mining', 'Concordance')),
- (('Text Mining', 'Corpus'), ('Text Mining', 'Concordance')),
- (('Text Mining', 'Preprocess Text'), ('Text Mining', 'Word Cloud')),
- (('Text Mining', 'Corpus'), ('Text Mining', 'Preprocess Text'))]`
-
-#### get_workflow_description_prompt
-- Description: Will create and print a ChatGPT prompt to use to generate a description of the workflow given in the input screenshot. If the use_api value is set to True, then the function will automatically ask the OpenAI API for an answer to the prompt and will print it after the given prompt. 
-- Inputs: img_name: string with the path to the screenshot
-use_api=False: bool
+return_query=False: bool
 - Example runs: <br>
 `get_workflow_description_prompt('path/to/screenshot/workflow.png')` will print the prompt<br>
-`get_workflow_description_prompt('path/to/screenshot/workflow.png', True)` will print the prompt as well as the ChatGPT response
+`get_workflow_description_prompt('path/to/screenshot/workflow.png', True)` will return the prompt
 
-
-#### get_workflow_name_prompt
-- Description: Will create and print a ChatGPT prompt to use to generate a plausible name of the workflow given in the input screenshot. If the use_api value is set to True, then the function will automatically ask the OpenAI API for an answer to the prompt and will print it after the given prompt. 
-- Inputs: img_name: string with the path to the screenshot
-use_api=False: bool
+#### get_workflow_name_prompt:
+- Description: Will create and print a ChatGPT prompt to use to generate a plausible name of the given workflow. 
+- Inputs: img_name: string with the path to the screenshot<br>
+return_query=False: bool<br>
+concise_description=True: bool
 - Example runs: <br>
 `get_workflow_name_prompt('path/to/screenshot/workflow.png')` will print the prompt<br>
-`get_workflow_name_prompt('path/to/screenshot/workflow.png', True)` will print the prompt as well as the ChatGPT response
+`get_workflow_name_prompt('path/to/screenshot/workflow.png', True)` will return the prompt
 
-#### get_new_widget_prompt
-- Description: Will create and print a ChatGPT prompt to use to get 3 possible widgets that could make sense to be added to the workflow given in the input screenshot. If the use_api value is set to True, then the function will automatically ask the OpenAI API for an answer to the prompt and will print it after the given prompt. 
-- Inputs: img_name: string with the path to the screenshot
-use_api=False: bool
+#### get_new_widget_prompt:
+- Description: Will create and print a ChatGPT prompt to use to get 3 possible widgets that could make sense to be added to the given workflow. 
+- Inputs: img_name: string with the path to the screenshot<br>
+remove_widget=False: bool<br>
+return_query=False: bool
 - Example run:  <br>
 `get_new_widget_prompt('path/to/screenshot/workflow.png')` will print the prompt<br>
-`get_new_widget_prompt('path/to/screenshot/workflow.png', True)` will print the prompt as well as the ChatGPT response
+`get_new_widget_prompt('path/to/screenshot/workflow.png', return_query=True)` will return the prompt
 
 
 ### Classes
 
 #### Widget:
-- Initialization: requires two inputs: module and name in order to be created.<br>
-Example: `wid1 = Widget('Data', 'File')`
+- Initialization: requires two inputs ('module' and 'name') or just one ('module/name') in order to be created.<br>
+Example: `wid1 = Widget('Data', 'File')` or `wid1 = Widget('Data/File')`
 - String: `str(wid1)` will output the string `'Data/File'`
 - `wid1.get(description)` will output a list containing: description of the widget, list of possible inputs and list of possible outputs.
 
@@ -119,31 +109,37 @@ str(work1) = 'Data/File -> Unsupervised/Distances\nUnsupervised/Distances -> Uns
 
 
 ### Internal functions
-Following are the internal functions used to perform the operations used by the user callable functions or used to create yaml files that allow these functions to work. We suggest not to use these functions.
+Following are the internal functions used to perform the operations used by the callable functions or used to create yaml files that allow these functions to work. These functions are not visible when importing the library because they are preceded by an underscore, thus making them internal.
 
 | Function name             	| Inputs      		  							| Description                                                                 									|
 | ----------------------------- | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
 | download_widgets           	| None											| Downloads the widget images from the widget catalog                         									|
 | size_identification           | img_name: str<br> show_circles=False: bool 		| Returns the size of the widget in the screenshot received as input                          				|
 | get_sizes            			| img_name: str            						| Returns the final size of the widget images based on the identified widget size in the screenshot 			|
-| get_filenames                 | direct: str<br>ext='Image': str     			| Returns all the file paths in the specified folder                                                            |
-| widget_loading        		| img_names_tgt: list of str<br>img_name: str     | Returns a 3D-array containing all the widget images cropped and scaled 										|
+| get_filenames                 | direct: str<br>ext='image': str     			| Returns all the file paths in the specified folder                                                            |
+| widget_loading        		| img_names_tgt: list of str<br>img_name: str<br>save_sample=False: bool| Returns a 3D-array containing all the widget images cropped and scaled|
 | get_widget_description        | None                							| Creates a yaml file containing a dictionary with the description of the widgets' functions, inputs and outputs|
 | screenshot_loading            | img_name: str             					| Returns the greyscale image of the screenshot                                     							|
 | is_there_widget_creation   	| img_name: str<br>value_thresh=0.8: float		| Returns an array containing information about the widgets present in the screenshot         					|
+| widgets_from_image			| img_name str<br>return_list=True: bool		| Returns a list of tuples representing the widgets present in the workflow|
 | find_circle_intersection      | label_binary_image: np.array<br>center: tuple<br>radius_size: int<br>prev_direction: float<br>connect_type=8: int | Returns the intersections, found closest direction and best intersection index between a binary image and a manually built circle|
-| link_detection                | img_name: str<br>show_process=False, bool		| Returns an array containing info about the links between the widget											|
-| augment_widget_list           | widget_list: list of Widget<br>n=20, int		| Returns a list containing 20 widgets: the widgets present in the original list plus the most similar ones to those|
+| link_detection                | img_name: str<br>show_process=False, bool<br>show_conn_comp=False: bool| Returns an array containing info about the links between the widget											|
+| extract_workflow_from_image	| img_name: str<br>show_process=False, bool		| Returns a list of tuples of tuples of tuples representing the links in the workflow|
+| augment_widget_list           | widget_list: list of Widget<br>present_widgets:list of Widget<br>n=20: int<br>k=4: int| Returns a list containing n widgets: the widgets present in the original list plus the most similar ones to those. k of these widget will come be the ones most similar to the goal if it was specified or to the widgets already present in the list|
 | get_embedding					| text=None: str								| If text is not changed, this functions creates a file containing the text embeddings of the widgets' descriptions, otherwise it will output the embedding of the text given as input|
+|Workflow.get_order 			| None											| Orders the widgets and links in the wokflow using topological sorting|
+| get_response 					| query: str<br>model='gpt-3.5-turbo-0125': str | Returns the ChatGPT response for the given query|
 | update_image_list             | None											| Parses the images present in the "orange-lecture-notes-web/public/chapters" directory and creates a yaml file containing information about the found chapters|
 | update_widget_list            | None											| Parses the images present in the "orange-lecture-notes-web/public/chapters" directory and creates a yaml file containing information about the widgets present in each image|
 | update_image_links            | None											| Parses the images present in the "orange-lecture-notes-web/public/chapters" directory and creates a yaml file containing information about the links present in each image|
 | crop_workflows        		| directory_to_check='orange-lecture-notes-web/public/chapters': str<br>img_name=None: bool<br>no_yaml=False: bool | Crops the workflows from the original screenshot and saves it in a dedicated directory|
-| workflow_to_code        		| workflow: Workflow<br>return_labels=False: bool<br>only_enriched=True: bool | Returns an array of numbers that characterizes the workflow 					|
-| create_dataset 				| orange_dataset=True<br>min_thresh=3<br>only_enriched=True | Creates an excel file with the codes of the workflows in the documentation based on the inputs given	|
-| get_example_workflows		   	| None											| Loads the sample workflows and returns their names, their links and their description							|
-| find_closest_workflows	   	| workflow: Workflow<br>remove_widget=False: bool<br>k=10: int | Returns the widget that are not in the given workflow, but are present in the k-most similar ones	|
-| new_widget_evaluation		   	| None											| Performs evaluation of the work1.get_new_widgets(goal) function on a test set 								|
+| workflow_to_code        		| workflow: Workflow<br>return_labels=False: bool<br>orange_dataset=True: bool | Returns an array of numbers that characterizes the workflow 					|
+| create_dataset 				| orange_dataset=True							| Creates an excel file with the codes of the workflows in the documentation based on the inputs given	|
+| get_example_workflows		   	| concise_description							| Loads the sample workflows and returns their names, their links and their description|
+| workflow_detection_evaluation | None											| Compares the link detection results with the correct workflows information and prints the results|
+| name_evaluation 				| model='gpt-3.5-turbo-0125': str 				| Performs evaluation of the work1.get_name() function on a test set|
+| description_evaluation		| model='gpt-3.5-turbo-0125': str<br>concise_description=True: bool| Performs evaluation of the work1.get_description() function on a test set|
+| new_widget_evaluation		   	| check_response=True: bool<br>model='gpt-3.5-turbo-0125': str<br>dist_type='euclidean adjusted': str<br>only_widgets=True: bool| Performs evaluation of the work1.get_new_widgets(goal) function on a test set|
 
 
 ## Contributing
