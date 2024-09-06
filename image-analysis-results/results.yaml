@@ -1,3 +1,7 @@
+workflow-detection: 'The workflow detection got 0.9603698811096433% of screenshots correct
+The workflow detection got 0.9188311688311688% of workflows correct
+The workflow detection got 0.9910496338486574% of widgets correct with 4 extra widgets detected
+The workflow detection got 0.9605263157894737% of links correct with 2 extra links detected'
 gpt-3.5-turbo-0125:
   name_evaluation: 'Evaluating the get_name function for the workflow: data/workflows/evaluation/name-and-description/k-means-analysis-and-visualization.png
                     The score for the get_name function is 8 out of 10
